@@ -29,3 +29,11 @@ source ~/.vim/abbreviations.vim
 
 "Skeletons
 source ~/.vim/plugin/templatefile.vim
+
+"Spelling (use this only with vim >= 7)
+:map <F7> :setlocal spell spelllang=en<cr>
+:imap <F7> <esc>:setlocal spell spelllang=en<cr>
+:vmap <F7> :setlocal spell spelllang=en<cr>
+:map <F8> :setlocal spell spelllang=pt<cr>
+:imap <F8> <esc>:setlocal spell spelllang=pt<cr>
+:vmap <F8> :setlocal spell spelllang=pt<cr>
