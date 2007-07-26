@@ -9,7 +9,7 @@ PT=http://www.deso-se.com.br/downloads/download.php?arquivo=pt_BR-2007-04-11
 EN=http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries/en_US.zip
 FR=http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries/fr_FR-1990.zip
 ES=http://ftp.services.openoffice.org/pub/OpenOffice.org/contrib/dictionaries/es_ES.zip
-GARBAGE=find . -maxdepth 1 -type f -not -name "Makefile" -not -name "*.spl" -print0 | xargs -0 rm -f -v
+GARBAGE=find . -maxdepth 1 -type f -not -name "Makefile" -not -name "*.spl" -not -name "*.add" -print0 | xargs -0 rm -f -v
 
 all: pt en fr es
 
