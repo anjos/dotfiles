@@ -1,6 +1,5 @@
 # Initialization file for bash
 
-# START bash completion -- do not remove this line
 bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
 if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ] \
    && [ -f /etc/bash_completion ]; then # interactive shell
@@ -8,13 +7,20 @@ if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ] \
         . /etc/bash_completion
 fi
 unset bash bmajor bminor
-# END bash completion -- do not remove this line
 
-if [ -e ~/script/ansi.sh ]; then
-	source ~/script/ansi.sh;
-	PS1=`colourise lightblue "["`"\h-\$(date +%k:%M)"`colourise lightblue "]"`" \W "`colourise lightblue ">>"`" ";
+# So we know when we are root 
+pr='>>';
+col=lightblue;
+if [ $UID = 0 ]; then
+  pr='##';
+  col=lightblue;
+fi
+
+if [ -e ~/.bash_colors.sh ]; then
+	source ~/.bash_colors.sh;
+	PS1=`colourise $col "["`"\h-\$(date +%k:%M)"`colourise $col "]"`" \W "`colourise $col "$pr"`" ";
 else
-	PS1="[\h-\$(date +%k:%M)] \W >> "
+	PS1="[\h-\$(date +%k:%M)] \W $pr "
 fi
 
 if [ -d ~/bin ]; then
@@ -55,7 +61,7 @@ export PAGER=less;
 set +o ignoreeof
 
 # Directory colorisation
-eval `dircolors --sh ~/.DIR_COLORS`;
+eval `dircolors --sh ~/.dircolors`;
 
 # Sets up the history
 export HISTFILE=${HOME}/.bash_history;
@@ -63,4 +69,7 @@ export HISTSIZE=10000;
 
 # Sets up the core dump limits
 ulimit -c unlimited;
+
+# This is for python initialization
+export PYTHONSTARTUP=~/.python_profile.py
 

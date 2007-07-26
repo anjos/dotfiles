@@ -14,10 +14,10 @@
 # and your home directory will be updated accordingly when
 # you do a "make" from here.
 
-FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~') 
+FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile') 
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: bashrc
+all: deepclean bashrc
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 bashrc:
