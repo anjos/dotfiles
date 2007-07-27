@@ -29,7 +29,7 @@ fi
 
 alias 'h=history'		  # just type h for the history
 alias 'm=less'                	  # just type m not more
-alias ls='ls --color=auto -F -t'
+alias ls='ls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
@@ -48,13 +48,16 @@ alias edit='gnuclient -q -h pcatd37 -display ":0.0"'
 alias more='less'
 alias vim='vim -c "set background=dark"'
 
-if [ -x /usr/bin/vim ]; then
-	export EDITOR=vim;
-  alias vi='vim'
-else
-	export EDITOR=vi;
-fi
+#ssh'ing aliases
+alias adois='ssh andreanjos@pacer.dreamhost.com'
+alias pacer='ssh andre@pacer.dreamhost.com'
+alias casa='ssh andre@adois.dyndns.org'
+alias lx='ssh lxplus.cern.ch'
+pcuwtr() { ssh pcuwtr$1.cern.ch }
+pcatr() { ssh pcatr$1.cern.ch }
+pcatb() { ssh pcatb$1.cern.ch }
 
+export EDITOR=vim;
 export PAGER=less;
 
 # Get of with CTRL-D
