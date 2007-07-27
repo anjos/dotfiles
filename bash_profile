@@ -1,12 +1,7 @@
 # Initialization file for bash
 
-bash=${BASH_VERSION%.*}; bmajor=${bash%.*}; bminor=${bash#*.}
-if [ "$PS1" ] && [ $bmajor -eq 2 ] && [ $bminor '>' 04 ] \
-   && [ -f /etc/bash_completion ]; then # interactive shell
-        # Source completion code
-        . /etc/bash_completion
-fi
-unset bash bmajor bminor
+# Completion
+[ "$PS1" ] && [ -f /etc/bash_completion ] && source /etc/bash_completion
 
 # So we know when we are root 
 pr='>>';
@@ -27,8 +22,9 @@ if [ -d ~/bin ]; then
   export PATH=$PATH:~/bin;
 fi
 
-alias 'h=history'		  # just type h for the history
-alias 'm=less'                	  # just type m not more
+#standard stuff
+alias 'h=history'
+alias 'm=less'
 alias ls='ls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
@@ -44,18 +40,16 @@ alias tm='tail -f /var/log/messages'
 alias dire='ls -alt'
 alias t='less'
 alias tn='less -N'
-alias edit='gnuclient -q -h pcatd37 -display ":0.0"'
 alias more='less'
-alias vim='vim -c "set background=dark"'
 
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
 alias pacer='ssh andre@pacer.dreamhost.com'
 alias casa='ssh andre@adois.dyndns.org'
 alias lx='ssh lxplus.cern.ch'
-pcuwtr() { ssh pcuwtr$1.cern.ch }
-pcatr() { ssh pcatr$1.cern.ch }
-pcatb() { ssh pcatb$1.cern.ch }
+pcuwtr() { ssh pcuwtr$1.cern.ch; }
+pcatr() { ssh pcatr$1.cern.ch; }
+pcatb() { ssh pcatb$1.cern.ch; }
 
 export EDITOR=vim;
 export PAGER=less;
