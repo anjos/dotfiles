@@ -52,6 +52,7 @@ pcatr() { ssh pcatr$1.cern.ch; }
 pcatb() { ssh pcatb$1.cern.ch; }
 
 export EDITOR=vim;
+export VISUAL=vim;
 export PAGER=less;
 
 # Get of with CTRL-D
