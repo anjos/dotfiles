@@ -7,6 +7,11 @@
 
 try:
   import readline
+  import os, atexit
+  histfile = os.environ['HOME'] + os.sep + '.python_history'
+  if os.path.exists(histfile):
+    readline.read_history_file(histfile)
+  atexit.register(readline.write_history_file, histfile)
 except ImportError:
   print "Module readline not available."
 else:
