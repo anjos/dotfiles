@@ -31,6 +31,9 @@ source ~/.vim/abbreviations.vim
 source ~/.vim/plugin/templatefile.vim
 
 "Spelling (use this only with vim >= 7)
+:map <F6> :set nospell<cr>
+:imap <F6> <esc>:set nospell<cr>
+:vmap <F6> :set nospell<cr>
 :map <F7> :setlocal spell spelllang=en<cr>
 :imap <F7> <esc>:setlocal spell spelllang=en<cr>
 :vmap <F7> :setlocal spell spelllang=en<cr>
