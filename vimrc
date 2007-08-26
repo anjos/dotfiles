@@ -23,6 +23,7 @@ filetype indent on
 
 "Python editting stuff
 autocmd FileType *.py source ~/.vim/python.vim
+autocmd FileType *.py syntax sync fromstart "always scan the whole file
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
