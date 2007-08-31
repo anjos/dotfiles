@@ -18,13 +18,18 @@ set showmatch "to show matching pairs of brackets or braces
 "set number "shows the line numbers
 syntax enable "enable code highlighting
 syntax sync fromstart "always scan the whole file
+
+"these mappings will help you when the screen gets bad
+:map <F12> :syntax sync fromstart<cr>
+:imap <F12> <esc>:syntax sync fromstart<cr>
+:vmap <F12> :syntax sync fromstart<cr>
+
 set background=light  
 filetype indent on
 "set cursorline
 
 "Python editting stuff
 autocmd FileType *.py source ~/.vim/python.vim
-syntax sync fromstart "always scan the whole file
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
