@@ -8,7 +8,7 @@ pr='>>';
 col=lightblue;
 if [ $UID = 0 ]; then
   pr='##';
-  col=lightblue;
+  col=lightred;
 fi
 
 if [ -e ~/.bash_colors.sh ]; then
