@@ -20,16 +20,18 @@ syntax enable "enable code highlighting
 syntax sync fromstart "always scan the whole file
 
 "these mappings will help you when the screen gets bad
-:map <F12> :syntax sync fromstart<cr>
-:imap <F12> <esc>:syntax sync fromstart<cr>
-:vmap <F12> :syntax sync fromstart<cr>
+map <F12> :syntax sync fromstart<cr>
+imap <F12> <esc>:syntax sync fromstart<cr>
+vmap <F12> :syntax sync fromstart<cr>
 
-set background=light  
-filetype indent on
+filetype plugin indent on
 "set cursorline
 
-"Python editting stuff
-autocmd FileType *.py source ~/.vim/python.vim
+"Python editing stuff
+autocmd FileType python source ~/.vim/python.vim
+
+"Makefile editing stuff
+autocmd FileType make set noexpandtab
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
@@ -38,12 +40,12 @@ source ~/.vim/abbreviations.vim
 source ~/.vim/plugin/templatefile.vim
 
 "Spelling (use this only with vim >= 7)
-:map <F6> :set nospell<cr>
-:imap <F6> <esc>:set nospell<cr>
-:vmap <F6> :set nospell<cr>
-:map <F7> :setlocal spell spelllang=en<cr>
-:imap <F7> <esc>:setlocal spell spelllang=en<cr>
-:vmap <F7> :setlocal spell spelllang=en<cr>
-:map <F8> :setlocal spell spelllang=pt<cr>
-:imap <F8> <esc>:setlocal spell spelllang=pt<cr>
-:vmap <F8> :setlocal spell spelllang=pt<cr>
+map <F6> :set nospell<cr>
+imap <F6> <esc>:set nospell<cr>
+vmap <F6> :set nospell<cr>
+map <F7> :setlocal spell spelllang=en<cr>
+imap <F7> <esc>:setlocal spell spelllang=en<cr>
+vmap <F7> :setlocal spell spelllang=en<cr>
+map <F8> :setlocal spell spelllang=pt<cr>
+imap <F8> <esc>:setlocal spell spelllang=pt<cr>
+vmap <F8> :setlocal spell spelllang=pt<cr>
