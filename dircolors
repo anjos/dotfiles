@@ -31,13 +31,13 @@ TERM xterm-color
 # 40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
 NORMAL 00	# global default, although everything should be something.
 FILE 00 	# normal file
-DIR 01;04;34 	# directory
-LINK 01;36 	# symbolic link
+DIR 00;04;34 	# directory
+LINK 00;36 	# symbolic link
 FIFO 40;33	# pipe
-SOCK 01;35	# socket
-BLK 40;34;01	# block device driver
-CHR 40;34;01 	# character device driver
-ORPHAN 46;30;01 # symlink to nonexistent file
+SOCK 00;35	# socket
+BLK 40;34;00	# block device driver
+CHR 40;34;00 	# character device driver
+ORPHAN 46;30;00 # symlink to nonexistent file
 
 # This is for files with execute permission:
 EXEC 00;32
@@ -53,19 +53,19 @@ EXEC 00;32
 #.btm 01;32
 #.bat 01;32
 
-.tar 01;31 # archives or compressed (bright red)
-.tgz 01;31
-.arj 01;31
-.taz 01;31
-.lzh 01;31
-.zip 01;31
-.z   01;31
-.Z   01;31
-.gz  01;31
-.deb 01;31
-.rpm 01;31
-.tgz 01;31
-.bz2 01;31
+.tar 00;31 # archives or compressed (bright red)
+.tgz 00;31
+.arj 00;31
+.taz 00;31
+.lzh 00;31
+.zip 00;31
+.z   00;31
+.Z   00;31
+.gz  00;31
+.deb 00;31
+.rpm 00;31
+.tgz 00;31
+.bz2 00;31
 
 .jpg 00;35 # image formats (magenta)
 .gif 00;35
@@ -89,39 +89,39 @@ EXEC 00;32
 .wav 00;35
 .ogg 00;35
 
-.c 01;35 # src files (yellow)
-.C 01;35
-.cc 01;35
-.CC 01;35
-.cxx 01;35
-.f 01;35
-.F 01;35
-.h 01;35
-.H 01;35
-.tex 01;35
-.sty 01;35 
-.ltx 01;35
-.bib 01;35
-.kumac 01;35 
-.m 01;35
-.mk 01;35
-.mak 01;35
-.sh 01;35
-.csh 01;35
+.c 00;35 # src files (yellow)
+.C 00;35
+.cc 00;35
+.CC 00;35
+.cxx 00;35
+.f 00;35
+.F 00;35
+.h 00;35
+.H 00;35
+.tex 00;35
+.sty 00;35 
+.ltx 00;35
+.bib 00;35
+.kumac 00;35 
+.m 00;35
+.mk 00;35
+.mak 00;35
+.sh 00;35
+.csh 00;35
 
-.a 01;34;47 # obj files (blue with white background)
-.sa 01;34;47
-.so 01;34;47
-.elf 01;34;47
-.o 01;34;47
-.aux 01;34;47
-.bbl 01;34;47
-.blg 01;34;47
-.toc 01;34;47
-.ind 01;34;47
-.glo 01;34;47
-.lof 01;34;47
-.lot 01;34;47
-.idx 01;34;47
+.a 00;34;47 # obj files (blue with white background)
+.sa 00;34;47
+.so 00;34;47
+.elf 00;34;47
+.o 00;34;47
+.aux 00;34;47
+.bbl 00;34;47
+.blg 00;34;47
+.toc 00;34;47
+.ind 00;34;47
+.glo 00;34;47
+.lof 00;34;47
+.lot 00;34;47
+.idx 00;34;47
 
-.kdelnk 01;37 # links (cyan)
+.kdelnk 00;37 # links (cyan)
