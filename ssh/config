@@ -4,7 +4,7 @@ Host *
   ForwardAgent yes
   StrictHostKeyChecking no
 
-Host isscvs.cern.ch atdaq-sw.cern.ch atdaq-sw isscvs
+Host isscvs.cern.ch atdaq-sw.cern.ch atlas-sw.cern.ch atlas-sw atdaq-sw isscvs
   Protocol 2
   ForwardX11 no
   IdentityFile ~/.ssh/id_rsa
