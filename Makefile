@@ -15,11 +15,14 @@
 # you do a "make" from here.
 
 FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile' -not -name 'ssh')
-SSHFILES=$(shell find `pwd`/ssh -type f -maxdepth 1 -not -name '.*' -not -name '*~')
+SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean bashrc ssh
+all: svnupdate deepclean bashrc ssh
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
+
+svnupdate:
+	@svn update 
 
 ssh:
 	@for f in $(SSHFILES); do ln -s -v -f $$f $$HOME/.ssh/`basename $$f`; done
