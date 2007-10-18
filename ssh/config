@@ -3,8 +3,13 @@ Host *
   ForwardX11Trusted yes
   ForwardAgent yes
 
-Host isscvs.cern.ch isscvs
+Host isscvs.cern.ch atdaq-sw.cern.ch atdaq-sw isscvs
   Protocol 2
   ForwardX11 no
   IdentityFile ~/.ssh/id_rsa
+
+Host lxplus.cern.ch lxplus
+  Protocol 2
+  PubkeyAuthentication no
+  PasswordAuthentication yes
 
