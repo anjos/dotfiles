@@ -24,6 +24,11 @@ map <F12> :syntax sync fromstart<cr>
 imap <F12> <esc>:syntax sync fromstart<cr>
 vmap <F12> :syntax sync fromstart<cr>
 
+"for tab movement
+map <C-left> gT
+map <C-right> gt
+map <C-S-T> :tabnew<CR>
+
 filetype plugin indent on
 "set cursorline
 
