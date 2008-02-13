@@ -1,0 +1,13 @@
+*.so
+*.log
+*.txt
+*.html
+*.log
+*.stamp
+*.pyc
+*~
+*.spec
+*.make
+*.sh
+*.csh
+*.cmt
