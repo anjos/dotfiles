@@ -6,7 +6,7 @@
 
 # A few variables you can configure
 DEST=${HOME}/.vim/tags
-OPT="--recurse --verbose=yes --totals=yes --exclude=@ctags-exclude.txt"
+OPT="--recurse --totals --exclude=@ctags-exclude.txt"
 
 if [ $# != 2 ]; then
   echo "usage: $0 <project-name> <base-directory>+"

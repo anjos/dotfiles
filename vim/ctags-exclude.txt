@@ -1,4 +1,5 @@
 *.so
+*.so.*
 *.log
 *.txt
 *.html
@@ -11,3 +12,5 @@
 *.sh
 *.csh
 *.cmt
+*/installed/*
+*/InstallArea/*
