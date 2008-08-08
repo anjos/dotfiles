@@ -32,7 +32,7 @@ filetype plugin indent on
 "set cursorline
 
 "Python editing stuff
-autocmd BufRead,BufNewFile Sconstruct setfiletype python
+autocmd BufRead,BufNewFile SConstruct setfiletype python
 autocmd FileType python source ~/.vim/python.vim
 
 "Makefile editing stuff
