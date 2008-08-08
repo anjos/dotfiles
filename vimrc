@@ -33,6 +33,7 @@ filetype plugin indent on
 
 "Python editing stuff
 autocmd FileType python source ~/.vim/python.vim
+autocmd BufNewFile,BufReadPre Scons* source ~/.vim/python.vim
 
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
