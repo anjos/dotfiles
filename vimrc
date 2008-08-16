@@ -38,6 +38,10 @@ autocmd FileType python source ~/.vim/python.vim
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
+"For views
+au BufWrite * mkview 
+au BufRead * silent loadview 
+
 "My abbreviations
 source ~/.vim/abbreviations.vim
 
@@ -54,3 +58,9 @@ vmap <F7> :setlocal spell spelllang=en<cr>
 map <F8> :setlocal spell spelllang=pt<cr>
 imap <F8> <esc>:setlocal spell spelllang=pt<cr>
 vmap <F8> :setlocal spell spelllang=pt<cr>
+
+"Special stuff for MacOSX vim port
+if has ("gui_macvim")
+  "set bg=dark
+  set transparency=10
+endif
