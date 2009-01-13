@@ -35,12 +35,15 @@ filetype plugin indent on
 autocmd BufRead,BufNewFile SConstruct setfiletype python
 autocmd FileType python source ~/.vim/python.vim
 
+"HTML editing does not need line breaking...
+autocmd FileType html set textwidth=0
+
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
 "For views
-au BufWrite * mkview 
-au BufRead * silent loadview 
+autocmd BufWrite * mkview 
+autocmd BufRead * silent loadview 
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
