@@ -1,7 +1,7 @@
 # Initialization file for bash
 
 # Completion
-[ "$PS1" ] && [ -f /etc/bash_completion ] && source /etc/bash_completion
+[ -n "$PS1" ] && [ -z "$BASH_COMPLETION" ] && [ -f /etc/bash_completion ] && source /etc/bash_completion;
 
 # So we know when we are root 
 pr='>>';
@@ -70,4 +70,3 @@ ulimit -c unlimited;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
-
