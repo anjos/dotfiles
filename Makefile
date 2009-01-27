@@ -37,4 +37,5 @@ clean:
 
 deepclean: clean
 	@for f in $(FILES); do rm -f -v $$HOME/.`basename $$f`; done
+	@for f in $(SSHFILES); do rm -f -v $$HOME/.ssh/`basename $$f`; done
 	@rm -f -v $$HOME/.bashrc
