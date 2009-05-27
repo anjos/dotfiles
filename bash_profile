@@ -40,6 +40,7 @@ alias more='less'
 alias chmod='gchmod -c'
 alias chown='gchown -c'
 alias chgrp='gchgrp -c'
+alias grep='grep --color'
 
 #mac additions
 if [ -x /usr/bin/mvim ]; then

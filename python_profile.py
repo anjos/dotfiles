@@ -18,7 +18,7 @@ atexit.register(readline.write_history_file, histfile)
 
 # adds some extra keyboard functions I like
 readline.parse_and_bind('tab: complete')
-readline.parse_and_bind('bind ^I rl_complete')
+#readline.parse_and_bind('bind ^I rl_complete') #does not work on mac python
 readline.parse_and_bind('"\C-r": reverse-search-history')
 readline.parse_and_bind('"\C-s": forward-search-history')
 
