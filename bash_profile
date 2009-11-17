@@ -77,3 +77,5 @@ ulimit -c unlimited;
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
 
+# MacPorts Installer addition on 2009-09-20_at_11:33:26: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
