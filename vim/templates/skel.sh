@@ -1,3 +1,3 @@
 #!/bin/bash 
-# Created by Andre Anjos <andre.dos.anjos@cern.ch>
+# Andre Anjos <andre.dos.anjos@gmail.com>
 # @DATE@

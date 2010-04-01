@@ -6,13 +6,3 @@ Host *
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
 
-Host isscvs.cern.ch atdaq-sw.cern.ch atlas-sw.cern.ch atlas-sw atdaq-sw isscvs
-  Protocol 2
-  ForwardX11 no
-  IdentityFile ~/.ssh/id_dsa
-
-Host lxplus.cern.ch lxplus
-  Protocol 2
-  PubkeyAuthentication no
-  PasswordAuthentication yes
-
