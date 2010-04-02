@@ -2,6 +2,7 @@
 
 # Completion
 [ "$PS1" ] && [ -f /etc/profile ] && source /etc/profile
+[ "$PS1" ] && [ -f /opt/local/etc/bash_completion ] && source /opt/local/etc/bash_completion
 
 # So we know when we are root 
 pr='>>';
