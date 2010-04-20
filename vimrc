@@ -41,9 +41,8 @@ autocmd FileType html set textwidth=0
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"For views
-autocmd BufWrite * mkview 
-autocmd BufRead * silent loadview 
+"For views and sessions
+set sessionoptions="buffers,folds,options,tabpages,winpos,sesdir,globals,localoptions"
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
