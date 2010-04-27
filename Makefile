@@ -4,7 +4,7 @@
 # This makefile maintains the symbolic links from the user
 # home directory pointing to this directory. The mechanics of
 # work is like this:
-# svn co http://.../dotfiles <to-wherever-you-want>
+# git clone <repo>/dotfiles <to-wherever-you-want>
 # cd <to-wherever-you-want>
 # make deepclean; make
 #
@@ -18,11 +18,11 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: svnupdate deepclean bashrc ssh
+all: gitpull deepclean bashrc ssh
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
-svnupdate:
-	@svn update 
+gitpull:
+	@git pull
 
 ssh:
 	@for f in $(SSHFILES); do ln -s -v -f $$f $$HOME/.ssh/`basename $$f`; done
