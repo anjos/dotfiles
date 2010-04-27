@@ -1,0 +1,6 @@
+[user]
+	name = André Anjos
+	email = andre.dos.anjos@gmail.com
+	signingkey = A2170D5D
+[core]
+	editor = vim
