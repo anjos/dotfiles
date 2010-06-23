@@ -35,6 +35,11 @@ filetype plugin indent on
 autocmd BufRead,BufNewFile SConstruct setfiletype python
 autocmd FileType python source ~/.vim/python.vim
 
+"CMake stuff
+autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in runtime! indent/cmake.vim
+autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
+autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
+
 "HTML editing does not need line breaking...
 autocmd FileType html set textwidth=0
 
