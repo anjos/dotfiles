@@ -1,5 +1,8 @@
 # Initialization file for bash
 
+# Idiap environment (do NOT erase)
+[ -f /idiap/resource/software/initfiles/shrc ] && source /idiap/resource/software/initfiles/shrc;
+
 # Completion
 [ -n "$PS1" ] && [ -z "$BASH_COMPLETION" ] && [ -f /etc/bash_completion ] && source /etc/bash_completion;
 
