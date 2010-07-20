@@ -1,3 +1,3 @@
 #!/bin/bash 
-# Andre Anjos <andre.dos.anjos@gmail.com>
+# Andre Anjos <andre.anjos@idiap.ch>
 # @DATE@

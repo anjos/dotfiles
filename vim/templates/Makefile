@@ -1,3 +1,3 @@
-# Created by Andre Anjos <andre.dos.anjos@gmail.com> 
+# Created by Andre Anjos <andre.anjos@idiap.ch> 
 # @DATE@ 
 
