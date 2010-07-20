@@ -19,7 +19,7 @@ else
 fi
 
 if [ -d ~/bin ]; then
-  export PATH=$PATH:~/bin;
+  export PATH=$HOME/bin:$PATH;
 fi
 
 #standard stuff
@@ -41,21 +41,19 @@ alias dire='ls -alt'
 alias t='less'
 alias tn='less -N'
 alias more='less'
+alias grep='grep --color'
 
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
 alias pacer='ssh andre@pacer.dreamhost.com'
-alias casa='ssh andre@adois.dyndns.org'
-alias lx='ssh lxplus.cern.ch'
-pcuwtr() { ssh pcuwtr$1.cern.ch; }
-pcatr() { ssh pcatr$1.cern.ch; }
-pcatb() { ssh pcatb$1.cern.ch; }
+alias casa='ssh andre@orquidea.andreanjos.org'
+alias lx='ssh rabello@lxplus.cern.ch'
 
 export EDITOR=vim;
 export VISUAL=vim;
 export PAGER=less;
 
-# Get of with CTRL-D
+# Get off with CTRL-D
 set +o ignoreeof
 
 # Directory colorisation
