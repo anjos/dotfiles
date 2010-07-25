@@ -72,3 +72,5 @@ if has ("gui_macvim")
   set transparency=10
 endif
 
+"This will setup a few project tags
+autocmd BufEnter ~/work/torch/* :setlocal tags+=~/work/torch/ctags
