@@ -54,9 +54,6 @@ alias adois='ssh andreanjos@pacer.dreamhost.com'
 alias pacer='ssh andre@pacer.dreamhost.com'
 alias casa='ssh andre@adois.dyndns.org'
 alias lx='ssh rabello@lxplus.cern.ch'
-pcuwtr() { ssh pcuwtr$1.cern.ch; }
-pcatr() { ssh pcatr$1.cern.ch; }
-pcatb() { ssh pcatb$1.cern.ch; }
 
 export EDITOR=vim;
 export VISUAL=vim;
