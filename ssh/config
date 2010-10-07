@@ -5,4 +5,4 @@ Host *
   StrictHostKeyChecking no
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
-
+  ServerAliveInterval 60
