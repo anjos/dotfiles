@@ -1,0 +1,154 @@
+?
+%magic
+ls work/replay/database/test_night/*
+ls -l work/replay/database/test_night
+cd work/replay/database/test_night
+ls
+print Out
+print _ih
+.q
+y
+%magic
+ls
+ls -l
+ls -la
+ls --color=yes -la
+y
+import matplotlib
+?
+%magic
+from biox.models import *
+len(TrainClientProxy.objects.all())
+len(TestClientProxy.objects.all())
+reload(biox.models)
+y
+from biox.models import *
+EnrollmentVideo.objects.count()
+AuthenticationVideo.objects.count()
+TestVideo.objects.count()
+TestVideo.objects.all()
+TrainVideo.objects.count()
+DevelVideo.objects.count()
+ls media/protocols/
+y
+cd /
+cd
+cd work/replay/
+ls
+y
+ls
+ls --color=yes
+vim /idiap/home/aanjos/.ipython/ipythonrc
+y
+vim /idiap/home/aanjos/.ipython/ipythonrc
+y
+vim /idiap/home/aanjos/.ipython/ipythonrc
+y
+ipy_editors??
+import ipy_editors
+import ipy_completers
+import ipy_completers??
+ipy_completers??
+ipy_completers?
+y
+import time
+ls
+import sys
+vim /idiap/home/aanjos/.ipython/ipythonrc
+!vim /idiap/home/aanjos/.ipython/ipythonrc
+!vim /idiap/home/aanjos/.ipython/ipy_user_conf.py
+vim
+svn
+edit test.x
+edit 'test'
+%edit 
+edit django-biox/Makefile
+vim
+gvim
+ls -l
+svn status
+ls -l
+!vim /idiap/home/aanjos/.ipython/ipy_user_conf.py
+ls -l
+!vim /idiap/home/aanjos/.ipython/ipy_user_conf.py
+%rehashx
+y
+cd /idiap/home/aanjos/.ipython/
+ls
+cat
+less
+cat __init__.py
+cat ipy_profile_sh.py
+!vim /idiap/home/aanjos/.ipython/ipy_user_conf.py
+vim
+gvim
+grep test replay/Makefile
+ll
+vim /idiap/home/aanjos/.ipython/ipy_user_conf.py
+la
+%rehashx
+la
+ls -l
+vim /idiap/home/aanjos/.ipython/ipythonrc
+ls
+ls -l
+t = !ls -l
+t
+t = !ls
+t
+t[0]
+print t[0]
+ls -l
+from biox.models import *
+TestVideo.objects.count()
+vim /idiap/home/aanjos/.ipython/ipythonrc
+ls
+from biox.models import *
+t = !ls
+t
+if True:
+    print 'Hello'
+    
+if True:
+    print 'Hello'
+    
+t = !ls
+t
+t = !ls
+t
+if True:
+    
+from biox.models import *
+TestVideo.objects.count()
+print TestVideo.objects.count()
+cat media/protocols/realaccess-devel.list
+!sw/bin/project_start.py
+from biox.models import *
+x = Video.objects.all()
+x
+x = Video.objects.filter(purpose='authenticate')
+x
+x.count()
+x = Video.objects.filter(purpose='enroll')
+x.count()
+x.model_set.all()
+Model.objects.all()
+Model.objects.all().delete()
+from biox.models import *
+c = TrainClient.objects.all()
+c
+c.count()
+c[0].model_set
+c[0].model
+c[0].video_set.filter(purpose='enroll')
+import .replay as x
+import ..replay as x
+from biox.models import *
+protocol = Protocol.objects.get(id=1)
+[k.client in protocol.real_train.all()]
+[k.client for k in protocol.real_train.all()]
+set([k.client for k in protocol.real_train.all()])
+s = set([k.client for k in protocol.real_train.all()])
+c = s[0]
+for k in c: print k
+for k in s: print k
