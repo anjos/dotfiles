@@ -1,3 +1,5 @@
 *~
+*.py?
 vim/view/
 vim/.net*
+ipython/db/
