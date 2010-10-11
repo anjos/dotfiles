@@ -51,7 +51,7 @@ def main():
     o.banner = "Py %sIPy %s\n" % (sys.version.split('\n')[0],Release.version)
 
     # make 'd' an alias for ls -F
-    ip.magic('alias ls ls -F --color=auto')
+    ip.magic('alias gls ls -F --color=auto')
     ip.magic('alias ll ls -lhrt')
     ip.magic('alias la ls -a')
     ip.magic('alias lla ll -a')

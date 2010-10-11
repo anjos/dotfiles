@@ -152,3 +152,8 @@ s = set([k.client for k in protocol.real_train.all()])
 c = s[0]
 for k in c: print k
 for k in s: print k
+ls -l
+ls
+ls -l
+ls
+ls -l
