@@ -5,4 +5,27 @@ Host *
   StrictHostKeyChecking no
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
+  ServerAliveInterval 60
 
+# Not proxying for the portal
+Host login.idiap.ch
+  ProxyCommand none
+
+# Setup Idiap proxying for internal hosts
+Host *.idiap.ch
+  Compression yes
+  CompressionLevel 9
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
+
+# allows 'ssh idiap ...'
+Host idiap
+  Hostname dynamix08.idiap.ch
+  Compression yes
+  CompressionLevel 9
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
