@@ -1,2 +1,5 @@
 vim/view/
 *~
+*.pyc
+ipython/db
+ipython/history
