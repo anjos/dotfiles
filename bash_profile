@@ -45,6 +45,7 @@ alias t='less'
 alias tn='less -N'
 alias more='less'
 alias grep='grep --color'
+alias ipy='ipython'
 
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
