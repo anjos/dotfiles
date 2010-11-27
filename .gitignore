@@ -3,3 +3,6 @@
 vim/view/
 vim/.net*
 ipython/db/
+ipython/history
+vim/spell/*.add
+vim/spell/*.add.spl
