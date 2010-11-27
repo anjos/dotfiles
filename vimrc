@@ -33,6 +33,8 @@ filetype plugin indent on
 
 "Python editing stuff
 autocmd BufRead,BufNewFile SConstruct setfiletype python
+autocmd BufRead,BufNewFile SConscript setfiletype python
+autocmd BufRead,BufNewFile wscript setfiletype python
 autocmd FileType python source ~/.vim/python.vim
 
 "HTML editing does not need line breaking...
