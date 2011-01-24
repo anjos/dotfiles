@@ -1,6 +1,6 @@
 [user]
 	name = Andre Anjos
 	email = andre.anjos@idiap.ch
-  signingkey = A2170D5D
+	signingkey = A2170D5D
 [color]
 	ui = auto
