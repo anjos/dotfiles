@@ -68,6 +68,7 @@ vmap <F8> :setlocal spell spelllang=pt<cr>
 if has ("gui_macvim")
   "set bg=dark
   set transparency=10
+  set guioptions=egmrLt
 endif
 
 "This will setup a few project tags
