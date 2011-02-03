@@ -43,9 +43,10 @@ autocmd FileType html set textwidth=0
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"For views
-autocmd BufWrite * mkview 
-autocmd BufRead * silent loadview 
+"For views -> disabled because of automatic chdir commands that never respect
+"the current directory and cannot be turned off!
+"autocmd BufWrite * mkview 
+"autocmd BufRead * silent! loadview 
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
