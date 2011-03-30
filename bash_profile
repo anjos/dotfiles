@@ -23,6 +23,17 @@ if [ -d ~/bin ]; then
   export PATH=$PATH:~/bin;
 fi
 
+#a function to send commands to a remotely opened MacVim terminal
+function tvim () {
+  local started=`mvim --serverlist | wc -l`
+  if (( ${started} > 0 )); then
+    mvim --remote-tab $*
+  else
+    mvim $*
+  fi
+  return $?
+}
+
 #standard stuff
 alias 'h=history'
 alias 'm=less'
@@ -42,8 +53,8 @@ alias chmod='gchmod -c'
 alias chown='gchown -c'
 alias chgrp='gchgrp -c'
 alias grep='grep --color'
-alias vi='vim'
-alias gvim='mvim'
+alias vi='tvim'
+alias gvim='tvim'
 alias ipy='ipython'
 
 #ssh'ing aliases
