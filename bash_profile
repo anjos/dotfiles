@@ -53,8 +53,8 @@ alias chmod='gchmod -c'
 alias chown='gchown -c'
 alias chgrp='gchgrp -c'
 alias grep='grep --color'
-alias vi='tvim'
-alias gvim='tvim'
+alias vi='mvim'
+alias gvim='mvim'
 alias ipy='ipython'
 
 #ssh'ing aliases
