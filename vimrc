@@ -68,7 +68,7 @@ vmap <F8> :setlocal spell spelllang=pt<cr>
 "Special stuff for MacOSX vim port
 if has ("gui_macvim")
   "set bg=dark
-  set transparency=10
+  set transparency=5
   set guioptions=egmrLt
 endif
 
