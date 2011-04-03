@@ -42,7 +42,7 @@ def main():
     o.system_verbose = '0'
 
     # Prompt handling
-    o.prompt_in1 = r'\C_Green[\C_Normal\h-${time.strftime("%H:%M")}\C_Green] \C_Normal\Y2 \C_Green>>>\C_Normal '
+    o.prompt_in1 = r'\C_Blue(\C_Normal\X1\C_Blue) \C_Green>>>\C_Normal '
     o.separate_in = '0'
     o.prompts_pad_left = 0
 
