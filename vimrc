@@ -74,3 +74,9 @@ endif
 
 "This will setup a few project tags
 autocmd BufEnter ~/work/torch/* :setlocal tags+=~/work/torch/ctags
+
+"This will setup a few abbreviations I normally use
+abbrev <expr> datestr strftime("%c")
+abbrev namemail Andre Anjos <andre.dos.anjos@gmail.com>
+abbrev inamemail Andre Anjos <andre.anjos@idiap.ch>
+abbrev vimutf8 vim: set fileencoding=utf-8 :
