@@ -25,6 +25,15 @@ if [ -d ~/bin ]; then
   export PATH=$HOME/bin:$PATH;
 fi
 
+function tvim () {
+  local started=`gvim --serverlist | wc -l`
+  if (( ${started} > 0 )); then
+    gvim --remote-tab $*
+  else
+    gvim $*
+  fi
+}
+
 #standard stuff
 alias 'h=history'
 alias 'm=less'
@@ -67,8 +76,8 @@ eval `dircolors --sh ~/.dircolors`;
 export HISTFILE=${HOME}/.bash_history;
 export HISTSIZE=10000;
 
-# Sets up the core dump limits
-ulimit -c unlimited;
-
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
+
+# Sets up the core dump limits
+ulimit -c unlimited;
