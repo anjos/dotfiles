@@ -13,6 +13,7 @@ set ruler             "shows cursor position (with ruler)
 set visualbell        "blink screen instead of beep sound
 set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
+set modeline "let local buffers modify variables
 
 "display options
 "set number "shows the line numbers
