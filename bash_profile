@@ -56,6 +56,12 @@ alias more='less'
 alias grep='grep --color'
 alias ipy='ipython'
 
+#idiap
+alias qsub='setshell.py grid qsub'
+alias qstat='setshell.py grid qstat'
+alias qdel='setshell.py grid qdel'
+alias matlab='setshell.py grid matlab'
+
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
 alias pacer='ssh andre@pacer.dreamhost.com'
@@ -74,7 +80,7 @@ eval `dircolors --sh ~/.dircolors`;
 
 # Sets up the history
 export HISTFILE=${HOME}/.bash_history;
-export HISTSIZE=10000;
+export HISTSIZE=100000;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
