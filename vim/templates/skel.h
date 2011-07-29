@@ -1,5 +1,5 @@
 /**
- * @author <a href="mailto:andre.dos.anjos@gmail.com">Andre Anjos</a> 
+ * @author Andre Anjos <andre.anjos@idiap.ch>
  * @date @DATE@ 
  *
  * @brief 
