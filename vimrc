@@ -15,6 +15,9 @@ set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 
+"temporarily disables highlighting with <SPACE>
+nmap <SPACE> <SPACE>:noh<CR>
+
 "display options
 "set number "shows the line numbers
 syntax enable "enable code highlighting
