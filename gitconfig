@@ -6,3 +6,16 @@
 	editor = vim
 [color]
 	ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[alias]
+  d = difftool
+  co = checkout
+  ci = commit
+  st = status
