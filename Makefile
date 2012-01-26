@@ -18,7 +18,7 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: gitpull deepclean bashrc ssh
+all: deepclean bashrc ssh
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 gitpull:
