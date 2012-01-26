@@ -36,7 +36,7 @@ function tvim () {
 
 #standard stuff
 alias 'h=history'
-alias 'm=less'
+alias 'm=less -R'
 alias ls='ls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
@@ -57,10 +57,11 @@ alias grep='grep --color'
 alias ipy='ipython'
 
 #idiap
-alias qsub='setshell.py grid qsub'
-alias qstat='setshell.py grid qstat'
-alias qdel='setshell.py grid qdel'
-alias matlab='setshell.py grid matlab'
+alias qsub='grid qsub'
+alias qstat='grid qstat'
+alias qdel='grid qdel'
+alias qman='grid man'
+alias matlab='setshell.py matlab matlab'
 
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
@@ -71,6 +72,8 @@ alias lx='ssh rabello@lxplus.cern.ch'
 export EDITOR=vim;
 export VISUAL=vim;
 export PAGER=less;
+export LESS="-R";
+export LESSOPEN="|${HOME}/.lesspygments.sh";
 
 # Get off with CTRL-D
 set +o ignoreeof
