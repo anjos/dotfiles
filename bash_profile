@@ -73,7 +73,7 @@ export EDITOR=vim;
 export VISUAL=vim;
 export PAGER=less;
 export LESS="-R";
-export LESSOPEN="|${HOME}/.lesspygments.sh";
+export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 
 # Get off with CTRL-D
 set +o ignoreeof
