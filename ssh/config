@@ -7,6 +7,12 @@ Host *
   GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
 
+Host *.lan
+  ForwardX11 no
+  ForwardX11Trusted no
+  ForwardAgent yes
+  StrictHostKeyChecking no
+
 # Not proxying for the portal
 Host login.idiap.ch
   ProxyCommand none
@@ -22,7 +28,7 @@ Host *.idiap.ch
 
 # allows 'ssh idiap ...'
 Host idiap
-  Hostname dynamix08.idiap.ch
+  Hostname extatix03.idiap.ch
   Compression yes
   CompressionLevel 9
   ForwardAgent yes
