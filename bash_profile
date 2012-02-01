@@ -55,7 +55,7 @@ alias chgrp='gchgrp -c'
 alias grep='grep --color'
 alias vi='mvim'
 alias gvim='mvim'
-alias ipy='ipython'
+alias ipy='ipython --no-banner'
 
 #ssh'ing aliases
 alias adois='ssh andreanjos@pacer.dreamhost.com'
