@@ -2,7 +2,7 @@
 # Andre Anjos <andre.anjos@idiap.ch>
 # Thu 26 Jan 2012 09:34:00 CET
 
-pyz=$(which pygmentize);
+pyz=$(which pygmentize-2.7);
 
 if [ -n "${pyz}" ]; then
   case "$1" in
