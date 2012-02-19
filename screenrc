@@ -1,0 +1,7 @@
+escape ^Zz
+
+defscrollback '10000'
+compacthist 'on'
+
+hardstatus alwayslastline
+hardstatus string '%{= ky}[ %{Y}%H %{y}]%{= kr}[%= %{= kw}%?%-Lw%?%{r} (%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{r}]%{= kc}[%{C} %d/%m %c %{c}]'
