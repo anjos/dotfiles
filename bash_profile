@@ -74,6 +74,7 @@ export VISUAL=vim;
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
+export GPGKEY="A2170D5D";
 
 # Get off with CTRL-D
 set +o ignoreeof
