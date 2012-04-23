@@ -1,7 +1,18 @@
-escape ^Zz
+# Use Control-b as escape sequence
+escape ^Bb
 
-defscrollback '10000'
+# Big buffer
+defscrollback '1000'
 compacthist 'on'
 
+# Don't display the copyright page
+startup_message off
+
+# Tab-completion flash in heading bar
+vbell off
+
+# Defaults to UTF-8
+defutf8 on
+
 hardstatus alwayslastline
-hardstatus string '%{= ky}[ %{Y}%H %{y}]%{= kr}[%= %{= kw}%?%-Lw%?%{r} (%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{r}]%{= kc}[%{C} %d/%m %c %{c}]'
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
