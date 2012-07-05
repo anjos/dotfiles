@@ -81,7 +81,6 @@ c = get_config()
 # c.TerminalIPythonApp.ipython_dir = u'/Users/andre/.config/ipython'
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -131,13 +130,14 @@ c = get_config()
 # c.TerminalInteractiveShell.show_rewritten_input = True
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-c.TerminalInteractiveShell.colors = 'LightBG'
+# c.TerminalInteractiveShell.colors = 'LightBG'
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
 
 # 
 # c.TerminalInteractiveShell.separate_in = '\n'
+c.TerminalInteractiveShell.separate_in = '0'
 
 # Deprecated, use PromptManager.in2_template
 # c.TerminalInteractiveShell.prompt_in2 = '   .\\D.: '
@@ -181,7 +181,10 @@ c.TerminalInteractiveShell.colors = 'LightBG'
 # c.TerminalInteractiveShell.prompts_pad_left = True
 
 # The part of the banner to be printed before the profile
-# c.TerminalInteractiveShell.banner1 = 'Python 2.6.8 (unknown, Apr 16 2012, 22:34:23) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.12 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+# c.TerminalInteractiveShell.banner1 = 'Python 2.6.8 (unknown, Apr 16 2012, 22:34:23) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.12.1 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+from IPython import release
+import sys
+c.TerminalInteractiveShell.banner1 = "Python %s+ IPython %s\n" % (sys.version.split('\n')[0], release.version)
 
 # 
 # c.TerminalInteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']
@@ -264,19 +267,21 @@ c.TerminalInteractiveShell.confirm_exit = False
 
 # Output prompt. '\#' will be transformed to the prompt number
 # c.PromptManager.out_template = 'Out[\\#]: '
+c.PromptManager.out_template = '<\#> '
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
+c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 # c.PromptManager.justify = True
 
 # Input prompt.  '\#' will be transformed to the prompt number
 # c.PromptManager.in_template = 'In [\\#]: '
-c.PromptManager.in_template = '>>> '
+c.PromptManager.in_template = r'{color.LightBlue}[{color.Black}\h{color.LightBlue}]{color.Black} \Y1{color.Green} >>> '
 
 # 
-c.PromptManager.color_scheme = 'Linux'
+# c.PromptManager.color_scheme = 'Linux'
 
 #------------------------------------------------------------------------------
 # ProfileDir configuration
@@ -300,10 +305,10 @@ c.PromptManager.color_scheme = 'Linux'
 
 # The default pretty-printer.
 # 
-# This uses :mod:`IPython.external.pretty` to compute the format data of the
-# object. If the object cannot be pretty printed, :func:`repr` is used. See the
-# documentation of :mod:`IPython.external.pretty` for details on how to write
-# pretty printers.  Here is a simple example::
+# This uses :mod:`IPython.lib.pretty` to compute the format data of the object.
+# If the object cannot be pretty printed, :func:`repr` is used. See the
+# documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
+# printers.  Here is a simple example::
 # 
 #     def dtype_pprinter(obj, p, cycle):
 #         if cycle:

@@ -7,3 +7,4 @@ ipython/history
 ipython/profile_default/history.sqlite
 vim/spell/*.add
 vim/spell/*.add.spl
+*.sqlite
