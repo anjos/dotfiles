@@ -14,14 +14,14 @@
 # and your home directory will be updated accordingly when
 # you do a "make" from here.
 
-FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile' -not -name 'ssh')
+FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile' -not -name 'ssh' -not -name 'config')
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean bashrc ssh
+all: deepclean bashrc ssh ipython
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
-gitpull:
+pull:
 	@git pull
 
 ssh:
@@ -29,6 +29,10 @@ ssh:
 
 bashrc:
 	@ln -s -v -f $$PWD/bash_profile $$HOME/.bashrc
+
+ipython:
+	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
+	@ln -s -v -f $$PWD/config/ipython $$HOME/.config/
 
 .PHONY: clean all bashrc deepclean ssh
 
