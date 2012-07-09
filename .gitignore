@@ -3,3 +3,5 @@ vim/spell/
 vim/.netrwhist
 *~
 *.pyc
+*.sqlite
+config/ipython/profile_default/db/
