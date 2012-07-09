@@ -2,3 +2,4 @@ vim/view/
 vim/spell/
 vim/.netrwhist
 *~
+*.pyc
