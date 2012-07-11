@@ -1,6 +1,22 @@
 [user]
-	name = Andre Anjos
-	email = andre.anjos@idiap.ch
-	signingkey = A2170D5D
-[core]
-	editor = vim
+  name = Andre Anjos
+  email = andre.dos.anjos@gmail.com
+  signingkey = A2170D5D
+[color]
+  ui = true
+  branch = auto
+  diff = auto
+  interactive = auto
+  status = auto
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = false
+[alias]
+  d = difftool
+  co = checkout
+  ci = commit
+  st = status
+  lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) — %C(magenta)%ae%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+  lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset) — %C(magenta)%ae%C(reset)' --abbrev-commit
+  lg = !"git lg1"
