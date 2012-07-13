@@ -129,6 +129,7 @@ c = get_config()
 
 # Show rewritten input, e.g. for autocall.
 # c.TerminalInteractiveShell.show_rewritten_input = True
+c.TerminalInteractiveShell.show_rewritten_input = False
 
 # Set the color scheme (NoColor, Linux, or LightBG).
 c.TerminalInteractiveShell.colors = 'LightBG'
@@ -138,6 +139,7 @@ c.TerminalInteractiveShell.colors = 'LightBG'
 
 # 
 # c.TerminalInteractiveShell.separate_in = '\n'
+c.TerminalInteractiveShell.separate_in = ''
 
 # Deprecated, use PromptManager.in2_template
 # c.TerminalInteractiveShell.prompt_in2 = '   .\\D.: '
@@ -185,7 +187,7 @@ c.TerminalInteractiveShell.colors = 'LightBG'
 import sys, IPython
 pyver = sys.version.split('\n')[0].strip()
 ipyver = IPython.__version__
-c.TerminalInteractiveShell.banner1 = 'IPython %s over Python %s' % (ipyver, pyver)
+c.TerminalInteractiveShell.banner1 = 'IPython %s over Python %s\n' % (ipyver, pyver)
 
 # 
 # c.TerminalInteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']
@@ -268,7 +270,7 @@ c.TerminalInteractiveShell.confirm_exit = False
 
 # Output prompt. '\#' will be transformed to the prompt number
 # c.PromptManager.out_template = 'Out[\\#]: '
-c.PromptManager.out_template = '<\#> '
+c.PromptManager.out_template = r'[\#]'
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
