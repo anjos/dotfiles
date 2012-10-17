@@ -381,3 +381,15 @@ c.PromptManager.in_template = r'{color.LightBlue}[{color.Black}\h{color.LightBlu
 # This will enable completion on elements of lists, results of function calls,
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
+
+# Aliases
+# -------
+
+## Port bash aliases to ipython
+c.AliasManager.user_aliases = [
+    ('ls', 'gls --color=auto -F -t -r -t'),
+    ('ll', 'ls -l'),
+    ('vim', 'mvim'),
+    ('vi', 'vim'),
+    ('gvim', 'mvim'),
+    ]
