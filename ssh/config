@@ -7,9 +7,9 @@ Host *
   GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
 
-Host *.lan
-  ForwardX11 no
-  ForwardX11Trusted no
+Host orquidea
+  ForwardX11 yes
+  ForwardX11Trusted yes
   ForwardAgent yes
   StrictHostKeyChecking no
 
