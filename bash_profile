@@ -55,6 +55,7 @@ alias tn='less -N'
 alias more='less'
 alias grep='grep --color'
 alias ipy='ipython'
+alias xopen='xdg-open'
 
 #idiap
 alias qsub='grid qsub'
