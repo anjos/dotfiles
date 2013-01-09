@@ -2,8 +2,8 @@
 escape ^Bb
 
 # Big buffer
-defscrollback '10000'
-compacthist 'on'
+defscrollback 10000
+compacthist on
 
 # Don't display the copyright page
 startup_message off
@@ -13,3 +13,6 @@ vbell off
 
 # Defaults to UTF-8
 defutf8 on
+
+# Enables mouse scroll
+termcapinfo xterm|xterms|xs|rxvt ti@:te@
