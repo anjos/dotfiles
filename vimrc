@@ -13,6 +13,7 @@ set ruler             "shows cursor position (with ruler)
 set visualbell        "blink screen instead of beep sound
 set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
+set bg=light  "make colors a little bit more attractive on light backgrounds
 
 "display options
 "set number "shows the line numbers
@@ -67,7 +68,6 @@ vmap <F8> :setlocal spell spelllang=pt<cr>
 
 "Special stuff for MacOSX vim port
 if has ("gui_macvim")
-  "set bg=dark
   set transparency=5
   set guioptions=egmrLt
 endif
