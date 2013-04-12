@@ -16,9 +16,12 @@
   prompt = false
 [alias]
   d = difftool
+  p = push
   co = checkout
   ci = commit
   st = status
+  s = status
+  sd = status .
   lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(black)%s%C(reset) — %C(magenta)%ae%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
   lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset) — %C(magenta)%ae%C(reset)' --abbrev-commit
   lg = !"git lg1"

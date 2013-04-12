@@ -90,5 +90,13 @@ export HISTSIZE=100000;
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
 
-# Sets up the core dump limits
-ulimit -c unlimited;
+# Sets up the core dump limits - if I'm on my machine
+if [ "$(/usr/sbin/idiap-conf-getuser)" = "$USER" ]; then
+  ulimit -c unlimited;
+fi
+
+# Removes duplicates from PATH
+export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH`;
+
+# Removes '.' from PATH (Idiap default)
+export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/\./ {next} {print}' | sed 's/:*$//'`;
