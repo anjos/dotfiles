@@ -80,3 +80,7 @@ abbrev <expr> datestr strftime("%c %Z")
 abbrev namemail Andre Anjos <andre.dos.anjos@gmail.com>
 abbrev inamemail Andre Anjos <andre.anjos@idiap.ch>
 abbrev vimutf8 vim: set fileencoding=utf-8 :
+
+"Allows us to find .vimrc files locally
+set exrc   " scans for per-directory settings for vim
+set secure " disables unsafe commands in local .vimrc files
