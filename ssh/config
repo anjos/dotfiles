@@ -35,3 +35,13 @@ Host idiap
   ForwardX11 yes
   ForwardX11Trusted yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
+
+Host win
+  User andre
+  Hostname localhost
+  Port 2207
+  Compression no
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  StrictHostKeyChecking no
