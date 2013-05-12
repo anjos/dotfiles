@@ -74,3 +74,6 @@ if has ("gui_macvim")
   set transparency=10
 endif
 
+"Enables local .vimrc readout
+set exrc " enables per-directory .vimrc files
+set secure " disables unsafe commands in local .vimrc files
