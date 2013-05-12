@@ -16,3 +16,23 @@ defutf8 on
 
 # Enables mouse scroll
 termcapinfo xterm|xterms|xs|rxvt ti@:te@
+
+# Status line at the end
+hardstatus alwayslastline 
+
+# Very nice tabbed colored hardstatus line
+hardstatus string '%{= Kd}%-w%{= KY}[%{= KW}%n %t%{= KY}]%{= Kd}%+w %-='
+
+# Hide hardstatus: ctrl-a f 
+bind f eval "hardstatus ignore"
+# Show hardstatus: ctrl-a F
+bind F eval "hardstatus alwayslastline"
+
+# Allow bold colors - necessary for some reason
+attrcolor b ".I"
+#  
+# Tell screen how to set colors. AB = background, AF=foreground
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+ 
+# Erase background with current bg color
+defbce "on"
