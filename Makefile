@@ -18,7 +18,7 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: gitpull deepclean bashrc ssh
+all: deepclean bashrc ssh
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 gitpull:
@@ -29,6 +29,7 @@ ssh:
 
 bashrc:
 	@ln -s -v -f $$PWD/bash_profile $$HOME/.bashrc
+	@ln -s -v -f $$PWD/bash_profile $$HOME/.profile
 
 .PHONY: clean all bashrc deepclean ssh
 
@@ -36,6 +37,6 @@ clean:
 	@rm -f -v $(GARBAGE)
 
 deepclean: clean
-	@for f in $(FILES); do rm -f -v $$HOME/.`basename $$f`; done
+	@for f in $(FILES); do rm -r -f -v $$HOME/.`basename $$f`; done
 	@for f in $(SSHFILES); do rm -f -v $$HOME/.ssh/`basename $$f`; done
-	@rm -f -v $$HOME/.bashrc
+	@rm -f -v $$HOME/.bashrc $$HOME/.profile

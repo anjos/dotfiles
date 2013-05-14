@@ -3,8 +3,6 @@ Host *
   ForwardX11Trusted yes
   ForwardAgent yes
   StrictHostKeyChecking no
-  GSSAPIAuthentication yes
-  GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
 
 # Not proxying for the portal
