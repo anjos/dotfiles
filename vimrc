@@ -88,3 +88,13 @@ abbrev vimutf8 vim: set fileencoding=utf-8 :
 
 "Enables local searching
 set path=$PWD/**
+
+"Show trailing whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+"Strip trailing whitespaces
+autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :%s/\s\+$//e
