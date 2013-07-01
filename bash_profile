@@ -91,7 +91,7 @@ export HISTSIZE=100000;
 export PYTHONSTARTUP=~/.python_profile.py
 
 # Sets up the core dump limits - if I'm on my machine
-if [ "$(/usr/sbin/idiap-conf-getuser)" = "$USER" ]; then
+if [ "$(/usr/sbin/custom-conf-getuser)" = "$USER" ]; then
   ulimit -c unlimited;
 fi
 
