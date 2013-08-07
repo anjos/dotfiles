@@ -97,4 +97,4 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,ruby,python,text,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
