@@ -4,6 +4,9 @@
 [ "$PS1" ] && [ -f /etc/profile ] && source /etc/profile
 [ "$PS1" ] && [ -f /opt/local/etc/bash_completion ] && source /opt/local/etc/bash_completion
 
+# MacPorts Installer addition: adding an appropriate PATH variable
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 # So we know when we are root 
 pr='>>';
 col=lightblue;
@@ -79,6 +82,3 @@ ulimit -c unlimited;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
-
-# MacPorts Installer addition: adding an appropriate PATH variable
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
