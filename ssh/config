@@ -7,6 +7,12 @@ Host *
   GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
 
+Host orquidea
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  ForwardAgent yes
+  StrictHostKeyChecking no
+
 # Not proxying for the portal
 Host login.idiap.ch
   ProxyCommand none
@@ -22,10 +28,20 @@ Host *.idiap.ch
 
 # allows 'ssh idiap ...'
 Host idiap
-  Hostname dynamix08.idiap.ch
+  Hostname extatix03.idiap.ch
   Compression yes
   CompressionLevel 9
   ForwardAgent yes
   ForwardX11 yes
   ForwardX11Trusted yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
+
+Host win
+  User andre
+  Hostname localhost
+  Port 2207
+  Compression no
+  ForwardAgent yes
+  ForwardX11 yes
+  ForwardX11Trusted yes
+  StrictHostKeyChecking no

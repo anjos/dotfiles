@@ -1,5 +1,10 @@
-vim/view/
 *~
-*.pyc
-ipython/db
+*.py?
+vim/view/
+vim/.net*
+ipython/db/
 ipython/history
+ipython/profile_default/history.sqlite
+vim/spell/*.add
+vim/spell/*.add.spl
+*.sqlite

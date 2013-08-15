@@ -13,8 +13,7 @@ set ruler             "shows cursor position (with ruler)
 set visualbell        "blink screen instead of beep sound
 set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
-set modeline "let local buffers modify variables
-set bg=light "use light background by default
+set bg=light  "make colors a little bit more attractive on light backgrounds
 
 "display options
 "set number "shows the line numbers
@@ -35,6 +34,8 @@ filetype plugin indent on
 
 "Python editing stuff
 autocmd BufRead,BufNewFile SConstruct setfiletype python
+autocmd BufRead,BufNewFile SConscript setfiletype python
+autocmd BufRead,BufNewFile wscript setfiletype python
 autocmd FileType python source ~/.vim/python.vim
 
 "CMake stuff
@@ -48,8 +49,10 @@ autocmd FileType html set textwidth=0
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"For views and sessions
-set sessionoptions="buffers,folds,options,tabpages,winpos,sesdir,globals,localoptions"
+"For views -> disabled because of automatic chdir commands that never respect
+"the current directory and cannot be turned off!
+"autocmd BufWrite * mkview 
+"autocmd BufRead * silent! loadview 
 
 "My abbreviations
 source ~/.vim/abbreviations.vim
@@ -70,10 +73,19 @@ vmap <F8> :setlocal spell spelllang=pt<cr>
 
 "Special stuff for MacOSX vim port
 if has ("gui_macvim")
-  "set bg=dark
-  set transparency=10
+  set transparency=5
+  set guioptions=egmrLt
 endif
 
-"Enables local .vimrc readout
-set exrc " enables per-directory .vimrc files
+"This will setup a few project tags
+autocmd BufEnter ~/Projects/torch/* :setlocal tags+=~/Projects/torch/ctags
+
+"This will setup a few abbreviations I normally use
+abbrev <expr> datestr strftime("%c %Z")
+abbrev namemail Andre Anjos <andre.dos.anjos@gmail.com>
+abbrev inamemail Andre Anjos <andre.anjos@idiap.ch>
+abbrev vimutf8 vim: set fileencoding=utf-8 :
+
+"Allows us to find .vimrc files locally
+set exrc   " scans for per-directory settings for vim
 set secure " disables unsafe commands in local .vimrc files

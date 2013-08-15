@@ -2,8 +2,8 @@
 escape ^Bb
 
 # Big buffer
-defscrollback 10000
-compacthist on
+defscrollback '1000'
+compacthist 'on'
 
 # Don't display the copyright page
 startup_message off
@@ -21,11 +21,12 @@ termcapinfo xterm|xterms|xs|rxvt ti@:te@
 hardstatus alwayslastline 
 
 # Very nice tabbed colored hardstatus line
-hardstatus string '%{= Kd}%-w%{= KY}[%{= KW}%n %t%{= KY}]%{= Kd}%+w %-='
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
 
-# Hide hardstatus: ctrl-a f 
+# Hide hardstatus: ctrl-b f
 bind f eval "hardstatus ignore"
-# Show hardstatus: ctrl-a F
+
+# Show hardstatus: ctrl-b F
 bind F eval "hardstatus alwayslastline"
 
 # Allow bold colors - necessary for some reason
