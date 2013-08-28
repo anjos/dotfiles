@@ -82,3 +82,11 @@ ulimit -c unlimited;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
+
+# Removes duplicates from PATH
+export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH`;
+
+# Bind some readline stuff
+bind '"\C-s": shell-kill-word'
+bind '"\C-f": forward-word'
+bind '"\C-b": backward-word'
