@@ -11,7 +11,7 @@ if [ -n "${pyz}" ]; then
       *.ad[asb]|*.asm|*.inc|*.[ch]|*.[ch]pp|*.[ch]xx|*.cc|*.hh|\
       *.lsp|*.l|*.pas|*.p|*.xml|*.xps|*.xsl|*.axp|*.ppd|*.pov|\
       *.diff|*.patch|*.py|*.rb|*.rst|*.sh|*.sql|*.ebuild|*.eclass|*.tex|\
-      Makefile) ${pyz} "$1" ;;
+      Makefile) ${pyz} -O "bg=light,theme=vim" "$1" ;;
     *) exit 0;;
   esac
 fi
