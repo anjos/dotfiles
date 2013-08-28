@@ -100,3 +100,8 @@ export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}
 
 # Removes '.' from PATH (Idiap default)
 export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/\./ {next} {print}' | sed 's/:*$//'`;
+
+# Bind some readline stuff
+bind '"\C-s": shell-kill-word'
+bind '"\C-f": forward-word'
+bind '"\C-b": backward-word'
