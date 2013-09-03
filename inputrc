@@ -1,0 +1,3 @@
+"\C-s": shell-kill-word
+"\C-f": forward-word
+"\C-b": backward-word
