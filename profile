@@ -15,11 +15,3 @@
 # 3. The file inputrc is only read/executed by bash for interactive shells.
 
 # Non-interactive initialization file for sh-like shells, including bash
-
-# Useful environment variables for non-interactive shells
-export GPGKEY="A2170D5D";
-
-# Sets up the core dump limits - if I'm on my machine
-if [ "$(/usr/sbin/custom-conf-getuser)" = "$USER" ]; then
-  ulimit -c unlimited;
-fi

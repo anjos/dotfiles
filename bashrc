@@ -92,6 +92,7 @@ export VISUAL=vim;
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
+export GPGKEY="A2170D5D";
 
 # Get off with CTRL-D
 set +o ignoreeof
@@ -111,3 +112,8 @@ export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}
 
 # Removes '.' from PATH (Idiap default)
 export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/\./ {next} {print}' | sed 's/:*$//'`;
+
+# Sets up the core dump limits - if I'm on my machine
+if [ "$(/usr/sbin/custom-conf-getuser)" = "$USER" ]; then
+  ulimit -c unlimited;
+fi
