@@ -4,11 +4,8 @@
 
 # Initialization for **non-interactive** shells
 
-# Global profile
+# Global profile: force reading since maybe using MacPorts bash
 if [ -e /etc/profile ]; then . /etc/profile; fi
-
-# MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Sets up the core dump limits
 ulimit -c unlimited;

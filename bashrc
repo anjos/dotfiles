@@ -4,6 +4,9 @@
 
 # Initialization for **interactive** shells
 
+# MacPorts installer addition: adding an appropriate PATH variable
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 # Completion
 [ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
 
