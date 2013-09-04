@@ -6,6 +6,3 @@
 
 # Global profile: force reading since maybe using MacPorts bash
 if [ -e /etc/profile ]; then . /etc/profile; fi
-
-# Sets up the core dump limits
-ulimit -c unlimited;

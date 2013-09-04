@@ -85,3 +85,6 @@ function tvim () {
 
 # Removes duplicates from PATH
 export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH`;
+
+# Sets up the core dump limits
+ulimit -c unlimited;
