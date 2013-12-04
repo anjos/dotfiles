@@ -278,7 +278,7 @@ c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}
 
 # Input prompt.  '\#' will be transformed to the prompt number
 # c.PromptManager.in_template = 'In [\\#]: '
-c.PromptManager.in_template = r'{color.Green}[{color.Black}\h{color.Green}]{color.Black} \Y1{color.Green} >>> '
+c.PromptManager.in_template = r'{color.Green}[{color.Blue}\h{color.Green}]{color.Blue} \Y1{color.Green} >>> '
 
 # 
 # c.PromptManager.color_scheme = 'Linux'
