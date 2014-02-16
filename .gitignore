@@ -1,10 +1,11 @@
 *~
 *.py?
-vim/view/
-vim/.net*
 ipython/db/
 ipython/history
 ipython/profile_default/history.sqlite
+vim/bundle
 vim/spell/*.add
 vim/spell/*.add.spl
+vim/view/
+vim/.net*
 *.sqlite
