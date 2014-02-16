@@ -67,6 +67,16 @@ if has("gui_macvim")
   set guioptions=egmrLt
 endif
 
+"Show trailing whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhiteSpace /\s\+$/
+
+"Strip trailing whitespaces
+autocmd FileType c,cpp,java,php,ruby,python,text,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
+
 "Allows us to find .vimrc files locally
 set exrc   " scans for per-directory settings for vim
 set secure " disables unsafe commands in local .vimrc files
