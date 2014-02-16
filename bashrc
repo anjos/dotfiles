@@ -114,6 +114,11 @@ export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}
 export PATH=`echo ${PATH} | awk -v RS=: -v ORS=: '/\./ {next} {print}' | sed 's/:*$//'`;
 
 # Sets up the core dump limits - if I'm on my machine
-if [ "$(/usr/sbin/custom-conf-getuser)" = "$USER" ]; then
+conf_user=$USER;
+if [ -x /usr/sbin/custom-conf-getuser ]; then
+  conf_user=$(/usr/sbin/custom-conf-getuser);
+fi
+
+if [ "$conf_user" = "$USER" ]; then
   ulimit -c unlimited;
 fi

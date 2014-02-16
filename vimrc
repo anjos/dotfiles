@@ -1,4 +1,25 @@
+filetype off "required!
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"let Vundle manage Vundle
+Bundle 'gmarik/vundle'
+
+"original repos on GitHub
+Bundle 'tpope/vim-fugitive'
+Bundle 'vim-scripts/keepcase.vim'
+Bundle 'SirVer/ultisnips'
+Bundle 'Valloric/YouCompleteMe'
+
+"configuration for ultisnips
+let g:UltiSnipsExpandTrigger='<c-h>'
+let g:ultisnips_python_style='sphinx'
+let g:ultisnips_python_quotion_style='double'
+
+filetype plugin indent on
+
 "file reading/writing options
+set nocompatible      "be iMproved, remove old vi compatibility hacks
 set autoread          "re-read files if they change on disk
 set autowrite         "write files automatically everytime you change it
 set backup            "create always backup~ files
@@ -33,17 +54,7 @@ vmap <F12> :syntax sync fromstart<cr>
 map <C-left> gT
 map <C-right> gt
 
-filetype plugin indent on
 "set cursorline
-
-"Python editing stuff
-autocmd BufRead,BufNewFile SConstruct setfiletype python
-autocmd FileType python source ~/.vim/python.vim
-
-"CMake stuff
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in runtime! indent/cmake.vim
-autocmd BufRead,BufNewFile *.cmake,CMakeLists.txt,*.cmake.in setf cmake
-autocmd BufRead,BufNewFile *.ctest,*.ctest.in setf cmake
 
 "HTML editing does not need line breaking...
 autocmd FileType html set textwidth=0
@@ -51,43 +62,14 @@ autocmd FileType html set textwidth=0
 "Makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"For views and sessions
-set sessionoptions="buffers,folds,options,tabpages,winpos,sesdir,globals,localoptions"
-
 "My abbreviations
 source ~/.vim/abbreviations.vim
-
-"Skeletons
-source ~/.vim/plugin/templatefile.vim
-
-"Spelling (use this only with vim >= 7)
-map <F6> :set nospell<cr>
-imap <F6> <esc>:set nospell<cr>
-vmap <F6> :set nospell<cr>
-map <F7> :setlocal spell spelllang=en<cr>
-imap <F7> <esc>:setlocal spell spelllang=en<cr>
-vmap <F7> :setlocal spell spelllang=en<cr>
-map <F8> :setlocal spell spelllang=pt<cr>
-imap <F8> <esc>:setlocal spell spelllang=pt<cr>
-vmap <F8> :setlocal spell spelllang=pt<cr>
 
 "Special stuff for MacOSX vim port
 if has ("gui_macvim")
   "set bg=dark
   set transparency=10
 endif
-
-"This will setup a few project tags
-autocmd BufEnter ~/work/torch/* :setlocal tags+=~/work/torch/ctags
-
-"This will setup a few abbreviations I normally use
-abbrev <expr> datestr strftime("%c")
-abbrev namemail Andre Anjos <andre.dos.anjos@gmail.com>
-abbrev inamemail Andre Anjos <andre.anjos@idiap.ch>
-abbrev vimutf8 vim: set fileencoding=utf-8 :
-
-"Enables local searching
-set path=$PWD/**
 
 "Show trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -98,3 +80,7 @@ au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
 autocmd FileType c,cpp,java,php,ruby,python,text,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
+
+"Allows us to find .vimrc files locally
+set exrc   " scans for per-directory settings for vim
+set secure " disables unsafe commands in local .vimrc files

@@ -1,7 +1,12 @@
-vim/view/
-vim/spell/
-vim/.netrwhist
 *~
-*.pyc
+*.py?
+ipython/db/
+ipython/history
+ipython/profile_default/history.sqlite
+vim/bundle
+vim/spell/*.add
+vim/spell/*.add.spl
+vim/view/
+vim/.net*
 *.sqlite
 config/ipython/profile_default/db/
