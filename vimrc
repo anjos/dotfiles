@@ -9,7 +9,7 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/keepcase.vim'
 Bundle 'SirVer/ultisnips'
-"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe'
 
 "configuration for ultisnips
 let g:UltiSnipsExpandTrigger='<c-j>'
