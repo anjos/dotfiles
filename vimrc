@@ -9,7 +9,9 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/keepcase.vim'
 Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
+if version >= 704
+  Bundle 'Valloric/YouCompleteMe'
+endif
 
 "configuration for ultisnips
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -36,6 +38,7 @@ set visualbell        "blink screen instead of beep sound
 set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
+set backspace=indent,eol,start "fixes backspace
 set bg=light "use light background always
 
 "temporarily disables highlighting with <SPACE>
