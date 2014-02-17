@@ -37,7 +37,12 @@ set ruler             "shows cursor position (with ruler)
 set visualbell        "blink screen instead of beep sound
 set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
-set bg=light  "make colors a little bit more attractive on light backgrounds
+set modeline "let local buffers modify variables
+set backspace=indent,eol,start "fixes backspace
+set bg=light "use light background always
+
+"temporarily disables highlighting with <SPACE>
+nmap <SPACE> <SPACE>:noh<CR>
 
 "display options
 "set number "shows the line numbers
