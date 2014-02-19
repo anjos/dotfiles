@@ -274,17 +274,17 @@ c.PromptManager.out_template = r'[\#]'
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
-c.PromptManager.in2_template = r'{color.Green}|{color.LightGreen}\D{color.Green}> '
+c.PromptManager.in2_template = r'{color.Normal}.\D{color.LightBlue}> '
 
 # If True (default), each prompt will be right-aligned with the preceding one.
 # c.PromptManager.justify = True
 
 # Input prompt.  '\#' will be transformed to the prompt number
 # c.PromptManager.in_template = 'In [\\#]: '
-c.PromptManager.in_template = r'{color.Green}[{color.Blue}\h{color.Green}]{color.Blue} \Y1{color.Green} >>> '
+c.PromptManager.in_template = r'{color.Normal}[\h] \Y1{color.LightBlue} >>> '
 
-#
-c.PromptManager.color_scheme = 'Linux'
+# Only set this to for a particular scheme
+# c.PromptManager.color_scheme = 'Linux'
 
 #------------------------------------------------------------------------------
 # ProfileDir configuration
@@ -308,10 +308,17 @@ c.PromptManager.color_scheme = 'Linux'
 
 # The default pretty-printer.
 #
+<<<<<<< HEAD:config/ipython/profile_default/ipython_config.py
 # This uses :mod:`IPython.external.pretty` to compute the format data of the
 # object. If the object cannot be pretty printed, :func:`repr` is used. See the
 # documentation of :mod:`IPython.external.pretty` for details on how to write
 # pretty printers.  Here is a simple example::
+=======
+# This uses :mod:`IPython.lib.pretty` to compute the format data of the object.
+# If the object cannot be pretty printed, :func:`repr` is used. See the
+# documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
+# printers.  Here is a simple example::
+>>>>>>> 9da7e6b... Use normal colors in ipython:ipython/profile_default/ipython_config.py
 #
 #     def dtype_pprinter(obj, p, cycle):
 #         if cycle:
