@@ -10,6 +10,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/keepcase.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'scrooloose/nerdtree'
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
