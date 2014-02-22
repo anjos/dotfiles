@@ -12,8 +12,8 @@ Bundle 'SirVer/ultisnips'
 Bundle 'davidhalter/jedi-vim'
 
 "configuration for ultisnips
-"let g:UltiSnipsExpandTrigger='<c-j>'
-"let g:UltiSnipsListSnippets='<c-h>'
+"let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsListSnippets='<s-tab>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
 
