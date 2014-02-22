@@ -18,6 +18,9 @@ let g:UltiSnipsListSnippets='<s-tab>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
 
+"configuration for NERDTree
+map <C-i> :NERDTreeToggle<CR>
+
 filetype plugin indent on
 
 "file reading/writing options
