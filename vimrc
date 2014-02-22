@@ -9,13 +9,11 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/keepcase.vim'
 Bundle 'SirVer/ultisnips'
-if version >= 704
-  Bundle 'Valloric/YouCompleteMe'
-endif
+Bundle 'davidhalter/jedi-vim'
 
 "configuration for ultisnips
-let g:UltiSnipsExpandTrigger='<c-j>'
-let g:UltiSnipsListSnippets='<c-h>'
+"let g:UltiSnipsExpandTrigger='<c-j>'
+"let g:UltiSnipsListSnippets='<c-h>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
 
