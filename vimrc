@@ -23,6 +23,9 @@ let g:ultisnips_python_quotion_style='double'
 "configuration for NERDTree
 map <C-i> :NERDTreeToggle<CR>
 
+"configuration for Command-T
+map <C-a> :CommandT<CR>
+
 filetype plugin indent on
 
 "file reading/writing options
