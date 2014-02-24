@@ -11,6 +11,8 @@ Bundle 'vim-scripts/keepcase.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'wincent/Command-T'
+Bundle 'altercation/vim-colors-solarized'
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
@@ -41,7 +43,8 @@ set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
-set bg=light "use light background always
+set bg=dark "use light background always
+colorscheme solarized
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>

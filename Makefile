@@ -30,6 +30,10 @@ ipython:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
 	@ln -s -v -f $$PWD/config/ipython $$HOME/.config/
 
+xfce-terminal:
+	@if [ -d $$HOME/.config/Terminal ]; then rm -rf $$HOME/.config/Terminal; fi
+	@ln -s -v -f $$PWD/config/Terminal $$HOME/.config/Terminal
+
 .PHONY: clean all deepclean ssh
 
 clean:
