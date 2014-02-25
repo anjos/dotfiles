@@ -46,11 +46,7 @@ set textwidth=79 "wrap automatically in 80 columns
 set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
-if has('gui_running')
-  set bg=dark "use dark background on guis
-else
-  set bg=light "use light background on terminal
-endif
+set bg=dark "use dark background on guis
 colorscheme solarized
 
 "temporarily disables highlighting with <SPACE>

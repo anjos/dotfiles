@@ -1,7 +1,7 @@
 [Configuration]
 ColorCursor=#838394949696
 ColorForeground=#838394949696
-ColorBackground=#00002b2b3636
+ColorBackground=#070736364242
 ColorPalette1=#070736364242
 ColorPalette2=#dcdc32322f2f
 ColorPalette3=#858599990000
@@ -41,3 +41,4 @@ MiscScrollAlternateScreen=TRUE
 AccelNextTab=<Primary>Right
 ScrollingLines=10000
 ScrollingOnOutput=FALSE
+
