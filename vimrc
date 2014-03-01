@@ -53,7 +53,7 @@ colorscheme solarized
 nmap <SPACE> <SPACE>:noh<CR>
 
 "display options
-"set number "shows the line numbers
+set number "shows the line numbers
 syntax enable "enable code highlighting
 syntax sync fromstart "always scan the whole file
 
