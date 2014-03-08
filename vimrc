@@ -8,17 +8,22 @@ Bundle 'gmarik/vundle'
 "original repos on GitHub
 Bundle 'tpope/vim-fugitive'
 Bundle 'vim-scripts/keepcase.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'ervandew/supertab'
+Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
+Bundle 'davidhalter/jedi-vim'
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsListSnippets='<s-tab>'
+let g:UltiSnipsListSnippets='<S-tab>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
+
+"configuration for jedi
+autocmd FileType python setlocal completeopt-=preview
 
 "configuration for NERDTree
 map <C-i> :NERDTreeToggle<CR>
