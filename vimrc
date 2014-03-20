@@ -14,16 +14,12 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'ervandew/supertab'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-Bundle 'davidhalter/jedi-vim'
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsListSnippets='<S-tab>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
-
-"configuration for jedi
-autocmd FileType python setlocal completeopt-=preview
 
 "configuration for NERDTree
 map <C-i> :NERDTreeToggle<CR>
@@ -96,7 +92,7 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python,text,rst autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "Allows us to find .vimrc files locally
 set exrc   " scans for per-directory settings for vim
