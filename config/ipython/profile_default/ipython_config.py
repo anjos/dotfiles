@@ -308,17 +308,10 @@ c.PromptManager.in_template = r'{color.Normal}[\h] \Y1{color.LightBlue} >>> '
 
 # The default pretty-printer.
 #
-<<<<<<< HEAD:config/ipython/profile_default/ipython_config.py
-# This uses :mod:`IPython.external.pretty` to compute the format data of the
-# object. If the object cannot be pretty printed, :func:`repr` is used. See the
-# documentation of :mod:`IPython.external.pretty` for details on how to write
-# pretty printers.  Here is a simple example::
-=======
 # This uses :mod:`IPython.lib.pretty` to compute the format data of the object.
 # If the object cannot be pretty printed, :func:`repr` is used. See the
 # documentation of :mod:`IPython.lib.pretty` for details on how to write pretty
 # printers.  Here is a simple example::
->>>>>>> 9da7e6b... Use normal colors in ipython:ipython/profile_default/ipython_config.py
 #
 #     def dtype_pprinter(obj, p, cycle):
 #         if cycle:
