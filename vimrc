@@ -15,6 +15,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'bling/vim-airline'
 
 call vundle#end() "required
 filetype plugin indent on "re-enable indentation
@@ -84,6 +85,14 @@ source ~/.vim/abbreviations.vim
 if has ("gui_macvim")
   "set bg=dark
   set transparency=10
+endif
+
+"Stuff we only use in gui mode
+if has("gui_running")
+  "Airline configuration options
+  set laststatus=2
+  let g:airline_powerline_fonts=1
+  set noshowmode
 endif
 
 "Show trailing whitespaces

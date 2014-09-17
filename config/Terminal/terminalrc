@@ -41,4 +41,5 @@ MiscScrollAlternateScreen=TRUE
 AccelNextTab=<Primary>Right
 ScrollingLines=10000
 ScrollingOnOutput=FALSE
+TitleMode=TERMINAL_TITLE_REPLACE
 
