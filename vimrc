@@ -110,7 +110,7 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex,json autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "Allows us to find .vimrc files locally
 set exrc   " scans for per-directory settings for vim
