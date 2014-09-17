@@ -122,3 +122,13 @@ fi
 if [ "$conf_user" = "$USER" ]; then
   ulimit -c unlimited;
 fi
+
+# Powerline
+POWERLINE_BASH=${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh;
+if [ -r "${POWERLINE_BASH}" ]; then
+  ${HOME}/.local/bin/powerline-daemon -q;
+  POWERLINE_CONFIG=${HOME}/.local/bin/powerline-config;
+  POWERLINE_BASH_CONTINUATION=1;
+  POWERLINE_BASH_SELECT=1;
+  source "${POWERLINE_BASH}";
+fi
