@@ -15,7 +15,10 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'bling/vim-airline'
+
+if has("gui_running")
+  Plugin 'bling/vim-airline'
+endif
 
 call vundle#end() "required
 filetype plugin indent on "re-enable indentation
@@ -93,6 +96,10 @@ if has("gui_running")
   set laststatus=2
   let g:airline_powerline_fonts=1
   set noshowmode
+
+  "Display options
+  set guioptions-=m "remove menubar
+  set guioptions-=T "remove toolbar
 endif
 
 "Show trailing whitespaces
@@ -108,3 +115,8 @@ autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex autocmd BufWriteP
 "Allows us to find .vimrc files locally
 set exrc   " scans for per-directory settings for vim
 set secure " disables unsafe commands in local .vimrc files
+
+"Airline configuration
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#whitespace#enabled = 1
