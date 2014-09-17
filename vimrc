@@ -15,6 +15,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'elzr/vim-json'
 
 if has("gui_running")
   Plugin 'bling/vim-airline'
@@ -96,6 +97,10 @@ if has("gui_running")
   set laststatus=2
   let g:airline_powerline_fonts=1
   set noshowmode
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  let g:airline_symbols.space = "\ua0"
 
   "Display options
   set guioptions-=m "remove menubar
