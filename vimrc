@@ -1,19 +1,23 @@
-filetype off "required!
+set nocompatible "do not run in vi compatibility mode
+filetype off "required
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 "let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 "original repos on GitHub
-Bundle 'tpope/vim-fugitive'
-Bundle 'vim-scripts/keepcase.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'wincent/Command-T'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'ervandew/supertab'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/keepcase.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'wincent/Command-T'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+call vundle#end() "required
+filetype plugin indent on "re-enable indentation
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
@@ -26,8 +30,6 @@ map <C-i> :NERDTreeToggle<CR>
 
 "configuration for Command-T
 map <C-a> :CommandT<CR>
-
-filetype plugin indent on
 
 "file reading/writing options
 set nocompatible      "be iMproved, remove old vi compatibility hacks
@@ -92,7 +94,7 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex,m,html autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "Allows us to find .vimrc files locally
 set exrc   " scans for per-directory settings for vim
