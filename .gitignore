@@ -9,3 +9,4 @@ vim/spell/*.add.spl
 vim/view/
 vim/.net*
 *.sqlite
+.DS_Store
