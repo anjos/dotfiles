@@ -16,6 +16,11 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
+Plugin 'Pychimp/vim-luna'
+
+if has("gui_running")
+    Plugin 'bling/vim-airline'
+endif
 
 call vundle#end() "required
 filetype plugin indent on "re-enable indentation
@@ -51,13 +56,12 @@ set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
 set bg=dark "use dark background on guis
-colorscheme solarized
+colorscheme luna
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>
 
 "display options
-set number "shows the line numbers
 syntax enable "enable code highlighting
 syntax sync fromstart "always scan the whole file
 
@@ -81,26 +85,20 @@ autocmd FileType make set noexpandtab
 "My abbreviations
 source ~/.vim/abbreviations.vim
 
-"Special stuff for MacOSX vim port
-if has("gui_macvim")
-  set transparency=5
-  set guioptions=egmrLt
-endif
-
 "Stuff we only use in gui mode
 if has("gui_running")
+  set transparency=5
+  set guioptions=egmrLt
+
   "Airline configuration options
   set laststatus=2
-  let g:airline_powerline_fonts=1
   set noshowmode
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-  let g:airline_symbols.space = "\ua0"
+  let g:airline_powerline_fonts=1
+  let g:airline_theme='luna'
 
-  "Display options
-  set guioptions-=m "remove menubar
-  set guioptions-=T "remove toolbar
+  if has('gui_macvim')
+    set guifont=Sauce\ Code\ Powerline\ Light:h14
+  endif
 endif
 
 "Show trailing whitespaces
