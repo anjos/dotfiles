@@ -16,6 +16,7 @@ Plugin 'ervandew/supertab'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
+Plugin 'Pychimp/vim-luna'
 
 if has("gui_running")
   Plugin 'bling/vim-airline'
@@ -55,7 +56,7 @@ set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
 set bg=dark "use dark background on guis
-colorscheme solarized
+colorscheme luna
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>
@@ -85,26 +86,19 @@ autocmd FileType make set noexpandtab
 "My abbreviations
 source ~/.vim/abbreviations.vim
 
-"Special stuff for MacOSX vim port
-if has ("gui_macvim")
-  "set bg=dark
-  set transparency=10
-endif
-
 "Stuff we only use in gui mode
 if has("gui_running")
-  "Airline configuration options
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions+=i
   set laststatus=2
-  let g:airline_powerline_fonts=1
   set noshowmode
+  let g:airline_powerline_fonts=1
+  let g:airline_theme='luna'
   if !exists('g:airline_symbols')
     let g:airline_symbols = {}
   endif
   let g:airline_symbols.space = "\ua0"
-
-  "Display options
-  set guioptions-=m "remove menubar
-  set guioptions-=T "remove toolbar
 endif
 
 "Show trailing whitespaces
@@ -115,11 +109,7 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex,json autocmd BufWritePre <buffer> :%s/\s\+$//e
-
-"Allows us to find .vimrc files locally
-set exrc   " scans for per-directory settings for vim
-set secure " disables unsafe commands in local .vimrc files
+autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 "Airline configuration
 let g:airline#extensions#branch#enabled = 1
