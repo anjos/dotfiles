@@ -95,10 +95,7 @@ if has("gui_running")
   set noshowmode
   let g:airline_powerline_fonts=1
   let g:airline_theme='luna'
-
-  if has('gui_macvim')
-    set guifont=Sauce\ Code\ Powerline\ Light:h14
-  endif
+  set guifont=Sauce\ Code\ Powerline\ Light:h14
 endif
 
 "Show trailing whitespaces
@@ -109,8 +106,9 @@ au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
-autocmd FileType c,cpp,java,php,ruby,python,text,rst,tex,latex,m,html autocmd BufWritePre <buffer> :%s/\s\+$//e
+autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"Allows us to find .vimrc files locally
-set exrc   " scans for per-directory settings for vim
-set secure " disables unsafe commands in local .vimrc files
+"Airline configuration
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#displayed_head_limit = 10
+let g:airline#extensions#whitespace#enabled = 1
