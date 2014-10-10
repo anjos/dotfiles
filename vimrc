@@ -36,6 +36,7 @@ map <C-i> :NERDTreeToggle<CR>
 
 "configuration for Command-T
 map <C-a> :CommandT<CR>
+map <C-s> :CommandTFlush<CR>
 
 "file reading/writing options
 set nocompatible      "be iMproved, remove old vi compatibility hacks
