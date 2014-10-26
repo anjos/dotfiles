@@ -81,7 +81,6 @@ c = get_config()
 # c.TerminalIPythonApp.ipython_dir = u'/Users/andre/.config/ipython'
 
 # Whether to display a banner upon starting IPython.
-# c.TerminalIPythonApp.display_banner = True
 
 # Start IPython quickly by skipping the loading of config files.
 # c.TerminalIPythonApp.quick = False
@@ -129,17 +128,16 @@ c = get_config()
 
 # Show rewritten input, e.g. for autocall.
 # c.TerminalInteractiveShell.show_rewritten_input = True
-c.TerminalInteractiveShell.show_rewritten_input = False
 
 # Set the color scheme (NoColor, Linux, or LightBG).
-c.TerminalInteractiveShell.colors = 'LightBG'
+# c.TerminalInteractiveShell.colors = 'LightBG'
 
 # Autoindent IPython code entered interactively.
 # c.TerminalInteractiveShell.autoindent = True
 
 #
 # c.TerminalInteractiveShell.separate_in = '\n'
-c.TerminalInteractiveShell.separate_in = ''
+c.TerminalInteractiveShell.separate_in = '0'
 
 # Deprecated, use PromptManager.in2_template
 # c.TerminalInteractiveShell.prompt_in2 = '   .\\D.: '
@@ -183,11 +181,10 @@ c.TerminalInteractiveShell.separate_in = ''
 # c.TerminalInteractiveShell.prompts_pad_left = True
 
 # The part of the banner to be printed before the profile
-# c.TerminalInteractiveShell.banner1 = 'Python 2.6.8 (unknown, Apr 16 2012, 22:34:23) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.12 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
-import sys, IPython
-pyver = sys.version.split('\n')[0].strip()
-ipyver = IPython.__version__
-c.TerminalInteractiveShell.banner1 = 'IPython %s over Python %s\n' % (ipyver, pyver)
+# c.TerminalInteractiveShell.banner1 = 'Python 2.6.8 (unknown, Apr 16 2012, 22:34:23) \nType "copyright", "credits" or "license" for more information.\n\nIPython 0.12.1 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
+from IPython import release
+import sys
+c.TerminalInteractiveShell.banner1 = "Python %s+ IPython %s\n" % (sys.version.split('\n')[0], release.version)
 
 #
 # c.TerminalInteractiveShell.readline_parse_and_bind = ['tab: complete', '"\\C-l": clear-screen', 'set show-all-if-ambiguous on', '"\\C-o": tab-insert', '"\\C-r": reverse-search-history', '"\\C-s": forward-search-history', '"\\C-p": history-search-backward', '"\\C-n": history-search-forward', '"\\e[A": history-search-backward', '"\\e[B": history-search-forward', '"\\C-k": kill-line', '"\\C-u": unix-line-discard']
@@ -270,7 +267,7 @@ c.TerminalInteractiveShell.confirm_exit = False
 
 # Output prompt. '\#' will be transformed to the prompt number
 # c.PromptManager.out_template = 'Out[\\#]: '
-c.PromptManager.out_template = r'[\#]'
+c.PromptManager.out_template = '<\#> '
 
 # Continuation prompt.
 # c.PromptManager.in2_template = '   .\\D.: '
@@ -283,7 +280,7 @@ c.PromptManager.in2_template = r'{color.Normal}.\D{color.LightBlue}> '
 # c.PromptManager.in_template = 'In [\\#]: '
 c.PromptManager.in_template = r'{color.Normal}[\h] \Y1{color.LightBlue} >>> '
 
-# Only set this to for a particular scheme
+#
 # c.PromptManager.color_scheme = 'Linux'
 
 #------------------------------------------------------------------------------
@@ -384,3 +381,15 @@ c.PromptManager.in_template = r'{color.Normal}[\h] \Y1{color.LightBlue} >>> '
 # This will enable completion on elements of lists, results of function calls,
 # etc., but can be unsafe because the code is actually evaluated on TAB.
 # c.IPCompleter.greedy = False
+
+# Aliases
+# -------
+
+## Port bash aliases to ipython
+c.AliasManager.user_aliases = [
+    ('ls', 'gls --color=auto -F -t -r -t'),
+    ('ll', 'ls -l'),
+    ('vim', 'mvim'),
+    ('vi', 'vim'),
+    ('gvim', 'mvim'),
+    ]
