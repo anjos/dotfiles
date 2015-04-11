@@ -116,3 +116,7 @@ autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#whitespace#enabled = 1
+
+"Autopep8 configuration
+let g:autopep8_indent_size=2
+let g:autopep8_max_line_length=79
