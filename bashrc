@@ -10,7 +10,7 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Completion
 [ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
 
-# So we know when we are root 
+# So we know when we are root
 pr='>>';
 col=lightblue;
 if [ $UID = 0 ]; then
