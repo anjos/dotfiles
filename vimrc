@@ -17,6 +17,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'Pychimp/vim-luna'
+Plugin 'tell-k/vim-autopep8'
 
 if has("gui_running")
     Plugin 'bling/vim-airline'
