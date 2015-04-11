@@ -38,7 +38,6 @@ map <C-i> :NERDTreeToggle<CR>
 map <C-a> :CommandT<CR>
 
 "file reading/writing options
-set nocompatible      "be iMproved, remove old vi compatibility hacks
 set autoread          "re-read files if they change on disk
 set autowrite         "write files automatically everytime you change it
 set backup            "create always backup~ files
@@ -47,6 +46,7 @@ set tabstop=2         "make tab size (in tabbed files equals 2)
 set shiftwidth=2      "advised?
 set softtabstop=2
 set expandtab         "make all tabs spaces, except where relevant
+set smarttab          "not sure what it does...
 set hlsearch          "enables search match highlight automatically
 set incsearch         "enables search as we type
 set ruler             "shows cursor position (with ruler)
@@ -103,10 +103,10 @@ endif
 
 "Show trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
-au ColorScheme * highlight ExtraWhitespace guibg=red
-au BufEnter * match ExtraWhitespace /\s\+$/
-au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+autocmd ColorScheme * highlight ExtraWhitespace guibg=red
+autocmd BufEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 
 "Strip trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
