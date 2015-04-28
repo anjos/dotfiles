@@ -18,6 +18,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'Pychimp/vim-luna'
 Plugin 'tell-k/vim-autopep8'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 if has("gui_running")
     Plugin 'bling/vim-airline'
