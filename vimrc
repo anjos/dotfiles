@@ -119,3 +119,6 @@ let g:airline#extensions#whitespace#enabled = 1
 autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
 let g:autopep8_indent_size=2
 let g:autopep8_max_line_length=79
+
+"Indent guides configuration
+let g:indent_guides_guide_size=1
