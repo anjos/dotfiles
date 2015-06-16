@@ -3,10 +3,19 @@ snippet "frame" "begin{frame} / end{frame}" br
 	\frametitle{${1:title}}
 
 	${2:Headline is typed here}
-	\vspace{2em}
 
 	${0:${VISUAL}}
 \end{frame}
+endsnippet
+
+snippet info "information" b
+\begin{exampleblock}{${1:title}}
+\end{exampleblock}
+endsnippet
+
+snippet warn "warning" b
+\begin{alertblock}{${1:title}}
+\end{alertblock}
 endsnippet
 
 snippet graph "graphics" b
