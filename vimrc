@@ -58,7 +58,7 @@ set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
 set bg=dark "use dark background on guis
-colorscheme luna
+colorscheme solarized
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>
