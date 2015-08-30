@@ -2,10 +2,33 @@ snippet "frame" "begin{frame} / end{frame}" br
 \begin{frame}
 	\frametitle{${1:title}}
 
-	${2:Headline is typed here}
+	${0:${VISUAL}}
+\end{frame}
+endsnippet
+
+snippet "cframe" "code at begin{frame} / end{frame}" br
+\defverbatim[colored]\\${1:name}{
+	\begin{${2:pythoncode}}
+	\end{$2}
+}
+
+\begin{frame}
+	\frametitle{${3:title}}
+
+	\vspace{${4:2em}}
+
+	\\$1
 
 	${0:${VISUAL}}
 \end{frame}
+endsnippet
+
+snippet "code" "code snippet" br
+\defverbatim[colored]\\${1:name}{
+	\begin{${2:pythoncode}}
+			${0:${VISUAL}}
+	\end{$2}
+}
 endsnippet
 
 snippet info "information" b
@@ -25,5 +48,7 @@ snippet graph "graphics" b
 endsnippet
 
 snippet vspace "vspace" b
-\vspace{{1:2}em}
+\vspace{${1:2}em}
+
+${0:${VISUAL}}
 endsnippet
