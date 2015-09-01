@@ -25,8 +25,12 @@ else
 	PS1="[\h-\$(date +%k:%M)] \W $pr "
 fi
 
-if [ -d ~/bin ]; then
+if [ -d $HOME/bin ]; then
   export PATH=$HOME/bin:$PATH;
+fi
+
+if [ -d $HOME/work/npm/bin ]; then
+  export PATH=$HOME/work/npm/bin:$PATH;
 fi
 
 # Standard aliases
