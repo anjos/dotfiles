@@ -19,6 +19,7 @@ Plugin 'elzr/vim-json'
 Plugin 'Pychimp/vim-luna'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'rizzatti/dash.vim'
 
 if has("gui_running")
     Plugin 'bling/vim-airline'
