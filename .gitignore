@@ -10,3 +10,4 @@ vim/view/
 vim/.net*
 *.sqlite
 .DS_Store
+*.swp
