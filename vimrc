@@ -123,3 +123,11 @@ let g:autopep8_max_line_length=79
 
 "Indent guides configuration
 let g:indent_guides_guide_size=1
+
+"Fix/override ftplugin default tab settings for Python
+function! SetupPython()
+  setlocal tabstop=2
+  setlocal shiftwidth=2
+  setlocal softtabstop=2
+endfunction
+command! -bar SetupPython call SetupPython()
