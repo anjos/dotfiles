@@ -11,3 +11,4 @@ vim/.net*
 *.sqlite
 config/ipython/profile_default/db/
 .DS_Store
+*.swp
