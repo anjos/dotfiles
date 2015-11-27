@@ -8,7 +8,7 @@
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 # Completion
-[ -f /opt/local/etc/bash_completion ] && . /opt/local/etc/bash_completion
+[ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
 
 # So we know when we are root
 pr='>>';
