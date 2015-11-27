@@ -24,7 +24,7 @@ Host *.idiap.ch
 
 # allows 'ssh idiap ...'
 Host idiap
-  Hostname extatix03.idiap.ch
+  Hostname italix10.idiap.ch
   Compression yes
   CompressionLevel 9
   ForwardAgent yes
