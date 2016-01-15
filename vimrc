@@ -58,7 +58,7 @@ set showmatch "to show matching pairs of brackets or braces
 set modeline "let local buffers modify variables
 set backspace=indent,eol,start "fixes backspace
 set bg=dark "use dark background on guis
-colorscheme solarized
+colorscheme luna
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>
@@ -90,6 +90,7 @@ source ~/.vim/abbreviations.vim
 
 "Stuff we only use in gui mode
 if has("gui_running")
+  colorscheme solarized
   set guioptions-=m
   set guioptions-=T
   set guioptions+=i
