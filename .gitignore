@@ -3,6 +3,7 @@
 ipython/db/
 ipython/history
 ipython/profile_default/history.sqlite
+ipython/profile_default/db
 vim/bundle
 vim/spell/*.add
 vim/spell/*.add.spl
