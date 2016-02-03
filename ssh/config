@@ -1,4 +1,10 @@
-Host *
+Host beat* gitlab.idiap.ch github.com
+  ForwardX11 no
+  ForwardX11Trusted no
+  Compression yes
+  CompressionLevel 6
+
+Host *.idiap.ch
   ForwardX11 yes
   ForwardX11Trusted yes
   ForwardAgent yes
@@ -9,7 +15,5 @@ Host *
   ControlMaster auto
   ControlPath /tmp/%r@%h-%p
   ControlPersist 600
-
-Host beat*.kvm.lab.idiap.ch gitlab.idiap.ch github.com
-  ForwardX11 no
-  ForwardX11Trusted no
+  Compression yes
+  CompressionLevel 6
