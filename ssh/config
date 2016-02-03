@@ -4,6 +4,9 @@ Host *
   GSSAPIAuthentication yes
   GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
+  ControlMaster auto
+  ControlPath /tmp/%r@%h-%p
+  ControlPersist 600
 
 Host orquidea
   ForwardX11 yes
@@ -17,10 +20,18 @@ Host login.idiap.ch
 
 # Setup Idiap proxying for internal hosts
 Host *.idiap.ch
+  ForwardX11 no
+  ForwardX11Trusted no
   Compression yes
   CompressionLevel 9
   ForwardAgent yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
+
+Host github.com
+  ForwardX11 no
+  ForwardX11Trusted no
+  Compression yes
+  CompressionLevel 9
 
 # allows 'ssh idiap ...'
 Host idiap
