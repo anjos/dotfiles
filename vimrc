@@ -33,6 +33,10 @@ let g:UltiSnipsListSnippets='<S-tab>'
 let g:ultisnips_python_style='sphinx'
 let g:ultisnips_python_quotion_style='double'
 
+"ignore these files on file lists and tab completions
+set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
+set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
+
 "configuration for NERDTree
 map <C-i> :NERDTreeToggle<CR>
 
