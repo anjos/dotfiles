@@ -21,21 +21,26 @@ Host login.idiap.ch
 # Setup Idiap proxying for internal hosts
 Host *.idiap.ch
   Compression yes
-  CompressionLevel 9
   ForwardAgent yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
 
 Host github.com
   Compression yes
-  CompressionLevel 9
 
 # allows 'ssh idiap ...'
 Host idiap
   Hostname italix10.idiap.ch
   Compression yes
-  CompressionLevel 9
   ForwardAgent yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
+
+# allows 'ssh idiap ...'
+Host staging
+  User aanjos
+  Hostname login.idiap.ch
+  Compression yes
+  LocalForward 8080 beatweb-staging:80
+  ForwardAgent yes
 
 Host win
   User andre
