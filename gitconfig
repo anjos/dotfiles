@@ -25,4 +25,4 @@
   lg = !"git lg1"
   lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
 [push]
-	default = matching
+	default = current
