@@ -39,7 +39,7 @@ Host github.com
 # allows 'ssh idiap ...'
 Host idiap
   User aanjos
-  Hostname italix10.idiap.ch
+  Hostname italix22.idiap.ch
   Compression yes
   ForwardAgent yes
   ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
