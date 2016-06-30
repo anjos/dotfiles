@@ -94,6 +94,7 @@ source ~/.vim/abbreviations.vim
 
 "Stuff we only use in gui mode
 if has("gui_running")
+
   colorscheme solarized
   set guioptions-=m
   set guioptions-=T
@@ -106,6 +107,15 @@ if has("gui_running")
     let g:airline_symbols = {}
   endif
   let g:airline_symbols.space = "\ua0"
+
+  "Setup nicer fonts on guis
+  if has("gui_gtk2")
+    "set guifont=Inconsolata\ for\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+  elseif has("gui_macvim")
+    set guifont=Sauce\ Code\ Powerline\ Light:h14
+  endif
+
 endif
 
 "Show trailing whitespaces
