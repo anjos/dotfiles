@@ -17,14 +17,11 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'elzr/vim-json'
 Plugin 'Pychimp/vim-luna'
+Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tell-k/vim-autopep8'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'rizzatti/dash.vim'
-
-if has("gui_running")
-    Plugin 'bling/vim-airline'
-endif
 
 call vundle#end() "required
 filetype plugin indent on "re-enable indentation
@@ -93,17 +90,38 @@ autocmd FileType make set noexpandtab
 "My abbreviations
 source ~/.vim/abbreviations.vim
 
+"Airline configuration
+set laststatus=2
+let g:airline_theme='luna'
+let g:airline_powerline_fonts=1
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
 "Stuff we only use in gui mode
 if has("gui_running")
   set transparency=5
   set guioptions=egmrLt
 
-  "Airline configuration options
-  set laststatus=2
+  colorscheme solarized
   set noshowmode
-  let g:airline_powerline_fonts=1
-  let g:airline_theme='luna'
-  set guifont=Sauce\ Code\ Powerline\ Light:h14
+  set guioptions-=m
+  set guioptions-=T
+  set guioptions+=i
+
+  "Setup nicer fonts on guis
+  if has("gui_gtk2")
+    "set guifont=Inconsolata\ for\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+  elseif has("gui_macvim")
+    set guifont=Sauce\ Code\ Powerline\ Light:h14
+  endif
+
+else
+
+  set t_Co=256
+
 endif
 
 "Show trailing whitespaces
