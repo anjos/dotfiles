@@ -5,7 +5,7 @@
 # Initialization for **interactive** shells
 
 # MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/opt/conda/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=/opt/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 
 # Completion for MacPorts
 [ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
