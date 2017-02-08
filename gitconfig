@@ -16,9 +16,13 @@
   prompt = false
 [alias]
   d = difftool
-  p = push
+  pu = push
+  ba = branch -a
+  bd = branch -d
   co = checkout
   ci = commit
+  cp = cherry-pick
+  fp = fetch -p
   st = status
   s = status
   sd = status .
