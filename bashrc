@@ -5,7 +5,7 @@
 # Initialization for **interactive** shells
 
 # MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/opt/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
+export PATH=$HOME/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 
 # Completion for MacPorts
 [ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
@@ -23,9 +23,9 @@ fi
 
 if [ -e ~/.bash_colors.sh ]; then
 	. ~/.bash_colors.sh;
-	PS1=`colourise $col "["`"\h-\$(date +%k:%M)"`colourise $col "]"`" \W "`colourise $col "$pr"`" ";
+	PS1=`colourise $col "["`"\$(date +%k:%M)"`colourise $col "]"`" \W "`colourise $col "$pr"`" ";
 else
-	PS1="[\h-\$(date +%k:%M)] \W $pr "
+	PS1="[\$(date +%k:%M)] \W $pr "
 fi
 
 if [ -d $HOME/bin ]; then
