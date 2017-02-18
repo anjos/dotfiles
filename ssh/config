@@ -34,6 +34,7 @@ Host cimacosx beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
 Host cilinux bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
   User root
   Hostname bpr-facedemo.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
 
 Host ubu
   User root
