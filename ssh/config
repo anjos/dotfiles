@@ -1,8 +1,8 @@
 # Order matters - ssh will only use options which are not previously
 # defined inside this configuration file.
 
-Host orquidea
-  User root
+Host orquidea nas
+  User andre
   Hostname orquidea.local
 
 Host github github.com
