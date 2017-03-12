@@ -4,14 +4,11 @@
 
 # Initialization for **interactive** shells
 
-# MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/opt/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
+# QNAP installer addition: adding an appropriate PATH variable
+export PATH=$HOME/conda/bin:/opt/bin:/opt/sbin:$PATH
 
 # Completion for MacPorts
-[ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
-
-# Completion for Conda
-eval "$(register-python-argcomplete conda)"
+[ -f /opt/etc/profile.d/bash_completion.sh ] && source /opt/etc/profile.d/bash_completion.sh;
 
 # So we know when we are root
 pr='>>';
@@ -32,18 +29,14 @@ if [ -d $HOME/bin ]; then
   export PATH=$HOME/bin:$PATH;
 fi
 
-if [ -d $HOME/work/npm/bin ]; then
-  export PATH=$HOME/work/npm/bin:$PATH;
-fi
-
 # Standard aliases
 alias 'h=history'
 alias 'm=less -R'
-alias ls='gls --color=auto -F -t -r -t'
+alias ls='ls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
-alias rm='grm -vi'
+alias rm='rm -vi'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias tm='tail -f /var/log/messages'
@@ -51,12 +44,12 @@ alias dire='ls -alt'
 alias t='less'
 alias tn='less -N'
 alias more='less'
-alias chmod='gchmod -c'
-alias chown='gchown -c'
-alias chgrp='gchgrp -c'
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias chgrp='chgrp -c'
 alias grep='grep --color'
 alias vi='mvim'
-alias gvim='mvim'
+alias gvim='vim'
 alias ipy='ipython --no-banner'
 
 # Programs controlled by environment variables
@@ -70,7 +63,7 @@ export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 set +o ignoreeof
 
 # Directory colorisation
-eval `gdircolors --sh ~/.dircolors`;
+eval `dircolors --sh ~/.dircolors`;
 
 # Sets up the history
 export HISTFILE=${HOME}/.bash_history;
@@ -78,17 +71,6 @@ export HISTSIZE=10000;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
-
-# A function to send commands to a remotely opened MacVim terminal
-function tvim () {
-  local started=`mvim --serverlist | wc -l`
-  if (( ${started} > 0 )); then
-    mvim --remote-tab $*
-  else
-    mvim $*
-  fi
-  return $?
-}
 
 # Removes duplicates from PATH
 export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH`;
