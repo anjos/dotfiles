@@ -1,60 +1,58 @@
+# Order matters - ssh will only use options which are not previously
+# defined inside this configuration file.
+
+Host orquidea nas
+  User andre
+  Hostname orquidea.local
+
+Host github github.com
+  User git
+  ForwardAgent no
+  Hostname github.com
+
+Host gitlab gitlab.idiap.ch
+  User git
+  ForwardAgent no
+  Hostname gitlab.idiap.ch
+
+# Default proxy jump host at Idiap
+Host proxy
+  User aanjos
+  Hostname login.idiap.ch
+  ProxyCommand none
+
+Host idiap
+  User aanjos
+  Hostname italix22.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host cimacosx beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
+  User aanjos
+  Hostname beatmacosx01.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host cilinux bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
+  User root
+  Hostname bpr-facedemo.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host ubu
+  User root
+  Hostname beatubulatest.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host beat* beat*.lab.idiap.ch
+  User root
+  Hostname %h.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
 Host *
+  Compression yes
+  CompressionLevel 9
   ForwardAgent yes
-  StrictHostKeyChecking no
-  GSSAPIAuthentication yes
-  GSSAPIDelegateCredentials yes
+  ForwardX11 no
+  ForwardX11Trusted no
   ServerAliveInterval 60
   ControlMaster auto
   ControlPath /tmp/%r@%h-%p
   ControlPersist 600
-
-Host orquidea
-  User root
-  Hostname orquidea.local
-  ForwardX11 yes
-  ForwardX11Trusted yes
-  ForwardAgent yes
-  StrictHostKeyChecking no
-
-# Not proxying for the portal
-Host login.idiap.ch
-  ProxyCommand none
-
-# Setup Idiap proxying for internal hosts
-Host *.idiap.ch
-  User aanjos
-  Compression yes
-  ForwardAgent yes
-  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
-
-Host *.lab.idiap.ch
-  User root
-  Compression yes
-  ForwardAgent yes
-  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
-
-Host github.com
-  Compression yes
-
-# allows 'ssh idiap ...'
-Host idiap
-  User aanjos
-  Hostname italix22.idiap.ch
-  Compression yes
-  ForwardAgent yes
-  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
-
-Host beat*
-  User root
-  Hostname %h.lab.idiap.ch
-  Compression yes
-  ForwardAgent yes
-  ProxyCommand ssh aanjos@login.idiap.ch netcat -w 1 %h %p 2> /dev/null
-
-Host win
-  User andre
-  Hostname localhost
-  Port 2207
-  Compression no
-  ForwardAgent yes
-  StrictHostKeyChecking no
