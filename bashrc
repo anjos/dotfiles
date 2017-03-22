@@ -21,6 +21,11 @@ if [ -f /idiap/resource/software/initfiles/shrc ]; then
   source /idiap/resource/software/initfiles/shrc;
 fi
 
+# Conda environment
+if [ -d /scratch/aanjos/conda ]; then
+  export PATH=/scratch/aanjos/conda/bin:$PATH;
+fi
+
 # Adds my bin directory to the search list
 if [ -d ~/bin ]; then
   export PATH=$HOME/bin:$PATH;
