@@ -15,6 +15,9 @@
 [difftool]
   prompt = false
 [alias]
+  ba = branch -la
+  bd = branch -d
+  fp = fetch -p
   d = difftool
   pu = push
   ba = branch -a
