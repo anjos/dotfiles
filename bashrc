@@ -58,6 +58,7 @@ alias grep='grep --color'
 alias vi='mvim'
 alias gvim='mvim'
 alias ipy='ipython --no-banner'
+alias ccat='highlight -O ansi'
 
 # Programs controlled by environment variables
 export EDITOR=vim;
