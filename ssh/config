@@ -1,22 +1,36 @@
-Host beat* gitlab.idiap.ch github.com
+Host github github.com
+  User git
+  ForwardAgent no
+  Hostname github.com
+
+Host gitlab gitlab.idiap.ch
+  User git
+  ForwardAgent no
+  Hostname gitlab.idiap.ch
+
+Host cimacosx beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
+  User aanjos
+  Hostname beatmacosx01.lab.idiap.ch
+
+Host cilinux bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
+  User root
+  Hostname bpr-facedemo.lab.idiap.ch
+
+Host ubu
+  User root
+  Hostname beatubulatest.lab.idiap.ch
+
+Host beat* beat*.lab.idiap.ch
+  User root
+  Hostname %h.lab.idiap.ch
+
+Host *
+  Compression yes
+  CompressionLevel 9
+  ForwardAgent yes
   ForwardX11 no
   ForwardX11Trusted no
-  ForwardAgent yes
-  StrictHostKeyChecking no
-  ControlMaster auto
-  ControlPath /tmp/%r@%h-%p
-  ControlPersist 600
-  Compression yes
-
-Host *.idiap.ch
-  ForwardX11 yes
-  ForwardX11Trusted yes
-  ForwardAgent yes
-  StrictHostKeyChecking no
-  GSSAPIAuthentication yes
-  GSSAPIDelegateCredentials yes
   ServerAliveInterval 60
   ControlMaster auto
   ControlPath /tmp/%r@%h-%p
   ControlPersist 600
-  Compression yes
