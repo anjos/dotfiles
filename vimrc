@@ -75,6 +75,9 @@ map <F12> :syntax sync fromstart<cr>
 imap <F12> <esc>:syntax sync fromstart<cr>
 vmap <F12> :syntax sync fromstart<cr>
 
+"allow a simple paste toggle using F3
+set pastetoggle=<F3>
+
 "for tab movement
 map <C-left> gT
 map <C-right> gt
