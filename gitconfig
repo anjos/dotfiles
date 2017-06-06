@@ -1,11 +1,11 @@
 [user]
-	name = Andre Anjos
-	email = andre.anjos@idiap.ch
-	signingkey = A2170D5D
+  name = Andre Anjos
+  email = andre.anjos@idiap.ch
+  signingkey = A2170D5D
 [core]
-	editor = vim
+  editor = vim
 [color]
-	ui = true
+  ui = true
   branch = auto
   diff = auto
   interactive = auto
@@ -35,4 +35,6 @@
   lg = !"git lg1"
   lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
 [push]
-	default = current
+  default = current
+[credential]
+  helper = cache --timeout=3600
