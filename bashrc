@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # Andre Anjos <andre.dos.anjos@gmail.com>
-# Tue 03 Sep 2013 15:55:27 CEST
+# Fri  2 Mar 14:07:57 2018 CET
 
 # Understand how bashrc, bash_profile, profile and inputrc are used:
 #
@@ -90,10 +90,13 @@ alias qstat='grid qstat'
 alias qdel='grid qdel'
 alias qman='grid man'
 alias matlab='setshell.py matlab matlab'
+alias vi='nvim'
+alias ipy='ipython --no-banner'
+alias ccat='highlight -O ansi'
 
-# Useful environment variables for interactive shells
-export EDITOR=vim;
-export VISUAL=vim;
+# Programs controlled by environment variables
+export EDITOR=nvim;
+export VISUAL=nvim;
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
