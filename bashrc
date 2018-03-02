@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Andre Anjos <andre.dos.anjos@gmail.com>
-# Tue  3 Sep 16:48:07 2013 CEST
+# Fri  2 Mar 14:07:57 2018 CET
 
 # Initialization for **interactive** shells
 
@@ -9,9 +9,6 @@ export PATH=$HOME/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 
 # Completion for MacPorts
 [ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
-
-# Completion for Conda
-eval "$(register-python-argcomplete conda)"
 
 # So we know when we are root
 pr='>>';
@@ -55,8 +52,7 @@ alias chmod='gchmod -c'
 alias chown='gchown -c'
 alias chgrp='gchgrp -c'
 alias grep='grep --color'
-alias vi='mvim'
-alias gvim='mvim'
+alias vi='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
 
@@ -80,16 +76,18 @@ export HISTSIZE=10000;
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
 
-# A function to send commands to a remotely opened MacVim terminal
-function tvim () {
-  local started=`mvim --serverlist | wc -l`
-  if (( ${started} > 0 )); then
-    mvim --remote-tab $*
-  else
-    mvim $*
-  fi
-  return $?
+# A function to start a new iTerm window with the neovim profile
+function xvim () {
+  cmd="/opt/local/bin/nvim"
+  for entry in "$@"; do cmd="${cmd} \\\"${entry}\\\""; done
+  #echo "${cmd}"
+  osascript &>/dev/null <<EOF
+    tell application "iTerm2"
+      create window with profile "Neovim" command "$cmd"
+    end tell
+EOF
 }
+alias gvim='xvim'
 
 # Removes duplicates from PATH
 export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH`;

@@ -1,5 +1,5 @@
-# Created by Andre Anjos <andre.dos.anjos@cern.ch> 
-# Qui 26 Jul 2007 10:16:23 CEST 
+# Created by Andre Anjos <andre.dos.anjos@cern.ch>
+# Qui 26 Jul 2007 10:16:23 CEST
 #
 # This makefile maintains the symbolic links from the user home directory
 # pointing to this directory. The mechanics of work is like this:
@@ -17,19 +17,15 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean ssh ipython
+all: deepclean ssh nvim
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 ssh:
 	@for f in $(SSHFILES); do ln -s -v -f $$f $$HOME/.ssh/`basename $$f`; done
 
-ipython:
+nvim:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/ipython $$HOME/.config/
-
-xfce-terminal:
-	@if [ -d $$HOME/.config/Terminal ]; then rm -rf $$HOME/.config/Terminal; fi
-	@ln -s -v -f $$PWD/config/Terminal $$HOME/.config/Terminal
+	@ln -s -v -f $$PWD/config/nvim $$HOME/.config/
 
 .PHONY: clean all deepclean ssh
 
