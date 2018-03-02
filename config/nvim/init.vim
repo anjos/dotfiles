@@ -27,8 +27,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'elzr/vim-json'
 Plug 'bling/vim-airline'
+Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'tell-k/vim-autopep8'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 call plug#end()
@@ -95,16 +95,16 @@ map <C-right> gt
 
 "set cursorline
 
-"HTML editing does not need line breaking...
+"html editing does not need line breaking...
 autocmd FileType html set textwidth=0
 
-"Makefile editing stuff
+"makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"My abbreviations
+"my abbreviations
 source ~/.vim/abbreviations.vim
 
-"Airline configuration
+"airline configuration
 set laststatus=2
 let g:airline_theme='luna'
 let g:airline_powerline_fonts=1
@@ -113,33 +113,23 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.space = "\ua0"
 
-"Show trailing whitespaces
+"show trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd ColorScheme * highlight ExtraWhitespace guibg=red
 autocmd BufEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 
-"Strip trailing whitespaces
+"strip trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"Airline configuration
+"airline configuration
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#whitespace#enabled = 1
 
-"Autopep8 configuration
-autocmd FileType python map <buffer> <F3> :call Autopep8()<CR>
-let g:autopep8_indent_size=2
-let g:autopep8_max_line_length=79
+"flake8 configuration
+let g:flake8_show_in_file=1
 
 "Indent guides configuration
 let g:indent_guides_guide_size=1
-
-"Fix/override ftplugin default tab settings for Python
-function! SetupPython()
-  setlocal tabstop=2
-  setlocal shiftwidth=2
-  setlocal softtabstop=2
-endfunction
-command! -bar SetupPython call SetupPython()
