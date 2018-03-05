@@ -9,6 +9,7 @@ vim/spell/*.add
 vim/spell/*.add.spl
 vim/view/
 vim/.net*
+config/nvim/autoload/plug.vim.old
 *.sqlite
 config/ipython/profile_default/db/
 .DS_Store

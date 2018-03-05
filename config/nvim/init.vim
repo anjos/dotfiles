@@ -14,6 +14,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
