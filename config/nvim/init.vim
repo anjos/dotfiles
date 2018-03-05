@@ -4,7 +4,8 @@ if has("unix")
   if s:uname == "Darwin\n"
     let g:python_host_prog = '/opt/local/bin/python2'
     let g:python3_host_prog = '/opt/local/bin/python3'
-    let g:ruby_host_prog = '/opt/local/bin/ruby2.2'
+    "for some reason, settting this does not work as expected
+    "let g:ruby_host_prog = '/opt/local/bin/ruby'
   else
     "let g:python2_host_prog = '/opt/local/bin/python2'
     "let g:python3_host_prog = '/opt/local/bin/python3'
