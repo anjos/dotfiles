@@ -8,6 +8,7 @@ vim/spell/*.add
 vim/spell/*.add.spl
 vim/view/
 vim/.net*
+config/nvim/autoload/plug.vim.old
 *.sqlite
 .DS_Store
 *.swp
