@@ -135,7 +135,7 @@ let g:airline#extensions#whitespace#enabled = 1
 let g:flake8_show_in_file=1
 
 "show line numbers and make double-C-n switch modes
-set number
+set nonumber
 set numberwidth=4
 :nmap <C-N><C-N> :set invnumber<CR>
 
