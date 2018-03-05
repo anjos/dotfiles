@@ -53,12 +53,13 @@ alias chown='gchown -c'
 alias chgrp='gchgrp -c'
 alias grep='grep --color'
 alias vi='nvim'
+alias vim='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
 
 # Programs controlled by environment variables
-export EDITOR=vim;
-export VISUAL=vim;
+export EDITOR=nvim;
+export VISUAL=nvim;
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
