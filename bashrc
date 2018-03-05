@@ -91,6 +91,7 @@ alias qdel='grid qdel'
 alias qman='grid man'
 alias matlab='setshell.py matlab matlab'
 alias vi='nvim'
+alias vim='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
 
