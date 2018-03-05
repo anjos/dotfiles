@@ -133,5 +133,10 @@ let g:airline#extensions#whitespace#enabled = 1
 "flake8 configuration
 let g:flake8_show_in_file=1
 
+"show line numbers and make double-C-n switch modes
+set number
+set numberwidth=4
+:nmap <C-N><C-N> :set invnumber<CR>
+
 "Indent guides configuration
 let g:indent_guides_guide_size=1
