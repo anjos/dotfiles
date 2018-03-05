@@ -7,8 +7,9 @@ if has("unix")
     "for some reason, settting this does not work as expected
     "let g:ruby_host_prog = '/opt/local/bin/ruby'
   else
-    "let g:python2_host_prog = '/opt/local/bin/python2'
-    "let g:python3_host_prog = '/opt/local/bin/python3'
+    let g:python_host_prog = '/usr/bin/python2.7'
+    let g:python3_host_prog = '/usr/bin/python3.5'
+    let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
   endif
 endif
 
