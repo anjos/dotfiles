@@ -21,7 +21,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'zchee/deoplete-clang'
+Plug 'tweekmonster/deoplete-clang2'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'icymind/NeoSolarized'
 Plug 'ervandew/supertab'
@@ -37,6 +37,10 @@ call plug#end()
 
 "use deoplete
 let g:deoplete#enable_at_startup=1
+
+"configuration for deoplete-clang2
+let g:deoplete#sources#clang#flags=['-darwin=10.13']
+let g:deoplete#sources#clang#std={'c': 'c11', 'cpp': 'c++1z'}
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
