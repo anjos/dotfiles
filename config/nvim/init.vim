@@ -36,6 +36,9 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 call plug#end()
 
+"open new window when running the plugin admin commands
+let g:plug_window = 'botright new'
+
 "use deoplete
 let g:deoplete#enable_at_startup=1
 
