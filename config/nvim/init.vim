@@ -4,8 +4,7 @@ if has("unix")
   if s:uname == "Darwin\n"
     let g:python_host_prog = '/opt/local/bin/python2'
     let g:python3_host_prog = '/opt/local/bin/python3'
-    "for some reason, settting this does not work as expected
-    "let g:ruby_host_prog = '/opt/local/bin/ruby'
+    let g:ruby_host_prog = '/opt/local/lib/ruby2.2/gems/2.2.0/gems/neovim-0.7.1/bin/neovim-ruby-host'
   else
     "let g:python2_host_prog = '/opt/local/bin/python2'
     "let g:python3_host_prog = '/opt/local/bin/python3'
@@ -21,7 +20,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'tweekmonster/deoplete-clang2'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'icymind/NeoSolarized'
 Plug 'ervandew/supertab'
@@ -37,6 +35,12 @@ call plug#end()
 
 "open new window when running the plugin admin commands
 let g:plug_window = 'botright new'
+
+"let mouse work fine against terminal neovim
+set mouse=
+
+" Paste with middle mouse click
+vmap <LeftRelease> "*ygv
 
 "use deoplete
 let g:deoplete#enable_at_startup=1
