@@ -44,6 +44,7 @@ vmap <LeftRelease> "*ygv
 
 "use deoplete
 let g:deoplete#enable_at_startup=1
+set completeopt-=preview
 
 "configuration for deoplete-clang2
 let g:deoplete#sources#clang#flags=['-darwin=10.13']
