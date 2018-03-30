@@ -58,7 +58,7 @@ map <C-i> :NERDTreeToggle<CR>
 
 "configuration for Command-T
 map <C-a> :CommandT<CR>
-let g:CommandTFileScanner='git'
+let g:CommandTFileScanner='find'
 
 "file reading/writing options
 set title         "set terminal title
