@@ -5,7 +5,7 @@
 # Initialization for **interactive** shells
 
 # MacPorts installer addition: adding an appropriate PATH variable
-export PATH=$HOME/conda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
 
 # Completion for MacPorts
 [ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
@@ -95,3 +95,8 @@ export PATH=`awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}
 
 # Sets up the core dump limits
 ulimit -c unlimited;
+
+# Conda setup
+if [ -x ${HOME}/conda/bin/conda ]; then
+  source ${HOME}/conda/etc/profile.d/conda.sh
+fi
