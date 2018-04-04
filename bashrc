@@ -21,11 +21,6 @@ if [ -f /idiap/resource/software/initfiles/shrc ]; then
   source /idiap/resource/software/initfiles/shrc;
 fi
 
-# Conda environment
-if [ -d /scratch/aanjos/conda ]; then
-  export PATH=/scratch/aanjos/conda/bin:$PATH;
-fi
-
 # Adds my bin directory to the search list
 if [ -d ~/bin ]; then
   export PATH=$HOME/bin:$PATH;
@@ -140,4 +135,9 @@ if [ -r "${POWERLINE_BASH}" ]; then
   POWERLINE_BASH_CONTINUATION=1;
   POWERLINE_BASH_SELECT=1;
   source "${POWERLINE_BASH}";
+fi
+
+# Setup conda
+if [ -d /scratch/aanjos/conda ]; then
+  source /scratch/aanjos/conda/etc/profile.d/conda.sh
 fi
