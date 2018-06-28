@@ -37,7 +37,7 @@ call plug#end()
 let g:plug_window = 'botright new'
 
 "let mouse work fine against terminal neovim
-set mouse=
+set mouse=a
 
 " Paste with middle mouse click
 vmap <LeftRelease> "*ygv
