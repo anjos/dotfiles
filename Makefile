@@ -29,7 +29,7 @@ ssh:
 nvim:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
 	@ln -s -v -f $$PWD/config/nvim $$HOME/.config/
-	@ln -s -v -f $$PWD/ipython $$HOME/.config/ipython
+	@ln -s -v -f $$PWD/ipython $$HOME/.ipython
 
 xfce-terminal:
 	@if [ -d $$HOME/.config/Terminal ]; then rm -rf $$HOME/.config/Terminal; fi
