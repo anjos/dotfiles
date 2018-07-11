@@ -138,6 +138,6 @@ if [ -r "${POWERLINE_BASH}" ]; then
 fi
 
 # Setup conda
-if [ -d /scratch/aanjos/conda ]; then
-  source /scratch/aanjos/conda/etc/profile.d/conda.sh
+if [ -d /idiap/user/aanjos/conda ]; then
+  source /idiap/user/aanjos/conda/etc/profile.d/conda.sh
 fi
