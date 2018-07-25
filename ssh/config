@@ -8,7 +8,11 @@ Host gitlab gitlab.idiap.ch
   ForwardAgent no
   Hostname gitlab.idiap.ch
 
-Host cimacosx beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
+Host cimacosx bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
+  User aanjos
+  Hostname bsp-ws02.lab.idiap.ch
+
+Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
   User aanjos
   Hostname beatmacosx01.lab.idiap.ch
 
