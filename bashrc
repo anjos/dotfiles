@@ -123,10 +123,6 @@ if [ -x /usr/sbin/custom-conf-getuser ]; then
   conf_user=$(/usr/sbin/custom-conf-getuser);
 fi
 
-if [ "$conf_user" = "$USER" ]; then
-  ulimit -c unlimited;
-fi
-
 # Powerline
 POWERLINE_BASH=${HOME}/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh;
 if [ -r "${POWERLINE_BASH}" ]; then
