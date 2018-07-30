@@ -48,16 +48,6 @@ else
 	PS1="[\h-\$(date +%k:%M)] \W $pr "
 fi
 
-# Adds a new tab to a graphical vim instance
-function tvim () {
-  local started=`gvim --serverlist | wc -l`
-  if (( ${started} > 0 )); then
-    gvim --remote-tab $*
-  else
-    gvim $*
-  fi
-}
-
 # Aliases for interactive shells
 alias 'h=history'
 alias 'm=less -R'
@@ -89,6 +79,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
+
+gvim() {
+  xfce4-terminal --geometry='83x54' -T 'neovim' --hide-menubar --hide-scrollbar --icon=gvim --execute `which nvim` "${@}"
+}
 
 # Programs controlled by environment variables
 export EDITOR=nvim;
