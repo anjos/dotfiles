@@ -1,16 +1,3 @@
-"setup python for supported OSes
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    let g:python_host_prog = '/opt/local/bin/python2'
-    let g:python3_host_prog = '/opt/local/bin/python3'
-    let g:ruby_host_prog = '/opt/local/lib/ruby2.2/gems/2.2.0/gems/neovim-0.7.1/bin/neovim-ruby-host'
-  else
-    "let g:python2_host_prog = '/opt/local/bin/python2'
-    "let g:python3_host_prog = '/opt/local/bin/python3'
-  endif
-endif
-
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'

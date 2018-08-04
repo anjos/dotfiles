@@ -5,10 +5,10 @@
 # Initialization for **interactive** shells
 
 # MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
-# Completion for MacPorts
-[ -f /opt/local/etc/profile.d/bash_completion.sh ] && source /opt/local/etc/profile.d/bash_completion.sh;
+# bash-completion from homebrew
+[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 # So we know when we are root
 pr='>>';
@@ -84,6 +84,25 @@ function xvim () {
     end tell
 EOF
 }
+alias gvim='xvim'
+
+# A function to start a new tunnel to my machine at Idiap
+function tunnel () {
+  if [ $# == 0 ]; then
+    echo "Creates a tunnel between local and remote ports on idiap"
+    echo "tunnel <remote-port>  # binds remote port to same local port"
+    echo "tunnel <local-port> <remote-port>  # binds local to remote port"
+    return 1
+  fi
+  local local_port=$1
+  if [ $# == 1 ]; then
+    local remote_port=$1
+  else
+    local remote_port=$2
+  fi
+  ssh -N -L ${local_port}:italix22.idiap.ch:${remote_port} idiap
+}
+
 alias gvim='xvim'
 
 # Removes duplicates from PATH
