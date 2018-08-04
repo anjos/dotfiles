@@ -127,6 +127,9 @@ if [ -r "${POWERLINE_BASH}" ]; then
   source "${POWERLINE_BASH}";
 fi
 
+# Terminal colors
+export TERM=xterm-256color
+
 # Setup conda
 if [ -d /idiap/user/aanjos/conda ]; then
   source /idiap/user/aanjos/conda/etc/profile.d/conda.sh
