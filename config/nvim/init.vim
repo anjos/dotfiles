@@ -13,7 +13,7 @@ Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
-Plug 'icymind/NeoSolarized'
+Plug 'w0ng/vim-hybrid'
 Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -82,7 +82,7 @@ set backspace=indent,eol,start "fixes backspace
 "color scheme/theme
 set termguicolors "finer colors
 set bg=dark "use dark background on guis
-colorscheme NeoSolarized
+colorscheme hybrid
 
 "temporarily disables highlighting with <SPACE>
 nmap <SPACE> <SPACE>:noh<CR>
@@ -113,7 +113,7 @@ source ~/.vim/abbreviations.vim
 
 "airline configuration
 set laststatus=2
-let g:airline_theme='luna'
+let g:airline_theme='wombat'
 let g:airline_powerline_fonts=1
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
