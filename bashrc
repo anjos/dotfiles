@@ -5,7 +5,7 @@
 # Initialization for **interactive** shells
 
 # MacPorts installer addition: adding an appropriate PATH variable
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin:$PATH
 
 # bash-completion from homebrew
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
@@ -75,7 +75,7 @@ export PYTHONSTARTUP=~/.python_profile.py
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
-  cmd="/opt/local/bin/nvim"
+  cmd="/usr/local/bin/nvim"
   for entry in "$@"; do cmd="${cmd} \\\"${entry}\\\""; done
   #echo "${cmd}"
   osascript &>/dev/null <<EOF
