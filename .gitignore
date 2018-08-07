@@ -1,14 +1,4 @@
 *~
 *.py?
-ipython/db/
-ipython/history
-ipython/profile_default/history.sqlite
-vim/bundle
-vim/spell/*.add
-vim/spell/*.add.spl
-vim/view/
-vim/.net*
-config/nvim/autoload/plug.vim.old
-*.sqlite
-.DS_Store
 *.swp
+.DS_Store
