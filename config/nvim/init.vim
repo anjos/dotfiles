@@ -147,3 +147,9 @@ set numberwidth=4
 
 "Indent guides configuration
 let g:indent_guides_guide_size=1
+
+"let me manage the gutter color, always show the bar
+let g:gitgutter_override_sign_column_highlight = 0
+set signcolumn=yes
+highlight SignColumn ctermbg=232
+highlight SignColumn guibg=#0f0f0f
