@@ -79,6 +79,10 @@ alias vi='nvim'
 alias vim='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
+alias tx='tmux'
+alias tmls='tmux list-sessions'
+alias tmlw='tmux list-windows'
+alias tma='tmux attach'
 
 gvim() {
   xfce4-terminal --geometry='83x54' -T 'neovim' --hide-menubar --hide-scrollbar --icon=gvim --execute `which nvim` "${@}"
