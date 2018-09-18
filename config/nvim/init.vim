@@ -33,7 +33,7 @@ Plug 'bling/vim-airline'
 Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'rizzatti/dash.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 "open new window when running the plugin admin commands
