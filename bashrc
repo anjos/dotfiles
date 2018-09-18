@@ -4,8 +4,9 @@
 
 # Initialization for **interactive** shells
 
-# MacPorts installer addition: adding an appropriate PATH variable
 export PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin:$PATH
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # bash-completion from homebrew
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
