@@ -153,3 +153,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
 highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
+
+"use nvr (required by vim-tex)
+let g:vimtex_compiler_progname = '/idiap/home/aanjos/.local/bin/nvr'
