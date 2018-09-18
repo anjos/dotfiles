@@ -23,6 +23,7 @@ Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
+Plug 'lervag/vimtex'
 call plug#end()
 
 "open new window when running the plugin admin commands
@@ -151,3 +152,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
 highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
+
+"use nvr (required by vim-tex)
+let g:vimtex_compiler_progname = '/usr/local/bin/nvr'
