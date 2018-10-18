@@ -25,7 +25,6 @@ Plug 'Shougo/neco-vim'
 Plug 'zchee/deoplete-clang'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'w0ng/vim-hybrid'
-Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'elzr/vim-json'
@@ -109,9 +108,6 @@ autocmd FileType html set textwidth=0
 
 "makefile editing stuff
 autocmd FileType make set noexpandtab
-
-"my abbreviations
-source ~/.vim/abbreviations.vim
 
 "airline configuration
 set laststatus=2
