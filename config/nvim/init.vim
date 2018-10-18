@@ -14,7 +14,6 @@ Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'w0ng/vim-hybrid'
-Plug 'ervandew/supertab'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'elzr/vim-json'
