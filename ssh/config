@@ -27,12 +27,12 @@ Host idiap
   ProxyCommand ssh proxy nc %h %p
 
 Host cimacosx bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
-  User aanjos
+  User admin
   Hostname bsp-ws02.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
 Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
-  User aanjos
+  User admin
   Hostname beatmacosx01.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
