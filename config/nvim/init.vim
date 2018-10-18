@@ -109,9 +109,6 @@ autocmd FileType html set textwidth=0
 "makefile editing stuff
 autocmd FileType make set noexpandtab
 
-"my abbreviations
-source ~/.vim/abbreviations.vim
-
 "airline configuration
 set laststatus=2
 let g:airline_theme='wombat'
