@@ -1,7 +1,7 @@
 "setup python/ruby
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:ruby_host_prog = '/usr/local/lib/ruby/gems/2.5.0/gems/neovim-0.7.1/bin/neovim-ruby-host'
+let g:ruby_host_prog = '/Users/andre/.gem/ruby/2.6.0/bin/neovim-ruby-host'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
@@ -12,7 +12,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && /usr/local/opt/ruby/bin/ruby extconf.rb && make' }
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
