@@ -1,6 +1,10 @@
 # Order matters - ssh will only use options which are not previously
 # defined inside this configuration file.
 
+Host phoscon cravo zigbee
+  User pi
+  Hostname cravo.local
+
 Host orquidea nas
   User andre
   Hostname orquidea.local
@@ -36,7 +40,12 @@ Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
   Hostname beatmacosx01.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
-Host cilinux bpr bsp-ws01 bsp-ws01.lab bsp-ws01.lab.idiap.ch
+Host cilinux bp-srv01 bp-srv01.lab bp-srv01.lab.idiap.ch
+  User root
+  Hostname bp-srv01.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host cilinux2 bpr bsp-ws01 bsp-ws01.lab bsp-ws01.lab.idiap.ch
   User root
   Hostname bsp-ws01.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
