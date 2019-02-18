@@ -16,7 +16,11 @@ Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
   User aanjos
   Hostname beatmacosx01.lab.idiap.ch
 
-Host cilinux bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
+Host cilinux bp-srv01 bp-srv01.lab bp-srv01.lab.idiap.ch
+  User root
+  Hostname bp-srv01.lab.idiap.ch
+
+Host cilinux2 bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
   User root
   Hostname bpr-facedemo.lab.idiap.ch
 
