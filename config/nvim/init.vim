@@ -17,7 +17,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
-Plug 'scrooloose/nerdtree'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
@@ -51,9 +50,6 @@ let g:ultisnips_python_quotion_style='double'
 "ignore these files on file lists and tab completions
 set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
 set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
-
-"configuration for NERDTree
-map <C-i> :NERDTreeToggle<CR>
 
 "configuration for Command-T
 map <C-a> :CommandT<CR>
