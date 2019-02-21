@@ -6,7 +6,7 @@ Host phoscon cravo zigbee
   Hostname cravo.local
 
 Host orquidea nas
-  User andre
+  User admin
   Hostname orquidea.local
 
 Host github github.com
