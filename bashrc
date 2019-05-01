@@ -115,4 +115,5 @@ ulimit -c 0;
 # Conda setup
 if [ -x ${HOME}/conda/bin/conda ]; then
   source ${HOME}/conda/etc/profile.d/conda.sh
+  export CONDA_BUILD_SYSROOT="/opt/MacOSX10.9.sdk"
 fi
