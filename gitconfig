@@ -34,3 +34,9 @@
   followTags = true
 [tag]
 	sort = version:refname
+[versionsort]
+  suffix = "a"
+  suffix = "b"
+  suffix = "c"
+  suffix = "rc"
+  suffix = "pre"
