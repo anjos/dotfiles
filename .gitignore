@@ -2,3 +2,5 @@
 *.py?
 *.swp
 .DS_Store
+config/nvim/spell/
+config/nvim/.netrwhist
