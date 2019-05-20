@@ -41,3 +41,9 @@
   helper = cache --timeout=3600
 [tag]
 	sort = version:refname
+[versionsort]
+  suffix = "a"
+  suffix = "b"
+  suffix = "c"
+  suffix = "rc"
+  suffix = "pre"
