@@ -35,6 +35,9 @@
   lg = !"git lg1"
   lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
 [push]
-  default = current
+	default = current
+  followTags = true
 [credential]
   helper = cache --timeout=3600
+[tag]
+	sort = version:refname
