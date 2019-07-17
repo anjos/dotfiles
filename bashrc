@@ -53,6 +53,7 @@ alias vi='nvim'
 alias vim='nvim'
 alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
+alias sb='sphinx-build'
 
 # Programs controlled by environment variables
 export EDITOR=nvim;
