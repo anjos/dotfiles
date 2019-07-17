@@ -107,10 +107,6 @@ autocmd FileType make set noexpandtab
 set laststatus=2
 let g:airline_theme='wombat'
 let g:airline_powerline_fonts=1
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.space = "\ua0"
 
 "show trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -146,3 +142,4 @@ highlight SignColumn guibg=#0f0f0f
 
 "use nvr (required by vim-tex)
 let g:vimtex_compiler_progname = '/usr/local/bin/nvr'
+let g:tex_flavor = 'latex'
