@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
+Plug 'ambv/black'
 call plug#end()
 
 "open new window when running the plugin admin commands
@@ -143,3 +144,7 @@ highlight SignColumn guibg=#0f0f0f
 "use nvr (required by vim-tex)
 let g:vimtex_compiler_progname = '/usr/local/bin/nvr'
 let g:tex_flavor = 'latex'
+
+"where to put black
+let g:black_virtualenv = stdpath('data').'/black'
+let g:black_linelength = 80
