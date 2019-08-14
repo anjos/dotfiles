@@ -63,9 +63,7 @@ set backup        "create always backup~ files
 set autoindent    "automated indentation
 set tabstop=4     "make tab size (in tabbed files equals 4)
 set shiftwidth=4  "advised?
-set softtabstop=4
 set expandtab     "make all tabs spaces, except where relevant
-set smarttab      "not sure what it does...
 set hlsearch      "enables search match highlight automatically
 set incsearch     "enables search as we type
 set ruler         "shows cursor position (with ruler)
