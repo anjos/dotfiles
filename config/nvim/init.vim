@@ -146,3 +146,17 @@ let g:tex_flavor = 'latex'
 "where to put black
 let g:black_virtualenv = stdpath('data').'/black'
 let g:black_linelength = 80
+
+"change the leader key from "\" to ";" ("," is also popular)
+let mapleader=";"
+
+"Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+
+"Shortcut to source (reload) THIS configuration file after editing it: (s)ource
+"(c)onfiguraiton
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+
+"use ;; for escape
+"http://vim.wikia.com/wiki/Avoid_the_escape_key
+inoremap ;; <Esc>
