@@ -1,17 +1,6 @@
-"setup python for supported OSes
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    let g:python_host_prog = '/opt/local/bin/python2'
-    let g:python3_host_prog = '/opt/local/bin/python3'
-    "for some reason, settting this does not work as expected
-    "let g:ruby_host_prog = '/opt/local/bin/ruby'
-  else
-    let g:python_host_prog = '/usr/bin/python2.7'
-    let g:python3_host_prog = '/usr/bin/python3.5'
-    let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
-  endif
-endif
+let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
+let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
+let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
@@ -148,7 +137,7 @@ highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
 
 "use nvr (required by vim-tex)
-let g:vimtex_compiler_progname = '/idiap/home/aanjos/.local/bin/nvr'
+let g:vimtex_compiler_progname = '/idiap/user/aanjos/conda/envs/neovim/bin/nvr'
 let g:tex_flavor = 'latex'
 
 "where to put black
