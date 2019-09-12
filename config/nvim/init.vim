@@ -114,6 +114,10 @@ autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 "strip trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+"syntax for snakemake files
+"source: https://bitbucket.org/snakemake/snakemake/src/master/misc/vim/syntax/snakemake.vim
+autocmd BufRead,BufNewFile Snakefile set filetype=snakemake
+
 "airline configuration
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
