@@ -50,9 +50,9 @@ Host cilinux2 bpr bsp-ws01 bsp-ws01.lab bsp-ws01.lab.idiap.ch
   Hostname bsp-ws01.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
-Host ubu
+Host bob
   User root
-  Hostname beatubulatest.lab.idiap.ch
+  Hostname bobconda.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
 Host beat* beat*.lab.idiap.ch
