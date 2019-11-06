@@ -1,4 +1,5 @@
 # Based on gnzh theme
+# List of unicode symbols: https://unicode-table.com/en/blocks/dingbats/
 
 setopt prompt_subst  #replace variables at every iteration
 
@@ -21,7 +22,7 @@ prompt_set () {
   fi
 
   # Check if we are on SSH or not
-  local current_time="%B%F{blue}[%f%b%T%B%F{blue}]%f%b"
+  local current_time="%B[%b%T%B]%b"
   if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
     PR_HOST='%F{red}%M%f' # SSH
     local user_host_time="${current_time} ${PR_USER}%F{cyan}@${PR_HOST}"
@@ -29,26 +30,27 @@ prompt_set () {
     local user_host_time="${current_time}"
   fi
 
-  local current_dir="%B%F{blue}%2~%f%b"
+  local current_dir="%B%F{blue}%30<…<%~%<<%f%b"
 
   # define how the prompt will look like
   PROMPT="${user_host_time} ${current_dir}"
 
   local git_info
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
-    git_info=" %15>…>$(git_prompt_info)%>>"
+    git_info=" %20>…>$(git_prompt_info)%>>"
   else
     git_info=""
   fi
 
   local conda_env
   if [ -n "${CONDA_DEFAULT_ENV}" ]; then
-    conda_env=" (${CONDA_DEFAULT_ENV})"
+    conda_env=" %F{172}❮%20>…>${CONDA_DEFAULT_ENV}%>>❯%f"
   else
     conda_env=""
   fi
 
-  PROMPT="${user_host_time}${conda_env} ${current_dir}${git_info} ${PR_PROMPT} "
+  PROMPT="╭─${user_host_time} ${current_dir}${git_info}${conda_env}
+╰─${PR_PROMPT} "
 
 }
 
