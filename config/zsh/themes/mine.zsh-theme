@@ -8,32 +8,27 @@ add-zsh-hook precmd prompt_set
 
 prompt_set () {
 
-  local PR_USER PR_USER_OP PR_PROMPT PR_HOST
+  local prompt_user prompt_host prompt_end
 
   # Check the UID
   if [[ $UID -ne 0 ]]; then # normal user
-    PR_USER='%F{green}%n%f'
-    PR_USER_OP='%F{green}%#%f'
-    PR_PROMPT='%f➤ %f'
+    prompt_user='%F{green}%n%f'
+    prompt_end='➤'
   else # root
-    PR_USER='%F{red}%n%f'
-    PR_USER_OP='%F{red}%#%f'
-    PR_PROMPT='%F{red}➤ %f'
+    prompt_user='%F{red}%n%f'
+    prompt_end='%F{red}➤%f'
   fi
 
   # Check if we are on SSH or not
   local current_time="%B[%b%T%B]%b"
   if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-    PR_HOST='%F{red}%M%f' # SSH
-    local user_host_time="${current_time} ${PR_USER}%F{cyan}@${PR_HOST}"
+    prompt_host='%F{red}%M%f' # SSH
+    local user_host_time="${current_time} ${prompt_user}%F{cyan}@${prompt_host}"
   else
     local user_host_time="${current_time}"
   fi
 
   local current_dir="%B%F{blue}%30<…<%~%<<%f%b"
-
-  # define how the prompt will look like
-  PROMPT="${user_host_time} ${current_dir}"
 
   local git_info
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
@@ -50,11 +45,10 @@ prompt_set () {
   fi
 
   PROMPT="╭─${user_host_time} ${current_dir}${git_info}${conda_env}
-╰─${PR_PROMPT} "
+╰─${prompt_end}  "
 
 }
 
-# Sets what gets preserved
 RPROMPT="%(?..%F{red}%? ↵%f)"  #return code
 ZSH_THEME_GIT_PROMPT_PREFIX="%B%F{yellow}%b"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
