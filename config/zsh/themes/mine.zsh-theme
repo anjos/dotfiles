@@ -31,14 +31,28 @@ prompt_set () {
 
   local current_dir="%B%F{blue}%2~%f%b"
 
+  # define how the prompt will look like
+  PROMPT="${user_host_time} ${current_dir}"
+
+  local git_info
   if [ -d .git ] || git rev-parse --git-dir > /dev/null 2>&1; then
-    PROMPT="${user_host_time} ${current_dir} %15>…>$(git_prompt_info)%>> ${PR_PROMPT} "
+    git_info=" %15>…>$(git_prompt_info)%>>"
   else
-    PROMPT="${user_host_time} ${current_dir} ${PR_PROMPT} "
+    git_info=""
   fi
+
+  local conda_env
+  if [ -n "${CONDA_DEFAULT_ENV}" ]; then
+    conda_env=" (${CONDA_DEFAULT_ENV})"
+  else
+    conda_env=""
+  fi
+
+  PROMPT="${user_host_time}${conda_env} ${current_dir}${git_info} ${PR_PROMPT} "
+
 }
 
 # Sets what gets preserved
 RPROMPT="%(?..%F{red}%? ↵%f)"  #return code
-ZSH_THEME_GIT_PROMPT_PREFIX="%B%F{yellow}@%b"
+ZSH_THEME_GIT_PROMPT_PREFIX="%B%F{yellow}%b"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%f"
