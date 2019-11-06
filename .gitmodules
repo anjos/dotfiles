@@ -1,3 +1,9 @@
 [submodule "vim/bundle/vundle"]
 	path = vim/bundle/vundle
 	url = https://github.com/gmarik/vundle.git
+[submodule "config/zsh/plugins/zsh-syntax-highlighting"]
+	path = config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "config/zsh/plugins/conda-zsh-completion"]
+	path = config/zsh/plugins/conda-zsh-completion
+	url = https://github.com/esc/conda-zsh-completion.git
