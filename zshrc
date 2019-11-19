@@ -4,15 +4,9 @@
 
 # Initialization for **interactive** shells
 
-# If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin:$PATH
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-
 # Conda setup
-if [ -x ${HOME}/conda/bin/conda ]; then
-  source ${HOME}/conda/etc/profile.d/conda.sh
-  export CONDA_BUILD_SYSROOT="/opt/MacOSX10.9.sdk"
+if [ -x /idiap/user/aanjos/conda/bin/conda ]; then
+  source /idiap/user/aanjos/conda/etc/profile.d/conda.sh
 fi
 
 if [ -d $HOME/bin ]; then
@@ -23,7 +17,7 @@ fi
 export PATH=$(awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH);
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/andre/.oh-my-zsh"
+export ZSH="${HOME}/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,7 +129,7 @@ bindkey -M emacs '^N' history-substring-search-down
 # Standard aliases
 alias 'h=history'
 alias 'm=less -R'
-alias ls='gls --color=auto -F -t -r -t'
+alias ls='ls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
@@ -147,9 +141,9 @@ alias dire='ls -alt'
 alias t='less'
 alias tn='less -N'
 alias more='less'
-alias chmod='gchmod -c'
-alias chown='gchown -c'
-alias chgrp='gchgrp -c'
+alias chmod='chmod -c'
+alias chown='chown -c'
+alias chgrp='chgrp -c'
 alias grep='grep --color'
 alias vi='nvim'
 alias vim='nvim'
@@ -176,23 +170,6 @@ export VISUAL=nvim;
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
-
-# A function to start a new tunnel to my machine at Idiap
-function tunnel () {
-  if [ $# == 0 ]; then
-    echo "Creates a tunnel between local and remote ports on idiap"
-    echo "tunnel <remote-port>  # binds remote port to same local port"
-    echo "tunnel <local-port> <remote-port>  # binds local to remote port"
-    return 1
-  fi
-  local local_port=$1
-  if [ $# == 1 ]; then
-    local remote_port=$1
-  else
-    local remote_port=$2
-  fi
-  ssh -N -L ${local_port}:italix22.idiap.ch:${remote_port} idiap
-}
 
 # Sets up the core dump limits
 ulimit -c 0;
