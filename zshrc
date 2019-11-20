@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
 # Andre Anjos <andre.dos.anjos@gmail.com>
-# 2019-11-05 15:41
+# 2019-11-20 17:03
 
 # Initialization for **interactive** shells
+
+# Idiap environment
+if [ -r /idiap/resource/software/initfiles/shrc ]; then
+    source /idiap/resource/software/initfiles/shrc
+fi
 
 # Conda setup
 if [ -x /idiap/user/aanjos/conda/bin/conda ]; then
   source /idiap/user/aanjos/conda/etc/profile.d/conda.sh
 fi
 
-if [ -d $HOME/bin ]; then
-  export PATH=$HOME/bin:$PATH;
+if [ -d ${HOME}/bin ]; then
+  export PATH="${HOME}/bin:${PATH}"
 fi
 
 # Removes duplicates from PATH
-export PATH=$(awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH);
+export PATH=$(awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH)
 
 # Path to your oh-my-zsh installation.
 export ZSH="${HOME}/.oh-my-zsh"
