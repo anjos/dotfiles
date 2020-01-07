@@ -45,7 +45,7 @@ prompt_set () {
   fi
 
   PROMPT="╭─${user_host_time} ${current_dir}${git_info}${conda_env}
-╰─${prompt_end}  "
+╰─${prompt_end} "
 
 }
 
