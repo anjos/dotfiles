@@ -2,3 +2,4 @@
 *.py?
 *.swp
 .DS_Store
+config/nvim/.netrwhist
