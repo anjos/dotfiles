@@ -1,17 +1,6 @@
-"setup python for supported OSes
-if has("unix")
-  let s:uname = system("uname")
-  if s:uname == "Darwin\n"
-    let g:python_host_prog = '/opt/local/bin/python2'
-    let g:python3_host_prog = '/opt/local/bin/python3'
-    "for some reason, settting this does not work as expected
-    "let g:ruby_host_prog = '/opt/local/bin/ruby'
-  else
-    let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
-    let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
-    let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
-  endif
-endif
+let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
+let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
+let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
@@ -32,6 +21,7 @@ Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
+Plug 'ambv/black'
 call plug#end()
 
 "open new window when running the plugin admin commands
@@ -62,9 +52,9 @@ set autoread      "re-read files if they change on disk
 set autowrite     "write files automatically everytime you change it
 set backup        "create always backup~ files
 set autoindent    "automated indentation
-set tabstop=2     "make tab size (in tabbed files equals 2)
-set shiftwidth=2  "advised?
-set softtabstop=2
+set tabstop=4     "make tab size (in tabbed files equals 4)
+set shiftwidth=4  "advised?
+set softtabstop=4
 set expandtab     "make all tabs spaces, except where relevant
 set smarttab      "not sure what it does...
 set hlsearch      "enables search match highlight automatically
@@ -124,6 +114,10 @@ autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 "strip trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
+"syntax for snakemake files
+"source: https://bitbucket.org/snakemake/snakemake/src/master/misc/vim/syntax/snakemake.vim
+autocmd BufRead,BufNewFile Snakefile set filetype=snakemake
+
 "airline configuration
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
@@ -147,4 +141,23 @@ highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
 
 "use nvr (required by vim-tex)
-let g:vimtex_compiler_progname = '/idiap/home/aanjos/.local/bin/nvr'
+let g:vimtex_compiler_progname = '/idiap/user/aanjos/conda/envs/neovim/bin/nvr'
+let g:tex_flavor = 'latex'
+
+"where to put black
+let g:black_virtualenv = stdpath('data').'/black'
+let g:black_linelength = 80
+
+"change the leader key from "\" to ";" ("," is also popular)
+let mapleader=";"
+
+"Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
+nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
+
+"Shortcut to source (reload) THIS configuration file after editing it: (s)ource
+"(c)onfiguraiton
+nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
+
+"use ;; for escape
+"http://vim.wikia.com/wiki/Avoid_the_escape_key
+inoremap ;; <Esc>

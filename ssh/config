@@ -24,9 +24,9 @@ Host cilinux2 bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
   User root
   Hostname bpr-facedemo.lab.idiap.ch
 
-Host ubu
+Host bob
   User root
-  Hostname beatubulatest.lab.idiap.ch
+  Hostname bobconda.lab.idiap.ch
 
 Host beat* beat*.lab.idiap.ch
   User root
