@@ -1,0 +1,12 @@
+name: neovim
+channels:
+  - defaults
+dependencies:
+  - python=3.7
+  - pip
+  - msgpack-python
+  - greenlet
+  - psutil
+  - pip:
+    - neovim-remote
+    - pynvim
