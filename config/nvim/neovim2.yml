@@ -1,0 +1,13 @@
+name: neovim2
+channels:
+  - defaults
+dependencies:
+  - python=2.7
+  - pip
+  - greenlet
+  - six
+  - trollius
+  - futures
+  - pip:
+    - msgpack
+    - pynvim

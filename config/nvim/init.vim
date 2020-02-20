@@ -1,7 +1,7 @@
 "setup python/ruby
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:ruby_host_prog = '/Users/andre/.gem/ruby/2.6.0/bin/neovim-ruby-host'
+let g:python_host_prog = '/Users/andre/conda/envs/neovim2/bin/python2'
+let g:python3_host_prog = '/Users/andre/conda/envs/neovim/bin/python3'
+let g:ruby_host_prog = '/Users/andre/.gem/ruby/2.7.0/bin/neovim-ruby-host'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
