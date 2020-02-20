@@ -5,9 +5,9 @@ dependencies:
   - python=2.7
   - pip
   - greenlet
-  - msgpack-python
   - six
   - trollius
   - futures
   - pip:
+    - msgpack
     - pynvim

@@ -1,3 +1,4 @@
+"setup python/ruby
 let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
 let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
 let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
