@@ -176,6 +176,18 @@ export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 
+# A function to update all installed pip packages
+function pipupdate() {
+  if [[ $# == 0 ]]; then
+    echo "Updates a pip installation package set"
+    echo "$ pipupdate \`which pip\`"
+    return 1
+  fi
+  echo "Updating ${1} packages..."
+  [ ! -x "${1}" ] && return
+  ${1} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+}
+
 # Sets up the core dump limits
 ulimit -c 0;
 
