@@ -2,8 +2,6 @@
   name = Andre Anjos
   email = andre.anjos@idiap.ch
   signingkey = A2170D5D
-[core]
-  editor = /idiap/home/aanjos/bin/nvim
 [color]
   ui = true
   branch = auto
