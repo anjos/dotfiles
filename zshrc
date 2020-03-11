@@ -179,19 +179,31 @@ export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 
 # A function to start a new tunnel to my machine at Idiap
 function tunnel () {
-  if [ $# == 0 ]; then
+  if [[ $# == 0 ]]; then
     echo "Creates a tunnel between local and remote ports on idiap"
-    echo "tunnel <remote-port>  # binds remote port to same local port"
-    echo "tunnel <local-port> <remote-port>  # binds local to remote port"
+    echo "$ tunnel <remote-port>  # binds remote port to same local port"
+    echo "$ tunnel <local-port> <remote-port>  # binds local to remote port"
     return 1
   fi
   local local_port=$1
-  if [ $# == 1 ]; then
+  if [[ $# == 1 ]]; then
     local remote_port=$1
   else
     local remote_port=$2
   fi
   ssh -N -L ${local_port}:italix22.idiap.ch:${remote_port} idiap
+}
+
+# A function to update all installed pip packages
+function pipupdate() {
+  if [[ $# == 0 ]]; then
+    echo "Updates a pip installation package set"
+    echo "$ pipupdate \`which pip\`"
+    return 1
+  fi
+  echo "Updating ${1} packages..."
+  [ ! -x "${1}" ] && return
+  ${1} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
 }
 
 # Sets up the core dump limits
