@@ -1,1 +1,0 @@
-complete -o bashdefault -C snakemake-bash-completion snakemake
