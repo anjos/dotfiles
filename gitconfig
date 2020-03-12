@@ -10,8 +10,15 @@
   status = auto
 [diff]
   tool = vimdiff
+[merge]
+  tool = vimdiff
+[mergetool]
+  keepBackup = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [difftool]
   prompt = false
+  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
   ba = branch -la
   bd = branch -d
