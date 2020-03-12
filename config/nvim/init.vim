@@ -144,7 +144,7 @@ highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
 
 "use nvr (required by vim-tex)
-let g:vimtex_compiler_progname = '/usr/local/bin/nvr'
+let g:vimtex_compiler_progname = '/Users/andre/conda/envs/neovim/bin/nvr'
 let g:tex_flavor = 'latex'
 
 "where to put black
