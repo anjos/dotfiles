@@ -151,6 +151,9 @@ let g:tex_flavor = 'latex'
 let g:black_virtualenv = stdpath('data').'/black'
 let g:black_linelength = 80
 
+"Use ctrl-d as quit alternative
+noremap <C-d> :q<cr>
+
 "change the leader key from "\" to ";" ("," is also popular)
 let mapleader=";"
 
