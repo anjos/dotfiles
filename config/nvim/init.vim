@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
-Plug 'ambv/black'
+Plug 'ambv/black', { 'tag': '19.10b0' }
 call plug#end()
 
 "open new window when running the plugin admin commands
