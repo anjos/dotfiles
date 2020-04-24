@@ -150,10 +150,10 @@ alias vim='nvim'
 alias ccat='highlight -O ansi'
 alias t='tmux'
 alias tl='tmux ls'
-alias tn='tmux new -t'
+alias tn='tmux new-session -A -s'
 alias it='ssh -t idiap tmux'
-alias itn='ssh -t idiap tmux new -t'
-alias itl='ssh -t idiap tmux ls'
+alias itn='it new-session -A -s'
+alias itl='it ls'
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
