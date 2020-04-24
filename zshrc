@@ -133,8 +133,7 @@ bindkey -M emacs '^N' history-substring-search-down
 # For a full list of active aliases, run `alias`.
 #
 # Standard aliases
-alias 'h=history'
-alias 'm=less -R'
+alias h='history'
 alias ls='gls --color=auto -F -t -r -t'
 alias ll='ls -l'
 alias la='ls -a'
@@ -142,20 +141,19 @@ alias lla='ll -a'
 alias rm='rm -vi'
 alias cp='cp -vi'
 alias mv='mv -vi'
-alias tm='tail -f /var/log/messages'
-alias dire='ls -alt'
-alias t='less'
-alias tn='less -N'
-alias more='less'
 alias chmod='gchmod -c'
 alias chown='gchown -c'
 alias chgrp='gchgrp -c'
 alias grep='grep --color'
 alias vi='nvim'
 alias vim='nvim'
-alias ipy='ipython --no-banner'
 alias ccat='highlight -O ansi'
-alias sb='sphinx-build'
+alias t='tmux'
+alias tl='tmux ls'
+alias tn='tmux new -t'
+alias it='ssh -t idiap tmux'
+alias itn='ssh -t idiap tmux new -t'
+alias itl='ssh -t idiap tmux ls'
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
