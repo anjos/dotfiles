@@ -23,6 +23,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
 Plug 'ambv/black', { 'tag': '19.10b0' }
+Plug 'dense-analysis/ale'
 call plug#end()
 
 "open new window when running the plugin admin commands
@@ -138,6 +139,7 @@ set numberwidth=4
 let g:indent_guides_guide_size=1
 
 "let me manage the gutter color, always show the bar
+let g:gitgutter_grep=''
 let g:gitgutter_override_sign_column_highlight = 0
 set signcolumn=yes
 highlight SignColumn ctermbg=232
