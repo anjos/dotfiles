@@ -23,7 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
 Plug 'ambv/black', { 'tag': '19.10b0' }
-Plug 'dense-analysis/ale'
+Plug 'tpope/vim-eunuch'
 call plug#end()
 
 "open new window when running the plugin admin commands
