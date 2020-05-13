@@ -24,7 +24,7 @@ Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
 Plug 'ambv/black', { 'tag': '19.10b0' }
 Plug 'tpope/vim-eunuch'
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'godlygeek/tabular'
 call plug#end()
 
 "open new window when running the plugin admin commands
