@@ -27,12 +27,17 @@ Host proxy
 
 Host idiap
   User aanjos
-  Hostname italix22.idiap.ch
+  Hostname vws-aanjos.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
 Host cimacosx bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
   User admin
   Hostname bsp-ws02.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
+Host gpu
+  User aanjos
+  Hostname vgnf013.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
 Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
