@@ -41,7 +41,7 @@
   lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
   um = fetch origin master:master
 [push]
-	default = current
+	default = upstream
   followTags = true
 [credential]
   helper = cache --timeout=3600
