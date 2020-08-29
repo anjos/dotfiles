@@ -11,7 +11,6 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'davidhalter/jedi'
 Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/neco-vim'
-Plug 'zchee/deoplete-clang'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
