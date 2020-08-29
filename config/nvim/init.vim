@@ -39,9 +39,6 @@ vmap <LeftRelease> "*ygv
 let g:deoplete#enable_at_startup=1
 set completeopt-=preview
 
-"configuration for deoplete-clang2
-let g:deoplete#sources#clang#flags=['-darwin=10.13']
-
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsListSnippets='<S-tab>'
