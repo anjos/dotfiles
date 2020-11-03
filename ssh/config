@@ -65,6 +65,11 @@ Host beat* beat*.lab.idiap.ch
   Hostname %h.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
+Host dorothy
+  User root
+  Hostname bp-srv02.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
 Host *
   Compression yes
   ForwardAgent yes
