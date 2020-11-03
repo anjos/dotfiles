@@ -1,7 +1,7 @@
 "setup python/ruby
 let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
 let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
-let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.3.0/bin/neovim-ruby-host'
+let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.5.0/bin/neovim-ruby-host'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-fugitive'
@@ -21,7 +21,7 @@ Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
-Plug 'ambv/black', { 'tag': '19.10b0' }
+Plug 'ambv/black'
 Plug 'tpope/vim-eunuch'
 Plug 'godlygeek/tabular'
 call plug#end()
