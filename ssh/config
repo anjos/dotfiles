@@ -34,7 +34,6 @@ Host beat* beat*.lab.idiap.ch
 
 Host *
   Compression yes
-  CompressionLevel 9
   ForwardAgent yes
   ForwardX11 no
   ForwardX11Trusted no
