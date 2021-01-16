@@ -45,6 +45,11 @@ Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
   Hostname beatmacosx01.lab.idiap.ch
   ProxyCommand ssh proxy nc %h %p
 
+Host cimacosx3 beatmacosx02 beatmacosx02.lab beatmacosx02.lab.idiap.ch
+  User admin
+  Hostname beatmacosx02.lab.idiap.ch
+  ProxyCommand ssh proxy nc %h %p
+
 Host cilinux bp-srv01 bp-srv01.lab bp-srv01.lab.idiap.ch
   User root
   Hostname bp-srv01.lab.idiap.ch
