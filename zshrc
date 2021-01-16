@@ -192,7 +192,20 @@ function tunnel () {
   else
     local remote_port=$2
   fi
-  ssh -N -L ${local_port}:italix22.idiap.ch:${remote_port} idiap
+  ssh -N -L ${local_port}:aanjos.idiap.ch:${remote_port} idiap
+}
+
+# A function to start a new remote desktop tunnel to the mac CIs
+function rdmac () {
+  ssh -N -L 5900:bsp-ws02.lab.idiap.ch:5900 idiap
+}
+
+function rdmac2 () {
+  ssh -N -L 5900:beatmacosx01.lab.idiap.ch:5900 idiap
+}
+
+function rdmac3 () {
+  ssh -N -L 5900:beatmacosx02.lab.idiap.ch:5900 idiap
 }
 
 # A function to update all installed pip packages
