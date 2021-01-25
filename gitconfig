@@ -53,3 +53,7 @@
   suffix = "c"
   suffix = "rc"
   suffix = "pre"
+[pull]
+  ff = only
+[init]
+  defaultBranch = master
