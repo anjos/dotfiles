@@ -8,25 +8,21 @@ Host gitlab gitlab.idiap.ch
   ForwardAgent no
   Hostname gitlab.idiap.ch
 
-Host cimacosx bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
+Host cimacos bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
   User aanjos
   Hostname bsp-ws02.lab.idiap.ch
 
-Host cimacosx2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
+Host cimacos2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
   User aanjos
   Hostname beatmacosx01.lab.idiap.ch
 
-Host cimacosx3 beatmacosx02 beatmacosx02.lab beatmacosx02.lab.idiap.ch
+Host cimacos3 beatmacosx02 beatmacosx02.lab beatmacosx02.lab.idiap.ch
   User admin
   Hostname beatmacosx02.lab.idiap.ch
 
 Host cilinux bp-srv01 bp-srv01.lab bp-srv01.lab.idiap.ch
   User root
   Hostname bp-srv01.lab.idiap.ch
-
-Host cilinux2 bpr bpr-facedemo bpr-facedemo.lab bpr-facedemo.lab.idiap.ch
-  User root
-  Hostname bpr-facedemo.lab.idiap.ch
 
 Host bob
   User root
