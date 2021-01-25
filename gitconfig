@@ -49,4 +49,6 @@
   suffix = "rc"
   suffix = "pre"
 [pull]
-	ff = only
+  ff = only
+[init]
+  defaultBranch = master
