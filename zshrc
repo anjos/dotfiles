@@ -192,20 +192,47 @@ function tunnel () {
   else
     local remote_port=$2
   fi
-  ssh -N -L ${local_port}:aanjos.idiap.ch:${remote_port} idiap
+  cmd="tunnel: ssh -N -L ${local_port}:aanjos.idiap.ch:${remote_port} idiap"
+  eval $cmd
 }
 
-# A function to start a new remote desktop tunnel to the mac CIs
+# A function to start a new tunnel to my machine at Idiap
 function rdmac () {
-  ssh -N -L 5900:bsp-ws02.lab.idiap.ch:5900 idiap
-}
-
-function rdmac2 () {
-  ssh -N -L 5900:beatmacosx01.lab.idiap.ch:5900 idiap
-}
-
-function rdmac3 () {
-  ssh -N -L 5900:beatmacosx02.lab.idiap.ch:5900 idiap
+  if [[ $1 == "-h" ]]; then
+    echo "Enables a remote desktop to an idiap mac ci:"
+    echo "$ rdmac"
+    echo "$ rdmac <num>"
+    echo "$ rdmac <num> <port>"
+    echo ""
+    echo "# <num>:"
+    echo "#   1 - mac pro"
+    echo "#   2 - old mac mini"
+    echo "#   3 - m1 mac mini"
+    echo "#   default = 1"
+    echo ""
+    echo "# <port> is the local port to bind to (default 5900)"
+    return 1
+  fi
+  local target="bsp-ws02"
+  local port="5900"
+  if [[ $# -ge 1 ]]; then
+      if [[ $1 == 1 ]]; then
+          local target="bsp-ws02"
+      elif [[ $1 == 2 ]]; then
+          local target="beatmacosx01"
+      elif [[ $1 == 3 ]]; then
+          local target="beatmacosx02"
+      else
+          echo "choose <num> to be 1, 2 or 3"
+          return
+      fi
+  fi
+  if [[ $# == 2 ]]; then
+      local port=$2
+  fi
+  cmd="ssh -N -L ${port}:${target}.lab.idiap.ch:5900 idiap"
+  echo "tunnel: $cmd"
+  eval $cmd
 }
 
 # A function to update all installed pip packages
