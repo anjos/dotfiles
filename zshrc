@@ -154,8 +154,10 @@ alias ccat='highlight -O ansi'
 alias t='tmux'
 alias tl='tmux ls'
 alias tn='tmux new-session -A -s'
+alias tc='tmux capture-pane -pt'
 alias it='ssh -t idiap tmux'
 alias itn='it new-session -A -s'
+alias itc='it capture-pane -pt'
 alias itl='it ls'
 
 # A function to start a new iTerm window with the neovim profile
