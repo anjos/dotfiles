@@ -143,6 +143,8 @@ set signcolumn=yes
 highlight SignColumn ctermbg=232
 highlight SignColumn guibg=#0f0f0f
 
+"look for the "theme"
+let $TEXINPUTS = "$PWD:$PWD/theme:"
 "use nvr (required by vim-tex)
 let g:vimtex_compiler_progname = '/idiap/user/aanjos/conda/envs/neovim/bin/nvr'
 let g:tex_flavor = 'latex'
@@ -155,7 +157,8 @@ let g:black_linelength = 80
 noremap <C-d> :q<cr>
 
 "change the leader key from "\" to ";" ("," is also popular)
-let mapleader=";"
+let mapleader = ";"
+let maplocalleader = ';'
 
 "Shortcut to edit THIS configuration file: (e)dit (c)onfiguration
 nnoremap <silent> <leader>ec :e $MYVIMRC<CR>
