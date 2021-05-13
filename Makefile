@@ -13,11 +13,11 @@
 # within this directory and your home directory will be updated accordingly
 # when you do a "make" from here.
 
-FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile' -not -name 'ssh' -not -name 'config')
+FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 'Makefile' -not -name 'ssh' -not -name 'config' -not -name 'ipython')
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean ssh nvim
+all: deepclean ssh ipython config
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 pull:
@@ -26,14 +26,12 @@ pull:
 ssh:
 	@for f in $(SSHFILES); do ln -s -v -f $$f $$HOME/.ssh/`basename $$f`; done
 
-nvim:
+ipython:
+	@ln -s -v -f -n $$PWD/ipython $$HOME/.ipython
+
+config:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
 	@ln -s -v -f $$PWD/config/nvim $$HOME/.config/
-	@ln -s -v -f $$PWD/ipython $$HOME/.ipython
-
-xfce-terminal:
-	@if [ -d $$HOME/.config/Terminal ]; then rm -rf $$HOME/.config/Terminal; fi
-	@ln -s -v -f $$PWD/config/Terminal $$HOME/.config/Terminal
 
 .PHONY: clean all deepclean ssh
 
