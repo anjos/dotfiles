@@ -1,0 +1,109 @@
+# vim: set ft=procmail:
+
+# global settings (DO ***NOT*** CHANGE!!!)
+SHELL=/bin/sh
+MAILDIR=$HOME/.Maildir/
+DEFAULT=$MAILDIR
+LOGFILE=$HOME/.procmail.log
+PATH=/usr/local/bin:/usr/bin:/bin
+
+# shell script to debug this RC file:
+#if [ $# = 0 ]; then
+#    echo "Debugs a procmail recipe"
+#    echo "usage: $0 <recipe> <maildir>"
+#    echo "example: $0 ~/.procmailrc ~/.Maildir/Backup
+#    exit 0
+#fi
+#
+#recipe=$(readlink -f $1)
+#maildir=$(mktemp -d -p $PWD)
+#echo "Dumping contents at \"${maildir}\"..."
+#
+## find all backup emails
+#for f in $2/cur/*; do
+#    echo "********** Processing $f ************"
+#    echo " | " $(egrep '^From' $f)
+#    echo " | " $(egrep '^To:.*' $f)
+#    echo " | " $(egrep '^Subject.*' $f)
+#    procmail VERBOSE=on DEFAULT=${maildir}/ MAILDIR=${maildir}/ LOGFILE=$(tty) $recipe < $f
+#    echo "********** Processed $f *************"
+#    echo ""
+#done
+
+# syntax is the following:
+#:0 [flags] [ : [locallockfile] ]
+#<zero or more conditions (one per line)>
+#<exactly one action line>
+#
+#details: https://linux.die.net/man/5/procmailrc
+
+# suppress the duplicates
+:0 Wh: msgid.lock
+| formail -D 8192 msgid.cache
+
+# copy all incoming e-mail to "backup" folder
+# * flag "c": carbon copy (continue with the next rule)
+:0 c
+Backup/
+
+# pipe all incoming e-mail through the shell command
+# find everything older than 7 days, erase that
+# * flag "i": ignore errors
+# * flag "c": carbon copy (continue with the next rule)
+# no locking applied while doing this
+:0 ic
+| find Backup/cur -mtime +7 -delete
+
+# gets rid of all spam (all e-mails that match this rule will not be further
+# processed)
+:0
+* ^X-Barracuda-Spam-Status: Yes
+.Junk/
+
+# beautify for mutt
+:0 Bfh
+* H ?? !^Lines:
+* -1^0
+*  1^1 ^.*$
+| formail -A "Lines: $="
+
+# foldernames
+# if starts with ".", then it is visible to IMAP
+# otherwise, only locally
+
+# Star or Pin messages that are important
+:0 fh
+* ^From.*(noreplypf@postfinance|noreply@ebill)\.ch
+| formail -I"X-Status: F"
+
+# Star or Pin messages that are important
+:0 fh
+* ^Subject:.*PostFinance eBill.*
+| formail -I"X-Status: F"
+
+# some mutt flags
+# READ, OLD: "X-Status: RO"  (e.g., if want to "skip INBOX")
+# IMPORTANT: "X-Status: F"
+
+# e-mails from servers
+:0
+* ^From.*librenms@idiap\.ch
+.Robots/
+
+:0
+* ^Subject:.*(Cron <root@bobconda>|\[baker).*
+.Robots/
+
+# e-mails about software go to the Software inbox
+:0
+* ^From.*(gitlab@idiap.ch|@github.com|@travis-ci.org|helpdesk@idiap.ch|beat.support@idiap.ch)
+.Software/
+
+:0
+* ^To:.*(beat-devel@googlegroups.com|bob-devel@googlegroups.com|@beat-eu.org)
+.Software/
+
+:0
+* ^From.*noreply.*
+* ^Subject:.*IDIAP\.ORS.*
+.ORS/
