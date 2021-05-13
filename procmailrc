@@ -7,6 +7,23 @@ DEFAULT=$MAILDIR
 LOGFILE=$HOME/.procmail.log
 PATH=/usr/local/bin:/usr/bin:/bin
 
+# if required, here is how to do a forwarding of e-mails to another account,
+# including loop protection (http://www.open-spf.org/FAQ/Forwarding/). Replace
+# <EMAIL> on the various places by the destination e-mail (e.g. me@example.com)
+#
+#:0 fw
+#* !^X-Loop: <EMAIL>
+#| /usr/bin/formail -A'X-Loop: <EMAIL>'
+#:0 A
+#{
+#    :0
+#    * !^FROM_DAEMON
+#    ! <EMAIL>
+#    :0 B
+#    * !<EMAIL>
+#    ! <EMAIL>
+#}
+
 # shell script to debug this RC file:
 #if [ $# = 0 ]; then
 #    echo "Debugs a procmail recipe"
@@ -104,6 +121,5 @@ Backup/
 .Software/
 
 :0
-* ^From.*noreply.*
-* ^Subject:.*IDIAP\.ORS.*
+* ^Subject:.*\[IDIAP\.ORS.*
 .ORS/
