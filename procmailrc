@@ -108,7 +108,11 @@ Backup/
 .Robots/
 
 :0
-* ^Subject:.*(Cron <root@bobconda>|\[baker).*
+* ^Subject:.*\[baker.*
+.Robots/
+
+:0
+* ^From.*idiap.ch\s*\(Cron Daemon\).*
 .Robots/
 
 # e-mails about software go to the Software inbox
