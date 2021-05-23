@@ -112,7 +112,7 @@ Backup/
 .Robots/
 
 :0
-* ^From.*idiap.ch\s*\(Cron Daemon\).*
+* ^From.*\(Cron Daemon\).*
 .Robots/
 
 # e-mails about software go to the Software inbox
