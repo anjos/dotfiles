@@ -115,6 +115,10 @@ Backup/
 * ^From.*\(Cron Daemon\).*
 .Robots/
 
+:0
+* ^From.*Unit Status.*
+.Robots/
+
 # e-mails about software go to the Software inbox
 :0
 * ^From.*(gitlab@idiap.ch|@github.com|@travis-ci.org|helpdesk@idiap.ch|beat.support@idiap.ch)
