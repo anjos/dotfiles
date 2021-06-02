@@ -69,7 +69,7 @@ Backup/
 # * flag "c": carbon copy (continue with the next rule)
 # no locking applied while doing this
 :0 ic
-| find Backup/cur -mtime +7 -delete
+| find Backup/new -mtime +7 -delete
 
 # gets rid of all spam (all e-mails that match this rule will not be further
 # processed)
