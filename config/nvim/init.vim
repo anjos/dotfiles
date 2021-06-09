@@ -1,16 +1,16 @@
-"setup python/ruby
+"setup python/ruby/node
+let $PATH = '/idiap/user/aanjos/conda/envs/neovim/bin:' . $PATH
 let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
 let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
 let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.5.0/bin/neovim-ruby-host'
+let g:node_host_prog = '/idiap/user/aanjos/conda/envs/neovim/lib/node_modules/neovim/bin/cli.js'
+let g:coc_node_path = '/idiap/user/aanjos/conda/envs/neovim/bin/node'
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'davidhalter/jedi'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/neco-vim'
 Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
@@ -26,12 +26,24 @@ Plug 'tpope/vim-eunuch'
 Plug 'godlygeek/tabular'
 call plug#end()
 
+"define standard coc extensions
+let g:coc_global_extensions = [
+            \ 'coc-pyright',
+            \ 'coc-sh',
+            \ 'coc-vimlsp',
+            \ 'coc-texlab',
+            \ 'coc-css',
+            \ 'coc-calc',
+            \]
+
 "open new window when running the plugin admin commands
 let g:plug_window = 'botright new'
 
-"use deoplete
-let g:deoplete#enable_at_startup=1
-set completeopt-=preview
+"let mouse work fine against terminal neovim
+set mouse=a
+
+"paste with middle mouse click
+vmap <LeftRelease> "*ygv
 
 "configuration for ultisnips
 "let g:UltiSnipsExpandTrigger='<tab>'
