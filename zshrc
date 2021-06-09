@@ -137,19 +137,25 @@ bindkey -M emacs '^N' history-substring-search-down
 #
 # Standard aliases
 alias h='history'
-alias ls='gls --color=auto -F -t -r -t'
+if type "gls" > /dev/null; then
+  alias ls='gls --color=auto -F -t -r -t'
+fi
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
 alias rm='rm -vi'
 alias cp='cp -vi'
 alias mv='mv -vi'
-alias chmod='gchmod -c'
-alias chown='gchown -c'
-alias chgrp='gchgrp -c'
+if type "gchmod" > /dev/null; then
+  alias chmod='gchmod -c'
+  alias chown='gchown -c'
+  alias chgrp='gchgrp -c'
+fi
 alias grep='grep --color'
-alias vi='nvim'
-alias vim='nvim'
+if type "nvim" > /dev/null; then
+  alias vi='nvim'
+  alias vim='nvim'
+fi
 alias ccat='highlight -O ansi'
 alias t='tmux'
 alias tl='tmux ls'
@@ -162,7 +168,11 @@ alias itl='it ls'
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
-  cmd="/usr/local/bin/nvim"
+  if type "nvim" > /dev/null; then
+    cmd=$(which nvim)
+  else
+    cmd=$(which vim)
+  fi
   for entry in "$@"; do cmd="${cmd} \\\"${entry}\\\""; done
   #echo "${cmd}"
   osascript &>/dev/null <<EOF
