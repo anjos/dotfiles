@@ -99,6 +99,7 @@ plugins+=(python)
 plugins+=(themes)
 plugins+=(z)
 #plugins+=(autojump)
+plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
 plugins+=(history-substring-search)
 
