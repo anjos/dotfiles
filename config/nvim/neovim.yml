@@ -6,7 +6,7 @@ dependencies:
   - pip
   - greenlet
   - psutil
-  - jedi
+  - nodejs
   - pip:
     - msgpack
     - neovim-remote
