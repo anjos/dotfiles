@@ -1,5 +1,4 @@
 "setup python/ruby/node
-let $PATH = '/Users/andre/conda/envs/neovim/bin:' . $PATH
 let g:python_host_prog = '/Users/andre/conda/envs/neovim2/bin/python2'
 let g:python3_host_prog = '/Users/andre/conda/envs/neovim/bin/python3'
 let g:ruby_host_prog = '/Users/andre/.gem/ruby/3.0.0/bin/neovim-ruby-host'
@@ -8,6 +7,7 @@ let g:coc_node_path = '/Users/andre/conda/envs/neovim/bin/node'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'kevinoid/vim-jsonc'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
@@ -15,9 +15,7 @@ Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && /usr/local
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'elzr/vim-json'
 Plug 'bling/vim-airline'
-Plug 'nvie/vim-flake8'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
@@ -34,6 +32,7 @@ let g:coc_global_extensions = [
             \ 'coc-texlab',
             \ 'coc-css',
             \ 'coc-calc',
+            \ 'coc-json',
             \]
 
 "open new window when running the plugin admin commands
@@ -121,17 +120,13 @@ autocmd InsertLeave * match ExtraWhiteSpace /\s\+$/
 "strip trailing whitespaces
 autocmd FileType * autocmd BufWritePre <buffer> :%s/\s\+$//e
 
-"syntax for snakemake files
-"source: https://bitbucket.org/snakemake/snakemake/src/master/misc/vim/syntax/snakemake.vim
-autocmd BufRead,BufNewFile Snakefile set filetype=snakemake
+"jsonc settings
+autocmd BufRead,BufNewFile coc-settings.json set filetype=jsonc
 
 "airline configuration
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#displayed_head_limit = 10
 let g:airline#extensions#whitespace#enabled = 1
-
-"flake8 configuration
-let g:flake8_show_in_file=1
 
 "show line numbers and make double-C-n switch modes
 set nonumber
