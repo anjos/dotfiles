@@ -260,6 +260,16 @@ function pipupdate() {
   ${1} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
 }
 
+# This function will list a password from keychain
+function getpass() {
+    security find-generic-password -w -a $LOGNAME -s "${1}"
+}
+
+# This starts a VPN tunnel to Idiap
+function vpn() {
+    sudo openfortivpn sslvpn.idiap.ch:443 --username=aanjos --trusted-cert 36e9b7ab8fac6699da2f617a58b4fb32e140a62352bcde30569d6a5ea09d0b4e --pppd-use-peerdns=1
+}
+
 # Sets up the core dump limits
 ulimit -c 0;
 
