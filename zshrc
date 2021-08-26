@@ -155,7 +155,7 @@ alias tn='tmux new-session -A -s'
 alias tc='tmux capture-pane -pt'
 
 # Programs controlled by environment variables
-+if type "nvim" > /dev/null; then
+if type "nvim" > /dev/null; then
   export EDITOR=nvim;
   export VISUAL=nvim;
 elif type "vim" > /dev/null; then
