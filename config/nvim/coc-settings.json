@@ -1,7 +1,7 @@
 {
     /* coc settings */
-    "npm.binPath": "/Users/andre/conda/envs/neovim/bin/npm",
+    "npm.binPath": "/idiap/user/aanjos/conda/envs/neovim/bin/npm",
     /* coc-pyright settings */
     "python.formatting.provider": "black",
-    "python.pythonPath": "/Users/andre/.dotfiles/config/nvim/python"
+    "python.pythonPath": "/idiap/user/aanjos/.dotfiles/config/nvim/python"
 }
