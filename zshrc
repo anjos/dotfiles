@@ -142,30 +142,29 @@ alias rm='rm -vi'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias grep='grep --color'
-alias vi='nvim'
-alias vim='nvim'
+if type "nvim" > /dev/null; then
+  alias vi='nvim'
+  alias vim='nvim'
+elif type "vim" > /dev/null; then
+  alias vi='vim'
+fi
 alias ccat='highlight -O ansi'
 alias t='tmux'
 alias tl='tmux ls'
 alias tn='tmux new-session -A -s'
 alias tc='tmux capture-pane -pt'
 
-# A function to start a new iTerm window with the neovim profile
-function xvim () {
-  cmd="/usr/local/bin/nvim"
-  for entry in "$@"; do cmd="${cmd} \\\"${entry}\\\""; done
-  #echo "${cmd}"
-  osascript &>/dev/null <<EOF
-    tell application "iTerm2"
-      create window with profile "Neovim" command "$cmd"
-    end tell
-EOF
-}
-alias gvim='xvim'
-
 # Programs controlled by environment variables
-export EDITOR=nvim;
-export VISUAL=nvim;
++if type "nvim" > /dev/null; then
+  export EDITOR=nvim;
+  export VISUAL=nvim;
+elif type "vim" > /dev/null; then
+  export EDITOR=vim;
+  export VISUAL=vim;
+else
+  export EDITOR=vi;
+  export VISUAL=vi;
+fi
 export PAGER=less;
 export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
