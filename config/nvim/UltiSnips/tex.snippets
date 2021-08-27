@@ -84,5 +84,24 @@ endsnippet
 snippet "verbatim" "\begin{verbatim}" br
 \begin{verbatim}
 	${1}
-\end{verbatime}
+\end{verbatim}
+endsnippet
+
+
+snippet standalone "create standalone tikz picture" b
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% coding=utf-8                       %
+% Andre Anjos <andre.anjos@idiap.ch> %
+% `printf "%-34s" "$(date)"` %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[tikz]{standalone}
+
+\begin{document}
+\begin{tikzpicture}[font=\sffamily]
+
+$1
+
+\end{tikzpicture}
+\end{document}
 endsnippet
