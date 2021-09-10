@@ -22,7 +22,7 @@ prompt_set () {
   # Check if we are on SSH or not
   local current_time="%B[%b%T%B]%b"
   if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-    prompt_host='%F{red}%M%f' # SSH
+    prompt_host="%F{red}$(hostname -s)%f" # SSH
     local user_host_time="${current_time} ${prompt_user}%F{cyan}@${prompt_host}"
   else
     local user_host_time="${current_time}"
