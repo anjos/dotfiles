@@ -1,5 +1,7 @@
-# Created by Andre Anjos <andre.dos.anjos@cern.ch>
-# Qui 26 Jul 2007 11:04:58 CEST 
+#!/usr/bin/env python
+# coding=utf-8
+# Created by Andre Anjos <andre.anjos@idiap.ch>
+# 2021-09-14
 
 # This my user initilization file. To get it activated
 # whenever you start python, just make sure the environment
@@ -8,18 +10,17 @@
 import atexit
 import os
 import readline
-import rlcompleter
+histfile = os.path.join(os.path.expanduser("~"), ".python_history")
 
-histfile = os.path.expanduser("~/.python_history")
+try:
+    readline.read_history_file(histfile)
+    h_len = readline.get_current_history_length()
+except FileNotFoundError:
+    open(histfile, 'wb').close()
+    h_len = 0
 
-if os.path.exists(histfile): readline.read_history_file(histfile)
-
-atexit.register(readline.write_history_file, histfile)
-
-# adds some extra keyboard functions I like
-readline.parse_and_bind('tab: complete')
-#readline.parse_and_bind('bind ^I rl_complete') #does not work on mac python
-readline.parse_and_bind('"\C-r": reverse-search-history')
-readline.parse_and_bind('"\C-s": forward-search-history')
-
-del os, atexit, readline, rlcompleter, histfile
+def save(prev_h_len, histfile):
+    new_h_len = readline.get_current_history_length()
+    readline.set_history_length(1000)
+    readline.append_history_file(new_h_len - prev_h_len, histfile)
+atexit.register(save, h_len, histfile)
