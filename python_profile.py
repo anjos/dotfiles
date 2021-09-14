@@ -1,19 +1,29 @@
-# Created by Andre Anjos <andre.dos.anjos@cern.ch>
-# Qui 26 Jul 2007 11:04:58 CEST
+#!/usr/bin/env python
+# coding=utf-8
+# Created by Andre Anjos <andre.anjos@idiap.ch>
+# 2021-09-14
 
 # This my user initilization file. To get it activated
 # whenever you start python, just make sure the environment
 # variable PYTHONSTARTUP is defined to point to this file
 
+import atexit
+
 try:
-  import readline
-  import os, atexit
-  histfile = os.environ['HOME'] + os.sep + '.python_history'
-  if os.path.exists(histfile):
+    import os
+    import readline
+    histfile = os.path.join(os.path.expanduser("~"), ".python_history")
     readline.read_history_file(histfile)
-  atexit.register(readline.write_history_file, histfile)
+    h_len = readline.get_current_history_length()
+    readline.parse_and_bind("tab: complete")
+except FileNotFoundError:
+    open(histfile, 'wb').close()
+    h_len = 0
 except ImportError:
-  print("Module readline not available.")
-else:
-  import rlcompleter
-  readline.parse_and_bind("tab: complete")
+    print("Module readline not available.")
+
+def save(prev_h_len, histfile):
+    new_h_len = readline.get_current_history_length()
+    readline.set_history_length(1000)
+    readline.append_history_file(new_h_len - prev_h_len, histfile)
+atexit.register(save, h_len, histfile)
