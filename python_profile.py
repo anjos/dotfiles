@@ -8,16 +8,19 @@
 # variable PYTHONSTARTUP is defined to point to this file
 
 import atexit
-import os
-import readline
-histfile = os.path.join(os.path.expanduser("~"), ".python_history")
 
 try:
+    import os
+    import readline
+    histfile = os.path.join(os.path.expanduser("~"), ".python_history")
     readline.read_history_file(histfile)
     h_len = readline.get_current_history_length()
+    readline.parse_and_bind("tab: complete")
 except FileNotFoundError:
     open(histfile, 'wb').close()
     h_len = 0
+except ImportError:
+    print("Module readline not available.")
 
 def save(prev_h_len, histfile):
     new_h_len = readline.get_current_history_length()
