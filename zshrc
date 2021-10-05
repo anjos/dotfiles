@@ -10,8 +10,8 @@ export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 
 # Conda setup
-if [ -x ${HOME}/conda/bin/conda ]; then
-  source ${HOME}/conda/etc/profile.d/conda.sh
+if [ -f ${HOME}/mamba/etc/profile.d/conda.sh ]; then
+  source ${HOME}/mamba/etc/profile.d/conda.sh
   export CONDA_BUILD_SYSROOT="/opt/MacOSX10.9.sdk"
 fi
 
