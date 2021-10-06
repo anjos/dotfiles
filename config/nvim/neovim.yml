@@ -6,6 +6,7 @@ dependencies:
   - pip
   - greenlet
   - psutil
+  - black
   - nodejs  #then, npm install -g neovim
   - pip:
     - msgpack
