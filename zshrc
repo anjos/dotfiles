@@ -10,8 +10,8 @@ if [ -r /idiap/resource/software/initfiles/shrc ]; then
 fi
 
 # Conda setup
-if [ -x /idiap/user/aanjos/conda/bin/conda ]; then
-  source /idiap/user/aanjos/conda/etc/profile.d/conda.sh
+if [ -f /idiap/user/aanjos/mamba/etc/profile.d/conda.sh ]; then
+  source /idiap/user/aanjos/mamba/etc/profile.d/conda.sh
 fi
 
 if [ -d ${HOME}/bin ]; then
