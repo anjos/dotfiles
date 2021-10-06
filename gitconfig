@@ -40,7 +40,7 @@
   lg = !"git lg1"
   lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
   um = fetch origin master:master
-  mr = push -o merge_request.create -o merge_request.remove_source_branch --set-upstream origin
+  mr = push -o merge_request.create -o merge_request.remove_source_branch --set-upstream origin HEAD
 [push]
   default = upstream
   followTags = true
