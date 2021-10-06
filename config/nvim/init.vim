@@ -1,10 +1,10 @@
 "setup python/ruby/node
-let $PATH = '/idiap/user/aanjos/conda/envs/neovim/bin:' . $PATH
-let g:python_host_prog = '/idiap/user/aanjos/conda/envs/neovim2/bin/python'
-let g:python3_host_prog = '/idiap/user/aanjos/conda/envs/neovim/bin/python'
+let $PATH = '/idiap/user/aanjos/mamba/envs/neovim/bin:' . $PATH
+let g:python_host_prog = '/idiap/user/aanjos/mamba/envs/neovim2/bin/python'
+let g:python3_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/bin/python'
 let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.5.0/bin/neovim-ruby-host'
-let g:node_host_prog = '/idiap/user/aanjos/conda/envs/neovim/lib/node_modules/neovim/bin/cli.js'
-let g:coc_node_path = '/idiap/user/aanjos/conda/envs/neovim/bin/node'
+let g:node_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/lib/node_modules/neovim/bin/cli.js'
+let g:coc_node_path = '/idiap/user/aanjos/mamba/envs/neovim/bin/node'
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -20,7 +20,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
-Plug 'ambv/black'
+Plug 'psf/black'
 Plug 'tpope/vim-eunuch'
 Plug 'godlygeek/tabular'
 call plug#end()
