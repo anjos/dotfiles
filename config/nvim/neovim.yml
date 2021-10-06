@@ -1,12 +1,12 @@
 name: neovim
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - python=3.8
   - pip
   - greenlet
   - psutil
-  - nodejs
+  - nodejs  #then, npm install -g neovim
   - pip:
     - msgpack
     - neovim-remote
