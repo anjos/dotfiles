@@ -4,10 +4,9 @@
 
 # Initialization for **interactive** shells
 
-# If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:/usr/local/sbin:/Library/TeX/texbin:$PATH
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:$PATH
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+# Default path setup
+# Update values at /etc/paths and /etc/manpaths
+eval `/usr/libexec/path_helper`
 
 # Conda setup
 if [ -f ${HOME}/mamba/etc/profile.d/conda.sh ]; then
@@ -169,18 +168,7 @@ alias itl='it ls'
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
-  if type "nvim" > /dev/null; then
-    cmd=$(which nvim)
-  else
-    cmd=$(which vim)
-  fi
-  for entry in "$@"; do cmd="${cmd} \\\"${entry}\\\""; done
-  #echo "${cmd}"
-  osascript &>/dev/null <<EOF
-    tell application "iTerm2"
-      create window with profile "Neovim" command "$cmd"
-    end tell
-EOF
+  $HOME/.xvim.py "$@"
 }
 alias gvim='xvim'
 

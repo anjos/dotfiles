@@ -1,5 +1,6 @@
 "setup python/ruby/node
 let $PATH = '/Users/andre/mamba/envs/neovim/bin:' . $PATH
+let $PATH = '/Library/TeX/texbin:' . $PATH
 let g:python_host_prog = '/Users/andre/mamba/envs/neovim2/bin/python2'
 let g:python3_host_prog = '/Users/andre/mamba/envs/neovim/bin/python3'
 let g:ruby_host_prog = '/Users/andre/.gem/ruby/3.0.0/bin/neovim-ruby-host'

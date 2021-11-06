@@ -7,8 +7,9 @@ dependencies:
   - greenlet
   - psutil
   - black
+  - pynvim
   - nodejs  #then, npm install -g neovim
   - pip:
-    - msgpack
     - neovim-remote
-    - pynvim
+    - iterm2
+    - pyobjc
