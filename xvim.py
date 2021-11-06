@@ -21,16 +21,18 @@ async def window_main(connection):
 
     cmd = [
         "/usr/bin/env",
-        "--",
-        "/usr/local/bin/nvim",
+        f"PATH='{os.environ['PATH']}'",
+        "nvim",
     ]
     cmd += [f'"{k}"' for k in sys.argv[1:]]
-    print(" ".join(cmd))
+    # print(" ".join(cmd))
 
     # defines command to run and working directory
     profile = iterm2.LocalWriteOnlyProfile()
     profile.set_command(" ".join(cmd))
-    profile.set_initial_directory_mode(iterm2.InitialWorkingDirectory.INITIAL_WORKING_DIRECTORY_CUSTOM)
+    profile.set_initial_directory_mode(
+        iterm2.InitialWorkingDirectory.INITIAL_WORKING_DIRECTORY_CUSTOM
+    )
     profile.set_custom_directory(os.path.realpath(os.curdir))
 
     # This will run 'nvim' from bash. If you use a different shell, you will
@@ -41,6 +43,7 @@ async def window_main(connection):
         profile="Neovim",
         profile_customizations=profile,
     )
+
 
 def main():
 
