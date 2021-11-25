@@ -8,6 +8,12 @@ Host phoscon cravo zigbee
 Host orquidea nas
   User admin
   Hostname orquidea.local
+  ProxyCommand none
+
+Host win
+  User andre
+  Hostname 10.0.5.3
+  ProxyCommand ssh -W %h:%p orquidea
 
 Host github github.com
   User git
