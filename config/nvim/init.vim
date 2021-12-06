@@ -158,6 +158,9 @@ let g:black_linelength = 80
 "Use ctrl-d as quit alternative
 noremap <C-d> :q<cr>
 
+"Make Y yank the whole line
+nnoremap Y yy
+
 "change the leader key from "\" to ";" ("," is also popular)
 let mapleader = ";"
 let maplocalleader = ';'
