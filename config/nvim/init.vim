@@ -1,5 +1,5 @@
 "setup python/ruby/node
-let $PATH = '/idiap/user/aanjos/mamba/envs/neovim/bin:' . $PATH
+let $PATH = $PATH . ':/idiap/user/aanjos/mamba/envs/neovim/bin'
 let g:python_host_prog = '/idiap/user/aanjos/mamba/envs/neovim2/bin/python'
 let g:python3_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/bin/python'
 let g:ruby_host_prog = '/idiap/home/aanjos/.gem/ruby/2.5.0/bin/neovim-ruby-host'
