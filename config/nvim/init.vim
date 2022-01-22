@@ -154,7 +154,7 @@ highlight SignColumn guibg=#0f0f0f
 "look for the "theme"
 let $TEXINPUTS = "$PWD:$PWD/theme:"
 "use nvr (required by vim-tex)
-let g:vimtex_compiler_progname = '/idiap/user/aanjos/conda/envs/neovim/bin/nvr'
+let g:vimtex_compiler_progname = '/idiap/user/aanjos/mamba/envs/neovim/bin/nvr'
 let g:tex_flavor = 'latex'
 
 "where to put black
