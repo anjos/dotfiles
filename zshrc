@@ -1,12 +1,15 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 # Andre Anjos <andre.dos.anjos@gmail.com>
-# 2019-11-05 15:41
+# 2022-03-02 15:38
 
 # Initialization for **interactive** shells
 
 # Default path setup
 # Update values at /etc/paths and /etc/manpaths
 eval `/usr/libexec/path_helper`
+
+# Adds homebrewsetup
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Conda setup
 if [ -f ${HOME}/mamba/etc/profile.d/conda.sh ]; then
