@@ -1,8 +1,8 @@
 "setup python/ruby/node
 let $PATH = $PATH . ':/Users/andre/mamba/envs/neovim/bin'
-let g:python_host_prog = '/Users/andre/mamba/envs/neovim2/bin/python2'
+"let g:python_host_prog = '/Users/andre/mamba/envs/neovim2/bin/python2'
 let g:python3_host_prog = '/Users/andre/mamba/envs/neovim/bin/python3'
-let g:ruby_host_prog = '/Users/andre/.gem/ruby/3.0.0/bin/neovim-ruby-host'
+let g:ruby_host_prog = '/Users/andre/.gem/ruby/3.1.0/bin/neovim-ruby-host'
 let g:node_host_prog = '/Users/andre/mamba/envs/neovim/lib/node_modules/neovim/bin/cli.js'
 let g:coc_node_path = '/Users/andre/mamba/envs/neovim/bin/node'
 
