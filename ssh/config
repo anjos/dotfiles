@@ -70,3 +70,4 @@ Host *
   ControlMaster auto
   ControlPath /tmp/%r@%h-%p
   ControlPersist 600
+  SetEnv LC_CTYPE="C"
