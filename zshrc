@@ -95,7 +95,7 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 plugins=()
 plugins+=(conda-zsh-completion)
 plugins+=(docker)
-plugins+=(git)
+#plugins+=(git)
 plugins+=(gitfast)
 plugins+=(python)
 plugins+=(themes)
@@ -147,8 +147,17 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
 alias rm='rm -vi'
+if type "grm" > /dev/null; then
+  alias rm='grm -vi'
+fi
 alias cp='cp -vi'
+if type "gcp" > /dev/null; then
+  alias cp='gcp -vi'
+fi
 alias mv='mv -vi'
+if type "gmv" > /dev/null; then
+  alias mv='gmv -vi'
+fi
 if type "gchmod" > /dev/null; then
   alias chmod='gchmod -c'
   alias chown='gchown -c'
