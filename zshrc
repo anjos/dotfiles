@@ -14,7 +14,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Conda setup
 if [ -f ${HOME}/mamba/etc/profile.d/conda.sh ]; then
   source ${HOME}/mamba/etc/profile.d/conda.sh
-  export CONDA_BUILD_SYSROOT="/opt/MacOSX10.9.sdk"
+  export CONDA_BUILD_SYSROOT="/opt/MacOSX11.0.sdk"
 fi
 
 if [ -d $HOME/bin ]; then
@@ -118,7 +118,7 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 
 # bind UP and DOWN arrow keys (compatibility fallback
-# for Ubuntu 12.04, Fedora 21, and MacOSX 10.9 users)
+# for Ubuntu 12.04, Fedora 21, and MacOSX users)
 #bindkey '^[[A' history-substring-search-up
 #bindkey '^[[B' history-substring-search-down
 
