@@ -99,14 +99,17 @@ function indexOf(array, value)
 end
 
 -- Loops over the next keyboard layout available
-all_layouts = hs.keycodes.layouts()
-current_keyboard = indexOf(all_layouts, hs.keycodes.currentLayout())
+allKeyboardLayouts = hs.keycodes.layouts()
+currentKeyboardLayout = indexOf(allKeyboardLayouts, hs.keycodes.currentLayout())
 function nextKeyboardLayout()
-    -- hs.alert.show("Keyboard: " .. all_layouts[current_keyboard] .. " [" .. current_keyboard .. "]")
-    current_keyboard = current_keyboard + 1
-    if current_keyboard > #all_layouts then
-        current_keyboard = 1
+    -- hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout] .. " [" .. currentKeyboardLayout .. "]")
+    currentKeyboardLayout = currentKeyboardLayout + 1
+    if currentKeyboardLayout > #allKeyboardLayouts then
+        currentKeyboardLayout = 1
     end
-    hs.keycodes.setLayout(all_layouts[current_keyboard])
+    hs.keycodes.setLayout(allKeyboardLayouts[currentKeyboardLayout])
+    hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout])
 end
 modal:bind({}, 'k', nextKeyboardLayout)
+
+hs.alert.show("Configuration reloaded")
