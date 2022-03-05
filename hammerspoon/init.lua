@@ -7,6 +7,14 @@ rc = hs.loadSpoon("ReloadConfiguration")
 rc:start()
 
 
+-- Default hotkeys for actions
+defaultHotKeys = {"cmd", "alt", "ctrl"}
+
+
+-- Opens a new modal where we can launch applications
+modal = hs.hotkey.modal.new("cmd", "escape")
+
+
 -- Monitors wifi for changes (drop-offs)
 currentWifi = hs.wifi.currentNetwork()
 hs.alert.show("Wifi: " .. currentWifi)
@@ -23,9 +31,6 @@ wn = hs.wifi.watcher.new(notifyOnWifiChange)
 wn:start()
 
 
--- Opens a new modal where we can launch applications
-modal = hs.hotkey.modal.new("cmd", "escape")
-
 -- Waits only 1 second on that "modal" state, then give up
 function modal:entered()
     -- hs.alert.show("Modal start")
@@ -41,7 +46,7 @@ end
 launch = function(appname)
   hs.application.launchOrFocus(appname)
   hs.alert.show("Focus: " .. appname)
-  modal.triggered = true
+  --modal.triggered = true
 end
 
 -- Single keybinding for app launch
@@ -54,7 +59,8 @@ singleapps = {
 }
 
 for i, app in ipairs(singleapps) do
-  modal:bind({}, app[1], function() launch(app[2]); modal:exit(); end)
+  -- modal:bind({}, app[1], function() launch(app[2]); modal:exit(); end)
+  hs.hotkey.bind(defaultHotKeys, app[1], function() launch(app[2]); end)
 end
 
 
@@ -62,7 +68,8 @@ end
 -- Increases the size of the window vertically only
 -- Useful if switching monitors and want to increase window size to occupy the
 -- full height of the newly available media
-modal:bind({}, "Down", function()
+-- modal:bind({}, "Down", function()
+hs.hotkey.bind(defaultHotKeys, "Down", function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -110,6 +117,7 @@ function nextKeyboardLayout()
     hs.keycodes.setLayout(allKeyboardLayouts[currentKeyboardLayout])
     hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout])
 end
-modal:bind({}, 'k', nextKeyboardLayout)
+-- modal:bind({}, 'k', nextKeyboardLayout)
+hs.hotkey.bind(defaultHotKeys, 'k', nextKeyboardLayout)
 
 hs.alert.show("Configuration reloaded")
