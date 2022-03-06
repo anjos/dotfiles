@@ -275,3 +275,8 @@ ulimit -c 0;
 
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
+
+# Integration with iTerm2
+if [ -r "${ZSH_CUSTOM}/iterm2_shell_integration.zsh" ]; then
+    source "${ZSH_CUSTOM}/iterm2_shell_integration.zsh"
+fi
