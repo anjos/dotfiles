@@ -9,7 +9,7 @@ dependencies:
   - black
   - nodejs  #then, npm install -g neovim
   - c-compiler
-  - ruby  #then, gem install neovim && gem install --bindir=$CONDA_PREFIX/bin neovim
+  - ruby  #then, gem install --bindir=$CONDA_PREFIX/bin neovim
   - pip:
     - msgpack
     - neovim-remote
