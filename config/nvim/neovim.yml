@@ -8,6 +8,8 @@ dependencies:
   - psutil
   - black
   - nodejs  #then, npm install -g neovim
+  - c-compiler
+  - ruby  #then, gem install neovim
   - pip:
     - msgpack
     - neovim-remote
