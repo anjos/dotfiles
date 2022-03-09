@@ -192,24 +192,6 @@ export LESS="-R";
 export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 
 # A function to start a new tunnel to my machine at Idiap
-function tunnel () {
-  if [[ $# == 0 ]]; then
-    echo "Creates a tunnel between local and remote ports on idiap"
-    echo "$ tunnel <remote-port>  # binds remote port to same local port"
-    echo "$ tunnel <local-port> <remote-port>  # binds local to remote port"
-    return 1
-  fi
-  local local_port=$1
-  if [[ $# == 1 ]]; then
-    local remote_port=$1
-  else
-    local remote_port=$2
-  fi
-  cmd="tunnel: ssh -N -L ${local_port}:aanjos.idiap.ch:${remote_port} idiap"
-  eval $cmd
-}
-
-# A function to start a new tunnel to my machine at Idiap
 function rdmac () {
   if [[ $1 == "-h" ]]; then
     echo "Enables a remote desktop to an idiap mac ci:"
