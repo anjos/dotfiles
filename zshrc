@@ -165,7 +165,7 @@ alias tl='tmux ls'
 alias tn='tmux new-session -A -s'
 alias tc='tmux capture-pane -pt'
 alias qprojects='qconf -sprjl'
-alias qi="qrsh  -l 'pytorch,sgpu' -l 'hostname=vgn*' -now no -P masterai -l gpumem=24G"
+alias qi="qrsh -l sgpu -now no -P oh-aa"
 
 # Programs controlled by environment variables
 if type "nvim" > /dev/null; then
