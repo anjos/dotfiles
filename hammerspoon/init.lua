@@ -82,6 +82,10 @@ hs.hotkey.bind(defaultHotKeys, "Down", function()
 end)
 
 
+-- Locks the screen by pressing L
+hs.hotkey.bind(defaultHotKeys, "Delete", hs.caffeinate.lockScreen)
+
+
 function dumpTable(o)
    if type(o) == "table" then
       local s = "{ "
