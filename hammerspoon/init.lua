@@ -82,8 +82,18 @@ hs.hotkey.bind(defaultHotKeys, "Down", function()
 end)
 
 
--- Locks the screen by pressing L
+-- Locks the screen by pressing Delete
 hs.hotkey.bind(defaultHotKeys, "Delete", hs.caffeinate.lockScreen)
+
+
+-- Toggles fullscreen mode of current window
+function toggleFullscreen()
+   local win = hs.window.focusedWindow()
+   if win ~= nil then
+      win:setFullScreen(not win:isFullScreen())
+   end
+end
+hs.hotkey.bind(defaultHotKeys, ".", toggleFullscreen)
 
 
 function dumpTable(o)
