@@ -183,6 +183,7 @@ function xvim () {
   $HOME/.xvim.py "$@"
 }
 alias gvim='xvim'
+alias os='open -a Skim'
 
 # Programs controlled by environment variables
 export EDITOR=nvim;
