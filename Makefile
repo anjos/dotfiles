@@ -17,7 +17,7 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean ssh nvim flake8
+all: deepclean ssh nvim flake8 direnv
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 ssh:
@@ -30,6 +30,10 @@ nvim:
 flake8:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
 	@ln -s -v -f $$PWD/config/flake8 $$HOME/.config/
+
+direnv:
+	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
+	@ln -s -v -f $$PWD/config/direnv $$HOME/.config/
 
 .PHONY: clean all deepclean ssh
 
