@@ -17,7 +17,7 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean ssh ipython config
+all: deepclean ssh nvim direnv
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 pull:
@@ -29,9 +29,13 @@ ssh:
 ipython:
 	@ln -s -v -f -n $$PWD/ipython $$HOME/.ipython
 
-config:
+nvim:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
 	@ln -s -v -f $$PWD/config/nvim $$HOME/.config/
+
+direnv:
+	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
+	@ln -s -v -f $$PWD/config/direnv $$HOME/.config/
 
 .PHONY: clean all deepclean ssh
 

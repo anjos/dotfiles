@@ -1,0 +1,4 @@
+use_conda() {
+    eval "$(conda shell.zsh hook)"
+    conda activate "$1"
+}
