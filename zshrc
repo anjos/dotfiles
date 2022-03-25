@@ -167,7 +167,7 @@ alias tc='tmux capture-pane -pt'
 alias qprojects='qconf -sprjl'
 alias qi="qrsh -l sgpu -now no -P oh-aa"
 
-alias pipdev='pip install -vvv --no-build-isolation --no-dependencies --editable'
+alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
 
 # A function to cd to a certain directory and start a tmux session
 # on it, with its name
