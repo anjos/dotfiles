@@ -173,7 +173,7 @@ alias pipdev='pip install -vvv --no-build-isolation --no-dependencies --editable
 # on it, with its name
 function workon () {
     cd "$1"
-    tmux new-session -A -s $(basename "$1")
+    tmux new-session -A -s "$2"
 }
 
 # Programs controlled by environment variables
