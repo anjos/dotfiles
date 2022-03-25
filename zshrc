@@ -185,6 +185,15 @@ function xvim () {
 alias gvim='xvim'
 alias os='open -a Skim'
 
+alias pipdev='pip install -vvv --no-build-isolation --no-dependencies --editable'
+
+# A function to cd to a certain directory and start a tmux session
+# on it, with its name
+function workon () {
+    cd "$1"
+    tmux new-session -A -s $(basename "$1")
+}
+
 # Programs controlled by environment variables
 export EDITOR=nvim;
 export VISUAL=nvim;
