@@ -77,6 +77,10 @@ Backup/
 * ^X-Barracuda-Spam-Status: Yes
 .Junk/
 
+:0
+* ^From.*@.*bostonglobe\.com
+.Junk/
+
 # beautify for mutt
 :0 Bfh
 * H ?? !^Lines:
