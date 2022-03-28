@@ -1,4 +1,4 @@
 [global]
 disable_stdin = true
-skip_dotenv = true
+load_dotenv = false
 strict_env = false
