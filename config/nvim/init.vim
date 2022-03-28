@@ -1,11 +1,13 @@
 "setup python/ruby/node
 let $PATH = $PATH . ':/idiap/user/aanjos/mamba/envs/neovim/bin'
 let $GEM_HOME = '/idiap/user/aanjos/mamba/envs/neovim/share/rubygems/'
-let g:python_host_prog = '/idiap/user/aanjos/mamba/envs/neovim2/bin/python'
+"let g:python_host_prog = '/idiap/user/aanjos/mamba/envs/neovim2/bin/python'
+let g:loaded_python_provider = 0  "disables python2 support
 let g:python3_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/bin/python'
 let g:ruby_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/bin/neovim-ruby-host'
 let g:node_host_prog = '/idiap/user/aanjos/mamba/envs/neovim/lib/node_modules/neovim/bin/cli.js'
 let g:coc_node_path = '/idiap/user/aanjos/mamba/envs/neovim/bin/node'
+let g:loaded_perl_provider = 0  "disables pearl support
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
