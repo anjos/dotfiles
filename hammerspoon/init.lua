@@ -120,9 +120,9 @@ function indexOf(array, value)
 end
 
 -- Loops over the next keyboard layout available
-allKeyboardLayouts = hs.keycodes.layouts()
-currentKeyboardLayout = indexOf(allKeyboardLayouts, hs.keycodes.currentLayout())
 function nextKeyboardLayout()
+    allKeyboardLayouts = hs.keycodes.layouts()
+    currentKeyboardLayout = indexOf(allKeyboardLayouts, hs.keycodes.currentLayout())
     -- hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout] .. " [" .. currentKeyboardLayout .. "]")
     currentKeyboardLayout = currentKeyboardLayout + 1
     if currentKeyboardLayout > #allKeyboardLayouts then
