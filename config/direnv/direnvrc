@@ -1,4 +1,38 @@
+conda_env_exists() {
+    conda env list | grep "${@}" >/dev/null 2>/dev/null
+}
+
 use_conda() {
-    eval "$(conda shell.zsh hook)"
-    conda activate "$1"
+    local conda="$HOME/mamba/bin/conda"
+    local red=$(tput setaf 1 && tput bold)
+    local green=$(tput setaf 2 && tput bold)
+    local blue=$(tput setaf 4 && tput bold)
+    local normal=$(tput sgr0)
+
+    # First, we check if the "conda" command is installed, tip away if not
+    if [ ! -x ${conda} ]; then
+        echo "${red}ERROR${normal}: Cannot find conda executable at \"${red}${conda}${normal}\""
+        echo "${blue}TIP${normal}: Install ${blue}mambaforge${normal} and ${blue}bob.devtools${normal} to easily create new development environments"
+        exit
+    fi
+
+    eval "$(${conda} shell.zsh hook)"
+
+    # Then, we check if the select environment is available and activate if
+    # that is the case
+    if conda_env_exists "$1"; then
+        conda activate "$1"
+    else
+        # Else, we just tell the user, and activate "base"
+        echo "${red}ERROR${normal}: Conda environment ${red}$1${normal} does not exist (activating ${green}base${normal} instead)"
+        conda activate base
+
+        # We then recommend the next set of actions depending on if bdt is
+        # available or not
+        if command -v bdt &> /dev/null; then
+            echo "${blue}TIP${normal}: Use \"${blue}bdt create -vv $1${normal}\", to create a new development environment"
+        else
+            echo "${blue}TIP${normal}: Install ${blue}bob.devtools${normal} to easily create new development environments"
+        fi
+    fi
 }
