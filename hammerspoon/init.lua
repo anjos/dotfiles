@@ -21,7 +21,11 @@ hs.alert.show("Wifi: " .. currentWifi)
 function notifyOnWifiChange()
     newWifi = hs.wifi.currentNetwork()
     if newWifi == nil then
-        hs.alert.show("Wifi " .. currentWifi .. " disconnected")
+        if currentWifi == nil then
+            hs.alert.show("No Wifi")
+        else
+            hs.alert.show("Wifi " .. currentWifi .. " disconnected")
+        end
     elseif currentWifi ~= newWifi then
         hs.alert.show("Wifi: " .. newWifi)
     end
@@ -63,13 +67,15 @@ for i, app in ipairs(singleapps) do
   hs.hotkey.bind(defaultHotKeys, app[1], function() launch(app[2]); end)
 end
 
+-- Locks the screen by pressing Delete
+hs.hotkey.bind(defaultHotKeys, "escape", "Lock screen", hs.caffeinate.lockScreen)
 
 
 -- Increases the size of the window vertically only
 -- Useful if switching monitors and want to increase window size to occupy the
 -- full height of the newly available media
 -- modal:bind({}, "Down", function()
-hs.hotkey.bind(defaultHotKeys, "Down", function()
+hs.hotkey.bind(defaultHotKeys, "down", "Window maximised vertically", function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -78,13 +84,7 @@ hs.hotkey.bind(defaultHotKeys, "Down", function()
     f.y = max.y
     f.h = max.h
     win:setFrame(f)
-    hs.alert.show("Window: Maximised vertically")
 end)
-
-
--- Locks the screen by pressing Delete
-hs.hotkey.bind(defaultHotKeys, "Delete", hs.caffeinate.lockScreen)
-
 
 -- Toggles fullscreen mode of current window
 function toggleFullscreen()
@@ -93,7 +93,7 @@ function toggleFullscreen()
       win:setFullScreen(not win:isFullScreen())
    end
 end
-hs.hotkey.bind(defaultHotKeys, ".", toggleFullscreen)
+hs.hotkey.bind(defaultHotKeys, ".", "Toggle fullscreen", toggleFullscreen)
 
 
 function dumpTable(o)
@@ -132,6 +132,6 @@ function nextKeyboardLayout()
     hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout])
 end
 -- modal:bind({}, 'k', nextKeyboardLayout)
-hs.hotkey.bind(defaultHotKeys, 'k', nextKeyboardLayout)
+hs.hotkey.bind(defaultHotKeys, "k", nextKeyboardLayout)
 
 hs.alert.show("Configuration reloaded")
