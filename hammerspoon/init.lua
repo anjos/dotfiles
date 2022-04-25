@@ -17,7 +17,11 @@ modal = hs.hotkey.modal.new("cmd", "escape")
 
 -- Monitors wifi for changes (drop-offs)
 currentWifi = hs.wifi.currentNetwork()
-hs.alert.show("Wifi: " .. currentWifi)
+if currentWifi == nil then
+    hs.alert.show("No Wifi")
+else
+    hs.alert.show("Wifi: " .. currentWifi)
+end
 function notifyOnWifiChange()
     newWifi = hs.wifi.currentNetwork()
     if newWifi == nil then
