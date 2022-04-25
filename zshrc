@@ -168,7 +168,7 @@ if type "nvim" > /dev/null; then
   alias vi='nvim'
   alias vim='nvim'
 fi
-alias ccat='highlight -O ansi'
+alias ccat='bat'
 alias t='tmux'
 alias tl='tmux ls'
 alias tn='tmux new-session -A -s'
