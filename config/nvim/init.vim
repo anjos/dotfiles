@@ -24,7 +24,6 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
 Plug 'ambv/black'
-Plug 'tpope/vim-eunuch'
 call plug#end()
 
 "define standard coc extensions
