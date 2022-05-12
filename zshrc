@@ -14,7 +14,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Conda setup
 if [ -f ${HOME}/mamba/etc/profile.d/conda.sh ]; then
   source ${HOME}/mamba/etc/profile.d/conda.sh
-  export CONDA_BUILD_SYSROOT="/opt/MacOSX11.0.sdk"
+  export OSX_SDK_DIR="/opt"
+  export CONDA_BUILD_SYSROOT="${OSX_SDK_DIR}/MacOSX11.0.sdk"
 fi
 
 if [ -d $HOME/bin ]; then
