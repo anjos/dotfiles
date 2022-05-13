@@ -302,3 +302,24 @@ function br {
         return "$code"
     fi
 }
+
+# Updates the current brew/pip installations
+function upbrew {
+    local brew=$HOMEBREW_PREFIX/bin/brew
+    local pip=$HOMEBREW_PREFIX/bin/pip3
+
+    echo "[upbrew] Updating homebrew..."
+    ${brew} update
+
+    echo "[upbrew] Upgrading homebrew packages..."
+    ${brew} upgrade
+
+    echo "[upbrew] Updating homebrew casks..."
+    ${brew} upgrade --cask --greedy
+
+    echo "[upbrew] Cleaning-up homebrew..."
+    ${brew} cleanup
+
+    echo "[upbrew] Updating pip packages..."
+    ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+}
