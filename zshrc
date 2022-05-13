@@ -303,23 +303,34 @@ function br {
     fi
 }
 
-# Updates the current brew/pip installations
-function upbrew {
+# Updates the current brew/pip/neovim installations
+function upenv {
     local brew=$HOMEBREW_PREFIX/bin/brew
     local pip=$HOMEBREW_PREFIX/bin/pip3
+    local nvim=$HOMEBREW_PREFIX/bin/nvim
 
-    echo "[upbrew] Updating homebrew..."
+    echo "[upenv] Updating homebrew..."
     ${brew} update
 
-    echo "[upbrew] Upgrading homebrew packages..."
+    echo "[upenv] Upgrading homebrew packages..."
     ${brew} upgrade
 
-    echo "[upbrew] Updating homebrew casks..."
+    echo "[upenv] Updating homebrew casks..."
     ${brew} upgrade --cask --greedy
 
-    echo "[upbrew] Cleaning-up homebrew..."
+    echo "[upenv] Cleaning-up homebrew..."
     ${brew} cleanup
 
-    echo "[upbrew] Updating pip packages..."
+    echo "[upenv] Updating pip packages..."
     ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+
+    echo "[upenv] Updating nvim plugin manager..."
+    ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
+    ${nvim} -c 'PlugUpdate' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating black for nvim plugin..."
+    ${nvim} -c 'BlackUpgrade' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating language servers..."
+    ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
 }
