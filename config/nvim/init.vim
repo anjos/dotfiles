@@ -15,7 +15,8 @@ Plug 'kevinoid/vim-jsonc'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
-Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make' }
+Plug '/idiap/user/aanjos/mamba/envs/neovim/share/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -24,7 +25,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
 Plug 'psf/black'
-Plug 'tpope/vim-eunuch'
 Plug 'godlygeek/tabular'
 call plug#end()
 
@@ -58,10 +58,8 @@ let g:ultisnips_python_quotion_style='double'
 set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
 set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
 
-"configuration for Command-T
-map <C-a> :CommandT<CR>
-let g:CommandTFileScanner='find'
-let g:CommandTWildIgnore=&wildignore . ",*~"
+"configuration for fzf
+map <C-a> :Files<CR>
 
 "file reading/writing options
 set title         "set terminal title

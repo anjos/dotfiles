@@ -81,6 +81,10 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+# The location of fzf plugin
+export FZF_BASE=/idiap/user/aanjos/mamba/envs/neovim/share/fzf
+export PATH=/idiap/user/aanjos/mamba/envs/neovim/bin:$PATH
+
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 
@@ -92,15 +96,12 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 plugins=()
 plugins+=(conda-zsh-completion)
 plugins+=(docker)
-plugins+=(git)
 plugins+=(gitfast)
 plugins+=(python)
-plugins+=(themes)
-plugins+=(z)
-#plugins+=(autojump)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
 plugins+=(history-substring-search)
+plugins+=(fzf)
 
 source $ZSH/oh-my-zsh.sh
 

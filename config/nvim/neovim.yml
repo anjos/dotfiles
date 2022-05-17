@@ -10,6 +10,9 @@ dependencies:
   - nodejs  #then, npm install -g neovim
   - c-compiler
   - ruby  #then, gem install --bindir=$CONDA_PREFIX/bin neovim
+  - bat
+  - ripgrep
+  - fzf
   - pip:
     - msgpack
     - neovim-remote
