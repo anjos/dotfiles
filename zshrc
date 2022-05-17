@@ -96,15 +96,14 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 plugins=()
 plugins+=(conda-zsh-completion)
 plugins+=(docker)
-#plugins+=(git)
 plugins+=(gitfast)
 plugins+=(python)
 plugins+=(themes)
-plugins+=(z)
-#plugins+=(autojump)
+plugins+=(zsh-autosuggestions)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
 plugins+=(history-substring-search)
+plugins+=(fzf)
 
 source $ZSH/oh-my-zsh.sh
 

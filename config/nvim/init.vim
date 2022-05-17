@@ -14,7 +14,8 @@ Plug 'kevinoid/vim-jsonc'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/keepcase.vim'
-Plug 'wincent/Command-T', { 'do': 'cd ruby/command-t/ext/command-t && /usr/local/opt/ruby/bin/ruby extconf.rb && make' }
+Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -57,8 +58,7 @@ set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
 set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
 
 "configuration for Command-T
-map <C-a> :CommandT<CR>
-let g:CommandTFileScanner='find'
+map <C-a> :Files<CR>
 
 "file reading/writing options
 set title         "set terminal title

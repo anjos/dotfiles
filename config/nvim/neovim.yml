@@ -9,6 +9,8 @@ dependencies:
   - black
   - pynvim
   - nodejs  #then, npm install -g neovim
+  - bat
+  - ripgrep
   - pip:
     - neovim-remote
     - iterm2
