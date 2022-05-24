@@ -160,7 +160,6 @@ if type "nvim" > /dev/null; then
 elif type "vim" > /dev/null; then
   alias vi='vim'
 fi
-alias ccat='highlight -O ansi'
 alias t='tmux'
 alias tl='tmux ls'
 alias tn='tmux new-session -A -s'
@@ -169,13 +168,6 @@ alias qprojects='qconf -sprjl'
 alias qi="qrsh -l sgpu -now no -P oh-aa"
 
 alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
-
-# A function to cd to a certain directory and start a tmux session
-# on it, with its name
-function workon () {
-    cd "$1"
-    tmux new-session -A -s "$2"
-}
 
 # Programs controlled by environment variables
 if type "nvim" > /dev/null; then
@@ -189,19 +181,44 @@ else
   export VISUAL=vi;
 fi
 export PAGER=less;
-export LESS="-R";
-export LESSOPEN="|${HOME}/.lesspygments.sh %s";
 
-# A function to update all installed pip packages
-function pipupdate() {
-  if [[ $# == 0 ]]; then
-    echo "Updates a pip installation package set"
-    echo "$ pipupdate \`which pip\`"
+# A function to start a new tunnel to my machine at Idiap
+function rdmac () {
+  if [[ $1 == "-h" ]]; then
+    echo "Enables a remote desktop to an idiap mac ci:"
+    echo "$ rdmac"
+    echo "$ rdmac <num>"
+    echo "$ rdmac <num> <port>"
+    echo ""
+    echo "# <num>:"
+    echo "#   1 - mac pro"
+    echo "#   2 - old mac mini"
+    echo "#   3 - m1 mac mini"
+    echo "#   default = 1"
+    echo ""
+    echo "# <port> is the local port to bind to (default 5900)"
     return 1
   fi
-  echo "Updating ${1} packages..."
-  [ ! -x "${1}" ] && return
-  ${1} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+  local target="bsp-ws02"
+  local port="5900"
+  if [[ $# -ge 1 ]]; then
+      if [[ $1 == 1 ]]; then
+          local target="bsp-ws02"
+      elif [[ $1 == 2 ]]; then
+          local target="beatmacosx01"
+      elif [[ $1 == 3 ]]; then
+          local target="beatmacosx02"
+      else
+          echo "choose <num> to be 1, 2 or 3"
+          return
+      fi
+  fi
+  if [[ $# == 2 ]]; then
+      local port=$2
+  fi
+  cmd="ssh -N -L ${port}:${target}.lab.idiap.ch:5900 idiap"
+  echo "tunnel: $cmd"
+  eval $cmd
 }
 
 # Sets up the core dump limits
@@ -217,3 +234,35 @@ then
 else
     eval "$(direnv hook zsh)"
 fi
+
+# Updates the current brew/pip/neovim installations
+function upenv {
+    local brew=$HOMEBREW_PREFIX/bin/brew
+    local pip=$HOMEBREW_PREFIX/bin/pip3
+    local nvim=$HOMEBREW_PREFIX/bin/nvim
+
+    echo "[upenv] Updating homebrew..."
+    ${brew} update
+
+    echo "[upenv] Upgrading homebrew packages..."
+    ${brew} upgrade
+
+    echo "[upenv] Updating homebrew casks..."
+    ${brew} upgrade --cask --greedy
+
+    echo "[upenv] Cleaning-up homebrew..."
+    ${brew} cleanup
+
+    echo "[upenv] Updating pip packages..."
+    ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+
+    echo "[upenv] Updating nvim plugin manager..."
+    ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
+    ${nvim} -c 'PlugUpdate' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating black for nvim plugin..."
+    ${nvim} -c 'BlackUpgrade' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating language servers..."
+    ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
+}
