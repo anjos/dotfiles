@@ -88,6 +88,11 @@ COMPLETION_WAITING_DOTS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 
+# Configuration for fzf
+export FZF_DEFAULT_COMMAND="fd --color=always"
+export FZF_DEFAULT_OPTS="--height 50% --border --ansi"
+alias fzpv=fzf --preview 'bat --style=plain --color=always --line-range :100 {}'
+
 # Which plugins would you like to load?
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -253,10 +258,6 @@ then
 else
     eval "$(direnv hook zsh)"
 fi
-
-# Configuration for FZF
-export FZF_DEFAULT_OPTS="--height 50% --border"
-alias fzpreview=fzf --preview 'bat --style=plain --color=always --line-range :100 {}'
 
 # Updates the current brew/pip/neovim installations
 function upenv {
