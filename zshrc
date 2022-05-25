@@ -92,7 +92,7 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 # Recommended to install: fzf fd ripgrep bat git-delta
 export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git'"
 export FZF_DEFAULT_OPTS="--height 50% --border --ansi"
-alias fzpv="fzf --preview 'bat --style=plain --color=always --line-range :100 {}'"
+alias fzpv="${FZF_DEFAULT_COMMAND} --type f | fzf --preview 'bat --style=plain --color=always --line-range :100 {}'"
 
 # Use fd instead of the default find command for listing path candidates.
 # - The first argument to the function ($1) is the base path to start traversal
