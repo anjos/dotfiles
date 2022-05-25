@@ -90,7 +90,7 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 
 # Configuration for fzf
 # Recommended to install: fzf fd ripgrep bat git-delta
-export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git' --ignore-file .gitignore"
+export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git'"
 export FZF_DEFAULT_OPTS="--height 50% --border --ansi"
 alias fzpv="fzf --preview 'bat --style=plain --color=always --line-range :100 {}'"
 
@@ -98,12 +98,12 @@ alias fzpv="fzf --preview 'bat --style=plain --color=always --line-range :100 {}
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --color=always --hidden --follow --exclude '*~' --exclude '.git' --ignore-file .gitignore . "$1"
+  fd --color=always --hidden --follow --exclude '*~' --exclude '.git' . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --color=always --hidden --follow --exclude '*~' --exclude '.git' --ignore-file .gitignore . "$1"
+  fd --type d --color=always --hidden --follow --exclude '*~' --exclude '.git' . "$1"
 }
 
 # Which plugins would you like to load?
@@ -126,6 +126,17 @@ plugins+=(fzf)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Opens file with vim upon ctrl-t (fzf)
+fzf_editor() {
+  local file=$(fzpv)
+  # Open the file if it exists
+  if [ -n "$file" ]; then
+    # Use the default editor if it's defined, otherwise Vim
+    ${EDITOR:-vi} "$file"
+  fi
+}
+bindkey -s '^t' 'fzf_editor\n'
 
 # for conda auto-completion
 autoload -U compinit && compinit
