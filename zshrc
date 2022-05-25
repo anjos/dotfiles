@@ -254,6 +254,10 @@ else
     eval "$(direnv hook zsh)"
 fi
 
+# Configuration for FZF
+export FZF_DEFAULT_OPTS="--height 50% --border"
+alias fzpreview=fzf --preview 'bat --style=plain --color=always --line-range :100 {}'
+
 # Updates the current brew/pip/neovim installations
 function upenv {
     local brew=$HOMEBREW_PREFIX/bin/brew
@@ -271,6 +275,9 @@ function upenv {
 
     echo "[upenv] Cleaning-up homebrew..."
     ${brew} cleanup
+
+    echo "[upenv] Updating oh-my-zsh..."
+    omz update
 
     echo "[upenv] Updating pip packages..."
     ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
