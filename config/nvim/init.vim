@@ -58,7 +58,10 @@ let g:ultisnips_python_quotion_style='double'
 set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
 set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
 
-"configuration for fzf
+"configuration for FZF
+let $FZF_DEFAULT_COMMAND = 'fd --type f --color=always'
+let $FZF_DEFAULT_OPTS = '--height 50% --border --ansi'
+map <C-t> :Files<CR>
 map <C-a> :Files<CR>
 
 "file reading/writing options
