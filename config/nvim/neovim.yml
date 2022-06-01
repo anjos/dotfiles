@@ -7,14 +7,11 @@ dependencies:
   - greenlet
   - psutil
   - black
-  - nodejs  #then, npm install -g neovim
+  - pynvim
   - c-compiler
-  - ruby  #then, gem install --bindir=$CONDA_PREFIX/bin neovim
+  - nodejs  #then, npm install -g neovim
+  - ruby  #then, gem install neovim
   - bat
   - ripgrep
   - fzf
   - fd-find
-  - pip:
-    - msgpack
-    - neovim-remote
-    - pynvim
