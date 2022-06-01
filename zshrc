@@ -306,18 +306,19 @@ function update_homebrew {
 
 function update_conda {
     local mamba=$HOME/mamba/bin/mamba
-    local conda=$HOME/mamba/bin/conda
     local nvim_env=$HOME/.dotfiles/config/nvim/neovim.yml
 
     echo "[upenv] Updating base conda environment..."
-    ${mamba} update -n base --all --yes
+    ${mamba} --no-banner update -n base --all --yes
 
     echo "[upenv] Re-installing neovim conda environment..."
     ${mamba} env remove -n neovim --yes
     ${mamba} env create -f ${nvim_env}
-    ${mamba} run -n neovim --no-capture-output --live-stream npm install -g neovim
-    local conda_prefix=$(${conda} run -n neovim --no-capture-output --live-stream printenv CONDA_PREFIX)
-    ${mamba} run -n neovim --no-capture-output --live-stream gem install --bindir ${conda_prefix}/bin neovim
+    echo "[upenv] Installing neovim node package..."
+    ${mamba} --no-banner run -n neovim --no-capture-output --live-stream npm install -g neovim
+    echo "[upenv] Installing neovim ruby gem..."
+    local prefix=$(${mamba} --no-banner run -n neovim --no-capture-output printenv CONDA_PREFIX)
+    ${mamba} --no-banner run -n neovim --no-capture-output --live-stream gem install --bindir ${prefix}/bin neovim
 }
 
 function update_neovim {
