@@ -308,9 +308,6 @@ function update_neovim {
     ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
     ${nvim} -c 'PlugUpdate' -c 'sleep 3 | qa'
 
-    echo "[upenv] Updating black for nvim plugin..."
-    ${nvim} -c 'BlackUpgrade' -c 'sleep 3 | qa'
-
     echo "[upenv] Updating language servers..."
     ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
 }

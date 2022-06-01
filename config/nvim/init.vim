@@ -24,8 +24,7 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'lervag/vimtex'
-Plug 'psf/black'
-Plug 'godlygeek/tabular'
+Plug 'psf/black', { 'branch': 'stable' }
 call plug#end()
 
 "define standard coc extensions
@@ -59,7 +58,7 @@ set wildignore=*.so,*.a,*.o,*.obj,*~,.git,*DS_Store*
 set wildignore+=*.pyc,*.pyo,__pycache__/,.coverage/**,*.egg,*.egg-info,*.egg-link
 
 "configuration for FZF
-let $FZF_DEFAULT_COMMAND = 'fd --type f --color=always'
+let $FZF_DEFAULT_COMMAND = 'fd --type f --color=always --exclude "*~" --exclude .git --ignore-file .gitignore'
 let $FZF_DEFAULT_OPTS = '--height 50% --border --ansi'
 map <C-t> :Files<CR>
 map <C-a> :Files<CR>
@@ -162,7 +161,6 @@ let g:vimtex_compiler_progname = '/idiap/user/aanjos/mamba/envs/neovim/bin/nvr'
 let g:tex_flavor = 'latex'
 
 "where to put black
-let g:black_virtualenv = stdpath('data').'/black'
 let g:black_linelength = 80
 
 "Use ctrl-d as quit alternative
