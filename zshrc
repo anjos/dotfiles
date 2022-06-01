@@ -301,11 +301,8 @@ function upenv {
     echo "[upenv] Cleaning-up homebrew..."
     ${brew} cleanup
 
-    echo "[upenv] Updating oh-my-zsh..."
-    omz update
-
     echo "[upenv] Updating pip packages..."
-    ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${1} install -U;
+    ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${pip} install -U;
 
     echo "[upenv] Updating nvim plugin manager..."
     ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
@@ -316,4 +313,7 @@ function upenv {
 
     echo "[upenv] Updating language servers..."
     ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating oh-my-zsh..."
+    omz update
 }
