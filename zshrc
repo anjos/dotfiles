@@ -283,11 +283,10 @@ else
     eval "$(direnv hook zsh)"
 fi
 
-# Updates the current brew/pip/neovim installations
-function upenv {
+# Updates the current brew/pip/neovim/mamba/conda/omz installations
+function update_homebrew {
     local brew=$HOMEBREW_PREFIX/bin/brew
     local pip=$HOMEBREW_PREFIX/bin/pip3
-    local nvim=$HOMEBREW_PREFIX/bin/nvim
 
     echo "[upenv] Updating homebrew..."
     ${brew} update
@@ -303,6 +302,26 @@ function upenv {
 
     echo "[upenv] Updating pip packages..."
     ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${pip} install -U;
+}
+
+function update_conda {
+    local mamba=$HOME/mamba/bin/mamba
+    local conda=$HOME/mamba/bin/conda
+    local nvim_env=$HOME/.dotfiles/config/nvim/neovim.yml
+
+    echo "[upenv] Updating base conda environment..."
+    ${mamba} update -n base --all --yes
+
+    echo "[upenv] Re-installing neovim conda environment..."
+    ${mamba} env remove -n neovim --yes
+    ${mamba} env create -f ${nvim_env}
+    ${mamba} run -n neovim --no-capture-output --live-stream npm install -g neovim
+    local conda_prefix=$(${conda} run -n neovim --no-capture-output --live-stream printenv CONDA_PREFIX)
+    ${mamba} run -n neovim --no-capture-output --live-stream gem install --bindir ${conda_prefix}/bin neovim
+}
+
+function update_neovim {
+    local nvim=$HOMEBREW_PREFIX/bin/nvim
 
     echo "[upenv] Updating nvim plugin manager..."
     ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
@@ -313,7 +332,12 @@ function upenv {
 
     echo "[upenv] Updating language servers..."
     ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
+}
 
+function upenv {
+    update_homebrew
+    update_conda
+    update_neovim
     echo "[upenv] Updating oh-my-zsh..."
     omz update
 }

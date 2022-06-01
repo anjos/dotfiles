@@ -8,7 +8,9 @@ dependencies:
   - psutil
   - black
   - pynvim
+  - compilers
   - nodejs  #then, npm install -g neovim
+  - ruby  #then, gem install neovim
   - bat
   - ripgrep
   - pip:
