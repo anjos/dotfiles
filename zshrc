@@ -319,6 +319,13 @@ function update_conda {
     echo "[upenv] Installing neovim ruby gem..."
     local prefix=$(${mamba} --no-banner run -n neovim --no-capture-output printenv CONDA_PREFIX)
     ${mamba} --no-banner run -n neovim --no-capture-output --live-stream gem install --bindir ${prefix}/bin neovim
+
+    echo "[upenv] Re-installing further conda environments..."
+    for k in $HOME/.dotfiles/envs/*.yml; do
+        local bname=$(basename $k .yml)
+        ${mamba} env remove -n ${bname}
+        ${mamba} env create -n ${bname} -f ${k}
+    done
 }
 
 function update_neovim {
