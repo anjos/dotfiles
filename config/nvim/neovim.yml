@@ -13,6 +13,7 @@ dependencies:
   - bat
   - ripgrep
   - fzf
+  - fd-find
   - pip:
     - msgpack
     - neovim-remote
