@@ -326,6 +326,9 @@ function update_conda {
         ${mamba} env remove -n ${bname}
         ${mamba} env create -n ${bname} -f ${k}
     done
+
+    echo "[upenv] Cleaning-up conda installation..."
+    ${mamba} clean --all --yes
 }
 
 function update_neovim {
