@@ -195,7 +195,6 @@ alias tn='tmux new-session -A -s'
 alias tc='tmux capture-pane -pt'
 alias qprojects='qconf -sprjl'
 alias qi="qrsh -l sgpu -now no -P oh-aa"
-
 alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
 
 # Programs controlled by environment variables
@@ -286,7 +285,7 @@ function update_homebrew {
 }
 
 function update_conda {
-    local mamba=$HOME/mamba/bin/mamba
+    local mamba=/idiap/user/aanjos/mamba/bin/mamba
     local nvim_env=$HOME/.dotfiles/config/nvim/neovim.yml
 
     echo "[upenv] Updating base conda environment..."
@@ -307,10 +306,13 @@ function update_conda {
         ${mamba} env remove -n ${bname}
         ${mamba} env create -n ${bname} -f ${k}
     done
+
+    echo "[upenv] Cleaning-up conda installation..."
+    ${mamba} clean --all --yes
 }
 
 function update_neovim {
-    local nvim=$HOMEBREW_PREFIX/bin/nvim
+    local nvim=$HOME/bin/nvim
 
     echo "[upenv] Updating nvim plugin manager..."
     ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
@@ -321,7 +323,7 @@ function update_neovim {
 }
 
 function upenv {
-    update_homebrew
+    #update_homebrew
     update_conda
     update_neovim
     echo "[upenv] Updating oh-my-zsh..."
