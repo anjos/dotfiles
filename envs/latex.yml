@@ -1,7 +1,11 @@
 channels:
-    - conda-forge
+  - conda-forge
 dependencies:
-    - python=3
-    - pygments
-    - latexcodec
-    - pybtex
+  - python=3
+  - pygments
+  - latexcodec
+  - pybtex
+  - pip
+  - lxml
+  - pip:
+    - git+https://github.com/xyz2tex/svg2tikz@7a9959c
