@@ -25,6 +25,12 @@ Host gitlab gitlab.idiap.ch
   ForwardAgent no
   Hostname gitlab.idiap.ch
 
+Host gitlab.uzh.ch
+  User git
+  ForwardAgent no
+  Hostname gitlab.uzh.ch
+  IdentityFile ~/.ssh/gitlab_uzh_rsa
+
 # Default proxy jump host at Idiap
 Host proxy
   User aanjos
