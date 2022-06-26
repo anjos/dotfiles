@@ -1,19 +1,19 @@
 [user]
-  name = Andre Anjos
-  email = andre.dos.anjos@gmail.com
-  signingkey =  C1A049F7
+    name = Andre Anjos
+    email = andre.dos.anjos@gmail.com
+    signingkey =  C1A049F7
 [credential]
-  helper = osxkeychain
+    helper = osxkeychain
 [color]
-  ui = true
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
+    ui = true
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
 [core]
     pager = delta
 [diff]
-  tool = vimdiff
+    tool = vimdiff
 [interactive]
     diffFilter = delta --color-only --features=interactive
 [delta]
@@ -30,45 +30,45 @@
     hunk-header-line-number-style = "#067a00"
     hunk-header-style = file line-number syntax
 [merge]
-  tool = vimdiff
+    tool = vimdiff
 [mergetool]
-  keepBackup = false
+    keepBackup = false
 [mergetool "vimdiff"]
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [difftool]
-  prompt = false
-  cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+    prompt = false
+    cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 [alias]
-  d = difftool
-  ba = branch -a
-  bd = branch -d
-  co = checkout
-  ci = commit
-  cm = commit -m
-  ca = commit -a -m
-  cp = cherry-pick
-  fp = fetch -p
-  st = status
-  sd = status .
-  cp = cherry-pick
-  lg1 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) — %C(magenta)%ae%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-  lg2 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %C(magenta)%ae%C(reset)' --abbrev-commit
-  lg = !"git lg1"
-  lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
-  um = fetch origin master:master
-  mr = push -o merge_request.create -o merge_request.remove_source_branch --set-upstream origin HEAD
+    d = difftool
+    ba = branch -a
+    bd = branch -d
+    co = checkout
+    ci = commit
+    cm = commit -m
+    ca = commit -a -m
+    cp = cherry-pick
+    fp = fetch -p
+    st = status
+    sd = status .
+    cp = cherry-pick
+    lg1 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) — %C(magenta)%ae%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lg2 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %C(magenta)%ae%C(reset)' --abbrev-commit
+    lg = !"git lg1"
+    lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
+    um = fetch origin master:master
+    mr = push -o merge_request.create -o merge_request.remove_source_branch --set-upstream origin HEAD
 [push]
-  default = upstream
-  followTags = true
+    default = upstream
+    followTags = true
 [tag]
-  sort = version:refname
+    sort = version:refname
 [versionsort]
-  suffix = "a"
-  suffix = "b"
-  suffix = "c"
-  suffix = "rc"
-  suffix = "pre"
+    suffix = "a"
+    suffix = "b"
+    suffix = "c"
+    suffix = "rc"
+    suffix = "pre"
 [pull]
-  ff = only
+    ff = only
 [init]
-  defaultBranch = master
+    defaultBranch = master
