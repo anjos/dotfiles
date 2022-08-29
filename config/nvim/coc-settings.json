@@ -3,5 +3,4 @@
     "npm.binPath": "/Users/andre/conda/envs/neovim/bin/npm",
     /* coc-pyright settings */
     "python.formatting.provider": "black",
-    "python.pythonPath": "/Users/andre/.dotfiles/config/nvim/python"
 }
