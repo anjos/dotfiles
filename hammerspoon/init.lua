@@ -8,7 +8,7 @@ rc:start()
 
 
 -- Default hotkeys for actions
-defaultHotKeys = {"cmd", "alt", "ctrl"}
+defaultHotKeys = {"cmd"}
 
 
 -- Opens a new modal where we can launch applications
@@ -68,18 +68,18 @@ singleapps = {
 
 for i, app in ipairs(singleapps) do
   -- modal:bind({}, app[1], function() launch(app[2]); modal:exit(); end)
-  hs.hotkey.bind(defaultHotKeys, app[1], function() launch(app[2]); end)
+  hs.hotkey.bind({"cmd", "alt"}, app[1], "opens " .. app[2], function() launch(app[2]); end)
 end
 
 -- Locks the screen by pressing Delete
-hs.hotkey.bind(defaultHotKeys, "escape", "Lock screen", hs.caffeinate.lockScreen)
+hs.hotkey.bind(defaultHotKeys, "escape", "locks screen", hs.caffeinate.lockScreen)
 
 
 -- Increases the size of the window vertically only
 -- Useful if switching monitors and want to increase window size to occupy the
 -- full height of the newly available media
 -- modal:bind({}, "Down", function()
-hs.hotkey.bind(defaultHotKeys, "down", "Window maximised vertically", function()
+hs.hotkey.bind(defaultHotKeys, "down", "maximises window vertically", function()
     local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
@@ -97,7 +97,7 @@ function toggleFullscreen()
       win:setFullScreen(not win:isFullScreen())
    end
 end
-hs.hotkey.bind(defaultHotKeys, ".", "Toggle fullscreen", toggleFullscreen)
+hs.hotkey.bind(defaultHotKeys, ".", "toggles app to/from fullscreen", toggleFullscreen)
 
 
 function dumpTable(o)
@@ -136,6 +136,10 @@ function nextKeyboardLayout()
     hs.alert.show("Keyboard: " .. allKeyboardLayouts[currentKeyboardLayout])
 end
 -- modal:bind({}, 'k', nextKeyboardLayout)
-hs.hotkey.bind(defaultHotKeys, "k", nextKeyboardLayout)
+hs.hotkey.bind(defaultHotKeys, "k", "goes to next keyboard layout", nextKeyboardLayout)
+
+-- Shows a window with all assigned hotkey combinations
+hs.hotkey.showHotkeys(defaultHotKeys, "/")
+
 
 hs.alert.show("Configuration reloaded")
