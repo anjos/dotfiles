@@ -86,7 +86,7 @@ hs.hotkey.bind(defaultHotKeys, "down", "maximises window vertically", function()
     local max = screen:frame()
 
     f.y = max.y
-    f.h = max.h
+    f.h = 0.99*max.h
     win:setFrame(f)
 end)
 
