@@ -168,12 +168,15 @@ bindkey -M emacs '^N' history-substring-search-down
 #
 # Standard aliases
 alias h='history'
-if type "gls" > /dev/null; then
-  alias ls='gls --color=auto -F -t -r -t'
+if type "vivid" > /dev/null; then
+  export LS_COLORS=$(vivid generate one-dark)
 fi
-alias ll='ls -l'
-alias la='ls -a'
-alias lla='ll -a'
+if type "exa" > /dev/null; then
+  alias ls='exa --git --classify --header --sort=modified'
+fi
+alias ll='ls --long'
+alias la='ls --all'
+alias lla='ll --all'
 alias rm='rm -vi'
 if type "grm" > /dev/null; then
   alias rm='grm -vi'
