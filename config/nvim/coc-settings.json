@@ -2,5 +2,5 @@
     /* coc settings */
     "npm.binPath": "/Users/andre/conda/envs/neovim/bin/npm",
     /* coc-pyright settings */
-    "python.formatting.provider": "black",
+    "python.formatting.provider": "black"
 }
