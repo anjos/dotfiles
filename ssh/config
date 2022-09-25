@@ -3,7 +3,7 @@
 
 Host phoscon cravo zigbee
   User pi
-  Hostname cravo.local
+  Hostname phoscon.local
 
 Host orquidea nas
   User admin
