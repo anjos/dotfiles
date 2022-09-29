@@ -1,6 +1,6 @@
 default_context:
     full_name: "Andre Anjos"
-    email: "andre.dos.anjos@gmail.com"
+    email: "andre.anjos@idiap.ch"
     github_username: "anjos"
 cookiecutters_dir: "/Users/andre/.cache/cookiecutter"
 abbreviations:
