@@ -1,0 +1,23 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Replace the "❯" symbol in the prompt with "➜"
+#[character] # The name of the module we are configuring is "character"
+#success_symbol = "[⌘](bold green)"
+
+format = "$time$all"
+
+[time]
+disabled = false
+format = '[$time](bold white) '
+time_format = "%H:%M"
+utc_time_offset = "+2"
+
+[conda]
+format = "[$symbol$environment](bold fg:#ff9300) "
+
+[python]
+format = "[$symbol$version](bold fg:#99cc00) "

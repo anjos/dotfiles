@@ -185,3 +185,6 @@ nnoremap <silent> <leader>sc :source $MYVIMRC<CR>
 "use ;; for escape
 "http://vim.wikia.com/wiki/Avoid_the_escape_key
 inoremap ;; <Esc>
+
+"use <CR> (enter) to complete with the first selection
+inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
