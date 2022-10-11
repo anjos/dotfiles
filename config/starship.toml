@@ -18,6 +18,7 @@ utc_time_offset = "+2"
 
 [conda]
 format = "[$symbol$environment](bold fg:#ff9300) "
+ignore_base = false
 
 [python]
 format = "[$symbol$version](bold fg:#99cc00) "
