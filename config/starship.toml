@@ -22,3 +22,6 @@ ignore_base = false
 
 [python]
 format = "[$symbol$version](bold fg:#99cc00) "
+
+[package]
+format = "[$symbol$version](bold fg:#927735) "
