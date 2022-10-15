@@ -75,8 +75,8 @@ $sudo\
 $conda\
 $python\
 $package\
-$fill\
 $cmd_duration\
+$fill\
 $line_break\
 $jobs\
 $battery\
