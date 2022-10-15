@@ -5,9 +5,11 @@
 command_timeout = 1000  # ms
 
 # Inserts a blank line between shell prompts
-add_newline = true
+add_newline = false
 
 format = """
+$fill\
+$line_break\
 $time\
 $username\
 $hostname\
@@ -76,7 +78,6 @@ $conda\
 $python\
 $package\
 $cmd_duration\
-$fill\
 $line_break\
 $jobs\
 $battery\
@@ -142,5 +143,5 @@ format = "[$symbol$branch(:$remote_branch)]($style) "
 style = "bold fg:git_status bg:background"
 
 [fill]
-symbol = " "
-style = "bg:background"
+symbol = "─"
+style = "fg:#1f1f1f"
