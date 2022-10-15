@@ -1,27 +1,146 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Longer time outs
+command_timeout = 1000  # ms
+
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Replace the "❯" symbol in the prompt with "➜"
-#[character] # The name of the module we are configuring is "character"
-#success_symbol = "[⌘](bold green)"
+format = """
+$time\
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$haskell\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$buf\
+$nix_shell\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$custom\
+$sudo\
+$conda\
+$python\
+$package\
+$fill\
+$line_break\
+$cmd_duration\
+$jobs\
+$battery\
+$status\
+$container\
+$shell\
+$character"""
 
-format = "$time$all"
+# Set "anjos" as custom color palette
+palette = "custom"
+
+[palettes.custom]
+background = "#000000"
+time = "#ffffff"
+conda = "#ff9300"
+python = "#99cc00"
+package = "#927735"
+directory = "blue"
+cmd = "yellow"
+git_branch = "purple"
+git_status = "red"
 
 [time]
 disabled = false
-format = '[$time](bold white) '
+format = "[ $time ](bold fg:time bg:background)"
 time_format = "%H:%M"
 utc_time_offset = "+2"
 
 [conda]
-format = "[$symbol$environment](bold fg:#ff9300) "
+style = "bold fg:conda bg:background"
+format = "[$symbol$environment ]($style)"
 ignore_base = false
 
 [python]
-format = "[$symbol$version](bold fg:#99cc00) "
+symbol = "🐍"
+style = "bold fg:python bg:background"
+format = "[$symbol $version ]($style)"
 
 [package]
-format = "[$symbol$version](bold fg:#927735) "
+disabled = true
+style = "bold fg:package bg:background"
+
+[directory]
+truncation_length = 10
+truncate_to_repo = true # truncates directory to root folder if in github repo
+style = "bold italic fg:directory bg:background"
+repo_root_style = "bold italic fg:directory bg:background"
+repo_root_format = "[$before_root_path]($style)[{$repo_root}]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+
+[cmd_duration]
+min_time = 100
+show_milliseconds = false
+disabled = false
+style = "bold italic fg:cmd bg:background"
+format = "[⏱️  $duration ]($style)"
+
+[git_branch]
+symbol = ""
+style = "bold fg:git_branch bg:background"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+
+[git_status]
+style = "bold fg:git_status bg:background"
+
+[fill]
+symbol = " "
+style = "bg:background"
