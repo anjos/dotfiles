@@ -76,8 +76,8 @@ $conda\
 $python\
 $package\
 $fill\
-$line_break\
 $cmd_duration\
+$line_break\
 $jobs\
 $battery\
 $status\
