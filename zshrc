@@ -113,13 +113,11 @@ _fzf_compgen_dir() {
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 plugins+=(conda-zsh-completion)
-plugins+=(docker)
 plugins+=(gitfast)
 plugins+=(python)
 plugins+=(themes)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
-plugins+=(history-substring-search)
 plugins+=(fzf)
 
 source $ZSH/oh-my-zsh.sh
