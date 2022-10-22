@@ -292,6 +292,41 @@ function update_homebrew {
     local brew=$HOMEBREW_PREFIX/bin/brew
     local pip=$HOMEBREW_PREFIX/bin/pip3
 
+    kegs=()
+    kegs+=('bat')
+    kegs+=('coreutils')
+    kegs+=('curl')
+    kegs+=('direnv')
+    kegs+=('exa')
+    kegs+=('fd')
+    kegs+=('findutils')
+    kegs+=('fzf')
+    kegs+=('git')
+    kegs+=('git-delta')
+    kegs+=('git-filter-repo')
+    kegs+=('gnu-sed')
+    kegs+=('graphviz')
+    kegs+=('grep')
+    kegs+=('htop')
+    kegs+=('imagemagick')
+    kegs+=('latexdiff')
+    kegs+=('latexindent')
+    kegs+=('libyaml')
+    kegs+=('neovim')
+    kegs+=('openfortivpn')
+    kegs+=('pass')
+    kegs+=('pyinvoke')
+    kegs+=('python@3.9')
+    kegs+=('python@3.10')
+    kegs+=('ripgrep')
+    kegs+=('starship')
+    kegs+=('tmux')
+    kegs+=('wget')
+    kegs+=('zsh')
+
+    #echo "[upenv] Installing required packages..."
+    #${brew} install "${kegs[@]}"
+
     echo "[upenv] Updating homebrew..."
     ${brew} update
 
