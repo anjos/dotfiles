@@ -29,7 +29,6 @@ Plug 'honza/vim-snippets'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'rizzatti/dash.vim'
 Plug 'lervag/vimtex'
 Plug 'psf/black', {'tag': 'stable'}
 call plug#end()
