@@ -3,7 +3,7 @@ vim.opt.termguicolors = true -- finer colors
 vim.opt.background = "dark"
 
 -- Nightfox configuration
-vim.cmd[[colorscheme nightfox]]
+vim.cmd[[colorscheme duskfox]]
 
 -- Lualine configuration
 require('lualine').setup({options={theme='auto'}})
