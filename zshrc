@@ -320,12 +320,41 @@ function update_homebrew {
     kegs+=('python@3.10')
     kegs+=('ripgrep')
     kegs+=('starship')
+    kegs+=('texlab')
     kegs+=('tmux')
     kegs+=('wget')
     kegs+=('zsh')
 
-    #echo "[upenv] Installing required packages..."
+    #echo "[upenv] Installing required homebrew kegs (packages)..."
     #${brew} install "${kegs[@]}"
+
+    taps=()
+    taps+=('homebrew/cask-fonts')
+
+    #echo "[upenv] Tapping required homebrew sources (taps)..."
+    #${brew} tap homebrew/cask-fonts
+
+    casks=()
+    casks+=('balenaetcher')
+    casks+=('font-inconsolata-nerd-font')
+    casks+=('font-jetbrains-mono-nerd-font')
+    casks+=('font-lekton-nerd-font')
+    casks+=('font-meslo-lg-nerd-font')
+    casks+=('font-roboto-mono-nerd-font')
+    casks+=('font-sauce-code-pro-nerd-font')
+    casks+=('font-ubuntu-mono-nerd-font')
+    casks+=('hammerspoon')
+    casks+=('inkscape')
+    casks+=('mactex')
+    casks+=('mattermost')
+    casks+=('qlmarkdown')
+    casks+=('skim')
+    casks+=('syntax-highlight')
+    casks+=('timemachineeditor')
+    casks+=('xquartz')
+
+    #echo "[upenv] Installing required homebrew casks..."
+    #${brew} install --cask "${casks[@]}"
 
     echo "[upenv] Updating homebrew..."
     ${brew} update
@@ -374,8 +403,7 @@ function update_neovim {
     local nvim=$HOMEBREW_PREFIX/bin/nvim
 
     echo "[upenv] Updating nvim plugin manager..."
-    ${nvim} -c 'PlugUpgrade' -c 'sleep 3 | qa'
-    ${nvim} -c 'PlugUpdate' -c 'sleep 3 | qa'
+    ${nvim} -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
     echo "[upenv] Updating language servers..."
     ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
