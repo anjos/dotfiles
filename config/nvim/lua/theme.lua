@@ -1,16 +1,12 @@
 -- Color scheme/theme
 vim.opt.termguicolors = true -- finer colors
-vim.opt.bg = 'dark' -- use dark background on guis
-vim.cmd('colorscheme hybrid')
+vim.opt.background = "dark"
 
--- Airline configuration
-vim.opt.laststatus = 2
-vim.g.airline_theme = 'wombat'
-vim.g.airline_powerline_fonts = 1
+-- Nightfox configuration
+vim.cmd[[colorscheme nightfox]]
 
-vim.g['airline#extensions#branch#enabled'] = 1
-vim.g['airline#extensions#branch#displayed_head_limit'] = 10
-vim.g['airline#extensions#whitespace#enabled'] = 1
+-- Lualine configuration
+require('lualine').setup({options={theme='auto'}})
 
 -- Shows line numbers and make double-C-n switch modes
 vim.opt.number = false
@@ -24,8 +20,6 @@ vim.g.indent_guides_guide_size = 1
 vim.g.gitgutter_grep = ''
 vim.g.gitgutter_override_sign_column_highlight = 0
 vim.opt.signcolumn = 'yes'
-vim.cmd('highlight SignColumn ctermbg=232')
-vim.cmd('highlight SignColumn guibg=#0f0f0f')
 
 -- show trailing whitespaces
 vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=red')

@@ -20,9 +20,11 @@ return require('packer').startup({function(use)
     use 'airblade/vim-gitgutter'
     use 'vim-scripts/keepcase.vim'
     use 'honza/vim-snippets'
-    use 'w0ng/vim-hybrid'
-    use 'bling/vim-airline'
-    use 'vim-airline/vim-airline-themes'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+    use 'EdenEast/nightfox.nvim'
     use 'nathanaelkane/vim-indent-guides'
     use 'lervag/vimtex'
     use {'psf/black', tag='stable'}
