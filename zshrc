@@ -321,6 +321,7 @@ function update_homebrew {
     kegs+=('ripgrep')
     kegs+=('starship')
     kegs+=('texlab')
+    kegs+=('tree-sitter')
     kegs+=('tmux')
     kegs+=('wget')
     kegs+=('zsh')

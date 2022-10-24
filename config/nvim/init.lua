@@ -77,3 +77,42 @@ vim.keymap.set("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<
 vim.keymap.set("i", "<C-j>", "<Plug>(coc-snippets-expand-jump)")
 -- Use <c-space> to trigger completion.
 vim.keymap.set("i", "<C-space>", "coc#refresh()", {silent = true, expr = true})
+
+-- Tree-sitter configuration (highlight, indentation and folding)
+require('nvim-treesitter.configs').setup {
+  -- A list of parser names, or "all"
+  -- Use :TSInstallInfo to check what is available
+  ensure_installed = {
+      "bash",
+      "bibtex",
+      "c",
+      "cmake",
+      "comment",
+      "diff",
+      "dockerfile",
+      "dot",
+      "html",
+      "json",
+      "jsonc",
+      "latex",
+      "lua",
+      "make",
+      "markdown",
+      "python",
+      "toml",
+      "vim",
+      "yaml",
+  },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  highlight = {enable = true},
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same
+    -- time. Set this to `true` if you depend on 'syntax' being enabled (like
+    -- for indentation). Using this option may slow down your editor, and you
+    -- may see some duplicate highlights. Instead of true it can also be a list
+    -- of languages
+    additional_vim_regex_highlighting = false,
+}
