@@ -43,21 +43,5 @@ vim.opt.signcolumn = 'yes'
 vim.g.gitgutter_grep = ''
 vim.g.gitgutter_set_sign_backgrounds = 1
 
--- show trailing whitespaces
-vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=red')
-
-vim.api.nvim_create_autocmd("ColorScheme",
-  { pattern = { "*" }, command = [[highlight ExtraWhitespace guibg=red]] }
-)
-
-vim.api.nvim_create_autocmd("BufEnter",
-  { pattern = { "*" }, command = [[match ExtraWhitespace /\s\+$/]] }
-)
-
-vim.api.nvim_create_autocmd("InsertEnter",
-  { pattern = { "*" }, command = [[match ExtraWhitespace /\s\+\%#\@<!$/]] }
-)
-
-vim.api.nvim_create_autocmd("InsertLeave",
-  { pattern = { "*" }, command = [[match ExtraWhiteSpace /\s\+$/]] }
-)
+-- show trailing whitespaces, handle it better
+vim.cmd('highlight ExtraWhitespace guibg=' .. spec.diag.warn)

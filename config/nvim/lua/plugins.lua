@@ -25,7 +25,7 @@ return require('packer').startup({function(use)
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
     use 'EdenEast/nightfox.nvim'
-    use 'nathanaelkane/vim-indent-guides'
+    use 'ntpeters/vim-better-whitespace'
     use 'lervag/vimtex'
     use {'psf/black', tag='stable'}
 

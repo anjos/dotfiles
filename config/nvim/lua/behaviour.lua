@@ -26,10 +26,10 @@ vim.api.nvim_create_autocmd("FileType",
   { pattern = { "make" }, command = [[set noexpandtab]] }
 )
 
--- Strip trailing whitespaces on save
-vim.api.nvim_create_autocmd("BufWritePre",
-  { pattern = { "*" }, command = [[%s/\s\+$//e]] }
-)
+-- Strip trailing whitespaces on save, without confirmation
+vim.g.better_whitespace_enabled = 1
+vim.g.strip_whitespace_on_save = 1
+vim.g.strip_whitespace_confirm = 0
 
 -- Ignore these files on file lists and tab completions
 vim.opt.wildignore = {
@@ -70,3 +70,6 @@ vim.keymap.set('n', '<leader>sc', ':source $MYVIMRC<CR>', {noremap = true, silen
 -- use ;; for escape (iPad keyboard)
 -- http://vim.wikia.com/wiki/Avoid_the_escape_key
 vim.keymap.set('i', ';;', '<Esc>', {noremap = true})
+
+-- If asked to display special characters (whitespaces), then use these symbols
+vim.opt.listchars='eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣'
