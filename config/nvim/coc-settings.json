@@ -2,5 +2,6 @@
     "npm.binPath": "/Users/andre/conda/envs/neovim/bin/npm",
     "python.formatting.provider": "black",
     "Lua.diagnostics.globals": ["vim"],
-    "sumneko-lua.enableNvimLuaDev": true
+    "sumneko-lua.enableNvimLuaDev": true,
+    "Lua.telemetry.enable": false
 }
