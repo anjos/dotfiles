@@ -2,7 +2,7 @@ name: neovim
 channels:
   - conda-forge
 dependencies:
-  - python=3.9
+  - python=3
   - pip
   - greenlet
   - psutil
@@ -13,6 +13,7 @@ dependencies:
   - ruby  #then, gem install neovim
   - bat
   - ripgrep
+  - fd-find
   - protobuf=3.20
   - pip:
     - neovim-remote
