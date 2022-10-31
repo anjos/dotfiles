@@ -290,7 +290,6 @@ fi
 # Updates the current brew/pip/neovim/mamba/conda/omz installations
 function update_homebrew {
     local brew=$HOMEBREW_PREFIX/bin/brew
-    local pip=$HOMEBREW_PREFIX/bin/pip3
 
     kegs=()
     kegs+=('bat')
@@ -368,9 +367,6 @@ function update_homebrew {
 
     echo "[upenv] Cleaning-up homebrew..."
     ${brew} cleanup
-
-    echo "[upenv] Updating pip packages..."
-    ${pip} list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 ${pip} install -U;
 }
 
 function update_conda {
