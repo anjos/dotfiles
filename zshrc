@@ -209,6 +209,9 @@ alias it='ssh -t idiap tmux'
 alias itn='it new-session -A -s'
 alias itc='it capture-pane -pt'
 alias itl='it ls'
+if type "bat" > /dev/null; then
+  alias cat='bat --style=plain'
+fi
 
 # A function to start a new iTerm window with the neovim profile
 function xvim () {
@@ -404,6 +407,9 @@ function update_neovim {
 
     echo "[upenv] Updating language servers..."
     ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
+
+    echo "[upenv] Updating language parsing and highlight..."
+    ${nvim} -c 'TSUpdateSync' -c 'sleep 3 | qa'
 }
 
 function upenv {
