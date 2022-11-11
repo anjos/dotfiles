@@ -24,7 +24,9 @@ return require('packer').startup({function(use)
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
-    use 'EdenEast/nightfox.nvim'
+    use 'EdenEast/nightfox.nvim'    -- nightfox themes
+    use 'ellisonleao/gruvbox.nvim'  -- gruvbox theme
+    use {'folke/tokyonight.nvim', branch = 'main'}  -- tokyonight theme
     use 'ntpeters/vim-better-whitespace'
     use 'lervag/vimtex'
     use {'psf/black', tag='stable'}
