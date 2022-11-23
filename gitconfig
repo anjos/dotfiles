@@ -2,6 +2,8 @@
     name = Andre Anjos
     email = andre.dos.anjos@gmail.com
     signingkey =  C1A049F7
+[init]
+    defaultBranch = main
 [credential]
     helper = osxkeychain
 [color]
@@ -71,5 +73,3 @@
     suffix = "pre"
 [pull]
     ff = only
-[init]
-    defaultBranch = master
