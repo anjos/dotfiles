@@ -218,6 +218,9 @@ function xvim () {
   $HOME/.xvim.py "$@"
 }
 alias gvim='xvim'
+function svim () {
+  $HOME/.svim.py "$@"
+}
 alias os='open -a Skim'
 
 alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
