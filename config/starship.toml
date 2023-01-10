@@ -102,9 +102,10 @@ git_status = "red"
 
 [time]
 disabled = false
-format = "[ $time ](bold fg:time bg:background)"
+format = "[$time ]($style)"
+style = "bold fg:time bg:background"
 time_format = "%H:%M"
-utc_time_offset = "+2"
+utc_time_offset = "+1"
 
 [conda]
 style = "bold fg:conda bg:background"
