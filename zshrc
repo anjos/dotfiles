@@ -8,7 +8,7 @@
 # Update values at /etc/paths and /etc/manpaths
 eval `/usr/libexec/path_helper`
 
-# Adds homebrewsetup
+# Adds homebrew setup
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Conda setup
@@ -280,9 +280,14 @@ ulimit -c 0;
 # This is for python initialization
 export PYTHONSTARTUP=~/.python_profile.py
 
-# Integration with iTerm2
-if [ -r "${ZSH_CUSTOM}/iterm2_shell_integration.zsh" ]; then
+# Integration with iTerm2 and Kitty
+if [[ -n $ITERM_SESSION_ID && -r "${ZSH_CUSTOM}/iterm2_shell_integration.zsh" ]]; then
     source "${ZSH_CUSTOM}/iterm2_shell_integration.zsh"
+elif [[ -n $KITTY_INSTALLATION_DIR ]]; then
+    export KITTY_SHELL_INTEGRATION="enabled"
+    autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+    kitty-integration
+    unfunction kitty-integration
 fi
 
 # Integrates direnv
@@ -309,6 +314,7 @@ function update_homebrew {
     kegs+=('git')
     kegs+=('git-delta')
     kegs+=('git-filter-repo')
+    kegs+=('git-lfs')
     kegs+=('gnu-sed')
     kegs+=('graphviz')
     kegs+=('grep')
