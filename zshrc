@@ -213,16 +213,7 @@ if type "bat" > /dev/null; then
   alias cat='bat --style=plain'
 fi
 
-# A function to start a new iTerm window with the neovim profile
-function xvim () {
-  $HOME/.xvim.py "$@"
-}
-alias gvim='xvim'
-function svim () {
-  $HOME/.svim.py "$@"
-}
 alias os='open -a Skim'
-
 alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
 
 # Programs controlled by environment variables
@@ -288,6 +279,17 @@ elif [[ -n $KITTY_INSTALLATION_DIR ]]; then
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
     kitty-integration
     unfunction kitty-integration
+fi
+
+if [[ "$TERM" == "xterm-kitty" ]]; then
+    alias ssh="kitty +kitten ssh"
+    function svim() {
+        KITTY_CLONE_SOURCE_CODE="[[ $# == 0 ]] && exec nvim || exec nvim \"${@}\"" clone-in-kitty --type=window --location=before
+    }
+    function xvim() {
+        KITTY_CLONE_SOURCE_CODE="[[ $# == 0 ]] && exec nvim || exec nvim \"${@}\"" clone-in-kitty --type=os-window
+    }
+    alias gvim=xvim
 fi
 
 # Integrates direnv
