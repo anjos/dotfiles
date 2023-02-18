@@ -1,4 +1,4 @@
-vim.opt.mouse = 'a'       -- Mouse work fine against terminal neovim
+vim.opt.mouse = ''        -- Mouse work fine against terminal neovim
 vim.opt.title = true      -- set terminal title
 vim.opt.autoread = true   -- re-read files if they change on disk
 vim.opt.autowrite = true  -- write files automatically everytime you change it
