@@ -26,13 +26,5 @@ use_conda() {
         # Else, we just tell the user, and activate "base"
         echo "${red}ERROR${normal}: Conda environment ${red}$1${normal} does not exist (activating ${green}base${normal} instead)"
         conda activate base
-
-        # We then recommend the next set of actions depending on if bdt is
-        # available or not
-        if command -v bdt &> /dev/null; then
-            echo "${blue}TIP${normal}: Use \"${blue}bdt create -vv $1${normal}\", to create a new development environment"
-        else
-            echo "${blue}TIP${normal}: Install ${blue}bob.devtools${normal} to easily create new development environments"
-        fi
     fi
 }
