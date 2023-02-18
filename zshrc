@@ -359,6 +359,7 @@ function update_homebrew {
     casks+=('font-ubuntu-mono-nerd-font')
     casks+=('hammerspoon')
     casks+=('inkscape')
+    casks+=('kitty')
     casks+=('mactex')
     casks+=('mattermost')
     casks+=('qlmarkdown')
