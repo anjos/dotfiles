@@ -171,14 +171,19 @@ bindkey -M emacs '^N' history-substring-search-down
 # Standard aliases
 alias h='history'
 if type "vivid" > /dev/null; then
-  export LS_COLORS=$(vivid generate one-dark)
+  export LS_COLORS=$(vivid generate snazzy)
 fi
-if type "exa" > /dev/null; then
+if type "lsd" > /dev/null; then
+  alias ls='lsd --hyperlink=auto'
+elif type "gls" > /dev/null; then
+  alias ls='gls'
+elif type "exa" > /dev/null; then
   alias ls='exa --git --classify --header --sort=modified'
 fi
 alias ll='ls --long'
 alias la='ls --all'
 alias lla='ll --all'
+alias lt='ls --tree'
 alias rm='rm -vi'
 if type "grm" > /dev/null; then
   alias rm='grm -vi'
@@ -309,7 +314,7 @@ function update_homebrew {
     kegs+=('coreutils')
     kegs+=('curl')
     kegs+=('direnv')
-    kegs+=('exa')
+    #kegs+=('exa')
     kegs+=('fd')
     kegs+=('findutils')
     kegs+=('fzf')
@@ -336,6 +341,7 @@ function update_homebrew {
     kegs+=('texlab')
     kegs+=('tree-sitter')
     kegs+=('tmux')
+    kegs+=('vivid')
     kegs+=('wget')
     kegs+=('zsh')
 
