@@ -91,3 +91,11 @@ require('nvim-treesitter.configs').setup {
     -- of languages
     additional_vim_regex_highlighting = false,
 }
+
+require("indent_blankline").setup {
+    char = '┊',
+    show_trailing_blankline_indent = false,
+    show_current_context = true,
+    show_current_context_start = true,
+    show_end_of_line = true,
+}

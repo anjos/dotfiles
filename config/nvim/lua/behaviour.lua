@@ -100,8 +100,8 @@ vim.keymap.set('i', ';;', '<Esc>', {noremap = true})
 -- See `:help telescope.builtin`
 local wk = require('which-key')
 wk.register({
-  ["<leader>ec"] = {"<cmd>edit $MYVIMRC<cr>", "[c] Edit neovim's init.lua", noremap = true, silent = true},
-  ["<leader>sc"] = {"<cmd>source $MYVIMRC<cr>", "[c] Reload neovim's init.lua", noremap = true, silent = true},
+  ["<leader>ei"] = {"<cmd>edit $MYVIMRC<cr>", "[E]dit neovim's [i]nit.lua", noremap = true, silent = true},
+  ["<leader>si"] = {"<cmd>source $MYVIMRC<cr>", "[S]ource neovim's [i]nit.lua", noremap = true, silent = true},
   ["<leader>?"] = { "<cmd>Telescope oldfiles<cr>", "[?] Open recent file" },
   ["<leader><space>"] = { "<cmd>Telescope buffers<cr>", "[<space>] Open recent buffer" },
   -- You can pass additional configuration to telescope to change theme, layout, etc.

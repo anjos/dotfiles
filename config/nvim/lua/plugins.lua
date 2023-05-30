@@ -18,9 +18,6 @@ return require('packer').startup({function(use)
     -- Use G<git-cmd> to check git command outputs on neovim
     use 'tpope/vim-fugitive'
 
-    -- Figures out white-space and tab-stops cleverly
-    use 'tpope/vim-sleuth'
-
     -- Functions for doing case-persistant substitutions
     use 'vim-scripts/keepcase.vim'
 
@@ -50,11 +47,16 @@ return require('packer').startup({function(use)
         end
     }
 
-    -- Adds gutter signs for git changes
-    use 'airblade/vim-gitgutter'
+    -- Adds git releated signs to the gutter, as well as utilities for managing
+    -- changes. See `:help gitsigns.txt`
+    use 'lewis6991/gitsigns.nvim'
 
     -- Cause all trailing whitespace characters to be highlighted
     use 'ntpeters/vim-better-whitespace'
+
+    -- Add indentation guides even on blank lines
+    -- See `:help indent_blankline.txt`
+    use 'lukas-reineke/indent-blankline.nvim'
 
     -- "gc" to comment visual regions/lines
     use 'numToStr/Comment.nvim'
