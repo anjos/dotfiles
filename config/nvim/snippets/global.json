@@ -1,0 +1,22 @@
+{
+  "Current date": {
+    "prefix": "cdate",
+    "body": "`date`",
+    "description": "US datetime"
+  },
+  "Name and e-mail": {
+    "prefix": "namemail",
+    "body": "Andre Anjos <andre.dos.anjos@gmail.com>",
+    "description": "Gmail name <e-mail>"
+  },
+  "Idiap name and e-mail": {
+    "prefix": "inamemail",
+    "body": "Andre Anjos <andre.anjos@idiap.ch>",
+    "description": "Idiap name <e-mail>"
+  },
+  "utf-8 editor marker": {
+    "prefix": "utf8",
+    "body": "coding=utf-8",
+    "description": "VIM's utf8 line"
+  }
+}

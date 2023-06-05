@@ -1,6 +1,0 @@
-{
-    "npm.binPath": "/Users/andre/conda/envs/neovim/bin/npm",
-    "python.formatting.provider": "black",
-    "Lua.diagnostics.globals": ["vim"],
-    "Lua.telemetry.enable": false
-}
