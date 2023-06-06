@@ -1,23 +1,5 @@
 return {
 
-    -- {
-    --     'ntpeters/vim-better-whitespace',
-    --     priority = 1000,
-    --     lazy = false,
-    --     config = function()
-    --         vim.g.better_whitespace_enabled = 1
-    --         vim.g.strip_whitespace_on_save = 1
-    --         vim.g.strip_whitespace_confirm = 0
-    --         -- binds new key mapping for removing whitespaces in buffer
-    --         vim.keymap.set({ 'n' }, '<leader>t', function()
-    --             vim.cmd('StripWhitespace')
-    --         end, { desc = 'Strip whitespace on current buffer' })
-    --         vim.g.better_whitespace_filetypes_blacklist = {
-    --             'dashboard',
-    --         }
-    --     end,
-    -- },
-
     {
         'cappyzawa/trim.nvim',
         config = function()
@@ -60,20 +42,38 @@ return {
         -- Add indentation guides even on blank lines
         -- See `:help indent_blankline.txt`
         'lukas-reineke/indent-blankline.nvim',
-        config = function ()
+        config = function()
             vim.opt.termguicolors = true
+
+            -- These will make spaces and returns be shown:
             -- vim.opt.list = true
             -- vim.opt.listchars:append "space:⋅"
             -- vim.opt.listchars:append "eol:↴"
-            require("indent_blankline").setup({
+
+            require('indent_blankline').setup({
                 char = '┊',
-                space_char_blankline = " ",
+                space_char_blankline = ' ',
                 show_trailing_blankline_indent = false,
+                show_end_of_line = true,
+                -- requires tree-sitter plugin
+                -- depending on theme, this may not be highlighted properly
+                -- works with tokyonight themes OK!
                 show_current_context = true,
                 show_current_context_start = true,
-                show_end_of_line = true,
+
+                -- avoids this plugin to interact with these filetypes
+                filetype_exclude = {
+                    "lspinfo",
+                    "packer",
+                    "checkhealth",
+                    "help",
+                    "man",
+                    "dashboard",
+                    "",
+                },
             })
+
+            table.insert(vim.g.indent_blankline_filetype_exclude, 'dashboard')
         end,
     },
-
 }
