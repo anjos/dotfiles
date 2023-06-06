@@ -110,6 +110,3 @@ vim.keymap.set('n', '<leader>is', '<cmd>source $MYVIMRC<cr>', {
     noremap = true,
     silent = true,
 })
-
--- Removes handler used by nvim-better-whitespace that hangs around
-vim.keymap.del('n', '<leader>s')

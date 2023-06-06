@@ -18,9 +18,9 @@ vim.g.indent_guides_guide_size = 1
 -- See: https://github.com/ellisonleao/gruvbox.nvim
 -- no subthemes for this one!
 
--- vim.cmd [[colorscheme tokyonight-night]]
+vim.cmd [[colorscheme tokyonight-night]]
 
 -- See https://github.com/navarasu/onedark.nvim
 -- onedark styles: dark, darker, cool, deep, warm, warmer, light
-require('onedark').setup({style = 'warmer'})
-vim.cmd [[colorscheme onedark]]
+-- require('onedark').setup({style = 'warmer'})
+-- vim.cmd [[colorscheme onedark]]
