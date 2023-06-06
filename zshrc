@@ -421,13 +421,12 @@ function update_neovim {
     local nvim=$HOMEBREW_PREFIX/bin/nvim
 
     echo "[upenv] Updating nvim plugin manager..."
-    ${nvim} -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-
-    echo "[upenv] Updating language servers..."
-    ${nvim} -c 'CocUpdateSync' -c 'sleep 3 | qa'
+    ${nvim} --headless -c "Lazy! sync" -c "Lazy! log" +qa
 
     echo "[upenv] Updating language parsing and highlight..."
-    ${nvim} -c 'TSUpdateSync' -c 'sleep 3 | qa'
+    ${nvim} --headless -c 'TSUpdateSync' -c 'sleep 5' +qa
+    ${nvim} --headless -c 'MasonUpdate' -c 'sleep 5' +qa
+
 }
 
 function upenv {

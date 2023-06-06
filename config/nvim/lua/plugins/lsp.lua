@@ -204,6 +204,15 @@ return {
             vim.keymap.set('n', '<leader>fb', function()
                 vim.lsp.buf.format()
             end, { noremap = true })
+
+            vim.keymap.set('v', 'gq', function()
+                vim.lsp.buf.format({
+                    range = {
+                        ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+                        ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+                    }
+                })
+            end, { noremap = true })
         end
     },
 
