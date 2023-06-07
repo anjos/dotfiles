@@ -424,8 +424,8 @@ function update_neovim {
     ${nvim} --headless -c "Lazy! sync" -c "Lazy! log" +qa
 
     echo "[upenv] Updating language parsing and highlight..."
-    ${nvim} --headless -c 'TSUpdateSync' -c 'sleep 5' +qa
-    ${nvim} --headless -c 'MasonUpdate' -c 'sleep 5' +qa
+    ${nvim} --headless -c 'MasonUpdate' -c 'sleep 10' +qa
+    ${nvim} --headless -c 'TSUpdateSync' +qa
 
 }
 
