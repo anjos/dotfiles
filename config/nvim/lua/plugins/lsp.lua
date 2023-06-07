@@ -203,7 +203,7 @@ return {
             -- Hook autoformatting to various actions
             vim.keymap.set('n', '<leader>fb', function()
                 vim.lsp.buf.format()
-            end, { noremap = true })
+            end, { noremap = true, desc = 'Re-[f]ormat [b]uffer' })
 
             vim.keymap.set('v', 'gq', function()
                 vim.lsp.buf.format({
@@ -212,7 +212,7 @@ return {
                         ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
                     }
                 })
-            end, { noremap = true })
+            end, { noremap = true, desc = 'Re-format region' })
         end
     },
 
