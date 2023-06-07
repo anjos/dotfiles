@@ -59,7 +59,12 @@ return {
             vim.keymap.set(
                 'n',
                 '<leader>gf',
-                '<cmd>Telescope git_files<cr>',
+                function()
+                    require('telescope.builtin').git_files({
+                        layout_strategy = 'flex',
+                        layout_config = { width = 0.9, height = 0.9 },
+                    })
+                end,
                 { desc = 'Search [g]it [f]iles' }
             )
 
