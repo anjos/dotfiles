@@ -132,10 +132,10 @@ min_time = 100
 show_milliseconds = false
 disabled = false
 style = "bold italic fg:cmd bg:background"
-format = "[⏱️  $duration ]($style)"
+format = "[⏱️ $duration]($style)"
 
 [git_branch]
-symbol = ""
+symbol = " "
 style = "bold fg:git_branch bg:background"
 format = "[$symbol$branch(:$remote_branch)]($style) "
 
