@@ -203,14 +203,14 @@ return {
                 vim.lsp.buf.format()
             end, { noremap = true, desc = 'Re-[f]ormat [b]uffer' })
 
-            vim.keymap.set('v', 'gq', function()
+            vim.keymap.set('v', '<leader>fb', function()
                 vim.lsp.buf.format({
                     range = {
                         ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
                         ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
                     }
                 })
-            end, { noremap = true, desc = 'Re-format region' })
+            end, { noremap = true, desc = 'Re-[f]ormat [b]lock' })
         end
     },
 
@@ -225,7 +225,13 @@ return {
                 -- mason-lspconfig for the language servers
                 'jose-elias-alvarez/null-ls.nvim',
                 dependencies = { 'nvim-lua/plenary.nvim' },
-                opts = {},
+                config = function ()
+                    require('null-ls').setup({
+                        on_attach = function(_, bufnr)
+                            vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
+                        end
+                    })
+                end
             },
         },
         config = function()
