@@ -150,7 +150,6 @@ return {
                 bashls = {},
                 jsonls = {},
                 cssls = {},
-                ltex = {},
                 texlab = {},
                 dotls = {},
                 dockerls = {},
@@ -167,7 +166,6 @@ return {
             }
 
             local filetypes = {
-                ltex = { 'gitcommit', 'markdown', 'org', 'rnoweb', 'pandoc' },
                 texlab = { 'tex', 'bib' },
                 esbonio = { 'rst' },
             }
