@@ -10,15 +10,16 @@ vim.g.indent_guides_guide_size = 1
 --
 -- See: https://github.com/EdenEast/nightfox.nvim
 -- nightfox sub-themes: nightfox, nordfox, dayfox, dawnfox, duskfox, terafox or carbonfox
+-- vim.cmd [[colorscheme nightfox]]
 
 -- See: https://github.com/folke/tokyonight.nvim
 -- tokyonight sub-themes: tokyonight, tokyonight-night,
 -- tokyonight-storm, tokyonight-day, tokyonight-moon
+vim.cmd [[colorscheme tokyonight-night]]
 
 -- See: https://github.com/ellisonleao/gruvbox.nvim
 -- no subthemes for this one!
-
-vim.cmd [[colorscheme tokyonight-night]]
+-- vim.cmd [[colorscheme gruvbox]]
 
 -- See https://github.com/navarasu/onedark.nvim
 -- onedark styles: dark, darker, cool, deep, warm, warmer, light
