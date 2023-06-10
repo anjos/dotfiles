@@ -23,5 +23,5 @@ vim.cmd [[colorscheme tokyonight-night]]
 
 -- See https://github.com/navarasu/onedark.nvim
 -- onedark styles: dark, darker, cool, deep, warm, warmer, light
--- require('onedark').setup({style = 'warmer'})
+-- require('onedark').setup({style = 'darker'})
 -- vim.cmd [[colorscheme onedark]]

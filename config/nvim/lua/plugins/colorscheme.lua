@@ -34,6 +34,21 @@ local set_highlight_groups = function(background, severity)
     vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = severity['warning'] })
 end
 
+--- Overrides a specific attribute of a highlight
+-- @ns_id Set highlight for namespace ns_id nvim_get_namespaces(). Use 0 to
+--        get global highlight groups :highlight.
+-- @name The name of the highlight
+-- @opts The values of the highlight to override
+-- local function mod_hl(ns_id, name, opts)
+--     local is_ok, hl_def = pcall(vim.api.nvim_get_hl, ns_id, { name = name })
+--     if is_ok then
+--         for k, v in pairs(opts) do
+--             hl_def[k] = v
+--         end
+--         vim.api.nvim_set_hl(0, name, hl_def)
+--     end
+-- end
+
 return {
     -- Colorschemes we can switch to
     {
@@ -74,11 +89,18 @@ return {
                 pattern = '*fox',
                 callback = function(event)
                     local color = require('nightfox.lib.color')
-                    local palette = require('nightfox.palette').load(event['match'])
+                    local palette =
+                        require('nightfox.palette').load(event['match'])
                     local spec = require('nightfox.spec').load(event['match'])
                     set_highlight_groups({
-                        sign = color.from_hex(palette.bg1):brighten(-10):to_css(),
-                        linenr = color.from_hex(palette.bg1):brighten(-5):to_css(),
+                        sign = color
+                            .from_hex(palette.bg1)
+                            :brighten(-10)
+                            :to_css(),
+                        linenr = color
+                            .from_hex(palette.bg1)
+                            :brighten(-5)
+                            :to_css(),
                     }, {
                         error = spec.diag.error,
                         warning = spec.diag.warn,
@@ -127,7 +149,8 @@ return {
             vim.api.nvim_create_autocmd('ColorScheme', {
                 pattern = 'onedark',
                 callback = function()
-                    local colors = require('onedark.palette')[vim.g.onedark_config.style]
+                    local colors =
+                        require('onedark.palette')[vim.g.onedark_config.style]
                     local util = require('tokyonight.util')
                     set_highlight_groups({
                         sign = util.darken(colors.bg0, 0.4, '#000000'),
@@ -138,9 +161,16 @@ return {
                         info = colors.green,
                         hint = colors.purple,
                     })
+
+                    -- run some adjustments for barbar plugin
+                    -- mod_hl(0, 'BufferDefaultCurrentIndex', { bg = '#a0a8b7' })
+                    -- mod_hl(
+                    --     0,
+                    --     'BufferDefaultVisible',
+                    --     { bg = util.darken(colors.bg0, 0.4, '#000000') }
+                    -- )
                 end,
             })
         end,
     },
-
 }
