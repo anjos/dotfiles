@@ -171,7 +171,7 @@ bindkey -M emacs '^N' history-substring-search-down
 # Standard aliases
 alias h='history'
 if type "vivid" > /dev/null; then
-  export LS_COLORS=$(vivid generate snazzy)
+  export LS_COLORS=$(vivid generate solarized-dark)
 fi
 if type "lsd" > /dev/null; then
   alias ls='lsd --hyperlink=auto'
@@ -333,13 +333,11 @@ function update_homebrew {
     kegs+=('neovim')
     kegs+=('openfortivpn')
     kegs+=('pass')
-    kegs+=('pyinvoke')
     kegs+=('python@3.9')
     kegs+=('python@3.10')
     kegs+=('ripgrep')
     kegs+=('starship')
     kegs+=('texlab')
-    kegs+=('tree-sitter')
     kegs+=('tmux')
     kegs+=('vivid')
     kegs+=('wget')
