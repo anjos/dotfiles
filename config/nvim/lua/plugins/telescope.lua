@@ -61,7 +61,7 @@ return {
                 '<leader>gf',
                 function()
                     require('telescope.builtin').git_files({
-                        layout_strategy = 'flex',
+                        layout_strategy = 'vertical',
                         layout_config = { width = 0.9, height = 0.9 },
                     })
                 end,
@@ -70,14 +70,14 @@ return {
 
             vim.keymap.set('n', '<c-a>', function()
                 require('telescope.builtin').find_files({
-                    layout_strategy = 'flex',
+                    layout_strategy = 'vertical',
                     layout_config = { width = 0.9, height = 0.9 },
                 })
             end, { desc = '[S]earch [f]iles' })
 
             vim.keymap.set('n', '<leader>sf', function()
                 require('telescope.builtin').find_files({
-                    layout_strategy = 'flex',
+                    layout_strategy = 'vertical',
                     layout_config = { width = 0.9, height = 0.9 },
                 })
             end, { desc = '[S]earch [f]iles' })
