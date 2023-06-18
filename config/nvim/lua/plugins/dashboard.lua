@@ -194,7 +194,7 @@ return {
                     project = {
                         enable = true,
                         limit = 5,
-                        action = 'Telescope find_files cwd=',
+                        action = 'Telescope file_browser path=%:p:h select_buffer=true cwd=',
                     },
                     footer = {
                         ' ',
