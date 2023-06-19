@@ -16,6 +16,11 @@ dependencies:
   - fd-find
   - protobuf=3.20
   - rust
-  #- luarocks
+  #- luarocks (not working on osx-arm64, install manually)
+  - lua
+  - curl
+  - c-compiler
+  - make
+  - unzip
   - pip:
     - neovim-remote

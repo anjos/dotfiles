@@ -403,6 +403,15 @@ function update_conda {
     echo "[upenv] Installing neovim ruby gem..."
     local prefix=$(${mamba} --no-banner run -n neovim --no-capture-output printenv CONDA_PREFIX)
     ${mamba} --no-banner run -n neovim --no-capture-output --live-stream gem install --bindir ${prefix}/bin neovim
+    echo "[upenv] Installing luarocks package manager..."
+    local rocks_version="3.9.2"
+    ${mamba} --no-banner run -n neovim --no-capture-output --live-stream curl --location -o luarocks-${rocks_version}.tar.gz https://luarocks.org/releases/luarocks-${rocks_version}.tar.gz
+    tar xf luarocks-${rocks_version}.tar.gz
+    cd luarocks-${rocks_version}
+    ${mamba} --no-banner run -n neovim --no-capture-output --live-stream ./configure --prefix=${prefix} --with-lua=${prefix} --sysconfdir=${prefix}/share/lua/ --rocks-tree=${prefix}
+    ${mamba} --no-banner run -n neovim --no-capture-output --live-stream make bootstrap
+    cd ..
+    rm -rf luarocks-${rocks_version}{,.tar.gz}
 
     echo "[upenv] Re-installing further conda environments..."
     for k in $HOME/.dotfiles/envs/*.yml; do
