@@ -30,11 +30,13 @@ function idiap-remote-desktop-macos {
   echo "tunnel: $cmd"
   eval $cmd
 }
+alias rdmac="idiap-remote-desktop-macos"
 
 # This starts a VPN tunnel to Idiap
 function idiap-vpn {
     sudo openfortivpn sslvpn.idiap.ch:443 --username=aanjos --trusted-cert 36e9b7ab8fac6699da2f617a58b4fb32e140a62352bcde30569d6a5ea09d0b4e --pppd-use-peerdns=1
 }
+alias vpn="idiap-vpn"
 
 # Mounts important Idiap file systems to my mac
 # Uses SSHFS, that must be installed via `brew install sshfs`
@@ -43,27 +45,27 @@ function idiap-vpn {
 function idiap-mount {
     local host="idiap"  #shortcut on my ~/.ssh/config for my Idiap login
 
-    # Notice $mount/$dest should have the same length
-    local mount=()
+    # Notice $wants/$dest should have the same length
+    local wants=()
     local dest=()
 
-    mount+=("/idiap/temp/aanjos")
+    wants+=("/idiap/temp/aanjos")
     dest+=("$HOME/mnt/idiap/temp")
 
-    mount+=("/idiap/user/aanjos")
+    wants+=("/idiap/user/aanjos")
     dest+=("$HOME/mnt/idiap/user")
 
-    mount+=("/idiap/home/aanjos")
+    wants+=("/idiap/home/aanjos")
     dest+=("$HOME/mnt/idiap/home")
 
     local mounted=$(mount)
 
-    for k in "${!mount[@]}"; do
+    for k in "${!wants[@]}"; do
         if [ -z "${mounted##*${dest[$k]}*}" ]; then  #not mounted yet
-            echo "[anjos-idiap] ${host}:${mount[$k]} -> ${dest[$k]} (skip - already mounted)"
+            echo "[anjos-idiap] ${host}:${wants[$k]} -> ${dest[$k]} (skip - already mounted)"
         else
-            d=$(ssh ${host} "readlink ${mount[$k]}")  #figures out real name
-            echo "[anjos-idiap] ${host}:${mount[$k]} -> ${dest[$k]}"
+            d=$(ssh ${host} "readlink ${wants[$k]}")  #figures out real name
+            echo "[anjos-idiap] ${host}:${wants[$k]} -> ${dest[$k]}"
             sshfs "${host}:${d}" "${dest[$k]}"
         fi
     done
