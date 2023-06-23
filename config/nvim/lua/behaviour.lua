@@ -93,7 +93,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- use ;; for escape (iPad keyboard)
 -- http://vim.wikia.com/wiki/Avoid_the_escape_key
-vim.keymap.set('i', ';;', '<Esc>', { noremap = true })
+-- vim.keymap.set('i', ';;', '<Esc>', { noremap = true })
 
 vim.keymap.set('n', '<space>', function()
     vim.cmd.noh()
