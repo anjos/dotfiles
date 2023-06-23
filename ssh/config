@@ -42,17 +42,7 @@ Host idiap
   Hostname vws-aanjos.idiap.ch
   ProxyCommand ssh -W %h:%p proxy
 
-Host cimacos bsp-ws02 bsp-ws02.lab bsp-ws02.lab.idiap.ch
-  User admin
-  Hostname bsp-ws02.lab.idiap.ch
-  ProxyCommand ssh -W %h:%p proxy
-
-Host cimacos2 beatmacosx01 beatmacosx01.lab beatmacosx01.lab.idiap.ch
-  User admin
-  Hostname beatmacosx01.lab.idiap.ch
-  ProxyCommand ssh -W %h:%p proxy
-
-Host cimacos3 beatmacosx02 beatmacosx02.lab beatmacosx02.lab.idiap.ch
+Host cimacos beatmacosx02 beatmacosx02.lab beatmacosx02.lab.idiap.ch
   User admin
   Hostname beatmacosx02.lab.idiap.ch
   ProxyCommand ssh -W %h:%p proxy
