@@ -1,87 +1,107 @@
 # Functions to bootstrap and update homebrew environments
 
-# Formulas we are interested on having locally
-local KEGS=()
-KEGS+=('bat')
-KEGS+=('coreutils')
-KEGS+=('curl')
-KEGS+=('direnv')
-#KEGS+=('exa')
-KEGS+=('fd')
-KEGS+=('findutils')
-KEGS+=('fzf')
-KEGS+=('git')
-KEGS+=('git-delta')
-KEGS+=('git-filter-repo')
-KEGS+=('git-lfs')
-KEGS+=('gnu-sed')
-KEGS+=('graphviz')
-KEGS+=('grep')
-KEGS+=('htop')
-KEGS+=('imagemagick')
-KEGS+=('latexdiff')
-KEGS+=('latexindent')
-KEGS+=('libyaml')
-KEGS+=('neovim')
-KEGS+=('openfortivpn')
-KEGS+=('pass')
-KEGS+=('python@3.9')
-KEGS+=('python@3.10')
-KEGS+=('ripgrep')
-KEGS+=('starship')
-KEGS+=('texlab')
-KEGS+=('tmux')
-KEGS+=('vivid')
-KEGS+=('wget')
-KEGS+=('zsh')
+_ANJOS_HOMEBREW_PREFIX="/opt/homebrew"
 
-# New repositories with more packages (beyond homebrew/core and homebrew/cask)
-local TAPS=()
-TAPS+=('homebrew/cask-fonts')
+# Installs homebrew for the first time
+function anjos-homebrew-init {
+    echo "[anjos-homebrew] Installing homebrew from official web sources..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "[anjos-homebrew] Restart your shell so the command \`brew\` can be accessed"
+    echo "[anjos-homebrew] Then, run \`anjos-homebrew-install\` to install all packages"
+    echo "[anjos-homebrew] Use \`anjos-homebrew-update\` to keep the install up to date"
+}
 
-# Extra formulas to install
-local CASKS=()
-CASKS+=('balenaetcher')
-CASKS+=('font-inconsolata-nerd-font')
-CASKS+=('font-jetbrains-mono-nerd-font')
-CASKS+=('font-lekton-nerd-font')
-CASKS+=('font-meslo-lg-nerd-font')
-CASKS+=('font-roboto-mono-nerd-font')
-CASKS+=('font-sauce-code-pro-nerd-font')
-CASKS+=('font-ubuntu-mono-nerd-font')
-CASKS+=('hammerspoon')
-CASKS+=('inkscape')
-CASKS+=('kitty')
-CASKS+=('mactex')
-CASKS+=('mattermost')
-CASKS+=('qlmarkdown')
-CASKS+=('skim')
-CASKS+=('syntax-highlight')
-CASKS+=('timemachineeditor')
-CASKS+=('xquartz')
+function anjos-homebrew-deinit {
+    echo "[anjos-homebrew] Completely erasing homebrew installation. Hold your horses..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+    echo "[anjos-homebrew] Remember to unset any eventual zshrc initialisations you put in place."
+}
 
 # The brew binary should be accessible
-if ! command -v brew &> /dev/null; then
-    echo "brew not installed - not setting up special functions"
+if [ -f ${_ANJOS_HOMEBREW_PREFIX}/bin/brew ]; then
+    eval "$(${_ANJOS_HOMEBREW_PREFIX}/bin/brew shellenv)"
+else
+    echo "[anjos-homebrew] Cannot find \`${_ANJOS_HOMEBREW_PREFIX}/bin/brew\`, not setting up homebrew paths..."
+    echo "[anjos-homebrew] Run \`anjos-homebrew-init\` to install it"
     return
 fi
 
 # Installs all kegs for the first time
 function _anjos-homebrew-install-kegs {
+    # Formulas we are interested on having locally
+    local kegs=()
+    kegs+=('bat')
+    kegs+=('coreutils')
+    kegs+=('curl')
+    kegs+=('direnv')
+    #kegs+=('exa')
+    kegs+=('fd')
+    kegs+=('findutils')
+    kegs+=('fzf')
+    kegs+=('git')
+    kegs+=('git-delta')
+    kegs+=('git-filter-repo')
+    kegs+=('git-lfs')
+    kegs+=('gnu-sed')
+    kegs+=('graphviz')
+    kegs+=('grep')
+    kegs+=('htop')
+    kegs+=('imagemagick')
+    kegs+=('latexdiff')
+    kegs+=('latexindent')
+    kegs+=('libyaml')
+    kegs+=('neovim')
+    kegs+=('openfortivpn')
+    kegs+=('pass')
+    kegs+=('python@3.9')
+    kegs+=('python@3.10')
+    kegs+=('ripgrep')
+    kegs+=('starship')
+    kegs+=('texlab')
+    kegs+=('tmux')
+    kegs+=('vivid')
+    kegs+=('wget')
+    kegs+=('zsh')
+
     echo "[anjos-homebrew] Installing required homebrew kegs..."
-    brew install "${KEGS[@]}"
+    brew install "${kegs[@]}"
 }
 
 # Installs all taps for the first time
 function _anjos-homebrew-install-taps {
+    # New repositories with more packages (beyond homebrew/core and homebrew/cask)
+    local taps=()
+    taps+=('homebrew/cask-fonts')
+
     echo "[anjos-homebrew] Installing required homebrew taps..."
-    brew tap "${TAPS[@]}"
+    brew tap "${taps[@]}"
 }
 
 # Installs all casks for the first time
 function _anjos-homebrew-install_casks {
+    # Extra formulas to install
+    local casks=()
+    casks+=('balenaetcher')
+    casks+=('font-inconsolata-nerd-font')
+    casks+=('font-jetbrains-mono-nerd-font')
+    casks+=('font-lekton-nerd-font')
+    casks+=('font-meslo-lg-nerd-font')
+    casks+=('font-roboto-mono-nerd-font')
+    casks+=('font-sauce-code-pro-nerd-font')
+    casks+=('font-ubuntu-mono-nerd-font')
+    casks+=('hammerspoon')
+    casks+=('inkscape')
+    casks+=('kitty')
+    casks+=('mactex')
+    casks+=('mattermost')
+    casks+=('qlmarkdown')
+    casks+=('skim')
+    casks+=('syntax-highlight')
+    casks+=('timemachineeditor')
+    casks+=('xquartz')
+
     echo "[anjos-homebrew] Installing required homebrew casks..."
-    brew install --cask "${CASKS[@]}"
+    brew install --cask "${casks[@]}"
 }
 
 # Installs everything

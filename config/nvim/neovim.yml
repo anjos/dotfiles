@@ -1,4 +1,3 @@
-name: neovim
 channels:
   - conda-forge
 dependencies:

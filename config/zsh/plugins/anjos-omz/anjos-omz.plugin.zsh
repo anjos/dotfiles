@@ -1,16 +1,21 @@
-source ${0:A:h}/starship.zsh
-source ${0:A:h}/fzf.zsh
-source ${0:A:h}/aliases.zsh
-source ${0:A:h}/homebrew.zsh
-source ${0:A:h}/mamba.zsh
-source ${0:A:h}/neovim.zsh
-source ${0:A:h}/terminal-setup.zsh
-source ${0:A:h}/idiap.zsh
-source ${0:A:h}/defaults.zsh
-source ${0:A:h}/direnv.zsh
+_ANJOS_BASEDIR=${0:A:h}
+
+# Loads all sources
+function anjos-reload {
+    source ${_ANJOS_BASEDIR}/homebrew.zsh
+    source ${_ANJOS_BASEDIR}/mamba.zsh
+    source ${_ANJOS_BASEDIR}/starship.zsh
+    source ${_ANJOS_BASEDIR}/fzf.zsh
+    source ${_ANJOS_BASEDIR}/aliases.zsh
+    source ${_ANJOS_BASEDIR}/neovim.zsh
+    source ${_ANJOS_BASEDIR}/terminal-setup.zsh
+    source ${_ANJOS_BASEDIR}/idiap.zsh
+    source ${_ANJOS_BASEDIR}/defaults.zsh
+    source ${_ANJOS_BASEDIR}/direnv.zsh
+}
 
 # Updates all installed software
-function upsw {
+function anjos-update {
     anjos-homebrew-update
     anjos-mamba-update
     anjos-neovim-update
@@ -18,3 +23,5 @@ function upsw {
     echo -e "\n[anjos-omz] Updating oh-my-zsh..."
     omz update
 }
+
+anjos-reload
