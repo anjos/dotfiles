@@ -1,8 +1,5 @@
 # Initialization for **interactive** shells
 
-# Default path setup.  Updates values at /etc/paths and /etc/manpaths
-eval `/usr/libexec/path_helper`
-
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/andre/.oh-my-zsh"
 
@@ -36,11 +33,3 @@ plugins+=(fd)
 plugins+=(fzf)
 
 source $ZSH/oh-my-zsh.sh
-
-if [ -d $HOME/bin ]; then
-  export PATH=$HOME/bin:$PATH;
-fi
-
-# Removes duplicates from PATH and MANPATH
-export PATH=$(awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$PATH)
-export MANPATH=$(awk -F: '{for(i=1;i<=NF;i++){if(!($i in a)){a[$i];printf s$i;s=":"}}}'<<<$MANPATH)

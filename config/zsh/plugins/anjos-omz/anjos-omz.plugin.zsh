@@ -2,7 +2,9 @@ _ANJOS_BASEDIR=${0:A:h}
 
 # Loads all sources
 function anjos-reload {
+    source ${_ANJOS_BASEDIR}/first.zsh  # should be sourced first, always
     source ${_ANJOS_BASEDIR}/homebrew.zsh
+    source ${_ANJOS_BASEDIR}/macos-sdk.zsh
     source ${_ANJOS_BASEDIR}/mamba.zsh
     source ${_ANJOS_BASEDIR}/starship.zsh
     source ${_ANJOS_BASEDIR}/fzf.zsh
@@ -12,6 +14,7 @@ function anjos-reload {
     source ${_ANJOS_BASEDIR}/idiap.zsh
     source ${_ANJOS_BASEDIR}/defaults.zsh
     source ${_ANJOS_BASEDIR}/direnv.zsh
+    source ${_ANJOS_BASEDIR}/last.zsh  # should be sourced by last, always
 }
 
 # Updates all installed software

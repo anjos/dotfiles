@@ -2,27 +2,28 @@
 
 _ANJOS_HOMEBREW_PREFIX="/opt/homebrew"
 
-# Installs homebrew for the first time
-function anjos-homebrew-init {
-    echo "[anjos-homebrew] Installing homebrew from official web sources..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo "[anjos-homebrew] Restart your shell so the command \`brew\` can be accessed"
-    echo "[anjos-homebrew] Then, run \`anjos-homebrew-install\` to install all packages"
-    echo "[anjos-homebrew] Use \`anjos-homebrew-update\` to keep the install up to date"
-}
-
-function anjos-homebrew-deinit {
-    echo "[anjos-homebrew] Completely erasing homebrew installation. Hold your horses..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
-    echo "[anjos-homebrew] Remember to unset any eventual zshrc initialisations you put in place."
-}
-
 # The brew binary should be accessible
 if [ -f ${_ANJOS_HOMEBREW_PREFIX}/bin/brew ]; then
     eval "$(${_ANJOS_HOMEBREW_PREFIX}/bin/brew shellenv)"
+
+    function anjos-homebrew-deinit {
+        echo "[anjos-homebrew] Completely erasing homebrew installation. Hold your horses..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+        echo "[anjos-homebrew] Remember to unset any eventual zshrc initialisations you put in place."
+    }
 else
     echo "[anjos-homebrew] Cannot find \`${_ANJOS_HOMEBREW_PREFIX}/bin/brew\`, not setting up homebrew paths..."
     echo "[anjos-homebrew] Run \`anjos-homebrew-init\` to install it"
+
+    # Installs homebrew for the first time
+    function anjos-homebrew-init {
+        echo "[anjos-homebrew] Installing homebrew from official web sources..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        echo "[anjos-homebrew] Restart your shell so the command \`brew\` can be accessed"
+        echo "[anjos-homebrew] Then, run \`anjos-homebrew-install\` to install all packages"
+        echo "[anjos-homebrew] Use \`anjos-homebrew-update\` to keep the install up to date"
+    }
+
     return
 fi
 
