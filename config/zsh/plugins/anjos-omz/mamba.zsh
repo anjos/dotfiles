@@ -119,3 +119,9 @@ function anjos-mamba-update {
     _anjos-mamba-reinstall-environments
     _anjos-mamba-cleanup
 }
+
+# Looks-up addresses and phone numbers on Idiap's LDAP server
+function anjos-mamba-ldap-tel {
+    _anjos-mamba-run-on ldap ldap-idiap.py "$@"
+}
+alias tel=anjos-mamba-ldap-tel
