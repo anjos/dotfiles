@@ -82,8 +82,16 @@ function _anjos-mamba-cleanup {
     mamba clean --all --yes
 }
 
-function _anjos-mamba-run-on {
-    mamba --no-banner run -n ${1} --no-capture-output --live-stream "${@:2}"
+# Runs an executable (not function or alias) from an environment.  If the
+# environment is set, then call the command from the environment.  Else, wrap
+# the execuable on a `mamba run` statement
+function anjos-mamba-run-on {
+    # if the environment is set, then just run the command
+    if [[ "${CONDA_DEFAULT_ENV}" == "${1}" ]]; then
+        "${@:2}"
+    else
+        mamba --no-banner run -n ${1} --no-capture-output --live-stream "${@:2}"
+    fi
 }
 
 function _anjos-mamba-reinstall-neovim-environment {
@@ -91,25 +99,25 @@ function _anjos-mamba-reinstall-neovim-environment {
     _anjos-mamba-overwrite-environment neovim ${_ANJOS_BASEDIR}/../../../nvim/neovim.yml
 
     echo "[anjos-mamba] Installing neovim node package..."
-    _anjos-mamba-run-on neovim npm install -g neovim
+    anjos-mamba-run-on neovim npm install -g neovim
 
     echo "[anjos-mamba] Installing neovim ruby gem..."
     local prefix=$(mamba --no-banner run -n neovim --no-capture-output printenv CONDA_PREFIX)
-    _anjos-mamba-run-on neovim gem install --bindir ${prefix}/bin neovim
+    anjos-mamba-run-on neovim gem install --bindir ${prefix}/bin neovim
 
     echo "[anjos-mamba] Installing luarocks package manager..."
     local rocks_version="3.9.2"
-    _anjos-mamba-run-on neovim curl --location -o luarocks-${rocks_version}.tar.gz https://luarocks.org/releases/luarocks-${rocks_version}.tar.gz
+    anjos-mamba-run-on neovim curl --location -o luarocks-${rocks_version}.tar.gz https://luarocks.org/releases/luarocks-${rocks_version}.tar.gz
     tar xf luarocks-${rocks_version}.tar.gz
     cd luarocks-${rocks_version}
-    _anjos-mamba-run-on neovim ./configure --prefix=${prefix} --with-lua=${prefix} --sysconfdir=${prefix}/share/lua/ --rocks-tree=${prefix}
-    _anjos-mamba-run-on neovim make bootstrap
+    anjos-mamba-run-on neovim ./configure --prefix=${prefix} --with-lua=${prefix} --sysconfdir=${prefix}/share/lua/ --rocks-tree=${prefix}
+    anjos-mamba-run-on neovim make bootstrap
     cd ..
     rm -rf luarocks-${rocks_version}{,.tar.gz}
 }
 
 function anjos-mamba-update {
-    _anjos-mamba-update-base
+    #_anjos-mamba-update-base
     _anjos-mamba-reinstall-neovim-environment
     _anjos-mamba-reinstall-environments
     _anjos-mamba-cleanup
@@ -117,6 +125,6 @@ function anjos-mamba-update {
 
 # Looks-up addresses and phone numbers on Idiap's LDAP server
 function anjos-mamba-ldap-tel {
-    _anjos-mamba-run-on ldap ldap-idiap.py "$@"
+    anjos-mamba-run-on ldap ldap-idiap.py "$@"
 }
 alias tel=anjos-mamba-ldap-tel
