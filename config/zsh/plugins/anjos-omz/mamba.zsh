@@ -43,16 +43,11 @@ changeps1: false
 show_channel_urls: true
 channel_priority: strict
 channels:
-  - https://www.idiap.ch/software/bob/conda/label/beta
-  - https://www.idiap.ch/software/bob/conda
   - conda-forge
 EOL
 
         echo "[anjos-mamba] Updating mamba base environment..."
         ${_ANJOS_MAMBA_PREFIX}/bin/mamba update -n base --all
-
-        echo "[anjos-mamba] Installing development tools on base environment..."
-        ${_ANJOS_MAMBA_PREFIX}/bin/mamba install -n base idiap-devtools
 
         echo "[anjos-mamba] Restart your shell so the command \`mamba\` can be accessed"
         echo "[anjos-mamba] Then, run \`anjos-mamba-update\` to install all packages"
