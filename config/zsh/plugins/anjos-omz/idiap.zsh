@@ -92,3 +92,14 @@ function idiap-unmount {
     done
 
 }
+
+# Runs the `devtool` command
+function devtool {
+    # if there is a command (not alias or function) named devtool, execute it!
+    if (( ${+commands[devtool]} )); then
+        devtool "$@"
+    else
+        # runs the command from the specific conda environment
+        _anjos-mamba-run-on idiap-devtools devtool "$@"
+    fi
+}
