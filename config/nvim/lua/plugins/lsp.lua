@@ -7,14 +7,18 @@ return {
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { 'williamboman/mason.nvim', config = true,     build = ':MasonUpdate' },
+            {
+                'williamboman/mason.nvim',
+                config = true,
+                build = ':MasonUpdate',
+            },
             'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
-            { 'j-hui/fidget.nvim',       branch = 'legacy', opts = {} },
+            { 'j-hui/fidget.nvim', branch = 'legacy', opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
-            { 'folke/neodev.nvim',       opts = {} },
+            { 'folke/neodev.nvim', opts = {} },
         },
         config = function()
             --  This function gets run when an LSP connects to a particular buffer.
@@ -114,18 +118,40 @@ return {
 
                 vim.keymap.set('n', '<leader>wl', function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                end, { buffer = bufnr, desc = '[W]orkspace [L]ist Folders' })
+                end, {
+                    buffer = bufnr,
+                    desc = '[W]orkspace [L]ist Folders',
+                })
 
                 -- Creates a command `:Format` local to the LSP buffer
-                vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-                    vim.lsp.buf.format()
-                end, { desc = 'Format current buffer with LSP' })
+                vim.api.nvim_buf_create_user_command(
+                    bufnr,
+                    'Format',
+                    function(_)
+                        vim.lsp.buf.format()
+                    end,
+                    { desc = 'Format current buffer with LSP' }
+                )
             end
 
             local on_attach_specific = {
                 ruff_lsp = function(client, _)
                     -- defers some capabilities on python LSP to pyright
                     client.server_capabilities.hoverProvider = false
+                end,
+                yamlls = function(_, bufnr)
+                    -- if the buffer name matches `meta.yml`, disables
+                    -- diagnostics as this is a jinja2 template that is badly
+                    -- named...
+                    local filename = 'meta.yaml'
+                    if
+                        vim.api
+                            .nvim_buf_get_name(bufnr)
+                            :sub(-string.len(filename))
+                        == filename
+                    then
+                        vim.diagnostic.disable(bufnr)
+                    end
                 end,
             }
 
@@ -161,7 +187,8 @@ return {
             local before_init = {
                 pyright = function(_, config)
                     -- Changes the Python path when the server is started
-                    config.settings.python.pythonPath = exepath('python3') or exepath('python')
+                    config.settings.python.pythonPath = exepath('python3')
+                        or exepath('python')
                 end,
             }
 
@@ -172,7 +199,8 @@ return {
 
             -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
             local capabilities = vim.lsp.protocol.make_client_capabilities()
-            capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+            capabilities =
+                require('cmp_nvim_lsp').default_capabilities(capabilities)
 
             -- Ensure the servers above are installed
             local mason_lspconfig = require('mason-lspconfig')
@@ -206,12 +234,12 @@ return {
             vim.keymap.set('v', '<leader>fb', function()
                 vim.lsp.buf.format({
                     range = {
-                        ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
-                        ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
-                    }
+                        ['start'] = vim.api.nvim_buf_get_mark(0, '<'),
+                        ['end'] = vim.api.nvim_buf_get_mark(0, '>'),
+                    },
                 })
             end, { noremap = true, desc = 'Re-[f]ormat [b]lock' })
-        end
+        end,
     },
 
     {
@@ -229,30 +257,30 @@ return {
                     local null_ls = require('null-ls')
                     null_ls.setup({
                         on_attach = function(_, bufnr)
-                            vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
+                            vim.api.nvim_buf_set_option(bufnr, 'formatexpr', '')
                         end,
                         sources = {
                             null_ls.builtins.formatting.prettier.with({
-                                filetypes = { "markdown", "json", "jsonc" },
+                                filetypes = { 'markdown', 'json', 'jsonc' },
                             }),
                         },
                     })
-                end
+                end,
             },
         },
         config = function()
             require('mason-null-ls').setup({
                 ensure_installed = {
-                    'stylua',       -- lua (formatting, range-formatting)
-                    'black',        -- python (formatting)
-                    'isort',        -- python (formatting)
+                    'stylua', -- lua (formatting, range-formatting)
+                    'black', -- python (formatting)
+                    'isort', -- python (formatting)
                     'docformatter', -- python (formatting)
-                    'latexindent',  -- tex (formatting)
-                    'chktex',       -- tex (diagnostics)
-                    'checkmake',    -- make (diagnostics)
-                    'beautysh',     -- bash, csh, ksh, sh, zsh (formatting)
-                    'taplo',        -- toml (formatting)
-                    'prettier',     -- javascript, javascriptreact, typescript, typescriptreact, vue, css, scss, less, html, json, jsonc, yaml, markdown, markdown.mdx, graphql, handlebars (formatting, range-formatting)
+                    'latexindent', -- tex (formatting)
+                    'chktex', -- tex (diagnostics)
+                    'checkmake', -- make (diagnostics)
+                    'beautysh', -- bash, csh, ksh, sh, zsh (formatting)
+                    'taplo', -- toml (formatting)
+                    'prettier', -- javascript, javascriptreact, typescript, typescriptreact, vue, css, scss, less, html, json, jsonc, yaml, markdown, markdown.mdx, graphql, handlebars (formatting, range-formatting)
                 },
                 automatic_installation = true,
                 automatic_setup = true,
