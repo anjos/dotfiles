@@ -4,11 +4,13 @@ _ANJOS_MAMBA_PREFIX="${HOME}/mamba"
 
 # Setup conda, if possible, otherwise complain and exit
 if [ -f ${_ANJOS_MAMBA_PREFIX}/etc/profile.d/conda.sh ]; then
-    source ${HOME}/mamba/etc/profile.d/conda.sh
+    source ${_ANJOS_MAMBA_PREFIX}/etc/profile.d/conda.sh
 
     if [ -d ${_ANJOS_MACOS_SDK} ]; then
         export CONDA_BUILD_SYSROOT="${_ANJOS_MACOS_SDK}"
     fi
+
+    _ANJOS_MAMBA_BIN="${_ANJOS_MAMBA_PREFIX}/bin/mamba"
 
     function anjos-mamba-deinit {
         echo "[anjos-mamba] Completely erasing mamba installation. Hold your horses..."
@@ -59,12 +61,12 @@ fi
 
 function _anjos-mamba-update-base {
     echo "[anjos-mamba] Updating base conda environment..."
-    mamba --no-banner update -n base --all --yes
+    ${_ANJOS_MAMBA_BIN} --no-banner update -n base --all --yes
 }
 
 function _anjos-mamba-overwrite-environment {
     echo "[anjos-mamba] Deleting and re-creating environment ${1} (from ${2})..."
-    mamba env create --force -n ${1} -f ${2}
+    ${_ANJOS_MAMBA_BIN} env create --force -n ${1} -f ${2}
 }
 
 function _anjos-mamba-reinstall-environments {
@@ -79,7 +81,7 @@ function _anjos-mamba-reinstall-environments {
 
 function _anjos-mamba-cleanup {
     echo "[anjos-mamba] Cleaning-up conda installation..."
-    mamba clean --all --yes
+    ${_ANJOS_MAMBA_BIN} clean --all --yes
 }
 
 # Runs an executable (not function or alias) from an environment.  If the
@@ -88,9 +90,11 @@ function _anjos-mamba-cleanup {
 function anjos-mamba-run-on {
     # if the environment is set, then just run the command
     if [[ "${CONDA_DEFAULT_ENV}" == "${1}" ]]; then
+        print -P "%F{green}[mamba] calling \"${2}\" from the currently active enviroment...%f"
         "${@:2}"
     else
-        mamba --no-banner run -n ${1} --no-capture-output --live-stream "${@:2}"
+        print -P "%F{yellow}[mamba] calling \"${2}\" from inactive enviroment \"${1}\"...%f"
+        ${_ANJOS_MAMBA_BIN} --no-banner run -n ${1} --live-stream "${@:2}"
     fi
 }
 
