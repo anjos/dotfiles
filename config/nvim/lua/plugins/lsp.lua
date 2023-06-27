@@ -7,16 +7,16 @@ return {
         'neovim/nvim-lspconfig',
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
-            { 'williamboman/mason.nvim', config = true, build = ':MasonUpdate' },
+            { 'williamboman/mason.nvim', config = true,     build = ':MasonUpdate' },
             'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
-            { 'j-hui/fidget.nvim', branch = 'legacy', opts = {} },
+            { 'j-hui/fidget.nvim',       branch = 'legacy', opts = {} },
 
             -- Additional lua configuration, makes nvim stuff amazing!
-            {'folke/neodev.nvim', opts = {} },
+            { 'folke/neodev.nvim',       opts = {} },
         },
-        config = function ()
+        config = function()
             --  This function gets run when an LSP connects to a particular buffer.
             local on_attach_common = function(_, bufnr)
                 vim.keymap.set(
@@ -155,6 +155,7 @@ return {
                 html = {},
                 esbonio = {},
                 yamlls = {},
+                taplo = {},
             }
 
             local before_init = {
@@ -224,11 +225,17 @@ return {
                 -- mason-lspconfig for the language servers
                 'jose-elias-alvarez/null-ls.nvim',
                 dependencies = { 'nvim-lua/plenary.nvim' },
-                config = function ()
-                    require('null-ls').setup({
+                config = function()
+                    local null_ls = require('null-ls')
+                    null_ls.setup({
                         on_attach = function(_, bufnr)
                             vim.api.nvim_buf_set_option(bufnr, "formatexpr", "")
-                        end
+                        end,
+                        sources = {
+                            null_ls.builtins.formatting.prettier.with({
+                                filetypes = { "markdown", "json", "jsonc" },
+                            }),
+                        },
                     })
                 end
             },
@@ -236,14 +243,16 @@ return {
         config = function()
             require('mason-null-ls').setup({
                 ensure_installed = {
-                    'stylua',
-                    'black',
-                    'isort',
-                    'docformatter',
-                    'latexindent',
-                    'checkmake',
-                    'beautysh',
-                    'prettier',
+                    'stylua',       -- lua (formatting, range-formatting)
+                    'black',        -- python (formatting)
+                    'isort',        -- python (formatting)
+                    'docformatter', -- python (formatting)
+                    'latexindent',  -- tex (formatting)
+                    'chktex',       -- tex (diagnostics)
+                    'checkmake',    -- make (diagnostics)
+                    'beautysh',     -- bash, csh, ksh, sh, zsh (formatting)
+                    'taplo',        -- toml (formatting)
+                    'prettier',     -- javascript, javascriptreact, typescript, typescriptreact, vue, css, scss, less, html, json, jsonc, yaml, markdown, markdown.mdx, graphql, handlebars (formatting, range-formatting)
                 },
                 automatic_installation = true,
                 automatic_setup = true,
