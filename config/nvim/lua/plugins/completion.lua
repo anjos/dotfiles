@@ -19,6 +19,12 @@ return {
                         -- my main configuration directory for neovim.
                         paths = { './snippets' },
                     })
+                    require('luasnip.loaders.from_lua').load({
+                        -- This will search my own custom snippets in lua
+                        -- format living under the `snippets` subdirectory of
+                        -- my main configuration directory for neovim.
+                        paths = { './snippets' },
+                    })
                     require('luasnip').config.setup({})
                 end,
             },

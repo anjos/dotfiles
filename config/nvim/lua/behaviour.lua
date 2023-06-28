@@ -24,6 +24,8 @@ vim.opt.smartcase = true
 vim.opt.number = false   -- Should we show line numbers?
 vim.opt.numberwidth = 4  -- What is the width of the line number column
 vim.opt.signcolumn = 'yes:1' -- Always show sign column, and make it 1 character large
+vim.opt.cindent = false  -- Disables c-style indentation
+vim.opt.smartindent = true -- Do smart auto-indent when starting a new line
 
 -- Decrease update time - affects which-key.nvim plugin
 vim.opt.updatetime = 250
