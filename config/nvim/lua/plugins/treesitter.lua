@@ -6,7 +6,7 @@ return {
             'nvim-treesitter/nvim-treesitter-textobjects',
         },
         build = ':TSUpdate',
-        config = function ()
+        config = function()
             -- See `:help nvim-treesitter`
             require('nvim-treesitter.configs').setup({
                 -- Add languages to be installed here that you want installed for treesitter
@@ -40,7 +40,7 @@ return {
                 sync_install = false,
 
                 highlight = { enable = true },
-                indent = { enable = true, disable = { 'python' } },
+                indent = { enable = true },
                 incremental_selection = {
                     enable = true,
                     keymaps = {
@@ -124,8 +124,6 @@ return {
                 vim.diagnostic.setloclist,
                 { desc = 'Open diagnostics list' }
             )
-
-        end
+        end,
     },
-
 }

@@ -260,6 +260,27 @@ return {
                             vim.api.nvim_buf_set_option(bufnr, 'formatexpr', '')
                         end,
                         sources = {
+                            -- lua
+                            null_ls.builtins.formatting.stylua,
+
+                            -- python
+                            null_ls.builtins.formatting.black,
+                            null_ls.builtins.formatting.isort,
+
+                            -- latex
+                            null_ls.builtins.formatting.latexindent,
+                            null_ls.builtins.diagnostics.chktex,
+
+                            -- make
+                            null_ls.builtins.diagnostics.checkmake,
+
+                            -- bash, csh, ksh, sh, zsh
+                            null_ls.builtins.formatting.beautysh,
+
+                            -- toml
+                            null_ls.builtins.formatting.taplo,
+
+                            -- limited to: markdown, json and jsonc
                             null_ls.builtins.formatting.prettier.with({
                                 filetypes = { 'markdown', 'json', 'jsonc' },
                             }),
@@ -270,21 +291,8 @@ return {
         },
         config = function()
             require('mason-null-ls').setup({
-                ensure_installed = {
-                    'stylua', -- lua (formatting, range-formatting)
-                    'black', -- python (formatting)
-                    'isort', -- python (formatting)
-                    'docformatter', -- python (formatting)
-                    'latexindent', -- tex (formatting)
-                    'chktex', -- tex (diagnostics)
-                    'checkmake', -- make (diagnostics)
-                    'beautysh', -- bash, csh, ksh, sh, zsh (formatting)
-                    'taplo', -- toml (formatting)
-                    'prettier', -- javascript, javascriptreact, typescript, typescriptreact, vue, css, scss, less, html, json, jsonc, yaml, markdown, markdown.mdx, graphql, handlebars (formatting, range-formatting)
-                },
+                ensure_installed = nil,
                 automatic_installation = true,
-                automatic_setup = true,
-                handlers = {},
             })
         end,
     },

@@ -5,10 +5,8 @@
 local ls = require('luasnip')
 local s = ls.snippet
 local i = ls.insert_node
-local t = ls.text_node
 local f = ls.function_node
 local fmt = require('luasnip.extras.fmt').fmt
-local rep = require('luasnip.extras').rep
 
 -- Returns a text node where all charaters of the input string argument are
 -- replaced by a single charater to be determined
