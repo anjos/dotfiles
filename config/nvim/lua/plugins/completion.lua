@@ -12,9 +12,13 @@ return {
                 },
                 build = 'make install_jsregexp',
                 config = function()
+                    local ls = require('luasnip')
+                    ls.config.setup({
+                        enable_autosnippets = true,
+                        update_events = 'TextChanged,TextChangedI',
+                    })
                     require('luasnip.loaders.from_vscode').lazy_load({
                         paths = {
-                            './snippets',
                             vim.fn.stdpath('data') .. '/lazy/friendly-snippets',
                         },
                     })
@@ -23,11 +27,6 @@ return {
                         -- format living under the `snippets` subdirectory of
                         -- my main configuration directory for neovim.
                         paths = { './snippets' },
-                    })
-                    local ls = require('luasnip')
-                    ls.config.setup({
-                        enable_autosnippets = true,
-                        update_events = 'TextChanged,TextChangedI',
                     })
                 end,
             },

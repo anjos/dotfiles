@@ -10,7 +10,9 @@ local fmt = require('luasnip.extras.fmt').fmt
 
 return {
     s({
-        trig = 'pdb',
+        trig = 'pdb%s',
+        regTrig = true,
+        wordTrig = true,
         dscr = 'Standard Python debugger',
         priority = 100,
         snippetType = 'autosnippet',
@@ -18,7 +20,9 @@ return {
         t('__import__("pdb").set_trace()'),
     }),
     s({
-        trig = 'ipdb',
+        trig = 'ipdb%s',
+        regTrig = true,
+        wordTrig = true,
         dscr = 'IPython debugger',
         priority = 100,
         snippetType = 'autosnippet',

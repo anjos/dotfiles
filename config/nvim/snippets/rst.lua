@@ -10,7 +10,7 @@ local fmt = require('luasnip.extras.fmt').fmt
 
 -- Returns a text node where all charaters of the input string argument are
 -- replaced by a single charater to be determined
-local repeat_characters = function(args, _, char)
+local line_of_same_size = function(args, _, char)
     return string.rep(char, string.len(args[1][1]))
 end
 
@@ -25,9 +25,9 @@ return {
             {}
             {}
         ]], {
-                f(repeat_characters, {1}, { user_args = { '#' } }),
+                f(line_of_same_size, {1}, { user_args = { '#' } }),
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '#' } }),
+                f(line_of_same_size, {1}, { user_args = { '#' } }),
             })
     ),
     s(
@@ -40,9 +40,9 @@ return {
             {}
             {}
         ]], {
-                f(repeat_characters, {1}, { user_args = { '*' } }),
+                f(line_of_same_size, {1}, { user_args = { '*' } }),
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '*' } }),
+                f(line_of_same_size, {1}, { user_args = { '*' } }),
             })
     ),
     s(
@@ -55,7 +55,7 @@ return {
             {}
         ]], {
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '=' } }),
+                f(line_of_same_size, {1}, { user_args = { '=' } }),
             })
     ),
     s(
@@ -68,7 +68,7 @@ return {
             {}
         ]], {
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '-' } }),
+                f(line_of_same_size, {1}, { user_args = { '-' } }),
             })
     ),
     s(
@@ -81,7 +81,7 @@ return {
             {}
         ]], {
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '^' } }),
+                f(line_of_same_size, {1}, { user_args = { '^' } }),
             })
     ),
     s(
@@ -94,7 +94,7 @@ return {
             {}
         ]], {
                 i(1, 'Title'),
-                f(repeat_characters, {1}, { user_args = { '"' } }),
+                f(line_of_same_size, {1}, { user_args = { '"' } }),
             })
     ),
     s(
