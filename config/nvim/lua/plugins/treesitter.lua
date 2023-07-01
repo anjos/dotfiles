@@ -113,7 +113,7 @@ return {
 
             vim.keymap.set(
                 'n',
-                '<leader>xd',
+                '<leader>xm',
                 vim.diagnostic.open_float,
                 { desc = 'Open floating diagnostic message' }
             )
