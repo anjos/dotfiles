@@ -74,6 +74,12 @@ local merge_non_empty = function(strs, merge_symbol)
     return table.concat(t, merge_symbol)
 end
 
+-- Returns the current neovim version as a string
+local neovim_version_string = function()
+    local v = vim.version()
+    return v.major .. '.' .. v.minor .. '.' .. v.patch
+end
+
 -- local neovim_spelled_out = {
 --     '███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
 --     '████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
@@ -84,17 +90,17 @@ end
 -- }
 
 local neovim_logo_short = {
-    "     .          .     ",
+    '     .          .     ',
     "   ';;,.        ::'   ",
-    " ,:::;,,        :ccc, ",
-    ",::c::,,,,.     :cccc,",
-    ",cccc:;;;;;.    cllll,",
-    ",cccc;.;;;;;,   cllll;",
-    ":cccc; .;;;;;;. coooo;",
+    ' ,:::;,,        :ccc, ',
+    ',::c::,,,,.     :cccc,',
+    ',cccc:;;;;;.    cllll,',
+    ',cccc;.;;;;;,   cllll;',
+    ':cccc; .;;;;;;. coooo;',
     ";llll;   ,:::::'loooo;",
     ";llll:    ':::::loooo:",
-    ":oooo:     .::::llodd:",
-    ".;ooo:       ;cclooo:.",
+    ':oooo:     .::::llodd:',
+    '.;ooo:       ;cclooo:.',
     "  .;oc        'coo;.  ",
     "    .'         .,.    ",
 }
@@ -131,7 +137,7 @@ local make_header = function()
         }, ' | '),
         '',
     }
-    for _,v in ipairs(info) do
+    for _, v in ipairs(info) do
         table.insert(header, v)
     end
     return header
@@ -200,7 +206,9 @@ return {
                         ' ',
                         '💡 André Anjos (https://anjos.ai) '
                             .. ' '
-                            .. os.date('%Y'),
+                            .. os.date('%Y')
+                            .. ' - Neovim v'
+                            .. neovim_version_string(),
                     },
                 },
             })
