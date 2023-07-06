@@ -80,6 +80,32 @@ local neovim_version_string = function()
     return v.major .. '.' .. v.minor .. '.' .. v.patch
 end
 
+-- Returns the number of plugins loaded and the total time to load those
+local lazy_plugins_string = function()
+    local v = require('lazy').stats()
+    return string.format(
+        'Plugins: %d declared, %d loaded in %d milliseconds',
+        v.count,
+        v.loaded,
+        v.startuptime
+    )
+end
+
+-- Generates the footer dynamically
+local generate_footer = function()
+    return {
+        ' ',
+        'Neovim v'
+        .. neovim_version_string()
+        .. ' - '
+        .. lazy_plugins_string(),
+        ' ',
+        '💡 André Anjos (https://anjos.ai) '
+        .. ' '
+        .. os.date('%Y'),
+    }
+end
+
 -- local neovim_spelled_out = {
 --     '███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
 --     '████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
@@ -202,14 +228,8 @@ return {
                         limit = 5,
                         action = 'Telescope file_browser path=%:p:h select_buffer=true cwd=',
                     },
-                    footer = {
-                        ' ',
-                        '💡 André Anjos (https://anjos.ai) '
-                            .. ' '
-                            .. os.date('%Y')
-                            .. ' - Neovim v'
-                            .. neovim_version_string(),
-                    },
+                    packages = { enable = false },
+                    footer = generate_footer,
                 },
             })
         end,
