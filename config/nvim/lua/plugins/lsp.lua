@@ -267,6 +267,9 @@ return {
                             null_ls.builtins.formatting.black,
                             null_ls.builtins.formatting.isort,
 
+                            -- restructuredtext
+                            null_ls.builtins.diagnostics.rstcheck,
+
                             -- latex
                             null_ls.builtins.formatting.latexindent,
                             null_ls.builtins.diagnostics.chktex,
