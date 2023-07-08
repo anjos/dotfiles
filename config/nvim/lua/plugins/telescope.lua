@@ -23,18 +23,23 @@ return {
             },
         },
         config = function()
+            local actions = require('telescope.actions')
             require('telescope').setup({
                 defaults = {
                     mappings = {
                         i = {
                             ['<C-u>'] = false,
                             ['<C-d>'] = false,
+                            ["<C-j>"] = actions.move_selection_next,
+                            ["<C-k>"] = actions.move_selection_previous,
+                            ["<C-l>"] = actions.select_default,
                         },
                     },
                 },
                 extensions = {
                     file_browser = {
                         hijack_netrw = true,
+                        hidden = true,
                     },
                 },
             })
@@ -46,14 +51,14 @@ return {
             -- opens file browser
             vim.keymap.set(
                 'n',
-                '<leader>zz',
+                '<leader>tf',
                 '<cmd>Telescope file_browser<cr>',
                 { desc = '[?] Open file browser', noremap = true }
             )
 
             vim.keymap.set(
                 'n',
-                '<leader>zz',
+                '<leader>tp',
                 '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
                 {
                     desc = '[?] Open file browser on buffer parent dir',
@@ -70,9 +75,16 @@ return {
 
             vim.keymap.set(
                 'n',
+                '<leader>bt',
+                '<cmd>Telescope buffers<cr>',
+                { desc = 'Choose buffer', noremap = true }
+            )
+
+            vim.keymap.set(
+                'n',
                 '<leader><space>',
                 '<cmd>Telescope buffers<cr>',
-                { desc = '[<space>] Open recent buffer', noremap = true }
+                { desc = 'Choose buffer', noremap = true }
             )
 
             -- You can pass additional configuration to telescope to change theme, layout, etc.
@@ -87,7 +99,10 @@ return {
                         })
                     )
                 end,
-                { desc = '[/] Fuzzily search in current buffer', noremap = true }
+                {
+                    desc = '[/] Fuzzily search in current buffer',
+                    noremap = true,
+                }
             )
 
             vim.keymap.set('n', '<leader>gf', function()
