@@ -25,9 +25,9 @@ return {
             -- remove trailing whitespace with a keybinding
             vim.keymap.set(
                 'n',
-                '<Leader>t',
+                '<Leader>tt',
                 require('trim.trimmer').trim,
-                { desc = 'Trim training whitespaces on buffer' }
+                { desc = '[T]rim [t]railing whitespaces on buffer' }
             )
         end,
     },
