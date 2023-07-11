@@ -53,7 +53,7 @@ return {
                 'n',
                 '<leader>tf',
                 '<cmd>Telescope file_browser<cr>',
-                { desc = '[?] Open file browser', noremap = true }
+                { desc = 'Open file browser', noremap = true }
             )
 
             vim.keymap.set(
@@ -76,21 +76,33 @@ return {
                 require('telescope.builtin').keymaps({
                     layout_strategy = 'vertical',
                 })
-            end, { desc = 'Search keymaps', noremap = true })
+            end, { desc = 'Find keymaps', noremap = true })
 
-            vim.keymap.set('n', '<leader>bt', function()
+            vim.keymap.set('n', '<leader>fk', function()
+                require('telescope.builtin').keymaps({
+                    layout_strategy = 'vertical',
+                })
+            end, { desc = 'Find keymaps', noremap = true })
+
+            vim.keymap.set('n', '<leader>fb', function()
                 require('telescope.builtin').buffers({
                     layout_strategy = 'vertical',
                 })
-            end, { desc = 'Choose buffer', noremap = true })
+            end, { desc = 'Find buffer', noremap = true })
 
             vim.keymap.set('n', '<C-b>', function()
                 require('telescope.builtin').buffers({
                     layout_strategy = 'vertical',
                 })
-            end, { desc = 'Choose buffer', noremap = true })
+            end, { desc = 'Find buffer', noremap = true })
 
             vim.keymap.set('n', '<C-s>', function()
+                require('telescope.builtin').registers({
+                    layout_strategy = 'vertical',
+                })
+            end, { desc = 'Choose register', noremap = true })
+
+            vim.keymap.set('n', '<leader>fr', function()
                 require('telescope.builtin').registers({
                     layout_strategy = 'vertical',
                 })
@@ -108,11 +120,11 @@ return {
                 noremap = true,
             })
 
-            vim.keymap.set('n', '<leader>gf', function()
+            vim.keymap.set('n', '<leader>fg', function()
                 require('telescope.builtin').git_files({
                     layout_strategy = 'vertical',
                 })
-            end, { desc = 'Search [g]it [f]iles', noremap = true })
+            end, { desc = 'Search git files', noremap = true })
 
             vim.keymap.set('n', '<c-a>', function()
                 require('telescope.builtin').find_files({
