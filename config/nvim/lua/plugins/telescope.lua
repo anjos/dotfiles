@@ -51,14 +51,14 @@ return {
             -- opens file browser
             vim.keymap.set(
                 'n',
-                '<leader>tf',
+                '<leader>fb',
                 '<cmd>Telescope file_browser<cr>',
                 { desc = 'Open file browser', noremap = true }
             )
 
             vim.keymap.set(
                 'n',
-                '<leader>tp',
+                '<leader>fp',
                 '<cmd>Telescope file_browser path=%:p:h select_buffer=true<cr>',
                 {
                     desc = 'Open file browser on buffer parent dir',
@@ -72,41 +72,29 @@ return {
                 })
             end, { desc = 'Open recent file', noremap = true })
 
-            vim.keymap.set('n', '<leader>k', function()
-                require('telescope.builtin').keymaps({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Find keymaps', noremap = true })
+            for _, lhs in ipairs({'<leader>k', '<leader>fk'}) do
+                vim.keymap.set('n', lhs, function()
+                    require('telescope.builtin').keymaps({
+                        layout_strategy = 'vertical',
+                    })
+                end, { desc = 'Find keymaps', noremap = true })
+            end
 
-            vim.keymap.set('n', '<leader>fk', function()
-                require('telescope.builtin').keymaps({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Find keymaps', noremap = true })
+            for _, lhs in ipairs({'<C-b>', '<leader>fz'}) do
+                vim.keymap.set('n', lhs, function()
+                    require('telescope.builtin').buffers({
+                        layout_strategy = 'vertical',
+                    })
+                end, { desc = 'Find buffer', noremap = true })
+            end
 
-            vim.keymap.set('n', '<leader>fb', function()
-                require('telescope.builtin').buffers({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Find buffer', noremap = true })
-
-            vim.keymap.set('n', '<C-b>', function()
-                require('telescope.builtin').buffers({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Find buffer', noremap = true })
-
-            vim.keymap.set('n', '<C-s>', function()
-                require('telescope.builtin').registers({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Choose register', noremap = true })
-
-            vim.keymap.set('n', '<leader>fr', function()
-                require('telescope.builtin').registers({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = 'Choose register', noremap = true })
+            for _, lhs in ipairs({'<C-s>', '<leader>fr'}) do
+                vim.keymap.set('n', lhs, function()
+                    require('telescope.builtin').registers({
+                        layout_strategy = 'vertical',
+                    })
+                end, { desc = 'Choose register', noremap = true })
+            end
 
             vim.keymap.set('n', '<leader>/', function()
                 require('telescope.builtin').current_buffer_fuzzy_find(
@@ -124,46 +112,42 @@ return {
                 require('telescope.builtin').git_files({
                     layout_strategy = 'vertical',
                 })
-            end, { desc = 'Search git files', noremap = true })
+            end, { desc = 'Find files registered on git repository', noremap = true })
 
-            vim.keymap.set('n', '<c-a>', function()
-                require('telescope.builtin').find_files({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = '[S]earch [f]iles', noremap = true })
-
-            vim.keymap.set('n', '<leader>sf', function()
-                require('telescope.builtin').find_files({
-                    layout_strategy = 'vertical',
-                })
-            end, { desc = '[S]earch [f]iles', noremap = true })
+            for _, lhs in ipairs({'<C-a>', '<leader>ff'}) do
+                vim.keymap.set('n', lhs, function()
+                    require('telescope.builtin').find_files({
+                        layout_strategy = 'vertical',
+                    })
+                end, { desc = 'Find files', noremap = true })
+            end
 
             vim.keymap.set(
                 'n',
-                '<leader>sh',
+                '<leader>fh',
                 '<cmd>Telescope help_tags<cr>',
-                { desc = '[S]earch [h]elp', noremap = true }
+                { desc = 'Find on help', noremap = true }
             )
 
             vim.keymap.set(
                 'n',
-                '<leader>sg',
+                '<leader>fg',
                 '<cmd>Telescope live_grep<cr>',
-                { desc = '[S]earch with [g]rep', noremap = true }
+                { desc = 'Find with grep', noremap = true }
             )
 
             vim.keymap.set(
                 'n',
-                '<leader>sw',
+                '<leader>fw',
                 '<cmd>Telescope grep_string<cr>',
-                { desc = '[S]earch current [w]ord with grep', noremap = true }
+                { desc = 'Find the current word with grep', noremap = true }
             )
 
             vim.keymap.set(
                 'n',
-                '<leader>sd',
+                '<leader>fd',
                 '<cmd>Telescope diagnostics<cr>',
-                { desc = '[S]earch [d]iagnostics', noremap = true }
+                { desc = 'Find on diagnostics', noremap = true }
             )
         end,
     },

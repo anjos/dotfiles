@@ -229,7 +229,7 @@ return {
             -- Hook autoformatting to various actions
             vim.keymap.set('n', '<leader>fb', function()
                 vim.lsp.buf.format()
-            end, { noremap = true, desc = 'Re-[f]ormat [b]uffer' })
+            end, { noremap = true, desc = 'Re-format buffer' })
 
             vim.keymap.set('v', '<leader>fb', function()
                 vim.lsp.buf.format({
@@ -238,7 +238,7 @@ return {
                         ['end'] = vim.api.nvim_buf_get_mark(0, '>'),
                     },
                 })
-            end, { noremap = true, desc = 'Re-[f]ormat [b]lock' })
+            end, { noremap = true, desc = 'Re-format block' })
         end,
     },
 
