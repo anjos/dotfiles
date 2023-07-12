@@ -146,8 +146,8 @@ return {
                     local filename = 'meta.yaml'
                     if
                         vim.api
-                            .nvim_buf_get_name(bufnr)
-                            :sub(-string.len(filename))
+                        .nvim_buf_get_name(bufnr)
+                        :sub(-string.len(filename))
                         == filename
                     then
                         vim.diagnostic.disable(bufnr)
