@@ -131,9 +131,9 @@ return {
 
             vim.keymap.set(
                 'n',
-                '<leader>fg',
+                '<leader>fe',
                 '<cmd>Telescope live_grep<cr>',
-                { desc = 'Find with grep', noremap = true }
+                { desc = 'Find expression with grep', noremap = true }
             )
 
             vim.keymap.set(
