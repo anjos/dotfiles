@@ -51,7 +51,7 @@ return {
             -- opens file browser
             vim.keymap.set(
                 'n',
-                '<leader>fb',
+                '<leader>ff',
                 '<cmd>Telescope file_browser<cr>',
                 { desc = 'Open file browser', noremap = true }
             )
@@ -114,7 +114,7 @@ return {
                 })
             end, { desc = 'Find files registered on git repository', noremap = true })
 
-            for _, lhs in ipairs({'<C-a>', '<leader>ff'}) do
+            for _, lhs in ipairs({'<C-a>'}) do
                 vim.keymap.set('n', lhs, function()
                     require('telescope.builtin').find_files({
                         layout_strategy = 'vertical',
