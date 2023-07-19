@@ -4,6 +4,9 @@ dependencies:
   - python=3
   - pygments
   - latexcodec
+  - latexindent.pl
+  - pre-commit
+  - cookiecutter
   - pybtex
   - pip
   - lxml
