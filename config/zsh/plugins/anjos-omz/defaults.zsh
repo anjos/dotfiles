@@ -1,7 +1,7 @@
 # Programs controlled by environment variables
 export EDITOR=nvim;
 export VISUAL=nvim;
-export PAGER=bat;
+export PAGER="bat --style=plain";
 
 # Sets up the core dump limits
 ulimit -c 0;
