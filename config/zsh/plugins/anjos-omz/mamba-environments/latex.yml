@@ -7,7 +7,12 @@ dependencies:
   - latexindent.pl
   - pre-commit
   - cookiecutter
+  - pytest
+  - pytest-cov
+  - pytest-cookies
+  - pdbpp
   - pybtex
+  - make
   - pip
   - lxml
   - pip:
