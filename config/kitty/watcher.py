@@ -1,9 +1,9 @@
 import typing
 
 from kitty.boss import Boss
-from kitty.window import Window
 from kitty.cli import create_default_opts
-from kitty.fast_data_types import viewport_for_window
+from kitty.fast_data_types import get_options, viewport_for_window
+from kitty.window import Window
 
 
 def on_resize(
@@ -19,7 +19,7 @@ def on_resize(
 
     # We first retrieve the default width for the window, which in my case
     # represents a single terminal session:
-    default_width = create_default_opts().initial_window_width[0]
+    default_width = get_options('initial_window_width')[0]
 
     # We add 1 cell to account for borders
     threshold = default_width + 1
@@ -30,9 +30,7 @@ def on_resize(
     _, _, window_width, _, cell_width, _ = viewport_for_window(window.os_window_id)
     cells = window_width / cell_width
     if cells < (2 * threshold):
-        boss.call_remote_control(
-            window, ("goto-layout", "--match", "all", "vertical")
-        )
+        boss.call_remote_control(window, ("goto-layout", "--match", "all", "vertical"))
     elif cells < (3 * threshold):
         boss.call_remote_control(
             window, ("goto-layout", "--match", "all", "tall:full_size=1")
