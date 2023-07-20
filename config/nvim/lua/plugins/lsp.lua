@@ -146,8 +146,8 @@ return {
                     local filename = 'meta.yaml'
                     if
                         vim.api
-                        .nvim_buf_get_name(bufnr)
-                        :sub(-string.len(filename))
+                            .nvim_buf_get_name(bufnr)
+                            :sub(-string.len(filename))
                         == filename
                     then
                         vim.diagnostic.disable(bufnr)
@@ -187,8 +187,8 @@ return {
             local before_init = {
                 pyright = function(_, config)
                     -- Changes the Python path when the server is started
-                    config.settings.python.pythonPath = exepath('python3')
-                        or exepath('python')
+                    config.settings.python.pythonPath = vim.fn.exepath('python')
+                        or vim.fn.exepath('python3')
                 end,
             }
 
@@ -210,7 +210,9 @@ return {
             })
 
             mason_lspconfig.setup_handlers({
+                -- This function is called once for each of the servers defined
                 function(server_name)
+                    -- print("lspconfig config `" .. server_name .. "`")
                     require('lspconfig')[server_name].setup({
                         capabilities = capabilities,
                         on_attach = function(client, bufnr)
