@@ -57,7 +57,6 @@
     lg2 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) — %C(magenta)%ae%C(reset)' --abbrev-commit
     lg = !"git lg1"
     lt = !"git --no-pager log --tags --simplify-by-decoration --pretty=\"tformat:%ci %d\" --max-count=20 --reverse"
-    um = fetch origin master:master
     mr = push -o merge_request.create -o merge_request.remove_source_branch --set-upstream origin HEAD
     xc = clean -ffdx -e .envrc
 [push]
