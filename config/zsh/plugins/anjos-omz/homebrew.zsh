@@ -35,6 +35,7 @@ function _anjos-homebrew-install-kegs {
     kegs+=('coreutils')
     kegs+=('curl')
     kegs+=('direnv')
+    kegs+=('duti')  # sets default macos apps from cmdline
     #kegs+=('exa')
     kegs+=('fd')
     kegs+=('findutils')
