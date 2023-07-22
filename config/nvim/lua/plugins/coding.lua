@@ -10,11 +10,9 @@ return {
     {
         'kaplanz/nvim-retrail',
         config = function()
-            require('retrail').setup({
-                trim = {
-                    blanklines = true,
-                },
-            })
+            local defaults = require('retrail.config.defaults')
+            table.insert(defaults.filetype.exclude, "dashboard")
+            require('retrail').setup()
         end,
     },
 
