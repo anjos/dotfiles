@@ -1,37 +1,5 @@
 return {
 
-    {
-        'cappyzawa/trim.nvim',
-        config = function()
-            require('trim').setup({
-                ft_blocklist = {
-                    'TelescopePrompt',
-                    'Trouble',
-                    'help',
-                    'dashboard',
-                },
-                -- if you want to remove multiple blank lines
-                -- replace multiple blank lines with a single line
-                -- patterns = {
-                --     [[%s/\(\n\n\)\n\+/\1/]],
-                -- },
-                --
-                -- trim_on_write = true,
-                -- trim_trailing = true,
-                -- trim_last_line = true,
-                -- trim_first_line = true,
-            })
-
-            -- remove trailing whitespace with a keybinding
-            vim.keymap.set(
-                'n',
-                '<Leader>tt',
-                require('trim.trimmer').trim,
-                { desc = '[T]rim [t]railing whitespaces on buffer' }
-            )
-        end,
-    },
-
     -- auto-commenter for lines and code-blocks
     {
         'numToStr/Comment.nvim',

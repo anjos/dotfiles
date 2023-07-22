@@ -55,10 +55,6 @@ vim.api.nvim_create_autocmd(
     { pattern = { 'make' }, command = [[set noexpandtab]] }
 )
 
--- Strip trailing whitespaces on save, without confirmation
-vim.g.strip_whitespace_on_save = 1
-vim.g.strip_whitespace_confirm = 0
-
 -- Ignore these files on file lists and tab completions
 vim.opt.wildignore = {
     '*.a',
