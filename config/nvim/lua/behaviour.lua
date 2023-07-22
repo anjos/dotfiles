@@ -35,15 +35,6 @@ vim.opt.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
 
--- Set options for ntpeters/vim-better-whitespace plugin
-vim.g.strip_whitespace_on_save = 1
-vim.g.strip_whitespace_confirm = 0
-vim.g.better_whitespace_filetypes_blacklist = vim.tbl_extend(
-    'force',
-    vim.g.better_whitespace_filetypes_blacklist,
-    { 'dashboard' }
-)
-
 -- Toggle showing line numbers
 vim.keymap.set(
     'n',
@@ -83,9 +74,6 @@ vim.opt.wildignore = {
     '.git',
     '__pycache__/',
 }
-
--- If asked to display special characters (whitespaces), then use these symbols
-vim.opt.listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣'
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`

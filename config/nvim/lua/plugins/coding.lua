@@ -6,11 +6,15 @@ return {
         opts = { opleader = { line = 'cc', block = 'cb' } },
     },
 
-    -- display trailing whitespaces
+    -- Displays and trims trailing whitespaces
     {
-        'ntpeters/vim-better-whitespace',
-        -- color configuration is done on `plugins/colorscheme.lua`
+        'kaplanz/nvim-retrail',
         config = function()
+            require('retrail').setup({
+                trim = {
+                    blanklines = true,
+                },
+            })
         end,
     },
 
