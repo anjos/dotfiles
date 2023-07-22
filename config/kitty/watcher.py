@@ -19,7 +19,7 @@ def on_resize(
 
     # We first retrieve the default width for the window, which in my case
     # represents a single terminal session:
-    default_width = get_options('initial_window_width')[0]
+    default_width = get_options().initial_window_width[0]
 
     # We add 1 cell to account for borders
     threshold = default_width + 1
