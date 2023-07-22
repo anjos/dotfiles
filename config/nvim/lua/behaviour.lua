@@ -21,10 +21,10 @@ vim.opt.backspace = { 'indent', 'eol', 'start' } -- fixes backspace
 vim.opt.clipboard = 'unnamedplus' -- Sync clipboard between OS and Neovim.
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
 vim.opt.smartcase = true
-vim.opt.number = false   -- Should we show line numbers?
-vim.opt.numberwidth = 4  -- What is the width of the line number column
+vim.opt.number = false -- Should we show line numbers?
+vim.opt.numberwidth = 4 -- What is the width of the line number column
 vim.opt.signcolumn = 'yes:1' -- Always show sign column, and make it 1 character large
-vim.opt.cindent = false  -- Disables c-style indentation
+vim.opt.cindent = false -- Disables c-style indentation
 vim.opt.smartindent = true -- Do smart auto-indent when starting a new line
 
 -- Decrease update time - affects which-key.nvim plugin
@@ -35,12 +35,21 @@ vim.opt.timeoutlen = 300
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
 
+-- Set options for ntpeters/vim-better-whitespace plugin
+vim.g.strip_whitespace_on_save = 1
+vim.g.strip_whitespace_confirm = 0
+vim.g.better_whitespace_filetypes_blacklist = vim.tbl_extend(
+    'force',
+    vim.g.better_whitespace_filetypes_blacklist,
+    { 'dashboard' }
+)
+
 -- Toggle showing line numbers
 vim.keymap.set(
     'n',
     '<c-n><c-n>',
     ':set invnumber<CR>',
-    { desc = "Toggle show line numbers" }
+    { desc = 'Toggle show line numbers' }
 )
 
 -- HTML editing does not need line breaking...
@@ -80,7 +89,8 @@ vim.opt.listchars = 'eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣'
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+local highlight_group =
+    vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function()
         vim.highlight.on_yank()

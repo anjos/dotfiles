@@ -6,6 +6,14 @@ return {
         opts = { opleader = { line = 'cc', block = 'cb' } },
     },
 
+    -- display trailing whitespaces
+    {
+        'ntpeters/vim-better-whitespace',
+        -- color configuration is done on `plugins/colorscheme.lua`
+        config = function()
+        end,
+    },
+
     {
         -- Add indentation guides even on blank lines
         -- See `:help indent_blankline.txt`
@@ -31,13 +39,13 @@ return {
 
                 -- avoids this plugin to interact with these filetypes
                 filetype_exclude = {
-                    "lspinfo",
-                    "packer",
-                    "checkhealth",
-                    "help",
-                    "man",
-                    "dashboard",
-                    "",
+                    'lspinfo',
+                    'packer',
+                    'checkhealth',
+                    'help',
+                    'man',
+                    'dashboard',
+                    '',
                 },
             })
 
