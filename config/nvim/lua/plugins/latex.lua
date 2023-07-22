@@ -3,15 +3,17 @@ return {
     {
         'lervag/vimtex',
         config = function()
-            -- set location of nvr
+            -- use nvr (required by vim-tex)
             vim.g.vimtex_compiler_progname = vim.g.conda_env_root .. '/bin/nvr'
 
             -- look for the "theme/" on latex builds
             vim.env.TEXINPUTS = vim.env.PWD .. ':' .. vim.env.PWD .. '/theme:'
 
-            -- use nvr (required by vim-tex)
             vim.g.vimtex_view_method = 'skim'
             vim.g.tex_flavor = 'latex'
+
+            -- we use tresitter instead
+            vim.g.vimtex_syntax_enabled = 0
         end,
     },
 }

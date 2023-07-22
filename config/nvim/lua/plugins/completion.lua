@@ -37,6 +37,7 @@ return {
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'hrsh7th/cmp-omni',
         },
         config = function()
             local cmp = require('cmp')
@@ -78,10 +79,12 @@ return {
                     end, { 'i', 's' }),
                 }),
                 sources = {
+                    { name = 'omni' },
                     { name = 'nvim_lsp' },
                     { name = 'luasnip' },
                     {
                         name = 'buffer',
+                        keyword_length = 3,
                         option = {
                             get_bufnrs = function()
                                 return vim.api.nvim_list_bufs()
@@ -90,6 +93,22 @@ return {
                     },
                     { name = 'path' },
                     { name = 'tmux' },
+                },
+                formatting = {
+                    fields = {'menu', 'abbr', 'kind'},
+                    format = function(entry, item)
+                        local menu_icon = {
+                            omni = ' ',
+                            nvim_lsp = ' ',
+                            luasnip = ' ',
+                            buffer = ' ',
+                            path = ' ',
+                            tmux = ' ',
+                        }
+                        item.menu = menu_icon[entry.source.name] or ' '
+
+                        return item
+                    end,
                 },
             })
         end,
