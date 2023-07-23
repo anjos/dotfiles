@@ -80,6 +80,30 @@ local lsp_servers = {
     -- filetype: tex, bib
     texlab = {
         filetypes = { 'tex', 'bib' },
+        -- settings = {
+            -- defaults:
+            -- auxDirectory = ".",
+            -- bibtexFormatter = "texlab",
+            -- build = {
+            --     args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+            --     executable = "latexmk",
+            --     forwardSearchAfter = false,
+            --     onSave = false
+            -- },
+            -- chktex = {
+            --     onEdit = false,
+            --     onOpenAndSave = false
+            -- },
+            -- diagnosticsDelay = 300,
+            -- formatterLineLength = 80,
+            -- forwardSearch = {
+            --     args = {}
+            -- },
+            -- latexFormatter = "latexindent",
+            -- latexindent = {
+            --     modifyLineBreaks = false
+            -- }
+        -- },
     },
 
     -- mason (mason-lsp-config): dot-language-server (dotls)
@@ -231,14 +255,9 @@ local on_buffer_attach_common_actions = function(_, bufnr)
     })
 
     -- Creates a command `:LspFormat` local to the LSP buffer
-    vim.api.nvim_create_user_command(
-        'LspFormat',
-        function(_)
-            vim.lsp.buf.format()
-        end,
-        { desc = 'Format current buffer with LSP' }
-    )
-
+    vim.api.nvim_create_user_command('LspFormat', function(_)
+        vim.lsp.buf.format()
+    end, { desc = 'Format current buffer with LSP' })
 end
 
 return {
@@ -312,8 +331,6 @@ return {
                     })
                 end,
             })
-
         end,
     },
-
 }
