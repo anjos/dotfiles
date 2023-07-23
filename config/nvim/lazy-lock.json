@@ -35,8 +35,8 @@
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9bc8237565ded606e6c366a71c64c0af25cd7a50" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
   "tokyonight.nvim": { "branch": "main", "commit": "1ee11019f8a81dac989ae1db1a013e3d582e2033" },
-  "trouble.nvim": { "branch": "main", "commit": "d572f59aaf7eef670d6ddc331032a7d5e59d634e" },
+  "trouble.nvim": { "branch": "main", "commit": "0e6703c1d37d2d34ed029ab54f9bd66e3f2ecbf7" },
   "vim-fugitive": { "branch": "master", "commit": "b3b838d690f315a503ec4af8c634bdff3b200aaf" },
-  "vimtex": { "branch": "master", "commit": "95579267d48a6b4e8e99c4f32456cba992565ea2" },
+  "vimtex": { "branch": "master", "commit": "53464eb5df497eb015da773f7a309e3bf2dfa16e" },
   "which-key.nvim": { "branch": "main", "commit": "38b990f6eabf62014018b4aae70a97d7a6c2eb88" }
 }
