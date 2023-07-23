@@ -1,0 +1,165 @@
+# Format is:
+#
+#  * "<app_id> <UTI> <role>", or
+#  * "<app_id> <URL>"
+#
+# Valid roles are defined as follows:
+#
+#  * all: application handles all roles for the given UTI.
+#  * viewer: application handles reading and displaying documents with the given UTI.
+#  * editor: application can manipulate and save the item. Implies viewer.
+#  * shell: application can execute the item.
+#  * none: application cannot open the item, but provides an icon for the given UTI.
+#
+# To get the "<app_id>" use the command-line app:
+#
+#  * osascript -e 'id of app "<type here the app name>"'
+#  * example: osascript -e 'id of app "Kitty"'
+#
+# To retrieve the current defaults for a particular extension (<ext>):
+#
+#  * duti -x <ext>
+#  * example: duty -x py
+#
+# To print all possible UTIs, run this:
+#
+#  * python ./lsregister.py
+#
+# To set this apps as responsible for the various file types, run this:
+#
+#  * duti -v settings.txt
+
+# .txt, .text, plain text files without an extension
+net.kovidgoyal.kitty public.plain-text all
+
+# .txt, 'TXT', text/plain
+net.kovidgoyal.kitty public.text all
+
+# .text
+net.kovidgoyal.kitty public.text all
+
+# executable scripts
+net.kovidgoyal.kitty public.unix-executable all
+
+# .py, text/x-python-script
+net.kovidgoyal.kitty public.python-script all
+
+# .rst, .rest
+net.kovidgoyal.kitty org.python.restructuredtext all
+
+# .yml, .yaml, application/x-yaml
+net.kovidgoyal.kitty public.yaml all
+
+# .yml, .yaml
+net.kovidgoyal.kitty org.yaml.yaml all
+
+# .md, .markdown
+net.kovidgoyal.kitty net.daringfireball.markdown all
+
+# .md, .markdown
+net.kovidgoyal.kitty com.unknown.md all
+
+# .json, application/json
+net.kovidgoyal.kitty public.json all
+
+# .make, .mak, .gmk, .mk
+net.kovidgoyal.kitty public.make-source all
+
+# .mk, .mak
+net.kovidgoyal.kitty org.n8gray.makefile all
+
+# .xml, application/xml, text/xml
+net.kovidgoyal.kitty public.xml all
+
+# .css, text/css
+net.kovidgoyal.kitty public.css all
+
+# .csh
+net.kovidgoyal.kitty public.csh-script all
+
+# .csv, text/csv, text/comma-separated-values
+net.kovidgoyal.kitty public.comma-separated-values-text all
+
+# .h
+net.kovidgoyal.kitty public.c-header all
+
+# .hh, .hp, .hpp, .hxx, .h++, .ipp
+net.kovidgoyal.kitty public.c-plus-plus-header all
+
+# .cp, .cpp, .c++, .cc, .cxx
+net.kovidgoyal.kitty public.c-plus-plus-source all
+
+# .c
+net.kovidgoyal.kitty public.c-source all
+
+# .bash
+net.kovidgoyal.kitty public.bash-script all
+
+# .vim
+net.kovidgoyal.kitty org.vim.vim-script all
+
+# .latex, .ltx, application/x-latex
+net.kovidgoyal.kitty org.tug.tex.latex all
+
+# .aux
+net.kovidgoyal.kitty org.tug.aux all
+
+# .ctx
+net.kovidgoyal.kitty org.tug.ctx all
+
+# .def
+net.kovidgoyal.kitty org.tug.def all
+
+# .drv
+net.kovidgoyal.kitty org.tug.drv all
+
+# .dtx
+net.kovidgoyal.kitty org.tug.dtx all
+
+# .fdd
+net.kovidgoyal.kitty org.tug.fdd all
+
+# .log
+net.kovidgoyal.kitty org.tug.log all
+
+# .ltx
+net.kovidgoyal.kitty org.tug.ltx all
+
+# .lua
+net.kovidgoyal.kitty org.tug.lua all
+
+# .tex, application/x-tex
+net.kovidgoyal.kitty org.tug.tex all
+
+# .bib, application/x-bibtex
+net.kovidgoyal.kitty org.tug.tex.bibtex all
+
+# .ctx, text/plain
+net.kovidgoyal.kitty org.tug.tex.context all
+
+# .latex, .ltx, application/x-latex
+net.kovidgoyal.kitty org.tug.tex.latex all
+
+# .texi, text/plain
+net.kovidgoyal.kitty org.tug.tex.texinfo all
+
+# .rs, .rlib
+net.kovidgoyal.kitty org.rust-lang.rust all
+
+# .rs
+net.kovidgoyal.kitty org.rust-lang.source all
+
+# .r, .s
+net.kovidgoyal.kitty org.r-project.r all
+
+# .fish
+net.kovidgoyal.kitty org.fish.source all
+
+# .go
+net.kovidgoyal.kitty org.go.source all
+
+# .cmake
+net.kovidgoyal.kitty org.cmake.cmake all
+
+# .bashrc, .zshrc
+net.kovidgoyal.kitty org.bash.source all

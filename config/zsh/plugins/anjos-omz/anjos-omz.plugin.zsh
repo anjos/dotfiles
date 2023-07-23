@@ -4,6 +4,7 @@ _ANJOS_BASEDIR=${0:A:h}
 function anjos-reload {
     source ${_ANJOS_BASEDIR}/first.zsh  # should be sourced first, always
     source ${_ANJOS_BASEDIR}/homebrew.zsh
+    source ${_ANJOS_BASEDIR}/duti.zsh
     source ${_ANJOS_BASEDIR}/macos-sdk.zsh
     source ${_ANJOS_BASEDIR}/mamba.zsh
     source ${_ANJOS_BASEDIR}/starship.zsh
@@ -23,6 +24,7 @@ function anjos-update {
     anjos-homebrew-update
     anjos-mamba-update
     anjos-neovim-update
+    anjos-duti-setup
 
     echo -e "\n[anjos-omz] Updating oh-my-zsh..."
     omz update
