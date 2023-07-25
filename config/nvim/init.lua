@@ -4,6 +4,7 @@ vim.g.conda_env_root = '/Users/andre/mamba/envs/neovim'
 -- These are important environment variables
 vim.env.PATH = vim.env.PATH .. ':' .. vim.g.conda_env_root .. '/bin'
 vim.env.GEM_HOME = vim.g.conda_env_root .. '/share/rubygems'
+vim.env.GOROOT = vim.g.conda_env_root .. '/go'
 
 -- Sets up some paths
 vim.g.loaded_perl_provider = 0 -- disables pearl support
