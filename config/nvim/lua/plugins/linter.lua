@@ -29,8 +29,8 @@ return {
                 -- 'luacheck', -- have to reconfigure for neovim
                 -- 'markdownlint', -- too pedantic
                 'pydocstyle', -- ok
-                -- 'rstcheck',
-                -- 'ruff',
+                -- 'rstcheck', -- needs some love to work properly
+                -- 'ruff', -- use ruff-lsp for extra diagnostics
                 -- 'yamllint', -- too pedantic
             })
 
