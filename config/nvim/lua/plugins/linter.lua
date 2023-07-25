@@ -13,41 +13,41 @@ return {
     {
         -- A format runner for Neovim.
         -- https://github.com/mfussenegger/nvim-lint
-        'mfussenegger/nvim-lint',
-        dependencies = {
-            {
-                'williamboman/mason.nvim',
-                config = function()
-                    require('mason').setup()
-                end,
-                build = ':MasonUpdate',
-            },
-        },
-        config = function()
-            mason_ensure_installed({
-                -- 'chktex', -- available with mactex
-                -- 'luacheck', -- have to reconfigure for neovim
-                -- 'markdownlint', -- too pedantic
-                'pydocstyle', -- ok
-                -- 'rstcheck', -- needs some love to work properly
-                -- 'ruff', -- use ruff-lsp for extra diagnostics
-                -- 'yamllint', -- too pedantic
-            })
+        -- 'mfussenegger/nvim-lint',
+        -- dependencies = {
+        --     {
+        --         'williamboman/mason.nvim',
+        --         config = function()
+        --             require('mason').setup()
+        --         end,
+        --         build = ':MasonUpdate',
+        --     },
+        -- },
+        -- config = function()
+            -- mason_ensure_installed({
+            --     -- 'chktex', -- available with mactex
+            --     -- 'luacheck', -- have to reconfigure for neovim
+            --     -- 'markdownlint', -- too pedantic
+            --     -- 'pydocstyle', -- too pedantic
+            --     -- 'rstcheck', -- needs some love to work properly
+            --     -- 'ruff', -- use ruff-lsp for extra diagnostics
+            --     -- 'yamllint', -- too pedantic
+            -- })
 
-            require('lint').linters_by_ft = {
-                -- markdown = { 'markdownlint' },
-                python = { 'pydocstyle'}, -- 'ruff
-                -- lua = { 'luacheck' },
-                -- tex = { 'chktex' }, -- broken?
-                -- yaml = { 'yamllint' },
-                -- rst = { 'rstcheck' }, -- misses sphinx/toml support?
-            }
-
-            vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-                callback = function()
-                    require("lint").try_lint()
-                end,
-            })
-        end,
+            -- require('lint').linters_by_ft = {
+            --     -- markdown = { 'markdownlint' },
+            --     -- python = { 'pydocstyle'}, -- 'ruff
+            --     -- lua = { 'luacheck' },
+            --     -- tex = { 'chktex' }, -- broken?
+            --     -- yaml = { 'yamllint' },
+            --     -- rst = { 'rstcheck' }, -- misses sphinx/toml support?
+            -- }
+            --
+            -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+            --     callback = function()
+            --         require("lint").try_lint()
+            --     end,
+            -- })
+        -- end,
     },
 }
