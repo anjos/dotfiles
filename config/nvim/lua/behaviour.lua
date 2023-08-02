@@ -30,7 +30,7 @@ vim.opt.smartindent = true -- Do smart auto-indent when starting a new line
 -- Decrease update time - affects which-key.nvim plugin
 vim.opt.updatetime = 250
 vim.opt.timeout = true
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 600
 
 -- Set completeopt to have a better completion experience
 vim.opt.completeopt = 'menuone,noselect'
