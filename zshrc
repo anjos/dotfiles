@@ -21,6 +21,7 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
 plugins+=(anjos-omz)
+plugins+=(direnv)
 plugins+=(conda-zsh-completion)
 plugins+=(gitfast)
 plugins+=(python)

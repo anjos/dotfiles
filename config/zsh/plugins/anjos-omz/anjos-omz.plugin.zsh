@@ -14,7 +14,6 @@ function anjos-reload {
     source ${_ANJOS_BASEDIR}/terminal-setup.zsh
     source ${_ANJOS_BASEDIR}/idiap.zsh  # depends on mamba setup!
     source ${_ANJOS_BASEDIR}/defaults.zsh
-    source ${_ANJOS_BASEDIR}/direnv.zsh
     source ${_ANJOS_BASEDIR}/orquidea.zsh
     source ${_ANJOS_BASEDIR}/last.zsh  # should be sourced by last, always
 }
