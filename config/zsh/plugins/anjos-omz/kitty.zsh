@@ -1,8 +1,5 @@
-# Integration with iTerm2 and Kitty
-if [[ -n "${ITERM_SESSION_ID}" && -r "${ZSH_CUSTOM}/iterm2_shell_integration.zsh" ]]; then
-    #echo "Enabling iTerm2 integration..."
-    source "${ZSH_CUSTOM}/iterm2_shell_integration.zsh"
-elif [[ -n "${KITTY_INSTALLATION_DIR}" ]]; then
+# Integration with Kitty
+if [[ -n "${KITTY_INSTALLATION_DIR}" ]]; then
     #echo "Enabling Kitty integration..."
     export KITTY_SHELL_INTEGRATION="enabled"
     autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
