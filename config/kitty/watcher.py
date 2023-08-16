@@ -1,7 +1,6 @@
 import typing
 
 from kitty.boss import Boss
-from kitty.cli import create_default_opts
 from kitty.fast_data_types import get_options, viewport_for_window
 from kitty.window import Window
 
