@@ -1,0 +1,14 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - pip
+  - git
+  - pre-commit
+  - cookiecutter
+  - python-gitlab
+  - pytest
+  - pytest-cov
+  - coverage
+  - pytest-cookies
+  - pdbpp
