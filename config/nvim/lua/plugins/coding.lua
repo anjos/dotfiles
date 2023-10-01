@@ -11,7 +11,7 @@ return {
         'kaplanz/nvim-retrail',
         config = function()
             local defaults = require('retrail.config.defaults')
-            table.insert(defaults.filetype.exclude, "dashboard")
+            table.insert(defaults.filetype.exclude, 'dashboard')
             require('retrail').setup()
         end,
     },
@@ -28,30 +28,26 @@ return {
             -- vim.opt.listchars:append "space:⋅"
             -- vim.opt.listchars:append "eol:↴"
 
-            require('indent_blankline').setup({
-                char = '┊',
-                space_char_blankline = ' ',
-                show_trailing_blankline_indent = false,
-                show_end_of_line = true,
-                -- requires tree-sitter plugin
-                -- depending on theme, this may not be highlighted properly
-                -- works with tokyonight themes OK!
-                show_current_context = true,
-                show_current_context_start = true,
+            require('ibl').setup({
+                indent = { char = '┊' },
+                whitespace = { highlight = { 'Whitespace', 'NonText' } },
 
                 -- avoids this plugin to interact with these filetypes
-                filetype_exclude = {
-                    'lspinfo',
-                    'packer',
-                    'checkhealth',
-                    'help',
-                    'man',
-                    'dashboard',
-                    '',
+                exclude = {
+                    filetypes = {
+                        'dashboard',
+                        'lspinfo',
+                        'packer',
+                        'checkhealth',
+                        'help',
+                        'man',
+                        'gitcommit',
+                        'TelescopePrompt',
+                        'TelescopeResults',
+                        '',
+                    },
                 },
             })
-
-            table.insert(vim.g.indent_blankline_filetype_exclude, 'dashboard')
         end,
     },
 }
