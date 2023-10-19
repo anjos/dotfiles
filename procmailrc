@@ -132,6 +132,3 @@ Backup/
 * ^To:.*(beat-devel@googlegroups.com|bob-devel@googlegroups.com|@beat-eu.org)
 .Software/
 
-:0
-* ^Subject:.*\[IDIAP\.ORS.*
-.ORS/
