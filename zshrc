@@ -20,6 +20,7 @@ ZSH_CUSTOM="${HOME}/.dotfiles/config/zsh"
 
 # Add wisely, as too many plugins slow down shell startup.
 plugins=()
+plugins+=(history-substring-search)
 plugins+=(anjos-omz)
 plugins+=(direnv)
 plugins+=(conda-zsh-completion)
@@ -28,7 +29,6 @@ plugins+=(python)
 plugins+=(themes)
 plugins+=(zsh-autosuggestions)
 plugins+=(zsh-syntax-highlighting)
-plugins+=(history-substring-search)
 plugins+=(brew)
 plugins+=(fd)
 plugins+=(fzf)
