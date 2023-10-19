@@ -1,5 +1,10 @@
 # Functions to bootstrap and update MacOS SDKs
 
+# Only executed on macOS
+if [ "$(uname)" != "Darwin" ]; then
+    return 1
+fi
+
 _ANJOS_MACOS_SDK="/opt/MacOSX11.0.sdk"  # required on macbooks with Apple silicon
 
 if [ -r ${_ANJOS_MACOS_SDK} ]; then

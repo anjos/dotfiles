@@ -1,0 +1,20 @@
+channels:
+  - conda-forge
+dependencies:
+  - bat
+  - coreutils
+  - curl
+  - fd-find
+  - fzf
+  - git
+  - git-delta
+  - git-filter-repo
+  - git-lfs
+  - htop
+  - lsdeluxe
+  - python=3
+  - ripgrep
+  - starship
+  - tar
+  - tree
+  - xz

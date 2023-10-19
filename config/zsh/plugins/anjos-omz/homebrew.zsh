@@ -1,5 +1,10 @@
 # Functions to bootstrap and update homebrew environments
 
+# Only executed on macOS
+if [ "$(uname)" != "Darwin" ]; then
+    return 1
+fi
+
 _ANJOS_HOMEBREW_PREFIX="/opt/homebrew"
 
 # The brew binary should be accessible
@@ -36,7 +41,6 @@ function _anjos-homebrew-install-kegs {
     kegs+=('curl')
     kegs+=('direnv')
     kegs+=('duti')  # sets default macos apps from cmdline
-    #kegs+=('exa')
     kegs+=('fd')
     kegs+=('findutils')
     kegs+=('fzf')
