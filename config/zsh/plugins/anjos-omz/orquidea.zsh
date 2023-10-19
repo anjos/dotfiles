@@ -1,4 +1,10 @@
-# Mounts important Idiap file systems to my mac
+# Mounts important orquidea file systems to my mac
+
+if [ -d /idiap/home/aanjos ]; then
+    # at Idiap, we do not need this bit
+    return 1
+fi
+
 # Uses SSHFS, that must be installed via `brew install sshfs`
 # SSHFS requires FUSE for macOS, that can be installed from
 # https://osxfuse.github.io

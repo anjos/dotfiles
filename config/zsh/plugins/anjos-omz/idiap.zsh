@@ -1,3 +1,10 @@
+# Functions to connect to or use Idiap remotely
+
+if [ -d /idiap/home/aanjos ]; then
+    # at Idiap, we do not need this bit
+    return 1
+fi
+
 # A function to start a new tunnel to my machine at Idiap
 function idiap-remote-desktop-macos {
   if [[ $1 == "-h" ]]; then

@@ -18,15 +18,20 @@ function anjos-reload {
     source ${_ANJOS_BASEDIR}/last.zsh  # should be sourced by last, always
 }
 
+function _run-if-exists {
+    if typeset -f $1 > /dev/null; then
+        echo "[anjos-omz] Running $@..."
+        "$@";
+    fi
+}
+
 # Updates all installed software
 function anjos-update {
-    anjos-homebrew-update
-    anjos-mamba-update
-    anjos-neovim-update
-    anjos-duti-setup
-
-    echo -e "\n[anjos-omz] Updating oh-my-zsh..."
-    omz update
+    _run-if-exists anjos-homebrew-update
+    _run-if-exists anjos-mamba-update
+    _run-if-exists anjos-neovim-update
+    _run-if-exists anjos-duti-setup
+    _run-if-exists omz update
 }
 
 anjos-reload
