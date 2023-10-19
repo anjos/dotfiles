@@ -1,5 +1,5 @@
 -- This is the base conda environment where utilities for neovim are installed
-vim.g.conda_env_root = '/Users/andre/mamba/envs/neovim'
+vim.g.conda_env_root = vim.env.HOME .. '/mamba/envs/neovim'
 
 -- These are important environment variables
 vim.env.PATH = vim.env.PATH .. ':' .. vim.g.conda_env_root .. '/bin'
