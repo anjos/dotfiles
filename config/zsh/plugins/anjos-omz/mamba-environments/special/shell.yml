@@ -4,17 +4,26 @@ dependencies:
   - bat
   - coreutils
   - curl
+  - exa
   - fd-find
   - fzf
   - git
   - git-delta
   - git-filter-repo
   - git-lfs
+  - graphviz
+  - grep
   - htop
-  - lsdeluxe
+  - imagemagick
+  - latexindent.pl
+  - latexdiff
+  - pip
   - python=3
   - ripgrep
+  - rust
   - starship
   - tar
+  - texlab
+  - tmux
   - tree
   - xz

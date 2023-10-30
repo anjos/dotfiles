@@ -9,8 +9,6 @@ if type "vivid" > /dev/null; then
 fi
 if type "lsd" > /dev/null; then
   alias ls='lsd --hyperlink=auto'
-elif type "gls" > /dev/null; then
-  alias ls='gls'
 elif type "exa" > /dev/null; then
   alias ls='exa --git --classify --header --sort=modified'
 fi

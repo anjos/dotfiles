@@ -9,12 +9,12 @@ function anjos-reload {
     source ${_ANJOS_BASEDIR}/mamba.zsh
     source ${_ANJOS_BASEDIR}/starship.zsh
     source ${_ANJOS_BASEDIR}/fzf.zsh
-    source ${_ANJOS_BASEDIR}/aliases.zsh
     source ${_ANJOS_BASEDIR}/neovim.zsh
     source ${_ANJOS_BASEDIR}/kitty.zsh
     source ${_ANJOS_BASEDIR}/idiap.zsh  # depends on mamba setup!
     source ${_ANJOS_BASEDIR}/defaults.zsh
     source ${_ANJOS_BASEDIR}/orquidea.zsh
+    source ${_ANJOS_BASEDIR}/aliases.zsh
     source ${_ANJOS_BASEDIR}/last.zsh  # should be sourced by last, always
 }
 

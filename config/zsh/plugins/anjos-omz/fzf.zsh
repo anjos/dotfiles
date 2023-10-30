@@ -5,7 +5,10 @@ if ! command -v fzf &> /dev/null; then
     return
 fi
 
-# Recommended to install: fzf fd ripgrep bat git-delta
+if [ -x "${HOME}/mamba/envs/shell/bin/fzf" ]; then
+    export FZF_BASE="/Users/andre/mamba/envs/shell/share/fzf"
+fi
+
 export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git'"
 export FZF_DEFAULT_OPTS="--height 50% --border --ansi"
 alias fzpv="${FZF_DEFAULT_COMMAND} --type f | fzf --preview 'bat --style=plain --color=always --line-range :100 {}'"

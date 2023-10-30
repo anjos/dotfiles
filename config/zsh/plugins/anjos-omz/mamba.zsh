@@ -98,9 +98,25 @@ function anjos-mamba-run-on {
     fi
 }
 
+function _anjos-mamba-reinstall-shell-environment {
+    echo "[anjos-mamba] Re-installing (special) shell conda environment..."
+    _anjos-mamba-overwrite-environment shell ${_ANJOS_BASEDIR}/mamba-environments/special/shell.yml
+
+    local utils=()  # commented out utilities are installed via mamba!
+    # utils+=('bat')   # alternative to cat
+    # utils+=('fd-find')  # find replacement
+    # utils+=('git-delta')  # for nice git diffs
+    # utils+=('lsd')  # ls replacement (not compiling on mamba currently)
+    # utils+=('ripgrep')  # grep replacement
+    # utils+=('starship')  # multi-shell prompt
+    utils+=('vivid')  # color theme generator for shell
+    echo "[anjos-mamba] Installing rust shell utilities via cargo..."
+    anjos-mamba-run-on shell cargo install --root ${_ANJOS_MAMBA_PREFIX}/envs/shell "${utils[@]}"
+}
+
 function _anjos-mamba-reinstall-neovim-environment {
-    echo "[anjos-mamba] Re-installing neovim conda environment..."
-    _anjos-mamba-overwrite-environment neovim ${_ANJOS_BASEDIR}/../../../nvim/neovim.yml
+    echo "[anjos-mamba] Re-installing (special) neovim conda environment..."
+    _anjos-mamba-overwrite-environment neovim ${_ANJOS_BASEDIR}/mamba-environments/special/neovim.yml
 
     echo "[anjos-mamba] Installing neovim node package..."
     anjos-mamba-run-on neovim npm install -g neovim
@@ -122,13 +138,19 @@ function _anjos-mamba-reinstall-neovim-environment {
 
 function anjos-mamba-update {
     #_anjos-mamba-update-base
+    _anjos-mamba-reinstall-shell-environment
     _anjos-mamba-reinstall-neovim-environment
     _anjos-mamba-reinstall-environments
     _anjos-mamba-cleanup
 }
 
-# Looks-up addresses and phone numbers on Idiap's LDAP server
+# looks-up addresses and phone numbers on Idiap's LDAP server
 function anjos-mamba-ldap-tel {
     anjos-mamba-run-on ldap ldap-idiap.py "$@"
 }
 alias tel=anjos-mamba-ldap-tel
+
+# we always have this one ready for shell interaction
+if [ -d "${_ANJOS_MAMBA_PREFIX}/envs/shell" ]; then
+  export PATH="${_ANJOS_MAMBA_PREFIX}/envs/shell/bin:${PATH}"
+fi
