@@ -40,7 +40,6 @@ function _anjos-homebrew-install-kegs {
     kegs+=('duti')  # sets default macos apps from cmdline
     kegs+=('findutils')
     kegs+=('libyaml')
-    kegs+=('lsd')
     kegs+=('neovim')
     kegs+=('openfortivpn')
     kegs+=('pass')

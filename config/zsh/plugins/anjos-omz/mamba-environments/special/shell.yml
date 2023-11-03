@@ -17,6 +17,7 @@ dependencies:
   - imagemagick
   - latexindent.pl
   - latexdiff
+  - lsdeluxe
   - pip
   - python=3
   - ripgrep
