@@ -10,6 +10,7 @@ return {
                     -- Adds a number of user-friendly snippets
                     'rafamadriz/friendly-snippets',
                 },
+                version = "v2.*",
                 build = 'make install_jsregexp',
                 config = function()
                     local ls = require('luasnip')
