@@ -66,7 +66,7 @@ function _anjos-homebrew-install_casks {
     # Extra formulas to install
     local casks=()
     casks+=('balenaetcher')
-    casks+=('betterdisplay')
+    #casks+=('betterdisplay')
     casks+=('font-inconsolata-nerd-font')
     casks+=('font-jetbrains-mono-nerd-font')
     casks+=('font-lekton-nerd-font')
