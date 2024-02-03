@@ -33,7 +33,7 @@ else
         #              it is expected the license terms (if any) are agreed upon
         # -f           no error if install prefix already exists
         # -h           print this help message and exit
-        # -p PREFIX    install prefix, defaults to /Users/andre/mambaforge, must not contain spaces.
+        # -p PREFIX    install prefix, defaults to ${HOME}/mamba, must not contain spaces.
         # -s           skip running pre/post-link/install scripts
         # -u           update an existing installation
         # -t           run package tests after installation (may install conda-build)

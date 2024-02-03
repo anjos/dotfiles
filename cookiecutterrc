@@ -2,6 +2,6 @@ default_context:
     full_name: "Andre Anjos"
     email: "andre.anjos@idiap.ch"
     github_username: "anjos"
-cookiecutters_dir: "/Users/andre/.cache/cookiecutter"
+cookiecutters_dir: "$HOME/.cache/cookiecutter"
 abbreviations:
     bs: git+ssh://git@gitlab.idiap.ch/biosignal/templates/{0}.git

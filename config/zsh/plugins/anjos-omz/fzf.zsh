@@ -6,7 +6,7 @@ if ! command -v fzf &> /dev/null; then
 fi
 
 if [ -x "${HOME}/mamba/envs/shell/bin/fzf" ]; then
-    export FZF_BASE="/Users/andre/mamba/envs/shell/share/fzf"
+    export FZF_BASE="${HOME}/mamba/envs/shell/share/fzf"
 fi
 
 export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git'"
