@@ -32,5 +32,7 @@ plugins+=(zsh-syntax-highlighting)
 plugins+=(brew)
 plugins+=(fd)
 plugins+=(fzf)
+plugins+=(docker)
+plugins+=(docker-compose)
 
 source $ZSH/oh-my-zsh.sh
