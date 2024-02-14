@@ -1,10 +1,5 @@
 # Functions to bootstrap and update homebrew environments
 
-# Only executed on macOS
-if [ "$(uname)" != "Darwin" ]; then
-    return 1
-fi
-
 _ANJOS_HOMEBREW_PREFIX="/opt/homebrew"
 
 # The brew binary should be accessible

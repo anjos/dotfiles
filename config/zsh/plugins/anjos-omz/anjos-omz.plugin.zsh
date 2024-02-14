@@ -2,20 +2,44 @@ _ANJOS_BASEDIR=${0:A:h}
 
 # Loads all sources
 function anjos-reload {
-    source ${_ANJOS_BASEDIR}/first.zsh  # should be sourced first, always
-    source ${_ANJOS_BASEDIR}/homebrew.zsh
-    source ${_ANJOS_BASEDIR}/duti.zsh
-    source ${_ANJOS_BASEDIR}/macos-sdk.zsh
-    source ${_ANJOS_BASEDIR}/mamba.zsh
-    source ${_ANJOS_BASEDIR}/starship.zsh
-    source ${_ANJOS_BASEDIR}/fzf.zsh
-    source ${_ANJOS_BASEDIR}/neovim.zsh
-    source ${_ANJOS_BASEDIR}/kitty.zsh
-    source ${_ANJOS_BASEDIR}/idiap.zsh  # depends on mamba setup!
-    source ${_ANJOS_BASEDIR}/defaults.zsh
-    source ${_ANJOS_BASEDIR}/orquidea.zsh
-    source ${_ANJOS_BASEDIR}/aliases.zsh
-    source ${_ANJOS_BASEDIR}/last.zsh  # should be sourced by last, always
+
+    local modules=()
+    modules+=(first)  # should be sourced first, always
+    modules+=(homebrew)
+    modules+=(duti)
+    modules+=(macos-sdk)
+    modules+=(mamba)
+    modules+=(starship)
+    modules+=(fzf)
+    modules+=(neovim)
+    modules+=(kitty)
+    modules+=(idiap)  # depends on mamba setup!
+    modules+=(defaults)
+    modules+=(aliases)
+    modules+=(last)  # should be sourced by last, always
+
+    # We now source sub-plugins one by one, in this order:
+    # 1. If the file ${module}.${hostname}.zsh exists, it is sourced.
+    # 2. Else, if the file ${module}.${os}.zsh exits, it is sourced and
+    #    processing for that module stops
+    # 3. Finally, if the file ${module}.zsh exists, then it is sourced and processing
+    #    for that module stops
+    # If none of the variants exists, then the module is ignored
+    os=$(uname | tr '[:upper:]' '[:lower:]')
+    hostname=$(hostname -f)
+
+    echo "[anjos-omz] Configuring shell for \`${os}\` at \`${hostname}\`"
+
+    for module in "${modules[@]}"; do
+        if [ -r "${_ANJOS_BASEDIR}/${module}.${hostname}.zsh" ]; then
+            source "${_ANJOS_BASEDIR}/${module}.${hostname}.zsh"
+        elif [ -r "${_ANJOS_BASEDIR}/${module}.${os}.zsh" ]; then
+            source "${_ANJOS_BASEDIR}/${module}.${os}.zsh"
+        elif [ -r "${_ANJOS_BASEDIR}/${module}.zsh" ]; then
+            source "${_ANJOS_BASEDIR}/${module}.zsh"
+        fi
+    done
+
 }
 
 function _run-if-exists {
