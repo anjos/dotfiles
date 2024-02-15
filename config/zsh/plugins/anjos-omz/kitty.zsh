@@ -9,7 +9,6 @@ fi
 
 # Aliases specifically for Kitty
 if [[ "$TERM" == "xterm-kitty" ]]; then
-    alias ssh="kitty +kitten ssh"
     function svim() {
         KITTY_CLONE_SOURCE_CODE="[[ $# == 0 ]] && exec nvim || exec nvim \"${@}\"" clone-in-kitty --type=window --location=before
     }
