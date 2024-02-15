@@ -1,19 +1,10 @@
 # Order matters - ssh will only use options which are not previously
 # defined inside this configuration file.
 
-Host phoscon cravo zigbee
-  User pi
-  Hostname phoscon.local
-
-Host orquidea nas
-  User admin
-  Hostname orquidea.local
-  ProxyCommand none
-
-Host win
+Host raspberry
   User andre
-  Hostname 10.0.5.3
-  ProxyCommand ssh -W %h:%p orquidea
+  Hostname raspberry.local
+  SetEnv TERM=rxvt
 
 Host github github.com
   User git
