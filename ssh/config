@@ -4,7 +4,6 @@
 Host raspberry
   User andre
   Hostname raspberry.local
-  SetEnv TERM=rxvt
 
 Host github github.com
   User git
@@ -57,4 +56,6 @@ Host *
   ControlMaster auto
   ControlPath /tmp/%r@%h-%p
   ControlPersist 600
+  SetEnv TERM=rxvt
   SetEnv LC_CTYPE="C"
+  SetEnv LC_ALL=en_US.UTF-8
