@@ -27,4 +27,5 @@ dependencies:
   - texlab
   - tmux
   - tree
+  - vivid
   - xz
