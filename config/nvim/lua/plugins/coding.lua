@@ -50,4 +50,59 @@ return {
             })
         end,
     },
+
+    {
+        'nomnivore/ollama.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+
+        -- All the user commands added by the plugin
+        cmd = { 'Ollama', 'OllamaModel', 'OllamaServe', 'OllamaServeStop' },
+
+        keys = {
+            -- Note that the <c-u> is important for selections to work properly.
+
+            -- Genernal selector menu.
+            {
+                '<leader>oo',
+                ":<c-u>lua require('ollama').prompt()<cr>",
+                desc = 'ollama: selector prompt',
+                mode = { 'n', 'v' },
+            },
+
+            {
+                '<leader>og',
+                ":<c-u>lua require('ollama').prompt('Generate_Code')<cr>",
+                desc = 'ollama: generate code',
+                mode = { 'n', 'v' },
+            },
+
+            {
+                '<leader>os',
+                ":<c-u>lua require('ollama').prompt('Simplify_Code')<cr>",
+                desc = 'ollama: simplify code',
+                mode = { 'n', 'v' },
+            },
+
+            {
+                '<leader>oe',
+                ":<c-u>lua require('ollama').prompt('Explain_Code')<cr>",
+                desc = 'ollama: explain code',
+                mode = { 'n', 'v' },
+            },
+
+            {
+                '<leader>oa',
+                ":<c-u>lua require('ollama').prompt('Explain_Code')<cr>",
+                desc = 'ollama: explain code',
+                mode = { 'n', 'v' },
+            },
+        },
+
+        ---@type Ollama.Config
+        opts = {
+            -- your configuration overrides
+        },
+    },
 }

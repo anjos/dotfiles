@@ -1,3 +1,21 @@
+-- Define a function to check the status and return the corresponding icon
+local function get_ollama_status_icon()
+    local loaded = package.loaded["ollama"]
+
+    if loaded == nil then
+        return "󱙻 "
+    end
+
+    local status = require("ollama").status()
+    local config = require("ollama").config
+
+    if status == "IDLE" then
+        return "󱙺 " .. config.model  -- nf-md-robot-outline
+    elseif status == "WORKING" then
+        return "󰚩 " .. config.model  -- nf-md-robot
+    end
+end
+
 return {
 
     -- Useful plugin to show you pending keybinds.
@@ -15,11 +33,21 @@ return {
                 section_separators = '',
             },
             sections = {
-                lualine_x = {
+                -- displays filtetype icon and filename
+                lualine_c = {
                     {
-                        require("lazy.status").updates,
-                        cond = require("lazy.status").has_updates,
-                        color = { fg = "ff9e64" },
+                        'filetype',
+                        icon_only = true,
+                    },
+                    'filename',
+                },
+                lualine_x = {
+                    -- 'encoding',
+                    get_ollama_status_icon,
+                    {
+                        require('lazy.status').updates,
+                        cond = require('lazy.status').has_updates,
+                        color = { fg = 'ff9e64' },
                     },
                 },
             },
@@ -61,5 +89,4 @@ return {
             end,
         },
     },
-
 }
