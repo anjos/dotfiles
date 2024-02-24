@@ -21,7 +21,7 @@ return {
             },
         },
         config = function()
-            mason_ensure_installed({
+            local install_table = {
                 'bash-language-server',
                 'black',
                 'css-lsp',
@@ -32,7 +32,7 @@ return {
                 'html-lsp',
                 'isort',
                 'json-lsp',
-                'latexindent',
+		'latexindent',
                 'lua-language-server',
                 'luacheck',
                 'markdownlint',
@@ -48,7 +48,8 @@ return {
                 'texlab',
                 'yaml-language-server',
                 'yamllint',
-            })
+            }
+            mason_ensure_installed(install_table)
             require('formatter').setup({
                 -- We configure here the formatters we want applied, their
                 -- behaviour (which just copies from formatter.nvim defaults in
@@ -71,15 +72,17 @@ return {
                         -- https://mason-registry.dev/registry/list#latexindent
                         function()
                             return {
-                                exe = vim.fn.exepath("latexindent.pl") or vim.fn.exepath("latexindent") or "latexindent",
+                                exe = vim.fn.exepath('latexindent.pl')
+                                    or vim.fn.exepath('latexindent')
+                                    or 'latexindent',
                                 args = {
-                                    "--local",
-                                    "--modifylinebreaks",
-                                    "--logfile=/dev/null",
+                                    '--local',
+                                    '--modifylinebreaks',
+                                    '--logfile=/dev/null',
                                 },
                                 stdin = true,
                             }
-                        end
+                        end,
                     },
                     markdown = {
                         -- https://mason-registry.dev/registry/list#prettier
@@ -109,11 +112,8 @@ return {
 
             -- Hook autoformatting to various actions
             vim.keymap.set('n', '<leader>fb', function()
-                vim.cmd("FormatLock")
+                vim.cmd('FormatLock')
             end, { noremap = true, desc = 'Re-format buffer' })
-
-        end
-
+        end,
     },
-
 }
