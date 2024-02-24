@@ -33,7 +33,6 @@ return {
                 'html-lsp',
                 'isort',
                 'json-lsp',
-                'latexindent',
                 'lua-language-server',
                 'luacheck',
                 'markdownlint',
