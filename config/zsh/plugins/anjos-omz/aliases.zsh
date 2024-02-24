@@ -10,8 +10,6 @@ if type "vivid" > /dev/null; then
 fi
 if type "lsd" > /dev/null; then
   alias ls='lsd --hyperlink=auto'
-elif type "exa" > /dev/null; then
-  alias ls='exa --git --classify --header --sort=modified'
 fi
 alias ll='ls --long'
 alias la='ls --all'
