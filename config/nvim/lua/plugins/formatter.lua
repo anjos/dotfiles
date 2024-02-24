@@ -21,6 +21,7 @@ return {
             },
         },
         config = function()
+            -- mininum amount of Mason plugins we install
             local install_table = {
                 'bash-language-server',
                 'black',
@@ -32,7 +33,7 @@ return {
                 'html-lsp',
                 'isort',
                 'json-lsp',
-		'latexindent',
+                'latexindent',
                 'lua-language-server',
                 'luacheck',
                 'markdownlint',
@@ -49,6 +50,27 @@ return {
                 'yaml-language-server',
                 'yamllint',
             }
+
+            -- this Mason plugin is not supported on the raspberry pi
+            local arch = io.popen('uname -m'):read('*a'):match('%w+'):lower()
+            if arch ~= 'aarch64' then
+                table.insert(install_table, 'latexindent')
+            end
+
+            -- Function to handle request and respond with specific format
+            function handleRequest(request)
+                local response = {
+                    header = { ['Content-Type'] = 'application/json' },
+                    body = {},
+                }
+
+                -- Your logic here to process the request and build the response body
+                table.insert(response.body, { 'key1', 'value1' })
+                table.insert(response.body, { 'key2', 'value2' })
+
+                return response
+            end
+
             mason_ensure_installed(install_table)
             require('formatter').setup({
                 -- We configure here the formatters we want applied, their
