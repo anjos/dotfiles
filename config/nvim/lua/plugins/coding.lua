@@ -55,6 +55,7 @@ return {
         'nomnivore/ollama.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim',
         },
 
         -- All the user commands added by the plugin
@@ -92,12 +93,6 @@ return {
                 mode = { 'n', 'v' },
             },
 
-            {
-                '<leader>oa',
-                ":<c-u>lua require('ollama').prompt('Explain_Code')<cr>",
-                desc = 'ollama: explain code',
-                mode = { 'n', 'v' },
-            },
         },
 
         ---@type Ollama.Config
