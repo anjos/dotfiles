@@ -58,6 +58,12 @@ return {
             'stevearc/dressing.nvim',
         },
 
+        -- This plugin is only supported where Ollama can run
+        cond = function()
+            local arch = io.popen('uname -m'):read('*a'):match('%w+'):lower()
+            return arch == 'arm64' -- macOS with Apple silicon
+        end,
+
         -- All the user commands added by the plugin
         cmd = { 'Ollama', 'OllamaModel', 'OllamaServe', 'OllamaServeStop' },
 
