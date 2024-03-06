@@ -3,20 +3,20 @@ _ANJOS_BASEDIR=${0:A:h}
 # Loads all sources
 function anjos-reload {
 
-    local modules=()
-    modules+=(first)  # should be sourced first, always
-    modules+=(homebrew)
-    modules+=(duti)
-    modules+=(macos-sdk)
-    modules+=(mamba)
-    modules+=(starship)
-    modules+=(fzf)
-    modules+=(neovim)
-    modules+=(kitty)
-    modules+=(idiap)  # depends on mamba setup!
-    modules+=(defaults)
-    modules+=(aliases)
-    modules+=(last)  # should be sourced by last, always
+    local units=()
+    units+=(first)  # should be sourced first, always
+    units+=(homebrew)
+    units+=(duti)
+    units+=(macos-sdk)
+    units+=(mamba)
+    units+=(starship)
+    units+=(fzf)
+    units+=(neovim)
+    units+=(kitty)
+    units+=(idiap)  # depends on mamba setup!
+    units+=(defaults)
+    units+=(aliases)
+    units+=(last)  # should be sourced by last, always
 
     # We now source sub-plugins one by one, in this order:
     # 1. If the file ${module}.${hostname}.zsh exists, it is sourced.
@@ -30,7 +30,7 @@ function anjos-reload {
 
     echo "[anjos-omz] Configuring shell for \`${os}\` at \`${hostname}\`"
 
-    for module in "${modules[@]}"; do
+    for module in "${units[@]}"; do
         if [ -r "${_ANJOS_BASEDIR}/${module}.${hostname}.zsh" ]; then
             source "${_ANJOS_BASEDIR}/${module}.${hostname}.zsh"
         elif [ -r "${_ANJOS_BASEDIR}/${module}.${os}.zsh" ]; then
