@@ -16,6 +16,10 @@ alias la='ls --all'
 alias lla='ll --all'
 alias lt='ls --tree'
 
+if type "zoxide" > /dev/null; then
+  eval "$(zoxide init --cmd cd zsh)"
+fi
+
 alias rm='rm -vi'
 if type "grm" > /dev/null; then
   alias rm='grm -vi'
