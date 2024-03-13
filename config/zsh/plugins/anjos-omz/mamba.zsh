@@ -108,16 +108,6 @@ function _anjos-mamba-reinstall-neovim-environment {
     echo "[anjos-mamba] Installing neovim ruby gem..."
     local prefix=$(mamba --no-banner run -n neovim --no-capture-output printenv CONDA_PREFIX)
     anjos-mamba-run-on neovim gem install --bindir ${prefix}/bin neovim
-
-    echo "[anjos-mamba] Installing luarocks package manager..."
-    local rocks_version="3.9.2"
-    anjos-mamba-run-on neovim curl --location -o luarocks-${rocks_version}.tar.gz https://luarocks.org/releases/luarocks-${rocks_version}.tar.gz
-    tar xf luarocks-${rocks_version}.tar.gz
-    cd luarocks-${rocks_version}
-    anjos-mamba-run-on neovim ./configure --prefix=${prefix} --with-lua=${prefix} --sysconfdir=${prefix}/share/lua/ --rocks-tree=${prefix}
-    anjos-mamba-run-on neovim make bootstrap
-    cd ..
-    rm -rf luarocks-${rocks_version}{,.tar.gz}
 }
 
 function anjos-mamba-update {

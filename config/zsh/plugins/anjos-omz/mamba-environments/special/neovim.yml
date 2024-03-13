@@ -16,7 +16,7 @@ dependencies:
   - protobuf=3.20
   - rust
   - go
-  #- luarocks (not working on osx-arm64, install manually)
+  - luarocks
   - lua
   - curl
   - c-compiler

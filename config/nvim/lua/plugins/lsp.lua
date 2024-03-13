@@ -81,28 +81,28 @@ local lsp_servers = {
     texlab = {
         filetypes = { 'tex', 'bib' },
         -- settings = {
-            -- defaults:
-            -- auxDirectory = ".",
-            -- bibtexFormatter = "texlab",
-            -- build = {
-            --     args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-            --     executable = "latexmk",
-            --     forwardSearchAfter = false,
-            --     onSave = false
-            -- },
-            -- chktex = {
-            --     onEdit = false,
-            --     onOpenAndSave = false
-            -- },
-            -- diagnosticsDelay = 300,
-            -- formatterLineLength = 80,
-            -- forwardSearch = {
-            --     args = {}
-            -- },
-            -- latexFormatter = "latexindent",
-            -- latexindent = {
-            --     modifyLineBreaks = false
-            -- }
+        -- defaults:
+        -- auxDirectory = ".",
+        -- bibtexFormatter = "texlab",
+        -- build = {
+        --     args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+        --     executable = "latexmk",
+        --     forwardSearchAfter = false,
+        --     onSave = false
+        -- },
+        -- chktex = {
+        --     onEdit = false,
+        --     onOpenAndSave = false
+        -- },
+        -- diagnosticsDelay = 300,
+        -- formatterLineLength = 80,
+        -- forwardSearch = {
+        --     args = {}
+        -- },
+        -- latexFormatter = "latexindent",
+        -- latexindent = {
+        --     modifyLineBreaks = false
+        -- }
         -- },
     },
 
@@ -283,6 +283,20 @@ return {
                             require('mason').setup()
                         end,
                         build = ':MasonUpdate',
+                        dependencies = {
+                            -- Implements MasonUpdateAll command
+                            'Zeioth/mason-extra-cmds',
+                            opts = {},
+                        },
+                        cmd = {
+                            "Mason",
+                            "MasonInstall",
+                            "MasonUninstall",
+                            "MasonUninstallAll",
+                            "MasonLog",
+                            "MasonUpdate",
+                            "MasonUpdateAll", -- provided by `Zeioth/mason-extra-cmds`
+                        },
                     },
                 },
                 config = function()
