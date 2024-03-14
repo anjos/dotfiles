@@ -9,7 +9,11 @@ return {
             -- look for the "theme/" on latex builds
             vim.env.TEXINPUTS = vim.env.PWD .. ':' .. vim.env.PWD .. '/theme:'
 
-            vim.g.vimtex_view_method = 'skim'
+            -- use our preferred viewer on macOS (w/ Apple Silicon)
+            if io.popen('uname -m'):read('*a'):match('%w+'):lower() == 'arm64' then
+                vim.g.vimtex_view_method = 'skim'
+            end
+
             vim.g.tex_flavor = 'latex'
 
             -- we use tresitter instead
