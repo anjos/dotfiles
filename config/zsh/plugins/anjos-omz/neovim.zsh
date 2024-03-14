@@ -15,5 +15,6 @@ function anjos-neovim-update {
 
     echo "[anjos-neovim] Updating language parsing and highlight..."
     nvim --headless -c 'MasonUpdate' +qa
+    # nvim --headless -c 'MasonUpdateAll' +qa -- not synchronous
     nvim --headless -c 'TSUpdateSync' +qa
 }

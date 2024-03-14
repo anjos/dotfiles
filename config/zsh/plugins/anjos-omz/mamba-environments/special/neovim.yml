@@ -16,7 +16,7 @@ dependencies:
   - protobuf=3.20
   - rust
   - go
-  - luarocks
+  - luarocks=3.9.*
   - lua
   - curl
   - c-compiler
