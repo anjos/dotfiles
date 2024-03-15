@@ -29,4 +29,4 @@ dependencies:
   - tree
   - vivid
   - xz
-  # - zoxide
+  - zoxide
