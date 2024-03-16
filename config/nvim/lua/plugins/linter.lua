@@ -11,7 +11,7 @@ end
 return {
 
     {
-        -- A format runner for Neovim.
+        -- A linter runner for Neovim.
         -- https://github.com/mfussenegger/nvim-lint
         -- 'mfussenegger/nvim-lint',
         -- dependencies = {

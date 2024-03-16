@@ -56,20 +56,6 @@ return {
                 table.insert(install_table, 'latexindent')
             end
 
-            -- Function to handle request and respond with specific format
-            function handleRequest(request)
-                local response = {
-                    header = { ['Content-Type'] = 'application/json' },
-                    body = {},
-                }
-
-                -- Your logic here to process the request and build the response body
-                table.insert(response.body, { 'key1', 'value1' })
-                table.insert(response.body, { 'key2', 'value2' })
-
-                return response
-            end
-
             mason_ensure_installed(install_table)
             require('formatter').setup({
                 -- We configure here the formatters we want applied, their
@@ -82,12 +68,8 @@ return {
                         require('formatter.filetypes.lua').stylua,
                     },
                     python = {
-                        -- https://mason-registry.dev/registry/list#isort
-                        require('formatter.filetypes.python').isort,
-                        -- https://mason-registry.dev/registry/list#docformatter
-                        require('formatter.filetypes.python').docformatter,
-                        -- https://mason-registry.dev/registry/list#black
-                        require('formatter.filetypes.python').black,
+                        -- https://mason-registry.dev/registry/list#ruff
+                        require('formatter.filetypes.python').ruff,
                     },
                     tex = {
                         -- https://mason-registry.dev/registry/list#latexindent

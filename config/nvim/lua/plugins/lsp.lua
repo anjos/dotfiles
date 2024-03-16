@@ -41,6 +41,7 @@ local lsp_servers = {
     -- mason (mason-lsp-config): pyright (pyright)
     -- https://mason-registry.dev/registry/list#pyright
     -- filetype: python
+    -- pyright is required for type checking (not implemented on ruff)
     pyright = {
         before_init = function(_, config)
             -- Changes the Python path when the server is started
@@ -51,8 +52,9 @@ local lsp_servers = {
     },
 
     -- mason (mason-lsp-config): ruff (ruff_lsp)
-    -- https://mason-registry.dev/registry/list#ruff
+    -- https://mason-registry.dev/registry/list#ruff-lsp
     -- filetype: python
+    -- ruff LSP will run lint checks on python code
     ruff_lsp = {
         on_attach = function(client, _)
             -- defers some capabilities on python LSP to pyright
