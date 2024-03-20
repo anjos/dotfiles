@@ -38,6 +38,7 @@ function _anjos-homebrew-install-kegs {
     kegs+=('neovim')
     kegs+=('openfortivpn')
     kegs+=('pass')
+    kegs+=('pixi')
     kegs+=('python@3.11')
     kegs+=('wget')
     kegs+=('zsh')
