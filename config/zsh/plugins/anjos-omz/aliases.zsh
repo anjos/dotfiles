@@ -20,6 +20,10 @@ if type "zoxide" > /dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
+if type "pixi" > /dev/null; then
+  eval "$(pixi completion --shell zsh)"
+fi
+
 alias rm='rm -vi'
 if type "grm" > /dev/null; then
   alias rm='grm -vi'
