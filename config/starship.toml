@@ -133,7 +133,7 @@ ignore_base = false
 [python]
 symbol = "🐍"
 style = "bold fg:python bg:background"
-format = "[$symbol $version ]($style)"
+format = "[$symbol$version(+${virtualenv}) ]($style)"
 
 [package]
 disabled = true

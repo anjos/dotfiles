@@ -8,6 +8,3 @@ ulimit -c 0;
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# This is for python initialization
-export PYTHONSTARTUP=~/.python_profile.py
