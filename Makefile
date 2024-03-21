@@ -17,37 +17,17 @@ FILES=$(shell find `pwd` -maxdepth 1 -not -name '.*' -not -name '*~' -not -name 
 SSHFILES=$(shell find `pwd`/ssh -maxdepth 1 -not -name '.*' -not -name '*~' -type f)
 GARBAGE=$(shell find `pwd` -name '*~')
 
-all: deepclean ssh nvim kitty flake8 direnv starship keyring
+all: deepclean ssh config
 	@for f in $(FILES); do ln -s -v -f $$f $$HOME/.`basename $$f`; done
 
 ssh:
 	@for f in $(SSHFILES); do ln -s -v -f $$f $$HOME/.ssh/`basename $$f`; done
 
-nvim:
+config:
 	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/nvim $$HOME/.config/
+	@for k in $$PWD/config/*; do ln -s -v -f $$k $$HOME/.config/; done
 
-kitty:
-	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/kitty $$HOME/.config/
-
-flake8:
-	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/flake8 $$HOME/.config/
-
-direnv:
-	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/direnv $$HOME/.config/
-
-starship:
-	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/starship.toml $$HOME/.config/
-
-keyring:
-	@if [ ! -d $$HOME/.config ]; then mkdir $$HOME/.config; fi
-	@ln -s -v -f $$PWD/config/python_keyring $$HOME/.config/
-
-.PHONY: clean all deepclean ssh
+.PHONY: clean all deepclean ssh config
 
 clean:
 	@rm -f -v $(GARBAGE)
