@@ -99,6 +99,3 @@ function idiap-unmount {
     done
 
 }
-
-# Runs the `devtool` command
-alias devtool="anjos-mamba-run-on idiap-devtools devtool"
