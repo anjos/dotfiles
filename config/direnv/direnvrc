@@ -12,7 +12,7 @@ use_conda() {
     # First, we check if the "conda" command is installed, tip away if not
     if [ ! -x ${conda} ]; then
         echo "${red}ERROR${normal}: Cannot find conda executable at \"${red}${conda}${normal}\""
-        echo "${blue}TIP${normal}: Install ${blue}mambaforge${normal} and ${blue}bob.devtools${normal} to easily create new development environments"
+        echo "${blue}TIP${normal}: Install ${blue}mamba/conda${normal} and ${blue}idiap-devtools${normal} to easily create new development environments"
         exit
     fi
 
