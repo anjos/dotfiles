@@ -4,3 +4,5 @@
 .DS_Store
 config/nvim/spell/
 config/nvim/.netrwhist
+config/pixi/bin/
+config/pixi/envs/
