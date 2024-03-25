@@ -88,15 +88,22 @@ function anjos-pixi-run-on {
 }
 
 function anjos-pixi-reinstall-environments {
-    echo "[anjos-pixi] Re-installing pixi environments..."
+    echo "[anjos-pixi] Re-installing all pixi environments..."
 
-    local environments=(${_ANJOS_BASEDIR}/pixies/*/pixi.toml)
+    local source_envs="${_ANJOS_BASEDIR}/pixies"
+    local dest_envs="${PIXI_HOME}/dotfile-envs"
 
+    echo "[anjos-pixi] Resetting all environments at ${dest_envs}..."
+    rm -rf "${dest_envs}"
+    mkdir -p "$(dirname ${dest_envs})"
+    cp -rv ${source_envs} ${dest_envs}
+
+    local environments=(${dest_envs}/*/pixi.toml)
     for k in "${environments[@]}"; do
-        echo "[anjos-pixi] Removing environment at ${k}..."
-        \rm -rf $(dirname ${k})/.pixi
-        echo "[anjos-pixi] Installing environment ${k}..."
         pixi run --manifest-path ${k} build
+        basedir="$(dirname ${k})"
+        echo -e 'watch_file pixi.lock\neval "$(pixi shell-hook)"' > "$(dirname ${k})/.envrc"
+        direnv allow "$(dirname ${k})"
     done
 }
 

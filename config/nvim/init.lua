@@ -1,5 +1,5 @@
 -- This is the base conda environment where utilities for neovim are installed
-vim.g.pixi_env_root = vim.env.HOME .. '/.dotfiles/config/zsh/plugins/anjos-omz/pixies/neovim/.pixi/envs/default'
+vim.g.pixi_env_root = vim.fn.stdpath('data') .. '/../pixi/dotfile-envs/neovim/.pixi/envs/default'
 
 -- These are important environment variables
 vim.env.PATH = vim.g.pixi_env_root .. '/bin' .. ':' .. vim.env.PATH
