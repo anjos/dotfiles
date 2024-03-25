@@ -33,13 +33,10 @@ function _anjos-homebrew-install-kegs {
     local kegs=()
     kegs+=('direnv')
     kegs+=('duti')  # sets default macos apps from cmdline
-    kegs+=('findutils')
     kegs+=('libyaml')
     kegs+=('neovim')
     kegs+=('openfortivpn')
     kegs+=('pass')
-    kegs+=('python@3.11')
-    kegs+=('wget')
     kegs+=('zsh')
 
     echo "[anjos-homebrew] Installing required homebrew kegs..."
@@ -61,7 +58,6 @@ function _anjos-homebrew-install_casks {
     # Extra formulas to install
     local casks=()
     casks+=('balenaetcher')
-    #casks+=('betterdisplay')
     casks+=('font-inconsolata-nerd-font')
     casks+=('font-jetbrains-mono-nerd-font')
     casks+=('font-lekton-nerd-font')

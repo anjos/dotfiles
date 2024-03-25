@@ -46,6 +46,7 @@ function anjos-pixi-global-install {
     pkgs+=('curl')
     pkgs+=('exa')
     pkgs+=('fd-find')
+    pkgs+=('findutils')
     pkgs+=('fzf')
     pkgs+=('git')
     pkgs+=('git-delta')
@@ -69,6 +70,7 @@ function anjos-pixi-global-install {
     pkgs+=('tree')
     pkgs+=('vivid')
     pkgs+=('xz')
+    pkgs+=('wget')
     pkgs+=('zoxide')
 
     pixi global install "${pkgs[@]}"
