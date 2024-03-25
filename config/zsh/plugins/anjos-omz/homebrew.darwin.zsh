@@ -38,7 +38,6 @@ function _anjos-homebrew-install-kegs {
     kegs+=('neovim')
     kegs+=('openfortivpn')
     kegs+=('pass')
-    kegs+=('pixi')
     kegs+=('python@3.11')
     kegs+=('wget')
     kegs+=('zsh')
@@ -100,7 +99,7 @@ function _anjos-homebrew-update-kegs {
     brew upgrade
 }
 
-# Updates the current brew/pip/neovim/mamba/conda/omz installations
+# Updates the current homebrew installations
 function _anjos-homebrew-update-casks {
     echo "[anjos-homebrew] Updating homebrew casks..."
     brew upgrade --cask --greedy

@@ -5,8 +5,8 @@ if ! command -v fzf &> /dev/null; then
     return
 fi
 
-if [ -x "${HOME}/mamba/envs/shell/bin/fzf" ]; then
-    export FZF_BASE="${HOME}/mamba/envs/shell/share/fzf"
+if [ -d "${PIXI_HOME}/envs/fzf/share/fzf" ]; then
+    export FZF_BASE="${PIXI_HOME}/envs/fzf/share/fzf"
 fi
 
 export FZF_DEFAULT_COMMAND="fd --hidden --color=always --follow --exclude '*~' --exclude '.git'"
@@ -35,9 +35,6 @@ fzf_editor() {
     fi
 }
 bindkey -s '^t' 'fzf_editor\n'
-
-# for conda auto-completion
-autoload -U compinit && compinit
 
 # bind UP and DOWN arrow keys
 zmodload zsh/terminfo

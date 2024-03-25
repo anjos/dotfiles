@@ -6,3 +6,5 @@ config/nvim/spell/
 config/nvim/.netrwhist
 config/pixi/bin/
 config/pixi/envs/
+.pixi/
+pixi.lock

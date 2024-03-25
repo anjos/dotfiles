@@ -1,17 +1,15 @@
 -- This is the base conda environment where utilities for neovim are installed
-vim.g.conda_env_root = vim.env.HOME .. '/mamba/envs/neovim'
+vim.g.pixi_env_root = vim.env.HOME .. '/.dotfiles/config/zsh/plugins/anjos-omz/pixies/neovim/.pixi/envs/default'
 
 -- These are important environment variables
-vim.env.PATH = vim.env.PATH .. ':' .. vim.g.conda_env_root .. '/bin'
-vim.env.GEM_HOME = vim.g.conda_env_root .. '/share/rubygems'
-vim.env.GOROOT = vim.g.conda_env_root .. '/go'
+vim.env.PATH = vim.g.pixi_env_root .. '/bin' .. ':' .. vim.env.PATH
+vim.env.GEM_HOME = vim.g.pixi_env_root .. '/share/rubygems'
+vim.env.GOROOT = vim.g.pixi_env_root .. '/go'
 
 -- Sets up some paths
 vim.g.loaded_perl_provider = 0 -- disables pearl support
 vim.g.loaded_python_provider = 0 -- disables python2 support
-vim.g.python3_host_prog = vim.g.conda_env_root .. '/bin/python3'
-vim.g.ruby_host_prog = vim.g.conda_env_root .. '/bin/neovim-ruby-host'
-vim.g.node_host_prog = vim.g.conda_env_root .. '/lib/node_modules/neovim/bin/cli.js'
+vim.g.python3_host_prog = vim.g.pixi_env_root .. '/bin/python3'
 
 -- Set semi-colon as the leader key, see `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will

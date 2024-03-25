@@ -1,0 +1,21 @@
+[project]
+name = "ldap"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-arm64"]
+
+[dependencies]
+python = "3.*"
+keyring = "*"
+
+[pypi-dependencies]
+python-ldap = "*"
+
+[feature.macos]
+platforms = ["osx-arm64"]
+pypi-dependencies = { "python-ldap" = "*", "keyrings.osx-keychain-keys" = "*" }
+
+[tasks]
+build = "echo Environment 'ldap' built"
+
+[environments]
+default = ["macos"]

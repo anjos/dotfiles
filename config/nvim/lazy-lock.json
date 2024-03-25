@@ -34,7 +34,7 @@
   "ollama.nvim": { "branch": "main", "commit": "d99e2462be8875602d173c117d5301862669d985" },
   "onedark.nvim": { "branch": "master", "commit": "1230aaf2a427b2c5b73aba6e4a9a5881d3e69429" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
-  "telescope-file-browser.nvim": { "branch": "master", "commit": "e7f86603fb28d95054235b0b073a82a384025f70" },
+  "telescope-file-browser.nvim": { "branch": "master", "commit": "5ee5002373655fd684a4ad0d47a3de876ceacf9a" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "9ef21b2e6bb6ebeaf349a0781745549bbb870d27" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
   "tokyonight.nvim": { "branch": "main", "commit": "623c3cd60a8081b68edcaf544856c053249a659e" },

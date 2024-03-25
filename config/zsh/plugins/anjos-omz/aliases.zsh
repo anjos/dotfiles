@@ -20,10 +20,6 @@ if type "zoxide" > /dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
 
-if type "pixi" > /dev/null; then
-  eval "$(pixi completion --shell zsh)"
-fi
-
 alias rm='rm -vi'
 if type "grm" > /dev/null; then
   alias rm='grm -vi'
@@ -62,7 +58,3 @@ alias tn='t new-session -A -s'
 alias tc='t capture-pane -pt'
 
 alias pipdev='pip install --no-build-isolation --no-dependencies --editable'
-
-if [ -d $HOME/work/software/idiap-devtools/.pixi/envs/default ]; then
-    alias devtool="pixi run --manifest-path $HOME/work/software/idiap-devtools/pixi.toml devtool"
-fi

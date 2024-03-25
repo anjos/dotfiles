@@ -1,5 +1,8 @@
 _ANJOS_BASEDIR=${0:A:h}
 
+# auto-completion startup
+autoload -U compinit && compinit
+
 # Loads all sources
 function anjos-reload {
 
@@ -8,12 +11,12 @@ function anjos-reload {
     units+=(homebrew)
     units+=(duti)
     units+=(macos-sdk)
-    units+=(mamba)
+    units+=(pixi)
     units+=(starship)
     units+=(fzf)
     units+=(neovim)
     units+=(kitty)
-    units+=(idiap)  # depends on mamba setup!
+    units+=(idiap)
     units+=(defaults)
     units+=(aliases)
     units+=(last)  # should be sourced by last, always
@@ -52,7 +55,7 @@ function _run-if-exists {
 # Updates all installed software
 function anjos-update {
     _run-if-exists anjos-homebrew-update
-    _run-if-exists anjos-mamba-update
+    _run-if-exists anjos-pixi-update
     _run-if-exists anjos-neovim-update
     _run-if-exists anjos-duti-setup
     _run-if-exists omz update

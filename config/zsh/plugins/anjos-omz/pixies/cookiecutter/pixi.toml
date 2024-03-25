@@ -1,0 +1,19 @@
+[project]
+name = "cookiecutter"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-arm64"]
+
+[dependencies]
+python = "3.*"
+cookiecutter = "*"
+coverage = "*"
+git = "*"
+pdbpp = "*"
+pre-commit = "*"
+pytest = "*"
+pytest-cookies = "*"
+pytest-cov = "*"
+python-gitlab = "*"
+
+[tasks]
+build = "echo Environment 'cookiecutter' built"

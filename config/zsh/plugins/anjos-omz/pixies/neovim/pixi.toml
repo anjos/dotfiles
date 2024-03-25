@@ -1,0 +1,35 @@
+[project]
+name = "neovim"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-arm64"]
+
+[dependencies]
+python = "3.*"
+bat = "*"
+black = "*"
+c-compiler = "*"
+compilers = "*"
+curl = "*"
+fd-find = "*"
+go = "*"
+greenlet = "*"
+lua = "*"
+luarocks = "3.9.*"
+make = "*"
+nodejs = "*"
+pip = "*"
+protobuf = "3.20.*"
+psutil = "*"
+pynvim = "*"
+ripgrep = "*"
+ruby = "*"
+rust = "*"
+unzip = "*"
+
+[pypi-dependencies]
+neovim-remote = "*"
+
+[tasks]
+npm = "npm install -g neovim"
+gem = "gem install --bindir $PIXI_PROJECT_ROOT/.pixi/envs/default/bin neovim"
+build = { cmd = "echo Environment 'neovim' built", depends_on = ["npm", "gem"] }
