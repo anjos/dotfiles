@@ -2,7 +2,7 @@
 
 # Setup pixi, if possible, otherwise complain and exit
 
-export PIXI_HOME="${HOME}/.config/pixi"
+export PIXI_HOME="${HOME}/.local/share/pixi"
 
 if [ -x "${PIXI_HOME}/bin/pixi" ]; then
     export PATH="${PIXI_HOME}/bin:${PATH}"
