@@ -1,4 +1,4 @@
--- This is the base conda environment where utilities for neovim are installed
+-- This is the base pixi environment where utilities for neovim are installed
 vim.g.pixi_env_root = vim.fn.stdpath('data') .. '/../pixi/dotfile-envs/neovim/.pixi/envs/default'
 
 -- These are important environment variables

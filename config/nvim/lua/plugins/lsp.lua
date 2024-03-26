@@ -19,7 +19,24 @@
 --   * on_attach (function) - function to setup buffer-lsp interactions (e.g.
 --     keybindings), **beyond** what is set with
 --     on_buffer_attach_common_actions() below.
---
+
+local function get_python_path(workspace)
+    local path = require('lspconfig/util').path
+
+    -- Use activated virtualenv.
+
+    if vim.env.VIRTUAL_ENV then
+        return path.join(vim.env.VIRTUAL_ENV, 'bin', 'python')
+    end
+
+    if vim.env.CONDA_PREFIX then
+        return path.join(vim.env.CONDA_PREFIX, 'bin', 'python')
+    end
+
+    -- Fallback to system Python.
+    return vim.fn.exepath('python3') or vim.fn.exepath('python') or 'python'
+end
+
 local lsp_servers = {
     -- mason (mason-lsp-config): lua-language-server (lua_ls)
     -- https://mason-registry.dev/registry/list#lua-language-server
@@ -45,8 +62,7 @@ local lsp_servers = {
     pyright = {
         before_init = function(_, config)
             -- Changes the Python path when the server is started
-            config.settings.python.pythonPath = vim.fn.exepath('python')
-                or vim.fn.exepath('python3')
+            config.settings.python.pythonPath = get_python_path(config)
         end,
         settings = { python = {} },
     },
@@ -291,13 +307,13 @@ return {
                             opts = {},
                         },
                         cmd = {
-                            "Mason",
-                            "MasonInstall",
-                            "MasonUninstall",
-                            "MasonUninstallAll",
-                            "MasonLog",
-                            "MasonUpdate",
-                            "MasonUpdateAll", -- provided by `Zeioth/mason-extra-cmds`
+                            'Mason',
+                            'MasonInstall',
+                            'MasonUninstall',
+                            'MasonUninstallAll',
+                            'MasonLog',
+                            'MasonUpdate',
+                            'MasonUpdateAll', -- provided by `Zeioth/mason-extra-cmds`
                         },
                     },
                 },
