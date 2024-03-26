@@ -62,6 +62,7 @@ function anjos-pixi-global-install {
     pkgs+=('pip')
     pkgs+=('python=3')
     pkgs+=('ripgrep')
+    pkgs+=('rattler-build')
     pkgs+=('rust')
     pkgs+=('starship')
     pkgs+=('tar')
